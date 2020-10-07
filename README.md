@@ -1,7 +1,7 @@
 <!--
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-10-07 16:54:35
+ * @LastEditTime: 2020-10-07 18:30:42
  * @LastEditors: yanxinhao
  * @Description: 
 -->
@@ -23,8 +23,12 @@
     - [算法分析基础](#算法分析基础)
       - [时间复杂度](#时间复杂度)
     - [迭代与递归](#迭代与递归)
+      - [迭代算法实例](#迭代算法实例)
       - [减而治之（Decrease and conquer）](#减而治之decrease-and-conquer)
+        - [减而治之的实例：](#减而治之的实例)
       - [分而治之（Divide and conquer）](#分而治之divide-and-conquer)
+        - [分而治之的实例：](#分而治之的实例)
+      - [递归消除：尾递归](#递归消除尾递归)
     - [动态规划](#动态规划)
     - [贪心法](#贪心法)
   - [算法实战](#算法实战)
@@ -84,20 +88,42 @@
   <td><img src="./imgs/growth_speed.png"></td>
   <td><img src="./imgs/complexity.png"></td>
   </tr></table>
+- ##### 复杂度分析的主要方法：
+  1. **迭代**：级数求和
+  2. **递归**：递归跟踪 + 递推方程
+  3. 猜测 + 验证
 
 
 ### 迭代与递归
-
+迭代算法一般较为常见，递归算法更为直观。因为递归算法需要大量空间资源，所以经常需要将其改写成迭代算法，这里为体现算法的思想，我主要考虑以递归为出发点的思想来理解算法。
+#### 迭代算法实例
+  - 数组求和
+  - 数组最大值
+  
+以下为递归算法的两种主要思想：
 #### 减而治之（Decrease and conquer）
 
 <div align="center"> 
   <img src="./imgs/Decrease_and_conquer.png" width=70% height=70% /> 
 </div>
 
+##### 减而治之的实例：
+  - 数组求和：线性递归
+  - 数组倒置
 #### 分而治之（Divide and conquer）
 
 <div align="center"> 
   <img src="./imgs/Divide_and_conquer.png" width=70% height=70% /> 
+</div>
+
+##### 分而治之的实例：
+  - 数组求和：二分递归
+  - 数组的最大值
+
+#### 递归消除：尾递归
+
+<div align="center"> 
+  <img src="./imgs/tail_recursive.png" width=70% height=70% /> 
 </div>
 
 ### 动态规划
@@ -112,7 +138,7 @@
 ## 算法实战
 
 ### 排序
-
+简介：
 | 算法名称 | 问题描述 | 算法描述 | 时间复杂度 |
 |:-:|:-|:-|:-|
 |冒泡排序|n|n|n|
@@ -122,7 +148,19 @@
 |堆排序|n|n|n|
 |归并排序|n|n|n|
 |基数排序|n|n|n|
-<img src="./imgs/bubblesort.png">
+
+算法分析：
+  <table>
+      <tr>
+      <td>算法描述</td>
+      <td>算法分析</td>
+    </tr>
+    <tr>
+      <td><img src="./imgs/bubblesort.png"></td>
+      <td><img src="./imgs/bubblesort_complexity.png"></td>
+    </tr>
+
+  </table>
 
 ### 字符串匹配
 | 算法名称 | 问题描述 | 算法描述 | 时间复杂度 |
