@@ -1,7 +1,7 @@
 <!--
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-10-07 15:46:27
+ * @LastEditTime: 2020-10-07 16:02:36
  * @LastEditors: yanxinhao
  * @Description: 
 -->
@@ -73,8 +73,20 @@
 ### 算法分析基础
 
 #### 时间复杂度
+- ##### 渐进分析
+  <table><tr>
+  <td><img src="./imgs/big_O.png"></td>
+  <td><img src="./imgs/symbols.png"></td>
+  </tr></table>
+- ##### 复杂度层次
+  <table><tr>
+  <td><img src="./imgs/growth_speed.png"></td>
+  <td><img src="./imgs/complexity.png"></td>
+  </tr></table>
+
 
 ### 迭代与递归
+
 #### 减而治之（Decrease and conquer）
 
 <div align="center"> 
