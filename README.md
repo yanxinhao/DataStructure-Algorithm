@@ -1,7 +1,7 @@
 <!--
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-10-07 15:43:33
+ * @LastEditTime: 2020-10-07 15:46:27
  * @LastEditors: yanxinhao
  * @Description: 
 -->
@@ -38,7 +38,7 @@
 ### 数据结构基础
 
 <div align="center"> 
-  <img src="./imgs/ads.png" width=70% height=70% /> 
+  <img src="./imgs/Abstract_data.png" width=70% height=70% /> 
 </div>
 
 
