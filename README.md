@@ -1,13 +1,14 @@
 <!--
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-10-07 15:36:58
+ * @LastEditTime: 2020-10-07 15:43:33
  * @LastEditors: yanxinhao
  * @Description: 
 -->
 # 数据结构与算法
 - [数据结构与算法](#数据结构与算法)
   - [数据结构](#数据结构)
+    - [介绍](#介绍)
     - [数据结构基础](#数据结构基础)
     - [向量](#向量)
     - [线性表](#线性表)
@@ -32,8 +33,9 @@
 
 ## 数据结构
 
-### 数据结构基础
+### 介绍
 
+### 数据结构基础
 
 <div align="center"> 
   <img src="./imgs/ads.png" width=70% height=70% /> 
