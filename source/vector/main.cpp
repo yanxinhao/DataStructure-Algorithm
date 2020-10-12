@@ -1,7 +1,7 @@
 /*
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-10-09 23:43:46
+ * @LastEditTime: 2020-10-13 00:01:36
  * @LastEditors: yanxinhao
  * @Description: 
  */
@@ -20,15 +20,16 @@ void change(T& elem){
 }
 int main()
 {
-    int A[20]={0};
-    get_input(A,20);
-    Vector<int> v(A,0,20);
+    const int len=30;
+    int A[len]={0};
+    get_input(A,len);
+    Vector<int> v(A,0,len);
     // 1.遍历
     cout<<"1.遍历 traverse(visit): ";
     v.traverse(visit);
     // 2.插入insert(5,100000);
-    cout<<"2.插入 insert(5,100000): ";
-    v.insert(5,100000);
+    cout<<"2.插入 insert(5,75): ";
+    v.insert(5,75);
     v.traverse(visit);
 
     // 3.删除
@@ -36,17 +37,35 @@ int main()
     v.remove(0,5);
     v.traverse(visit);
     
+    // ------------------若为无序向量-----------------
     // 4.查找
 
     // 5.唯一化
+    // cout<<"5.去重 deduplicate : ";
+    // v.deduplicate();
+    // v.traverse(visit);
+
+    // cout<<"5.无序向量唯一化 deduplicate_2 : ";
+    // v.deduplicate();
+    // v.traverse(visit);
 
     // ------------------若为有序向量-----------------
+
     // 6.逆序数
 
-    // 7.有序向量唯一化
+    // 7.有序向量排序
+    cout<<"7.排序 bubblesort : ";
+    v.sort(0,v.size());
+    v.traverse(visit);
+    // 8.有序向量唯一化
+    cout<<"8.有序向量唯一化 uniquify : ";
+    v.uniquify();
+    v.traverse(visit);
+    // 9.有序向量二分查找
+    cout<<"9.有序向量二分查找 binsearch : ";
+    Rank r= v.search(33,0,v.size());
+    v.traverse(visit);
+    cout<<"the index of 75 : "<<r<<endl;
 
-    // 8.有序向量二分查找
-
-    // 9.有序向量排序
     return 0;
 }
