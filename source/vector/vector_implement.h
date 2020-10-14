@@ -1,7 +1,7 @@
 /*
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-10-13 22:39:59
+ * @LastEditTime: 2020-10-14 10:28:30
  * @LastEditors: yanxinhao
  * @Description: 
  */
@@ -103,6 +103,11 @@ int Vector<T>::remove(Rank lo,Rank hi){
 template <typename T>
 // remove [r]
 T Vector<T>::remove(Rank r){
+    if (r<0||_size<=r)  {
+        cerr<<"empty ,nothing can be removed"<<endl;
+        T data;
+        return data;
+    }
     T e=_elem[r];
     remove(r,r+1);
     return e;

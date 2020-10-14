@@ -1,7 +1,7 @@
 /*
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-10-13 22:34:36
+ * @LastEditTime: 2020-10-14 10:45:53
  * @LastEditors: yanxinhao
  * @Description: 
  */
@@ -38,7 +38,7 @@ public:
     Vector(T const *A, Rank lo, Rank hi);
     ~Vector();
 
-    bool empty() { return _size != 0; };
+    bool empty() { return _size == 0; };
     void insert(Rank r, const T &elem);
     int remove(Rank lo, Rank hi);
     T remove(Rank r);

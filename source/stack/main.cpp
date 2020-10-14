@@ -1,7 +1,7 @@
 /*
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-10-13 22:56:15
+ * @LastEditTime: 2020-10-14 10:46:21
  * @LastEditors: yanxinhao
  * @Description: 
  */
@@ -37,10 +37,16 @@ int main()
 
      // 3.pop
     cout<<"3.pop: ";
-    s.pop();s.pop();s.pop();
+    int len_s=s.size();
+    for (int i = 0; i < len_s; i++)
+    {
+        s.pop();
+    }
+    // s.pop();s.pop();s.pop();
     s.traverse(visit);
 
     // 3.top
     cout<<"4.top: "<<s.top()<<endl;
+    s.traverse(visit);
     return 0;
 }
