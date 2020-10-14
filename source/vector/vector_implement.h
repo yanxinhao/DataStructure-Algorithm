@@ -1,12 +1,12 @@
 /*
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-10-13 00:00:52
+ * @LastEditTime: 2020-10-13 22:39:59
  * @LastEditors: yanxinhao
  * @Description: 
  */
 #include<iostream>
-#include "sorting/bubblesort.h"
+#include"vector/vector.h"
 using namespace std;
 template <typename T>
 Vector<T>::Vector(int c)
@@ -108,6 +108,10 @@ T Vector<T>::remove(Rank r){
     return e;
 }
 
+template <typename T>
+T Vector<T>::operator[](Rank r) const{
+    return _elem[r];
+};
 // ---------------------------------无序向量---------------------------------------------
 
 // 无序号向量查找 find[lo,hi) 
@@ -148,20 +152,7 @@ int Vector<T>::deduplicate_2(){
 // ---------------------------------有序向量---------------------------------------------
 
 // 向量排序,有序化
-template <typename T>
-bool Vector<T>::sort(Rank lo,Rank hi,SORTING kind){
-    bool sorted=false;
-    switch (kind)
-    {
-    case BUBBLESORT:
-        sorted=bubblesort(&_elem[lo],hi-lo);
-        break;
-    
-    default:
-        break;
-    }
-    return sorted;
-}
+#include"vector/sort.h"
 
 // 有序向量查找 二分查找 (减而治之) e<x;e>x;e=x;
 

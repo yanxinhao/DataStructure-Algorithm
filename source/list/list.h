@@ -1,36 +1,47 @@
 /*
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-10-13 00:35:12
+ * @LastEditTime: 2020-10-13 21:17:59
  * @LastEditors: yanxinhao
  * @Description: 
  */
+#pragma once
 #include<iostream>
-#define Posi<T> ListNode<T>*
-template<typename T>
-struct ListNode
-{
-    T data;
-    Posi<T> pred;
-    Posi<T> succ;
-    Posi<T> insertAsPred(const T& e);
-    Posi<T> insertAsSucc(const T& e);
+#include"list/listnode.h"
+using namespace std;
+
+enum SORTING{
+    SELECTIONSORT,
+    INSERTIONSORT,
+    MERGESORT
 };
 
-
+template<typename T>
 class list
 {
 private:
-    /* data */
+    int _size;
+    void init();
+    Posi(T) header;
+    Posi(T) trailer;
 public:
     list(/* args */);
+    list(const T* array,int len);
     ~list();
+
+    void traverse(void (*visit)(T&));
+
+    // 唯一化
+
+    // 排序
+    bool sort(Posi(T) p,int n,SORTING kind=SELECTIONSORT);
+    // 选择排序
+    bool selectionsort(Posi(T) p,int n);
+    // 插入排序
+    bool insertionsort(Posi(T) p,int n);
+    // 归并排序
+    bool mergesort(Posi(T) p ,int n);
 };
 
-list::list(/* args */)
-{
-}
 
-list::~list()
-{
-}
+#include "list/list_implement.h"

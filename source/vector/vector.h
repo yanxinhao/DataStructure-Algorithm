@@ -1,7 +1,7 @@
 /*
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-10-13 00:00:09
+ * @LastEditTime: 2020-10-13 22:34:36
  * @LastEditors: yanxinhao
  * @Description: 
  */
@@ -12,12 +12,14 @@ typedef int Rank;
 
 #include <iostream>
 
-enum SORTING {
-    BUBBLESORT
-
+enum SORTING
+{
+    BUBBLESORT,
+    MERGESORT
 };
 
-enum SEARCHING{
+enum SEARCHING
+{
     BINSEARCH
 };
 
@@ -27,32 +29,40 @@ class Vector
 private:
     Rank _size;
     int _capacity;
-    T* _elem;
-    void copyfrom(T const * A,Rank lo,Rank hi);
+    T *_elem;
+    void copyfrom(T const *A, Rank lo, Rank hi);
     void expand();
+
 public:
     Vector(int c = DEFAULT_CAPACITY);
-    Vector(T const * A,Rank lo,Rank hi);
+    Vector(T const *A, Rank lo, Rank hi);
+    ~Vector();
 
-    void insert(Rank r,const T& elem);
-    int remove(Rank lo,Rank hi);
+    bool empty() { return _size != 0; };
+    void insert(Rank r, const T &elem);
+    int remove(Rank lo, Rank hi);
     T remove(Rank r);
-    void traverse(void (*visit)(T&)) const;
-    Rank size(){return _size;};
-    
+    void traverse(void (*visit)(T &)) const;
+    Rank size() { return _size; }
+    T operator[](Rank r) const;
+
     // 无序向量
-    Rank find(const T& e,Rank lo,Rank hi);
+    Rank find(const T &e, Rank lo, Rank hi);
     int deduplicate();
     int deduplicate_2();
 
     // 有序向量
     int uniquify();
-    bool sort(Rank lo,Rank hi,SORTING kind = BUBBLESORT);
-    ~Vector();
-    Rank search(const T& e,Rank lo,Rank hi,SEARCHING kind=BINSEARCH);
-    static Rank binsearch(const T* A,const T& e,Rank lo,Rank hi);
-    static Rank binsearch_2(const T* A,const T& e,Rank lo,Rank hi);
-    static Rank binsearch_3(const T* A,const T& e,Rank lo,Rank hi);
+    bool sort(Rank lo, Rank hi, SORTING kind = BUBBLESORT);
+    bool bubblesort(Rank lo, Rank hi);
+    Rank bubble(Rank lo, Rank hi);
+    bool mergesort(Rank lo, Rank hi);
+    bool merge(Rank lo, Rank mid, Rank hi);
+
+    Rank search(const T &e, Rank lo, Rank hi, SEARCHING kind = BINSEARCH);
+    static Rank binsearch(const T *A, const T &e, Rank lo, Rank hi);
+    static Rank binsearch_2(const T *A, const T &e, Rank lo, Rank hi);
+    static Rank binsearch_3(const T *A, const T &e, Rank lo, Rank hi);
 };
 
-#include"vector/vector_implement.h"
+#include "vector/vector_implement.h"

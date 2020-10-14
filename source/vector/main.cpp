@@ -1,7 +1,7 @@
 /*
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-10-13 00:01:36
+ * @LastEditTime: 2020-10-13 18:20:22
  * @LastEditors: yanxinhao
  * @Description: 
  */
@@ -54,8 +54,12 @@ int main()
     // 6.逆序数
 
     // 7.有序向量排序
-    cout<<"7.排序 bubblesort : ";
-    v.sort(0,v.size());
+    // cout<<"7.排序 bubblesort : ";
+    // v.sort(0,v.size());
+    // v.traverse(visit);
+
+    cout<<"7.排序 mergesort : ";
+    v.sort(0,v.size(),MERGESORT);
     v.traverse(visit);
     // 8.有序向量唯一化
     cout<<"8.有序向量唯一化 uniquify : ";
