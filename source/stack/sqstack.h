@@ -1,7 +1,7 @@
 /*
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-10-14 10:31:27
+ * @LastEditTime: 2020-10-15 13:37:13
  * @LastEditors: yanxinhao
  * @Description: 
  */
@@ -17,7 +17,7 @@ public:
     sqstack(/* args */);
     sqstack(const T* A,Rank lo,Rank hi);
     ~sqstack();
-    bool push(const T& e){this->insert(this->size(),e);};
+    bool push(const T& e){this->insert(this->size(),e);return 1;};
     T pop(){return this->remove(this->size()-1);};
     T top(){
         if (!this->empty())

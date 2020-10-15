@@ -30,6 +30,10 @@ public:
 
     BinNodePosi(T) insertAsRc(BinNodePosi(T) x,const T& e);
     BinNodePosi(T) insertAsLc(BinNodePosi(T) x,const T& e);
+
+    // 前序遍历
+    // 中序遍历
+    // 后序遍历
 };
 
 #include"tree/bintree_implement.h"

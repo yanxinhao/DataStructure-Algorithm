@@ -14,3 +14,6 @@ add_executable(stack  ${STACK_PATH})
 
 aux_source_directory(${CMAKE_CURRENT_SOURCE_DIR}/tree TREE_PATH)
 add_executable(tree  ${TREE_PATH})
+
+aux_source_directory(${CMAKE_CURRENT_SOURCE_DIR}/graph GRAPH_PATH)
+add_executable(graph  ${GRAPH_PATH})
