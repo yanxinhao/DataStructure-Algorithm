@@ -1,7 +1,7 @@
 /*
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-10-15 19:37:51
+ * @LastEditTime: 2020-10-15 23:23:17
  * @LastEditors: yanxinhao
  * @Description: 
  */
@@ -37,21 +37,22 @@ public:
     // Vector() : _capacity(DEFAULT_CAPACITY), _size(0){};
     Vector(int c = DEFAULT_CAPACITY, int s = 0, T v = 0);
     Vector(T const *A, Rank lo, Rank hi);
+    Vector(Vector<T> const &V) { copyfrom(V._elem, 0, V._size); }
     ~Vector();
 
     bool empty() { return _size == 0; };
     void insert(Rank r, const T &elem);
-    int insert(const T &elem)
+    int insert(const T &elem) //尾插,返回插入节点的位置index
     {
         insert(_size, elem);
         return _size - 1;
-    }; //尾插,返回插入节点的位置index
+    };
     int remove(Rank lo, Rank hi);
     T remove(Rank r);
     void traverse(void (*visit)(T &)) const;
-    Rank size() { return _size; }
-    T &operator[](Rank r) const;
-
+    Rank size() const { return _size; }
+    T &operator[](Rank r);
+    Vector<T> &operator=(Vector<T> const &);
     // 无序向量
     Rank find(const T &e, Rank lo, Rank hi);
     int deduplicate();

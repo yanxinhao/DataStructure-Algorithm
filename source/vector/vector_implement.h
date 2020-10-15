@@ -1,7 +1,7 @@
 /*
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-10-15 21:21:36
+ * @LastEditTime: 2020-10-15 23:25:25
  * @LastEditors: yanxinhao
  * @Description: 
  */
@@ -35,6 +35,15 @@ Vector<T>::Vector(T const *A, Rank lo, Rank hi)
 };
 
 template <typename T>
+Vector<T> &Vector<T>::operator=(Vector<T> const &V)
+{
+    if (_elem)
+        delete[] _elem;
+    copyfrom(V._elem, 0, V.size());
+    return *this;
+}
+
+template <typename T>
 Vector<T>::~Vector()
 {
     delete[] _elem;
@@ -65,7 +74,7 @@ void Vector<T>::expand()
     {
         _elem[i] = _old_elem[i];
     }
-    delete[] _old_elem; //这里是一个bug，删除了这行会内存泄露
+    delete[] _old_elem;
 };
 
 // 插入
@@ -119,7 +128,7 @@ T Vector<T>::remove(Rank r)
 }
 
 template <typename T>
-T &Vector<T>::operator[](Rank r) const
+T &Vector<T>::operator[](Rank r)
 {
     return _elem[r];
 };

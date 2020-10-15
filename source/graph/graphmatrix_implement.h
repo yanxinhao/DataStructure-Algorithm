@@ -1,7 +1,7 @@
 /*
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-10-15 21:17:44
+ * @LastEditTime: 2020-10-15 22:15:39
  * @LastEditors: yanxinhao
  * @Description: 
  */
@@ -83,11 +83,6 @@ GraphMatrix<Tv, Te>::GraphMatrix(int n, const Tv vtx)
     // 顶点初始化
     for (int i = 0; i < n; i++)
         insert(vtx);
-
-    // 边初始化
-    // for (int i = 0; i < n; i++)
-    //     for (int j = 0; j < n; j++)
-    //         insert(edge, 0, i, j);
 }
 // 析构
 template <typename Tv, typename Te>
@@ -122,11 +117,11 @@ int GraphMatrix<Tv, Te>::insert(const Tv &vtx)
 {
     //1.边节点每一行增加一个边
     for (int i = 0; i < _n; i++)
-        E[i].insert(NULL);
+        E[i].insert((Edge<Te> *)NULL);
     _n++;
 
     //2.增加新的一行边
-    E.insert(Vector<Edge<Te> *>(_n, _n, NULL));
+    E.insert(Vector<Edge<Te> *>(_n, _n, (Edge<Te> *)NULL));
     return V.insert(Vertex<Tv>(vtx));
 }
 template <typename Tv, typename Te>
