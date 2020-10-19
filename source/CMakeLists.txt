@@ -12,6 +12,9 @@ add_executable(list ${LIST_PATH})
 aux_source_directory(${CMAKE_CURRENT_SOURCE_DIR}/stack STACK_PATH)
 add_executable(stack  ${STACK_PATH})
 
+aux_source_directory(${CMAKE_CURRENT_SOURCE_DIR}/queue QUEUE_PATH)
+add_executable(queue  ${QUEUE_PATH})
+
 aux_source_directory(${CMAKE_CURRENT_SOURCE_DIR}/tree TREE_PATH)
 add_executable(tree  ${TREE_PATH})
 

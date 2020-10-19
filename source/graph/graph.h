@@ -1,13 +1,12 @@
 /*
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-10-15 15:24:10
+ * @LastEditTime: 2020-10-20 00:48:18
  * @LastEditors: yanxinhao
  * @Description: 
  */
 #pragma once
 #include <iostream>
-
 typedef enum
 {
     UNDISCOVERED,
@@ -18,7 +17,7 @@ typedef enum
 {
     UNDETERMINED,
     TREE,
-    CROSS,
+    CROSS, //BFS tree
     FORWARD,
     BACKWARD
 } EStatus;
@@ -30,10 +29,7 @@ template <typename Tv, typename Te>
 class Graph
 {
 private:
-    void reset(){
-        //所有顶点,边的辅助信息复位
-
-    };
+    virtual void reset() = 0; //所有顶点,边的辅助信息复位
 
 public:
     Graph(/* args */){};
@@ -46,12 +42,24 @@ public:
     virtual int inDegree(int i) = 0;    //入度
     virtual int outDegree(int i) = 0;   //出度
     virtual VStatus &status(int i) = 0; //状态
-    virtual int &parent(int i) = 0;     //遍历树中找父亲
-    // virtual VertexPosi(Tv) nextNbr(VertexPosi(Tv) vtx);//查找顶点vtx的下一个邻居节点
+    virtual int &dTime(int i) = 0;
+    virtual int &fTime(int i) = 0;
+    virtual int &parent(int i) = 0; //遍历树中找父亲
+    virtual int &priority(int) = 0;
+    virtual int nextNbr(int, int) = 0;
+    virtual int firstNbr(int) = 0;
 
     //边操作
-
-    //
+    virtual EStatus &status(int i, int j) = 0;
+    virtual int &weight(int i, int j) = 0;
+    //搜索
+    void BFS(int v, int &clock, void (*visit)(Tv &));
+    void DFS(int v, int &clock, void (*visit)(Tv &));
+    void bfs(int s, void (*visit)(Tv &));
+    void dfs(int s, void (*visit)(Tv &));
+    // 优先级搜索
+    template <typename PU>
+    void pfs(int s, PU prioUpdater);
 };
-
-#include "graph/graphmatrix_implement.h"
+#include "graph/graph_implement.h"
+#include "graph/graphmatrix.h"

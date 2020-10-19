@@ -1,7 +1,7 @@
 <!--
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-10-15 23:24:47
+ * @LastEditTime: 2020-10-19 16:29:32
  * @LastEditors: yanxinhao
  * @Description: 
 -->
@@ -180,10 +180,29 @@
 
 #### 图的算法实例
   - ##### 图的遍历：深度优先搜索与广度优先搜索
-  - ##### 最小生成树
-  - ##### 最短路径
-  - ##### 关键路径
-  - ##### 拓扑排序
+
+  边分类:
+  <table>
+    <tr>
+  <td>BFS : 队列</td>
+  <td>DFS : 栈</td>
+  </tr>
+    <tr>
+  <td><img src="./imgs/bfs_edge.png"></td>
+  <td><img src="./imgs/dfs_edge.png"></td>
+  </tr></table>
+  - ##### 优先级搜索 
+
+  - ##### 最小生成(支撑)树 (MST)
+  
+    - Prim
+    - Kruskal
+  - ##### 最短路径 (SPT)
+  > 注意 MST!=SPT 两者的优化方向并不一样
+    - Dijkstral
+    - Floid-Warshall  
+  - ##### 关键路径(AOE)
+  - ##### 拓扑排序(AOV)
 
 ## 算法基础
 ### 算法分析基础
@@ -191,10 +210,12 @@
 #### 时间复杂度
 > 复杂度类P即为所有可以由一个确定型图灵机在多项式表达的时间内解决的问题；类NP由所有可以在多项式时间内验证它的解是否正确的决定问题组成，或者等效的说，那些可以在非确定型图灵机上在多项式时间内找出解的问题的集合。很可能，计算理论最大的未解决问题就是关于这两类的关系的：P和NP相等?
 - ##### 渐进分析
-  <table><tr>
+  <table>
+  <tr>
   <td><img src="./imgs/big_O.png"></td>
   <td><img src="./imgs/symbols.png"></td>
   </tr></table>
+  
 - ##### 复杂度层次
   <table><tr>
   <td><img src="./imgs/growth_speed.png"></td>

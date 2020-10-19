@@ -1,52 +1,83 @@
 /*
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-10-15 21:21:04
+ * @LastEditTime: 2020-10-20 02:06:26
  * @LastEditors: yanxinhao
  * @Description: 
  */
 #include "graph/graph.h"
-
+#include "graph/input.h"
 template <typename Te>
-void visit(Edge<Te> *elem)
+void visit(Te &elem)
 {
-    if (elem)
-        cout << elem->data << "    ";
-    else
-        cout << "     ";
+    cout << elem << "|";
 }
 
-int len = 10;
-int edge[10][4] = {
-    {2, 8, 1, 0},
-    {1, 8, 2, 6},
-    {6, 8, 3, 9},
-    {7, 8, 4, 3},
-    {0, 8, 5, 7},
-    {9, 8, 6, 1},
-    {4, 8, 7, 6},
-    {4, 8, 8, 3},
-    {8, 8, 9, 0},
-    {3, 8, 0, 2},
-};
+template <typename Tv>
+void visit_vertex(Tv &data)
+{
+    cout << data << " ";
+}
+
 int main(int argc, char const *argv[])
 {
-    GraphMatrix<char, int> g(len, '#');
-    for (int i = 0; i < len; i++)
-    {
-        g.insert(edge[i][0], edge[i][1], edge[i][2], edge[i][3]);
-    }
+
+    GraphMatrix<char, int> g_bfs(8, vtx_bfs, 22, edge_bfs);
+    GraphMatrix<char, int> g_dfs(10, vtx_dfs, 26, edge_dfs);
+    GraphMatrix<char, int> g_prim(8, vtx_prim, 30, edge_prim);
     // 1.建图,打印邻接矩阵
     cout << "1.建图,打印邻接矩阵 :" << endl;
     cout << "--------------------------------------------------------" << endl;
-    g.traverse(visit);
+    g_bfs.traverse(visit);
+    cout << "--------------------------------------------------------" << endl;
+    g_dfs.traverse(visit);
     // 2.测试寻找邻居
     cout << "--------------------------------------------------------" << endl;
     cout << "2.寻找邻居 firstNbr(9) firstNbr(0) :";
-    cout << g.firstNbr(9) << " " << g.firstNbr(0) << endl;
+    cout << g_bfs.firstNbr(9) << " " << g_bfs.firstNbr(0) << endl;
 
     // 3.遍历
+    cout << "3.遍历 : " << endl;
     // 深度优先
+    cout << "DFS : ";
+    g_dfs.dfs(0, visit_vertex);
+    cout << endl;
+    cout << "--------------------------------------------------------" << endl;
+    g_dfs.traversetree(visit);
+    cout << "--------------------------------------------------------" << endl;
+
+    cout << "DFSPU : ";
+    g_dfs.pfs(0, DFSPU<char, int>());
+    cout << endl;
+    cout << "--------------------------------------------------------" << endl;
+    g_dfs.traversetree(visit);
+    cout << "--------------------------------------------------------" << endl;
+    cout << endl;
     // 广度优先
+    cout << "BFS : ";
+    g_bfs.bfs(0, visit_vertex);
+    cout << "--------------------------------------------------------" << endl;
+    g_bfs.traversetree(visit);
+    cout << "--------------------------------------------------------" << endl;
+
+    cout << "BFSPU : ";
+    g_bfs.pfs(0, BFSPU<char, int>());
+    cout << endl;
+    cout << "--------------------------------------------------------" << endl;
+    g_bfs.traversetree(visit);
+    cout << "--------------------------------------------------------" << endl;
+    // 优先级搜索
+    cout << "4.优先级搜索 : " << endl;
+    g_prim.pfs(0, PrimPU<char, int>());
+    cout << "Prim :" << endl;
+    cout << "--------------------------------------------------------" << endl;
+    g_prim.traversetree(visit);
+    cout << "--------------------------------------------------------" << endl;
+
+    g_prim.pfs(0, DijkstraPU<char, int>());
+    cout << "Dijkstra :" << endl;
+    cout << "--------------------------------------------------------" << endl;
+    g_prim.traversetree(visit);
+    cout << "--------------------------------------------------------" << endl;
     return 0;
 }

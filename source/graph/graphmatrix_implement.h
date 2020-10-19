@@ -1,76 +1,12 @@
 /*
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-10-15 22:15:39
+ * @LastEditTime: 2020-10-20 02:03:18
  * @LastEditors: yanxinhao
  * @Description: 
  */
 #pragma once
-
-#include "graph/graph.h"
-#include "vector/vector.h"
-
-template <typename Tv>
-struct Vertex
-{
-    Tv data;
-    int inDegree, outDegree;
-    VStatus status;
-    int parent;
-    Vertex(const Tv &d = (Tv)0) : data(d), inDegree(0), outDegree(0), parent(0), status(UNDISCOVERED){};
-};
-
-template <typename Te>
-struct Edge
-{
-    Te data;
-    int weight;
-    EStatus status;
-    Edge(const Te &d = (Te)0, int w = 0) : data(d), weight(w), status(UNDETERMINED){};
-};
-
-template <typename Tv, typename Te>
-class GraphMatrix : public Graph<Tv, Te>
-{
-private:
-    int _n, _e;
-    Vector<Vertex<Tv>> V;         //顶点集
-    Vector<Vector<Edge<Te> *>> E; //边集
-public:
-    GraphMatrix() : _n(0), _e(0){};
-    GraphMatrix(int n, const Tv vtx);
-    ~GraphMatrix();
-
-    virtual int numVertex() { return _n; };
-    virtual int numEdge() { return _e; };
-
-    void traverse(void (*visit)(Edge<Te> *));
-
-    // 顶点操作
-    virtual Tv &vertex(int i) { return V[i].data; };        //数据
-    virtual int inDegree(int i) { return V[i].inDegree; }   //入度
-    virtual int outDegree(int i) { return V[i].outDegree; } //出度
-    virtual VStatus &status(int i) { return V[i].status; }; //状态
-    virtual int &parent(int i) { return V[i].parent; };     //遍历树中找父亲
-    int nextNbr(int i, int j)
-    {
-        while ((-1 < j) && !(exists(i, --j)))
-            ;
-        return j;
-    } //对于顶点i,寻找不包括j的下一个邻接顶点
-    int firstNbr(int i) { return nextNbr(i, _n); };
-    ;
-    int insert(const Tv &vtx); //边删除
-    Tv remove(int i);          //顶点删除
-
-    // 边操作
-    bool exists(int i, int j) { return (0 <= i) && (i < _n) && (0 <= j) && (j < _n) && E[i][j] != NULL; };
-    Te &edge(int i, int j) { return E[i][j]->data; };
-    EStatus &status(int i, int j) { return E[i][j]->status; };
-    int &weight(int i, int j) { return E[i][j]->weight; };
-    void insert(const Te &edge, int w, int i, int j); //边插入
-    Te remove(int i, int j);                          //边删除
-};
+#include "graph/graphmatrix.h"
 
 // -------------------------------------- 基本操作 --------------------------------------
 // 构造
@@ -84,6 +20,26 @@ GraphMatrix<Tv, Te>::GraphMatrix(int n, const Tv vtx)
     for (int i = 0; i < n; i++)
         insert(vtx);
 }
+
+template <typename Tv, typename Te>
+GraphMatrix<Tv, Te>::GraphMatrix(int n_vtx, const Tv *vtx, int n_edge, Te edge[][4])
+{
+
+    _n = 0;
+    _e = 0;
+    // 顶点插入
+    for (int i = 0; i < n_vtx; i++)
+    {
+        insert(vtx[i]);
+    }
+
+    // 边插入
+    for (int i = 0; i < n_edge; i++)
+    {
+        insert(edge[i][0], edge[i][1], edge[i][2], edge[i][3]);
+    }
+};
+
 // 析构
 template <typename Tv, typename Te>
 GraphMatrix<Tv, Te>::~GraphMatrix()
@@ -97,18 +53,55 @@ GraphMatrix<Tv, Te>::~GraphMatrix()
             }
 }
 
-// 遍历
+// 遍历图
 template <typename Tv, typename Te>
-void GraphMatrix<Tv, Te>::traverse(void (*visit)(Edge<Te> *))
+void GraphMatrix<Tv, Te>::traverse(void (*visit)(Te &))
 {
+    // 先打印一行点
+    cout << "  ";
+    for (int i = 0; i < numVertex(); i++)
+    {
+        cout << "|" << vertex(i);
+    }
+    cout << "|" << endl;
+
     for (int i = 0; i < _n; i++)
     {
-        cout << "|";
+        cout << "|" << vertex(i) << "|";
         for (int j = 0; j < _n; j++)
         {
-            visit(E[i][j]);
+            if (exists(i, j))
+                visit(edge(i, j));
+            else
+                cout << " |";
         }
-        cout << "|" << endl;
+        cout << endl;
+    }
+}
+
+// 遍历生成树
+template <typename Tv, typename Te>
+void GraphMatrix<Tv, Te>::traversetree(void (*visit)(Te &))
+{
+    // 先打印一行点
+    cout << "  ";
+    for (int i = 0; i < numVertex(); i++)
+    {
+        cout << "|" << vertex(i);
+    }
+    cout << "|" << endl;
+
+    for (int i = 0; i < _n; i++)
+    {
+        cout << "|" << vertex(i) << "|";
+        for (int j = 0; j < _n; j++)
+        {
+            if (exists(i, j) && (status(i, j) == TREE))
+                visit(edge(i, j));
+            else
+                cout << " |";
+        }
+        cout << endl;
     }
 }
 // -------------------------------------- 顶点操作 --------------------------------------
