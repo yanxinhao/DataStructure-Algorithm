@@ -1,7 +1,7 @@
 <!--
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-10-20 16:20:44
+ * @LastEditTime: 2020-10-20 17:31:37
  * @LastEditors: yanxinhao
  * @Description: 
 -->
@@ -242,11 +242,35 @@
   </table>
 
    ###### Kruskal
-  
    #####  最短路径 (SPT)
 注意 MST!=SPT 两者的优化方向并不一样
-
+（形象的理解就是生成MST的过程是全面扩张，生成SPT的过程是以某个点为中心按路径长度发散）
   ###### Dijkstral
+  
+    按路径长度递增来产生一个点到其他所有点的最短路径。（从初始点按路径长度扩张）
+    核心: 
+      1. 被选中的节点全部是已经确认了到s的最短路径的（途径的节点全部在已被选中的节点集中）--这一点很重要
+      2. 选取新的节点时，被选的新节点不可能经过其他未被选节点到s的路径最短。（新节点到s的路径只经过被选中的节点）
+      3. 新的节点加入时，只影响其邻居节点到s的最短路径
+  <table>
+    <tr>
+    <td>最短路径性质</td>
+    <td>SPT与MST的优化方向不一样</td>
+  </tr>
+  <tr>
+    <td><img src="./imgs/SPT_1.png"></td>
+    <td><img src="./imgs/SPT_2.png"></td>
+  </tr>
+  <tr>
+    <td>算法</td>
+    <td>实现</td>
+  </tr>
+  <tr>
+    <td><img src="./imgs/Dijkstra.png"></td>
+    <td><img src="./imgs/Dijkstra_implement.png"></td>
+  </tr>
+  </table>
+  
   ###### Floid-Warshall  
 
   #####   关键路径(AOE)
