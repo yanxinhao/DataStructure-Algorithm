@@ -1,7 +1,7 @@
 <!--
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-10-19 16:29:32
+ * @LastEditTime: 2020-10-20 15:11:16
  * @LastEditors: yanxinhao
  * @Description: 
 -->
@@ -191,7 +191,22 @@
   <td><img src="./imgs/bfs_edge.png"></td>
   <td><img src="./imgs/dfs_edge.png"></td>
   </tr></table>
+  
   - ##### 优先级搜索 
+
+  <table>
+      <tr>
+      <td>通用算法</td>
+      <td>统一框架</td>
+      <td>统一框架</td>
+    </tr>
+    <tr>
+      <td><img src="./imgs/pfs.png"></td>
+      <td><img src="./imgs/pfs_1.png"></td>
+      <td><img src="./imgs/pfs_2.png"></td>
+    </tr>
+
+  </table>
 
   - ##### 最小生成(支撑)树 (MST)
   
