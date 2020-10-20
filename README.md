@@ -1,7 +1,7 @@
 <!--
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-10-20 15:11:16
+ * @LastEditTime: 2020-10-20 16:18:47
  * @LastEditors: yanxinhao
  * @Description: 
 -->
@@ -43,6 +43,16 @@
       - [特殊图的类型](#特殊图的类型)
       - [图的存储结构](#图的存储结构)
       - [图的算法实例](#图的算法实例)
+        - [- 图的遍历：深度优先搜索与广度优先搜索](#ulli图的遍历深度优先搜索与广度优先搜索liul)
+        - [- 优先级搜索](#ulli优先级搜索liul)
+        - [- 最小生成(支撑)树 (MST)](#ulli最小生成支撑树-mstliul)
+          - [Prim](#prim)
+          - [Kruskal](#kruskal)
+        - [- 最短路径 (SPT)](#ulli最短路径-sptliul)
+          - [Dijkstral](#dijkstral)
+          - [Floid-Warshall](#floid-warshall)
+        - [- 关键路径(AOE)](#ulli关键路径aoeliul)
+        - [- 拓扑排序(AOV)](#ulli拓扑排序aovliul)
   - [算法基础](#算法基础)
     - [算法分析基础](#算法分析基础)
       - [时间复杂度](#时间复杂度)
@@ -179,7 +189,7 @@
   - 邻接多重表 : 无向图
 
 #### 图的算法实例
-  - ##### 图的遍历：深度优先搜索与广度优先搜索
+   ##### - 图的遍历：深度优先搜索与广度优先搜索
 
   边分类:
   <table>
@@ -192,7 +202,7 @@
   <td><img src="./imgs/dfs_edge.png"></td>
   </tr></table>
   
-  - ##### 优先级搜索 
+ #####  - 优先级搜索 
 
   <table>
       <tr>
@@ -205,19 +215,42 @@
       <td><img src="./imgs/pfs_1.png"></td>
       <td><img src="./imgs/pfs_2.png"></td>
     </tr>
-
   </table>
 
-  - ##### 最小生成(支撑)树 (MST)
+   ##### - 最小生成(支撑)树 (MST)
   
-    - Prim
-    - Kruskal
-  - ##### 最短路径 (SPT)
-  > 注意 MST!=SPT 两者的优化方向并不一样
-    - Dijkstral
-    - Floid-Warshall  
-  - ##### 关键路径(AOE)
-  - ##### 拓扑排序(AOV)
+  ######  Prim
+  
+  利用优先级排序的模版
+    <table>
+      <tr>
+      <td>极短跨边</td>
+      <td>极长环边</td>
+    </tr>
+    <tr>
+      <td><img src="./imgs/prim_1.png"></td>
+      <td><img src="./imgs/prim_2.png"></td>
+    </tr>
+    <tr>
+      <td>算法</td>
+      <td>实现</td>
+    </tr>
+    <tr>
+      <td><img src="./imgs/prim.png"></td>
+      <td><img src="./imgs/prim_3.png"></td>
+    </tr>
+  </table>
+
+   ###### Kruskal
+  
+   ##### - 最短路径 (SPT)
+注意 MST!=SPT 两者的优化方向并不一样
+
+  ###### Dijkstral
+  ###### Floid-Warshall  
+
+  #####  - 关键路径(AOE)
+  #####  - 拓扑排序(AOV)
 
 ## 算法基础
 ### 算法分析基础
