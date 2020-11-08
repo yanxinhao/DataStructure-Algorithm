@@ -1,7 +1,7 @@
 <!--
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-11-08 21:04:44
+ * @LastEditTime: 2020-11-08 22:55:26
  * @LastEditors: yanxinhao
  * @Description: 
 -->
@@ -42,7 +42,12 @@
         - [二叉树的重构](#二叉树的重构)
       - [树和森林与二叉树的相互转换](#树和森林与二叉树的相互转换)
       - [树的算法实例](#树的算法实例)
-    - [并查集](#并查集)
+        - [二叉排序树（又称二叉搜索树）](#二叉排序树又称二叉搜索树)
+          - [Definition](#definition)
+          - [算法和实现](#算法和实现)
+        - [平衡二叉树（包含AVL）](#平衡二叉树包含avl)
+        - [哈夫曼（Huffman）树和哈夫曼编码](#哈夫曼huffman树和哈夫曼编码)
+    - [并查集（用于不相交集合的数据结构）](#并查集用于不相交集合的数据结构)
     - [图](#图)
       - [图的性质](#图的性质)
       - [特殊图的类型](#特殊图的类型)
@@ -210,9 +215,33 @@ The easiest implementation is to use a queue:
 #### 树和森林与二叉树的相互转换
 
 #### 树的算法实例
-  - ##### 二叉排序树（又称二叉搜索树）
-  - ##### 平衡二叉树（包含AVL）
-  - ##### 哈夫曼（Huffman）树和哈夫曼编码
+  ##### 二叉排序树（又称二叉搜索树）
+  ###### Definition
+In a binary search tree, we require that 
+- all objects in the left sub-tree to be less than the object stored in the root node
+- all objects in the right sub-tree to be greater than the object in the root object
+- the two sub-trees are themselves binary search trees
+  ###### 算法和实现
+  - 查找: 减而治之,时间复杂度为O(h),h为BST高度
+  - 插入: 
+    - If we find the object already in the tree, we will return
+      - The object is already in the binary search tree (no duplicates)
+    - Otherwise, we will arrive at an empty node
+    - The object will be inserted into that location
+    - The run time is O(h)
+  - 删除: 存在两种如下情况
+    <table>
+    <tr>
+    <td><img src="./imgs/BST_1.png"></td>
+    <td><img src="./imgs/BST_1_1.png"></td>
+    </tr>
+      <tr>
+    <td><img src="./imgs/BST_2.png"></td>
+    <td><img src="./imgs/BST_2_2.png"></td>
+    </tr></table>
+
+  ##### 平衡二叉树（包含AVL）
+  ##### 哈夫曼（Huffman）树和哈夫曼编码
   
   > 前缀码:任一字符的编码都不是另一字符编码串的前缀;前缀码与树的联系:根通往任一叶子节点的路径都不可能是通往其余叶子节点的子路径
   
@@ -239,12 +268,7 @@ The easiest implementation is to use a queue:
   2. Going right is a 1
   3. Code word is only completed when a leaf node is reached 
 
-  - ##### 并查集 
-
-
-
-
-### 并查集
+### 并查集（用于不相交集合的数据结构）
 
 ### 图
 #### 图的性质
@@ -432,6 +456,7 @@ The critical path is the sequence of tasks determining the minimum time needed t
 If a task on the critical path is delayed, the entire project will be delayed
 
 ###### 相关定义:
+（事件为顶点,活动为边）
 - 事件最早开始时间:
 - 事件最迟必须开始时间:
 - 活动最早开始时间:
