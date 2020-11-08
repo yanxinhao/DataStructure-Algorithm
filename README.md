@@ -1,7 +1,7 @@
 <!--
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-10-23 08:19:28
+ * @LastEditTime: 2020-11-08 01:53:34
  * @LastEditors: yanxinhao
  * @Description: 
 -->
@@ -28,7 +28,12 @@
     - [哈希表](#哈希表)
       - [hash实例应用](#hash实例应用)
     - [树](#树)
+      - [树的术语](#树的术语)
       - [树的表示](#树的表示)
+      - [树的遍历](#树的遍历)
+        - [深度优先遍历](#深度优先遍历)
+          - [Application](#application)
+        - [广度优先遍历](#广度优先遍历)
       - [二叉树](#二叉树)
       - [二叉树的一些性质：](#二叉树的一些性质)
         - [二叉树的表示](#二叉树的表示)
@@ -51,8 +56,14 @@
         - [最短路径 (SPT)](#最短路径-spt)
           - [Dijkstral](#dijkstral)
           - [Floid-Warshall](#floid-warshall)
+        - [拓扑排序（Topological Sort）(AOV)](#拓扑排序topological-sortaov)
+          - [Motivation](#motivation)
+          - [Task](#task)
+          - [Theorem:](#theorem)
+          - [lemmas](#lemmas)
+          - [Algorithm](#algorithm)
+          - [Analysis](#analysis)
         - [关键路径(AOE)](#关键路径aoe)
-        - [拓扑排序(AOV)](#拓扑排序aov)
   - [算法基础](#算法基础)
     - [算法分析基础](#算法分析基础)
       - [时间复杂度](#时间复杂度)
@@ -118,14 +129,46 @@
   - 桶排序
 
 ### 树
+
+#### 树的术语
+  - 节点的深度 :从根到该节点路径上的节点个数
+  - 节点的高度 :从该节点往下的最长路径的节点个数
+  - 树的高度 : 树中节点的最大层次（等于根节点的高度）
+
 #### 树的表示
   - 父节点表示 : 对孩子节点和兄弟节点的访问不方便，均要遍历整个树
   - 孩子节点表示 : 找父节点和兄弟节点很慢
   - 父节点+孩子节点表示 : 这里的孩子节点是第一个孩子节点的指针,当前节点的所有孩子节点连成一个链表。
   - 长子+兄弟表示 : 若在设parent的引用, 访问parent也仅需要O(1)时间
 
+#### 树的遍历
+##### 深度优先遍历
+A backtracking algorithm for stepping through a tree（回溯法）:
+- At any node, proceed to the first child that has not yet been visited
+- If we have visited all the children (of which a leaf node is a special case), backtrack to the parent and repeat this process
+
+
+Each node is visited multiple times in such a scheme（节点会被多次访问）
+- First time: before any children
+- Last time: after all children, before backtracking
+
+###### Application
+Displaying information about directory structures and the files contained within
+- Printing a hierarchical structure
+- Determining memory usage
+
+##### 广度优先遍历
+The easiest implementation is to use a queue:
+1. Place the root node into a queue
+2. While the queue is not empty:
+     - Pop the node at the front of the queue
+     - Push all of its children into the queue
+
 #### 二叉树
-  二叉树:节点度数不超过2的树,同一节点的孩子和子树，均以左右区分(隐含有序)
+  - 二叉树:节点度数不超过2的树,同一节点的孩子和子树，均以左右区分(隐含有序)
+  - 满二叉树:所有分支节点都有左孩子和右孩子,并且叶子节点都集中在二叉树的最下面一层
+  - 完全二叉树:各节点的编号与对应的深度为k的满二叉树相同
+
 #### 二叉树的一些性质：
 
 > 设度数为0,1,2的节点各有n0,n1,n2个,则：
@@ -134,7 +177,7 @@
 3. 叶节点数 : n0 = n2+1 (由上面2的等式后两项相等可以推出)
    
 > 高度(或者深度)为k的二叉树,则:
-1. 整个数最多可能有的节点数 : 2^k - 1 
+1. 整个树最多可能有的节点数 : 2^k - 1 （等比数列求和）
 2. 二叉树的第i层最多可能的节点数 : 2^(i-1)
    
 > 有n个节点的完全二叉树,若i是某个节点a的编号(编号的范围为1~n)
@@ -167,6 +210,32 @@
   - ##### 二叉排序树（又称二叉搜索树）
   - ##### 平衡二叉树（包含AVL）
   - ##### 哈夫曼（Huffman）树和哈夫曼编码
+  
+  > 前缀码:任一字符的编码都不是另一字符编码串的前缀;前缀码与树的联系:根通往任一叶子节点的路径都不可能是通往其余叶子节点的子路径
+  
+  > 哈夫曼编码算法流程:
+  1. Scan text to be compressed and count frequencies of all characters.
+  2. Prioritize characters based on their frequencies in text.
+  3. Build Huffman code tree based on prioritized list.
+  4. Perform a traversal of tree to determine all code words.
+  5. Encode the text using the Huffman codes.
+
+  > 哈夫曼树的构造算法:
+  
+  While priority queue contains two or more nodes
+  1. Create new node
+  2. Dequeue node and make it left subtree
+  3. Dequeue next node and make it right subtree
+  4. Frequency of new node equals sum of frequency of left and right children
+  5. Enqueue new node back into queue
+
+  >通过遍历哈夫曼树得到哈夫曼编码
+
+  Perform a traversal of the tree to obtain new code words
+  1. Going left is a 0 
+  2. Going right is a 1
+  3. Code word is only completed when a leaf node is reached 
+
   - ##### 并查集 
 
 
@@ -219,8 +288,10 @@
   </table>
 
    #####  最小生成(支撑)树 (MST)
+> 属于贪心算法
   
   ######  Prim
+> prim 算法只与顶点数有关系与边数没有关系，适用于稠密图
   
   利用优先级排序的模版
     <table>
@@ -243,11 +314,31 @@
   </table>
 
    ###### Kruskal
+> 主要由最短边的选取算法上，所以该复杂度复杂度与顶点数无关，由边数决定。适用于稀疏图
+  <table>
+      <tr>
+      <td>策略</td>
+      <td>算法框架</td>
+    </tr>
+    <tr>
+      <td><img src="./imgs/kruskal_1.png"></td>
+      <td><img src="./imgs/kruskal_2.png"></td>
+    </tr>
+    <tr>
+      <td>正确性</td>
+      <td>复杂度</td>
+    </tr>
+    <tr>
+      <td><img src="./imgs/kruskal_3.png"></td>
+      <td><img src="./imgs/kruskal_4.png"></td>
+    </tr>
+  </table>
+
    #####  最短路径 (SPT)
 注意 MST!=SPT 两者的优化方向并不一样
 （形象的理解就是生成MST的过程是全面扩张，生成SPT的过程是以某个点为中心按路径长度发散）
   ###### Dijkstral
-  
+> 属于贪心算法
     按路径长度递增来产生一个点到其他所有点的最短路径。（从初始点按路径长度扩张）
     核心: 
       1. 被选中的节点全部是已经确认了到s的最短路径的（途径的节点全部在已被选中的节点集中）--这一点很重要
@@ -274,14 +365,79 @@
   
   ###### Floid-Warshall  
 
+  <table>
+    <tr>
+    <td>最优解的结构特征</td>
+    <td>递归实现</td>
+  </tr>
+  <tr>
+    <td><img src="./imgs/floyd_1.png"></td>
+    <td><img src="./imgs/floyd_2.png"></td>
+  </tr>
+  <tr>
+    <td>动态规划</td>
+    <td>实现</td>
+  </tr>
+  <tr>
+    <td><img src="./imgs/floyd_3.png"></td>
+    <td><img src="./imgs/floyd_4.png"></td>
+  </tr>
+  </table>
+
+
+> 所有点对之间的最短距离,应用:搜索图的中心点
+
+  #####   拓扑排序（Topological Sort）(AOV)
+  ###### Motivation
+  Dependency between tasks: one task is required to be done before the other task can be done
+  Dependencies form a partial ordering 
+  - A partial ordering on a finite number of objects can be represented as a directed acyclic graph (DAG)
+  ###### Task
+  Given a set of tasks with dependencies, is there an order in which we can complete the tasks?
+  ###### Theorem:
+    A graph is a DAG if and only if it has a topological sorting
+    Proof strategy:
+    Such a statement is of the form a ↔ b and this is equivalent to:
+    a → b and b → a
+  ###### lemmas
+  First, we need a two lemmas:
+  - A DAG always has at least one vertex with in-degree zero
+    * That is, it has at least one source
+  - Any sub-graph of a DAG is a DAG
+  ###### Algorithm
+  Idea:
+- Given a DAG V, iterate:
+  * Find a vertex v in V with in-degree zero
+  * Let v be the next vertex in the topological sort
+  * Continue iterating with the vertex-induced sub-graph V \ {v}
+
+implement:
+  - Use a queue (or other container) to temporarily store those vertices with in-degree zero
+  - Each time the in-degree of a vertex is decremented tozero, push it onto the queue
+
+  ###### Analysis
+
+  Therefore, the run time of a topological sort is:∂
+  - Q(|V| + |E|)  if we use an adjacency list
+  - Q(|V|^2) if we use an adjacency matrix
+  
+and the memory requirements is Q(|V|)
+
   #####   关键路径(AOE)
-  #####   拓扑排序(AOV)
+> The critical time of each task is the earliest time that it could be completed after the start of execution \
+The critical path is the sequence of tasks determining the minimum time needed to complete the project: \
+If a task on the critical path is delayed, the entire project will be delayed
 
 ## 算法基础
 ### 算法分析基础
 
 #### 时间复杂度
 > 复杂度类P即为所有可以由一个确定型图灵机在多项式表达的时间内解决的问题；类NP由所有可以在多项式时间内验证它的解是否正确的决定问题组成，或者等效的说，那些可以在非确定型图灵机上在多项式时间内找出解的问题的集合。很可能，计算理论最大的未解决问题就是关于这两类的关系的：P和NP相等?
+
+问题复杂度等级:
+  - P 问题: 存在多项式算法的问题
+  - NP 问题
+
 - ##### 渐进分析
   <table>
   <tr>
@@ -375,15 +531,15 @@
 
 简介：
 
-|   算法名称   | 算法描述 | 稳定性                                                                    | 就地 | 时间复杂度（最坏） | 时间复杂度（最好） | 时间复杂度（最好） |
-| :----------: | :------- | :------------------------------------------------------------------------ | :--- | :----------------- | :----------------- | :----------------- |
-|   冒泡排序   | n        | 是                                                                        | 是   | O(n^2)             | O(n)               |                    |
-|   插入排序   | n        | 把序列看成 sorted[0,)+unsorted[r,n) 两部分,把l[r]插入到有序部分的合适位置 | 是   | O(n^2)             | O(n)               | O(n^2)             |
-| 一般选择排序 | n        | 从未排序的元素中挑选最大者,并使其就位                                     |      | O(n^2)             | O(n^2)             | O(n^2)             |
-|   快速排序   | n        | 否                                                                        | 是   | O(n^2)             | O(nlogn)           | O(nlogn)           |
-|    堆排序    | n        | n                                                                         |      | n                  | n                  |                    |
-|   归并排序   | n        | n                                                                         | 否   | O(nlogn)           | O(nlogn)           |                    |
-|   基数排序   | n        | n                                                                         |      | n                  | n                  |                    |
+|   算法名称   | 类别     | 算法描述 | 稳定性                                                                    | 就地 | 时间复杂度（最坏） | 时间复杂度（最好） | 时间复杂度（最好） |
+| :----------: | :------- | :------- | :------------------------------------------------------------------------ | :--- | :----------------- | :----------------- | :----------------- |
+|   冒泡排序   | 交换排序 | n        | 是                                                                        | 是   | O(n^2)             | O(n)               |                    |
+|   快速排序   | 交换排序 | n        | 否                                                                        | 是   | O(n^2)             | O(nlogn)           | O(nlogn)           |
+|   插入排序   | 插入排序 | n        | 把序列看成 sorted[0,)+unsorted[r,n) 两部分,把l[r]插入到有序部分的合适位置 | 是   | O(n^2)             | O(n)               | O(n^2)             |
+| 一般选择排序 | 选择排序 | n        | 从未排序的元素中挑选最大者,并使其就位                                     |      | O(n^2)             | O(n^2)             | O(n^2)             |
+|    堆排序    | 选择排序 | n        | n                                                                         |      | n                  | n                  |                    |
+| 二路归并排序 | 归并排序 | n        | n                                                                         | 否   | O(nlogn)           | O(nlogn)           |                    |
+|   基数排序   | 基数排序 | n        | n                                                                         |      | n                  | n                  |                    |
 
 算法分析：
   <table>
@@ -395,7 +551,22 @@
       <td><img src="./imgs/bubblesort.png"></td>
       <td><img src="./imgs/bubblesort_complexity.png"></td>
     </tr>
-
+    <tr>
+      <td><img src="./imgs/quicksort.png"></td>
+      <td><img src="./imgs/quicksort_2.png"></td>
+    </tr>
+    <tr>
+      <td><img src="./imgs/insertionsort.png"></td>
+      <td><img src="./imgs/insertionsort_2.png"></td>
+    </tr>
+    <tr>
+      <td><img src="./imgs/selectionsort.png"></td>
+      <td><img src="./imgs/selectionsort_2.png"></td>
+    </tr>
+    <tr>
+      <td><img src="./imgs/mergesort.png"></td>
+      <td><img src="./imgs/mergesort_2.png"></td>
+    </tr>
   </table>
 
 ### 字符串匹配
