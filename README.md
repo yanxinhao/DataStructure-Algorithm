@@ -1,7 +1,7 @@
 <!--
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-11-08 20:07:54
+ * @LastEditTime: 2020-11-08 20:10:55
  * @LastEditors: yanxinhao
  * @Description: 
 -->
@@ -67,6 +67,7 @@
   - [算法基础](#算法基础)
     - [算法分析基础](#算法分析基础)
       - [时间复杂度](#时间复杂度)
+        - [问题复杂度等级:](#问题复杂度等级)
     - [迭代与递归](#迭代与递归)
       - [迭代算法实例](#迭代算法实例)
       - [减而治之（Decrease and conquer）](#减而治之decrease-and-conquer)
@@ -434,7 +435,7 @@ If a task on the critical path is delayed, the entire project will be delayed
 #### 时间复杂度
 > 复杂度类P即为所有可以由一个确定型图灵机在多项式表达的时间内解决的问题；类NP由所有可以在多项式时间内验证它的解是否正确的决定问题组成，或者等效的说，那些可以在非确定型图灵机上在多项式时间内找出解的问题的集合。很可能，计算理论最大的未解决问题就是关于这两类的关系的：P和NP相等?
 
-问题复杂度等级:
+##### 问题复杂度等级:
   - P 问题: 存在多项式算法的问题
   - NP 问题
 
