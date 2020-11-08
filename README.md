@@ -1,7 +1,7 @@
 <!--
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-11-08 20:10:55
+ * @LastEditTime: 2020-11-08 21:04:44
  * @LastEditors: yanxinhao
  * @Description: 
 -->
@@ -64,6 +64,8 @@
           - [Algorithm](#algorithm)
           - [Analysis](#analysis)
         - [关键路径(AOE)](#关键路径aoe)
+          - [相关定义:](#相关定义)
+          - [算法流程:](#算法流程)
   - [算法基础](#算法基础)
     - [算法分析基础](#算法分析基础)
       - [时间复杂度](#时间复杂度)
@@ -429,6 +431,21 @@ and the memory requirements is Q(|V|)
 The critical path is the sequence of tasks determining the minimum time needed to complete the project: \
 If a task on the critical path is delayed, the entire project will be delayed
 
+###### 相关定义:
+- 事件最早开始时间:
+- 事件最迟必须开始时间:
+- 活动最早开始时间:
+- 活动最迟必须开始时间:
+- 关键活动: 最早开始时间等于最迟必须开始时间的活动
+  
+###### 算法流程:
+1. 进行拓扑排序，求出每个事件的最早发生时间。(求max)
+2. 令最后一个结束事件的最迟发生时间等于其最早开始时间，然后进行逆拓扑排序，计算每个事件的最迟必须开始时间.(求min)
+3. 求出各活动的最早和最迟发生时间()
+   > 事件的最早开始时间 = 该事件发出的活动的最早开始时间 \
+   事件的最迟发生时间-以它为结束点的活动的持续时间 = 该活动的最迟发生时间   
+   若某条弧的最早和最迟发生时间相等,则这条弧为关键活动
+   
 ## 算法基础
 ### 算法分析基础
 
