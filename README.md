@@ -1,7 +1,7 @@
 <!--
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-11-08 22:55:26
+ * @LastEditTime: 2020-11-09 19:54:02
  * @LastEditors: yanxinhao
  * @Description: 
 -->
@@ -139,10 +139,11 @@
 ### 树
 
 #### 树的术语
-  - 节点的深度 :从根到该节点路径上的节点个数
-  - 节点的高度 :从该节点往下的最长路径的节点个数
-  - 树的高度 : 树中节点的最大层次（等于根节点的高度）
-
+  - 节点的深度 :从根到该节点路径上的路径长度
+  - 节点的高度 :从该节点往下的最长路径的路径长度
+  - 树的高度 : 等于根节点的高度
+  
+空树的高度为-1，只有一个节点的树高度为0
 #### 树的表示
   - 父节点表示 : 对孩子节点和兄弟节点的访问不方便，均要遍历整个树
   - 孩子节点表示 : 找父节点和兄弟节点很慢
@@ -241,6 +242,36 @@ In a binary search tree, we require that
     </tr></table>
 
   ##### 平衡二叉树（包含AVL）
+    ###### 介绍
+    A binary search tree is said to be AVL balanced if:
+    - The difference in the heights between the left and right sub-trees is at most 1, and
+    - Both sub-trees are themselves AVL trees
+
+    ###### AVL树节点个数的上下界
+    - upper bound :an AVL tree of height h is a perfect binary tree with 2^(h+1)–1 nodes
+    - lower bound :
+        <table>
+          <tr>
+        <td><img src="./imgs/AVL_height_1.png"></td>
+        <td><img src="./imgs/AVL_height_2.png"></td>
+        <td><img src="./imgs/AVL_height_3.png"></td>
+        </tr></table>
+
+    ###### AVL树的插入删除
+    - 插入
+        <table>
+          <tr>
+        <td><img src="./imgs/AVL_insert_1.png"></td>
+        <td><img src="./imgs/AVL_insert_2.png"></td>
+        <td><img src="./imgs/AVL_insert_3.png"></td>
+        </tr></table>
+    - 删除
+        <table>
+          <tr>
+        <td><img src="./imgs/AVL_remove_1.png"></td>
+        <td><img src="./imgs/AVL_remove_2.png"></td>
+        <td><img src="./imgs/AVL_remove_3.png"></td>
+        </tr></table>
   ##### 哈夫曼（Huffman）树和哈夫曼编码
   
   > 前缀码:任一字符的编码都不是另一字符编码串的前缀;前缀码与树的联系:根通往任一叶子节点的路径都不可能是通往其余叶子节点的子路径
