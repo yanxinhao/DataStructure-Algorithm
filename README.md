@@ -1,7 +1,7 @@
 <!--
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-11-09 21:11:34
+ * @LastEditTime: 2020-11-09 21:26:53
  * @LastEditors: yanxinhao
  * @Description: 
 -->
@@ -284,6 +284,13 @@ In a binary search tree, we require that
         <td><img src="./imgs/AVL_remove_1.png"></td>
         <td><img src="./imgs/AVL_remove_2.png"></td>
         <td><img src="./imgs/AVL_remove_3.png"></td>
+        </tr></table>
+    - 旋转:旋转操作的实现是3+4算法，旋转只是为了帮助理解
+        <table>
+        <tr>
+        <td><img src="./imgs/AVL_rotation_1.png"></td>
+        <td><img src="./imgs/AVL_rotation_2.png"></td>
+        <td><img src="./imgs/AVL_rotation_3.png"></td>
         </tr></table>
   ##### 哈夫曼（Huffman）树和哈夫曼编码
   
