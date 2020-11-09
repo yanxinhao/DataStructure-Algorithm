@@ -1,7 +1,7 @@
 <!--
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-11-09 19:54:02
+ * @LastEditTime: 2020-11-09 20:39:25
  * @LastEditors: yanxinhao
  * @Description: 
 -->
@@ -258,14 +258,21 @@ In a binary search tree, we require that
         </tr></table>
 
     ###### AVL树的插入删除
-    - 插入
+    等价BBST与旋转调整
+      <table>
+        <tr>
+      <td><img src="./imgs/BBST_1.png"></td>
+      <td><img src="./imgs/BBST_2.png"></td>
+      <td><img src="./imgs/BBST_3.png"></td>
+      </tr></table>
+    - 插入:插入导致失衡,肯定是将节点插到最深的失衡节点的最长的分支上
         <table>
           <tr>
         <td><img src="./imgs/AVL_insert_1.png"></td>
         <td><img src="./imgs/AVL_insert_2.png"></td>
         <td><img src="./imgs/AVL_insert_3.png"></td>
         </tr></table>
-    - 删除
+    - 删除:删除导致失衡,肯定是将失衡节点较短的左分支或者右分枝上的节点删除
         <table>
           <tr>
         <td><img src="./imgs/AVL_remove_1.png"></td>
