@@ -1,7 +1,7 @@
 <!--
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-11-09 21:26:53
+ * @LastEditTime: 2020-11-10 00:16:50
  * @LastEditors: yanxinhao
  * @Description: 
 -->
@@ -25,7 +25,14 @@
       - [Steap](#steap)
       - [Queap](#queap)
       - [应用](#应用)
-    - [哈希表](#哈希表)
+    - [散列表](#散列表)
+      - [散列的原理](#散列的原理)
+      - [The hash process](#the-hash-process)
+      - [相关术语](#相关术语)
+      - [散列函数](#散列函数)
+      - [冲突解决方法](#冲突解决方法)
+        - [链接法](#链接法)
+        - [开放寻址法](#开放寻址法)
       - [hash实例应用](#hash实例应用)
     - [树](#树)
       - [树的术语](#树的术语)
@@ -131,8 +138,33 @@
 #### 应用
   - 试探回溯法 : n皇后问题与迷宫寻径问题
 
-### 哈希表
+### 散列表
+  > 散列表是普通数组概念的推广，当关键字的全域比较小时，直接寻址是简单而有效的，通常用数组（或者称为直接寻址表）。但是当全域很大时，实际存储的关键字集合K相对于全域U可能很小，用数组就会造成大量的空间浪费，空间利用率低。
 
+  这里先简单介绍直接寻址表和散列表:
+  - 直接寻址表（数组）: 每个位置（其实就是rank）对应着一个关键字，里面的值指向对应关键字的元素
+  - 散列表 : 关键字k的元素被存储在位置h(k)的槽（桶）中，里面的值指向对应关键字k的元素
+
+  #### 散列的原理
+  <img src="./imgs/hash.png">
+  
+  #### The hash process
+
+  <img src="./imgs/hash_process.png">
+  
+  #### 相关术语
+  - 装填因子:
+  #### 散列函数
+  关于下面第四项均匀性，做出如下解释:\
+  If two objects are randomly chosen, there should be only a one-in-	2^32 chance that they have the same hash value
+  <img src="./imgs/hash_function.png">
+
+  #### 冲突解决方法
+  
+  ##### 链接法
+
+  ##### 开放寻址法
+  
 #### hash实例应用
   - 桶排序
 
