@@ -1,7 +1,7 @@
 <!--
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-11-09 20:39:25
+ * @LastEditTime: 2020-11-09 21:11:34
  * @LastEditors: yanxinhao
  * @Description: 
 -->
@@ -265,8 +265,14 @@ In a binary search tree, we require that
       <td><img src="./imgs/BBST_2.png"></td>
       <td><img src="./imgs/BBST_3.png"></td>
       </tr></table>
+    > 对于失衡情况，从最深的那个失衡节点开始考虑推导最方便，下面的插入删除的失衡情况的复盘就是这么得来的
     - 插入:插入导致失衡,肯定是将节点插到最深的失衡节点的最长的分支上
         <table>
+        <tr>
+        <td>zag和zig</td>
+        <td>zigzag和zagzig</td>
+        <td>实现</td>
+        </tr>
           <tr>
         <td><img src="./imgs/AVL_insert_1.png"></td>
         <td><img src="./imgs/AVL_insert_2.png"></td>
