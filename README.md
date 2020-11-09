@@ -1,7 +1,7 @@
 <!--
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-11-10 00:16:50
+ * @LastEditTime: 2020-11-10 00:32:48
  * @LastEditors: yanxinhao
  * @Description: 
 -->
@@ -156,7 +156,8 @@
   - 装填因子:
   #### 散列函数
   关于下面第四项均匀性，做出如下解释:\
-  If two objects are randomly chosen, there should be only a one-in-	2^32 chance that they have the same hash value
+  If two objects are randomly chosen, there should be only a one-in-M chance that they have the same value from 0 to M – 1 
+  (相当于任意随机选一个关键字，他等可能的落入对应的桶中，与确定性不同的是确定性是关键字已经给定)
   <img src="./imgs/hash_function.png">
 
   #### 冲突解决方法
