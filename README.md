@@ -1,7 +1,7 @@
 <!--
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-11-11 17:51:20
+ * @LastEditTime: 2020-11-11 22:04:11
  * @LastEditors: yanxinhao
  * @Description: 
 -->
@@ -20,10 +20,13 @@
       - [顺序栈](#顺序栈)
       - [链式栈](#链式栈)
       - [栈的应用](#栈的应用)
-    - [堆与优先队列](#堆与优先队列)
-      - [堆(Heap)](#堆heap)
-      - [Steap](#steap)
-      - [Queap](#queap)
+    - [Priority queue](#priority-queue)
+      - [介绍](#介绍-1)
+      - [operations](#operations)
+      - [实现](#实现)
+        - [Complete Binary heap (Binary heap)](#complete-binary-heap-binary-heap)
+          - [建堆](#建堆)
+      - [Heapsort](#heapsort)
       - [应用](#应用)
     - [散列表](#散列表)
       - [散列的原理](#散列的原理)
@@ -58,7 +61,7 @@
         - [平衡二叉树（包含AVL）](#平衡二叉树包含avl)
         - [哈夫曼（Huffman）树和哈夫曼编码](#哈夫曼huffman树和哈夫曼编码)
     - [并查集（用于不相交集合的数据结构）](#并查集用于不相交集合的数据结构)
-      - [实现](#实现)
+      - [实现](#实现-1)
         - [不相交集合的链表表示](#不相交集合的链表表示)
         - [不相交集合森林](#不相交集合森林)
           - [改进运行时间的启发式策略](#改进运行时间的启发式策略)
@@ -135,12 +138,64 @@
   - 延迟缓冲 : 中缀表达式求值
   - 逆波兰表达式（后缀表达式）求值与转换算法
 
-### 堆与优先队列
-#### 堆(Heap)
-#### Steap 
-> Steap = Stack + Heap = push + pop + getmax
-#### Queap
-> Queap = Queue + Heap = enqueue + dequeue + getMax
+
+### Priority queue
+> pop the object with the highest priority
+
+#### 介绍
+  <table>
+  <tr>
+  <td><img src="./imgs/PQ.png"></td>
+  <td><img src="./imgs/PQ_2.png"></td>
+  </tr></table>
+
+#### operations
+- Top(或者称为getMax)
+- Pop(或者称为delMax)
+- Push(或者称为insert)
+
+#### 实现
+> 容易想到的可选数据结构有向量，列表，多个列表，或者基于BBST。但是向量和列表对于有些操作的时间复杂度为O(n)，而BBST的功能远远超出优先队列的要求，并不需要维护所有元素之间的全序关系。应该有结构更为简单，维护成本更低的方法，使得插入和删除的为O(logn)，getmax为O(1)。这就是完全二叉堆！！！
+##### Complete Binary heap (Binary heap)
+> 这里用向量来存储完全二叉堆,会用到完全二叉树的性质来访问节点的父亲和孩子。 Implementation using arrays
+
+  Operations
+   - Top		O(1)
+   - Push		O(ln(n))
+   - Pop		O(ln(n))
+   - Build		O(n)
+  <table>
+    <tr>
+      <td><img src="./imgs/PQ_push_1.png"></td>
+      <td><img src="./imgs/PQ_push_2.png"></td>
+      <td><img src="./imgs/PQ_push_3.png"></td>
+    </tr>
+    <tr>
+      <td><img src="./imgs/PQ_pop_1.png"></td>
+      <td><img src="./imgs/PQ_pop_2.png"></td>
+      <td><img src="./imgs/PQ_pop_3.png"></td>
+    </tr>
+    </table>
+
+  ###### 建堆
+  - Approach 1 : Repeatedly perform push but Complexity : O(nln(n))
+  <table>
+    <tr>
+      <td><img src="./imgs/PQ_Floyd_1.png"></td>
+      <td><img src="./imgs/PQ_Floyd_2.png"></td>
+    </tr>
+    </table>
+    
+#### Heapsort
+  - Time: O(nln(n))
+  - Space: O(1)
+  <table>
+    <tr>
+      <td><img src="./imgs/heapsort_1.png"></td>
+      <td><img src="./imgs/heapsort_2.png"></td>
+      <td><img src="./imgs/heapsort_3.png"></td>
+    </tr>
+    </table>
 
 #### 应用
   - 试探回溯法 : n皇后问题与迷宫寻径问题
