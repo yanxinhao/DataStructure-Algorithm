@@ -1,7 +1,7 @@
 <!--
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-11-11 22:04:11
+ * @LastEditTime: 2020-11-12 01:03:01
  * @LastEditors: yanxinhao
  * @Description: 
 -->
@@ -101,6 +101,9 @@
       - [递归消除：尾递归](#递归消除尾递归)
     - [动态规划](#动态规划)
     - [贪心法](#贪心法)
+  - [其他算法领域](#其他算法领域)
+    - [近似算法](#近似算法)
+    - [随机算法](#随机算法)
   - [算法实战](#算法实战)
     - [排序](#排序)
     - [字符串匹配](#字符串匹配)
@@ -744,6 +747,14 @@ If a task on the critical path is delayed, the entire project will be delayed
 - 最小生成树
 - 单源最短路径的Dijkstra算法
 - 分数背包问题
+
+## 其他算法领域
+### 近似算法
+### 随机算法
+> 如在快排中随机选取pivot
+
+- 蒙特卡洛方法
+
 ## 算法实战
 
 ### 排序
