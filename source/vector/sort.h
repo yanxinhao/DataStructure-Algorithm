@@ -1,7 +1,7 @@
 /*
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-10-13 22:57:40
+ * @LastEditTime: 2020-11-13 20:50:49
  * @LastEditors: yanxinhao
  * @Description: 
  */
@@ -91,12 +91,12 @@ bool Vector<T>::merge(Rank lo, Rank mid, Rank hi)
         B[i] = _elem[lo + i]; //复制前向量
     Rank i = 0, j = 0, k = 0;
 #if 1
-    while (j < lb)
+    while (j < lb) //只要B存在
     {
         if ((k < lc) && (C[k] < B[j]))
             A[i++] = C[k++]; //C存在并且C比B小时
         else
-            A[i++] = B[j++]; //C不存在或者C不必B小时
+            A[i++] = B[j++]; //C不存在或者C不必B小时,还要将剩余的B复制到A中
     }
 
 #else

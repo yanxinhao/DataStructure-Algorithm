@@ -1,7 +1,7 @@
 <!--
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-11-12 01:03:01
+ * @LastEditTime: 2020-11-13 00:18:36
  * @LastEditors: yanxinhao
  * @Description: 
 -->
@@ -91,7 +91,9 @@
   - [算法基础](#算法基础)
     - [算法分析基础](#算法分析基础)
       - [时间复杂度](#时间复杂度)
-        - [问题复杂度等级:](#问题复杂度等级)
+      - [NP完全性:](#np完全性)
+        - [判定问题与优化问题](#判定问题与优化问题)
+        - [归约](#归约)
     - [迭代与递归](#迭代与递归)
       - [迭代算法实例](#迭代算法实例)
       - [减而治之（Decrease and conquer）](#减而治之decrease-and-conquer)
@@ -107,6 +109,12 @@
   - [算法实战](#算法实战)
     - [排序](#排序)
     - [字符串匹配](#字符串匹配)
+      - [暴力匹配算法](#暴力匹配算法)
+      - [KMP算法](#kmp算法)
+        - [改进思路](#改进思路)
+        - [实现](#实现-2)
+        - [算法原理](#算法原理)
+      - [BM算法](#bm算法)
     - [动态规划例子](#动态规划例子)
 
 ## 数据结构
@@ -656,9 +664,6 @@ If a task on the critical path is delayed, the entire project will be delayed
 #### 时间复杂度
 > 复杂度类P即为所有可以由一个确定型图灵机在多项式表达的时间内解决的问题；类NP由所有可以在多项式时间内验证它的解是否正确的决定问题组成，或者等效的说，那些可以在非确定型图灵机上在多项式时间内找出解的问题的集合。很可能，计算理论最大的未解决问题就是关于这两类的关系的：P和NP相等?
 
-##### 问题复杂度等级:
-  - P 问题: 存在多项式算法的问题
-  - NP 问题
 
 - ##### 渐进分析
   <table>
@@ -677,6 +682,11 @@ If a task on the critical path is delayed, the entire project will be delayed
   2. **递归**：递归跟踪 + 递推方程
   3. 猜测 + 验证
 
+#### NP完全性:
+##### 判定问题与优化问题
+##### 归约
+  - P 问题: 存在多项式算法的问题
+  - NP 问题
 
 ### 迭代与递归
 迭代算法一般较为常见，递归算法更为直观。因为递归算法需要大量空间资源，所以经常需要将其改写成迭代算法，这里为体现算法的思想，我主要考虑以递归为出发点的思想来理解算法。
@@ -800,6 +810,47 @@ If a task on the critical path is delayed, the entire project will be delayed
   </table>
 
 ### 字符串匹配
+
+#### 暴力匹配算法
+  <table>
+    <tr>
+  <td><img src="./imgs/string.png"></td>
+  <td><img src="./imgs/string_2.png"></td>
+  </tr></table>
+
+#### KMP算法
+##### 改进思路
+  <table>
+    <tr>
+    <td><img src="./imgs/KMP_1.png"></td>
+    <td><img src="./imgs/KMP_2.png"></td>
+    <td><img src="./imgs/KMP_3.png"></td>
+    </tr>
+  </table>
+
+##### 实现
+  <table>
+    <tr>
+    <td><img src="./imgs/KMP_implement_1.png"></td>
+    <td><img src="./imgs/KMP_implement_2.png"></td>
+    </tr>
+  </table>
+
+##### 算法原理
+  <table>
+    <tr>
+    <td><img src="./imgs/KMP_next_1.png"></td>
+    <td><img src="./imgs/KMP_next_2.png"></td>
+    </tr>
+    <tr>
+    <td><img src="./imgs/KMP_next_3.png"></td>
+    <td><img src="./imgs/KMP_next_4.png"></td>
+    </tr>
+  </table>
+
+#### BM算法
+> 。。。。
+
 | 算法名称 | 问题描述       | 算法描述 | 时间复杂度 |
 | :------: | :------------- | :------- | :--------- |
 |   LCS    | 最长公共子序列 | n        | n          |
