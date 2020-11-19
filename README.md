@@ -1,7 +1,7 @@
 <!--
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-11-18 23:16:29
+ * @LastEditTime: 2020-11-19 11:27:32
  * @LastEditors: yanxinhao
  * @Description: 
 -->
@@ -125,6 +125,7 @@
         - [算法原理](#算法原理)
       - [BM算法](#bm算法)
     - [动态规划例子](#动态规划例子)
+  - [参考资料](#参考资料)
 
 ## 数据结构
 
@@ -920,3 +921,8 @@ If a task on the critical path is delayed, the entire project will be delayed
 - 矩阵链乘法
 - LCS
 - 0-1背包问题
+
+## 参考资料
+>这里包含了我整理时用到的所有课件。
+- [清华大学邓俊晖老师的相关课件](http://howie.DiskStation.me:5000/sharing/lu8ER3hAg)
+- [上海科技大学的算法课课件](http://howie.DiskStation.me:5000/sharing/cJGN2YGFH)
