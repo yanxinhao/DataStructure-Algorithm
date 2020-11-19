@@ -1,7 +1,7 @@
 <!--
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-11-19 11:31:21
+ * @LastEditTime: 2020-11-19 16:33:47
  * @LastEditors: yanxinhao
  * @Description: 
 -->
@@ -20,8 +20,14 @@
     - [栈与队列](#栈与队列)
       - [顺序栈](#顺序栈)
       - [链式栈](#链式栈)
+      - [循环队列](#循环队列)
+      - [链队](#链队)
       - [栈的应用](#栈的应用)
-      - [中缀表达式与后缀表达式求值](#中缀表达式与后缀表达式求值)
+        - [逆序输出 : 进制转换](#逆序输出--进制转换)
+        - [递归嵌套 : 函数调用,括号匹配](#递归嵌套--函数调用括号匹配)
+        - [栈混洗 : 等价于n对括号的匹配](#栈混洗--等价于n对括号的匹配)
+        - [延迟缓冲 : 中缀表达式求值](#延迟缓冲--中缀表达式求值)
+        - [逆波兰表达式（后缀表达式）求值与转换算法](#逆波兰表达式后缀表达式求值与转换算法)
       - [试探回溯法](#试探回溯法)
     - [Priority queue](#priority-queue)
       - [介绍](#介绍-1)
@@ -157,14 +163,73 @@
 
 #### 链式栈
 
-#### 栈的应用
-  - 逆序输出 : 进制转换
-  - 递归嵌套 : 函数调用,括号匹配
-  - 栈混洗 : 等价于n对括号的匹配
-  - 延迟缓冲 : 中缀表达式求值
-  - 逆波兰表达式（后缀表达式）求值与转换算法
+#### 循环队列
+>循环队列必须损失一个存储空间，用来区分队空和队满状态
+>- 队空状态 : qu.rear==qu.front
+>- 队满状态 : (qu.rear+1)%maxSize==qu.front
 
-#### 中缀表达式与后缀表达式求值
+#### 链队
+>链队的特点就是理论上不存在队列满上溢的情况
+>- 队空状态 :lqu->rear==NULL或者lqu->front==NULL
+
+#### 栈的应用
+  <img src="./imgs/stack_application.png">
+  思考：栈结构适用于具有局部相关的数据
+  
+  ##### 逆序输出 : 进制转换
+  <table>
+    <tr>
+    <td><img src="./imgs/conversion_1.png"></td>
+    <td><img src="./imgs/conversion_2.png"></td>
+    </tr>
+  </table>  
+
+  ##### 递归嵌套 : 函数调用,括号匹配
+  <table>
+    <tr>
+    <td><img src="./imgs/parentheses_1.png"></td>
+    <td><img src="./imgs/parentheses_2.png"></td>
+    <td><img src="./imgs/parentheses_3.png"></td>
+    </tr>
+  </table>  
+
+  ##### 栈混洗 : 等价于n对括号的匹配
+  <table>
+    <tr>
+    <td><img src="./imgs/permutation_1.png"></td>
+    <td><img src="./imgs/permutation_2.png"></td>
+    </tr>
+    <tr>
+    <td><img src="./imgs/permutation_3.png"></td>
+    <td><img src="./imgs/permutation_4.png"></td>
+    </tr>
+  </table>  
+
+  ##### 延迟缓冲 : 中缀表达式求值
+  <table>
+    <tr>
+    <td><img src="./imgs/infix_1.png"></td>
+    <td><img src="./imgs/infix_2.png"></td>
+    <td><img src="./imgs/infix_3.png"></td>
+    </tr>
+    <tr>
+    <td><img src="./imgs/infix_4.png"></td>
+    <td><img src="./imgs/infix_5.png"></td>
+    <td><img src="./imgs/infix_6.png"></td>
+    </tr>
+  </table>  
+
+  ##### 逆波兰表达式（后缀表达式）求值与转换算法
+  <table>
+    <tr>
+    <td><img src="./imgs/rpn_1.png"></td>
+    <td><img src="./imgs/rpn_2.png"></td>
+    </tr>
+    <tr>
+    <td><img src="./imgs/rpn_3.png"></td>
+    <td><img src="./imgs/rpn_4.png"></td>
+    </tr>
+  </table>  
 
 #### 试探回溯法
 
