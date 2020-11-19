@@ -1,7 +1,7 @@
 /*
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-10-13 21:30:19
+ * @LastEditTime: 2020-11-19 23:09:23
  * @LastEditors: yanxinhao
  * @Description: 
  */
@@ -51,6 +51,24 @@ list<T>::~list()
 }
 
 template <typename T>
+Posi(T) list<T>::insertB(Posi(T) p, const T &e)
+{
+    _size++;
+    return p->insertAsPred(e);
+};
+
+template <typename T>
+T list<T>::remove(Posi(T) p)
+{
+    p->pred->succ = p->succ;
+    p->succ->pred = p->pred;
+    T temp = p->data;
+    delete p;
+    _size--;
+    return temp;
+};
+
+template <typename T>
 void list<T>::traverse(void (*visit)(T &))
 {
     Posi(T) p = header;
@@ -63,24 +81,25 @@ void list<T>::traverse(void (*visit)(T &))
 
 // sorting
 template <typename T>
-bool list<T>::sort(Posi(T) p, int n, SORTING kind)
+bool list<T>::sort(SORTING kind)
 {
+    Posi(T) p = first();
     bool sorted = false;
     switch (kind)
     {
     case SELECTIONSORT:
     {
-        sorted = selectionsort(p, n);
+        sorted = selectionsort(p, size());
         break;
     }
     case INSERTIONSORT:
     {
-        sorted = insertionsort(p, n);
+        sorted = insertionsort(p, size());
         break;
     }
     case MERGESORT:
     {
-        sorted = mergesort(p, n);
+        sorted = mergesort(p, size());
         break;
     }
     default:
@@ -102,7 +121,40 @@ bool list<T>::insertionsort(Posi(T) p, int n)
 }
 
 template <typename T>
-bool list<T>::mergesort(Posi(T) p, int n)
+Posi(T) list<T>::merge(Posi(T) L, int m, Posi(T) R, int n)
 {
+    Posi(T) pp = L->pred;       //记录[L,R]的前一个节点，方便返回合并后的起始节点
+    while ((0 < n) && (L != R)) //R仍然还有剩余且L与R没有相遇
+    {
+        if (0 < m && (L->data <= R->data))
+        {
+            m--;
+            if (R == (L = L->succ))
+                break;
+        }
+        else //(R->data) < (L->data)或者L已经遍历完现已出界
+        {
+            n--;
+            Posi(T) s = R->succ;
+            insertB(L, remove(R));
+            R = s;
+            // insertB(L, remove((R = R->succ)->pred));//因为有尾节点所以可以这么写
+        }
+    }
+    return pp->succ;
+}
+
+template <typename T>
+bool list<T>::mergesort(Posi(T) & p, int n) //对起始于p的n个元素排序
+{
+    if (n < 2)
+        return true;
+    Posi(T) p_mid = p;
+    int mid = n / 2;
+    for (int i = 0; i < mid; i++)
+        p_mid = p_mid->succ;
+    mergesort(p, mid); //左半部分不包含mid节点，但是其长度为mid
+    mergesort(p_mid, n - mid);
+    p = merge(p, mid, p_mid, n - mid);
     return true;
 }

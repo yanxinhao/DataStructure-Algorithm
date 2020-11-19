@@ -1,7 +1,7 @@
 /*
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-10-13 21:31:03
+ * @LastEditTime: 2020-11-19 22:01:51
  * @LastEditors: yanxinhao
  * @Description: 
  */
@@ -16,6 +16,7 @@ struct ListNode
     Posi(T) pred;
     Posi(T) succ;
     ListNode(){};
+    ~ListNode(){};
     ListNode(T e, Posi(T) p = NULL, Posi(T) s = NULL) : data(e), pred(p), succ(s){};
     Posi(T) insertAsPred(const T &e);
     Posi(T) insertAsSucc(const T &e);
