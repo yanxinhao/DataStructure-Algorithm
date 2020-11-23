@@ -1,7 +1,7 @@
 /*
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-11-19 23:08:38
+ * @LastEditTime: 2020-11-19 23:51:33
  * @LastEditors: yanxinhao
  * @Description: 
  */
@@ -36,6 +36,9 @@ public:
     T remove(Posi(T) p);
     void traverse(void (*visit)(T &));
 
+    //逆置
+    Posi(T) divide_reverse(Posi(T) start);
+    void reverse();
     // 唯一化
 
     // 排序

@@ -1,7 +1,7 @@
 /*
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-11-19 23:09:23
+ * @LastEditTime: 2020-11-20 00:21:54
  * @LastEditors: yanxinhao
  * @Description: 
  */
@@ -77,7 +77,40 @@ void list<T>::traverse(void (*visit)(T &))
         visit(p->data);
     }
     cout << endl;
-}
+};
+
+//单链表逆置
+template <typename T>
+Posi(T) list<T>::divide_reverse(Posi(T) start)
+{
+    if (start == NULL || start->succ == NULL)
+
+        return start;
+    else
+    {
+        Posi(T) newhead = divide_reverse(start->succ);
+        start->succ->succ = start;
+        start->succ = NULL;
+        return newhead;
+    }
+};
+
+// 双链表逆置
+template <typename T>
+void list<T>::reverse()
+{
+    Posi(T) p = header;
+    while (p)
+    {
+        Posi(T) temp = p->succ;
+        p->succ = p->pred;
+        p->pred = temp;
+        p = temp;
+    }
+    Posi(T) t = header;
+    header = trailer;
+    trailer = t;
+};
 
 // sorting
 template <typename T>

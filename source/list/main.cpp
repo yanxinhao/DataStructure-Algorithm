@@ -1,7 +1,7 @@
 /*
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-11-19 22:48:01
+ * @LastEditTime: 2020-11-19 23:59:27
  * @LastEditors: yanxinhao
  * @Description: 
  */
@@ -27,20 +27,24 @@ int main(int argc, char const *argv[])
     cout << "2.唯一化后的列表为 : ";
     cout << endl;
 
+    // 3.逆置
+    cout << "2.逆置后的列表为 : ";
+    l.reverse();
     l.traverse(visit);
-    // 3.选择排序
-    cout << "3.选择排序的结果为 : ";
+    cout << endl;
+    // 4.选择排序
+    cout << "4.选择排序的结果为 : ";
     cout << endl;
 
-    // 4.插入排序
-    cout << "3.插入排序的结果为 : ";
+    // 5.插入排序
+    cout << "5.插入排序的结果为 : ";
     cout << endl;
 
-    // 5.归并排序
-    cout << "3.归并排序的结果为 : ";
-    cout << endl;
+    // 6.归并排序
+    cout << "6.归并排序的结果为 : ";
     l.sort(MERGESORT);
     l.traverse(visit);
+    cout << endl;
 
     return 0;
 }

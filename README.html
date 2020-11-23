@@ -2,7 +2,7 @@
     <html>
     <head>
         <meta charset="UTF-8">
-        <title>数据结构与算法</title>
+        <title>&#x6570;&#x636E;&#x7ED3;&#x6784;&#x4E0E;&#x7B97;&#x6CD5;</title>
         <style>
 /* From extension bierner.markdown-preview-github-styles */
 body {
@@ -875,7 +875,8 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 }
 
 </style>
-        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
 <style>
@@ -889,37 +890,195 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 .task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
 </style>
         
-        
+        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
         
     </head>
-    <body class="vscode-light">
+    <body class="vscode-body vscode-light">
         <!--
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-10-07 14:50:25
+ * @LastEditTime: 2020-11-22 14:59:14
  * @LastEditors: yanxinhao
  * @Description: 
 -->
 <h1 id="数据结构与算法">数据结构与算法</h1>
+<blockquote>
+<p>考研期间做的数据结构与算法的笔记，实现了我们遇到的一些基本数据结构与算法。主要参考清华邓俊晖老师的课件以及一些上科大算法课的课件。希望能给同样需要学习这门课的同学一些参考</p>
+</blockquote>
 <ul>
 <li><a href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95">数据结构与算法</a>
 <ul>
 <li><a href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">数据结构</a>
 <ul>
+<li><a href="#%E4%BB%8B%E7%BB%8D">介绍</a></li>
 <li><a href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80">数据结构基础</a></li>
-<li><a href="#%E5%90%91%E9%87%8F">向量</a></li>
-<li><a href="#%E7%BA%BF%E6%80%A7%E8%A1%A8">线性表</a></li>
-<li><a href="#%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97">栈与队列</a></li>
-<li><a href="#%E5%93%88%E5%B8%8C%E8%A1%A8">哈希表</a></li>
-<li><a href="#%E6%A0%91">树</a>
+<li><a href="#%E7%BA%BF%E6%80%A7%E8%A1%A8">线性表</a>
 <ul>
-<li><a href="#%E6%A0%91%E7%9A%84%E7%AE%97%E6%B3%95%E5%AE%9E%E4%BE%8B">树的算法实例</a></li>
+<li><a href="#%E5%90%91%E9%87%8F">向量：</a></li>
+<li><a href="#%E9%93%BE%E8%A1%A8">链表：</a>
+<ul>
+<li><a href="#%E9%93%BE%E5%BC%8F%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84">链式存储结构：</a></li>
 </ul>
 </li>
-<li><a href="#%E5%A0%86%E4%B8%8E%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97">堆与优先队列</a></li>
+<li><a href="#%E4%B8%80%E4%BA%9B%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E7%AE%97%E6%B3%95%E9%A2%98">一些线性表的算法题</a></li>
+</ul>
+</li>
+<li><a href="#%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97">栈与队列</a>
+<ul>
+<li><a href="#%E9%A1%BA%E5%BA%8F%E6%A0%88">顺序栈</a></li>
+<li><a href="#%E9%93%BE%E5%BC%8F%E6%A0%88">链式栈</a></li>
+<li><a href="#%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97">循环队列</a></li>
+<li><a href="#%E9%93%BE%E9%98%9F">链队</a></li>
+<li><a href="#%E6%A0%88%E7%9A%84%E5%BA%94%E7%94%A8">栈的应用</a>
+<ul>
+<li><a href="#%E9%80%86%E5%BA%8F%E8%BE%93%E5%87%BA--%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2">逆序输出 : 进制转换</a></li>
+<li><a href="#%E9%80%92%E5%BD%92%E5%B5%8C%E5%A5%97--%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E6%8B%AC%E5%8F%B7%E5%8C%B9%E9%85%8D">递归嵌套 : 函数调用,括号匹配</a></li>
+<li><a href="#%E6%A0%88%E6%B7%B7%E6%B4%97--%E7%AD%89%E4%BB%B7%E4%BA%8En%E5%AF%B9%E6%8B%AC%E5%8F%B7%E7%9A%84%E5%8C%B9%E9%85%8D">栈混洗 : 等价于n对括号的匹配</a></li>
+<li><a href="#%E5%BB%B6%E8%BF%9F%E7%BC%93%E5%86%B2--%E4%B8%AD%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%B1%82%E5%80%BC">延迟缓冲 : 中缀表达式求值</a></li>
+<li><a href="#%E9%80%86%E6%B3%A2%E5%85%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%90%8E%E7%BC%80%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%B1%82%E5%80%BC%E4%B8%8E%E8%BD%AC%E6%8D%A2%E7%AE%97%E6%B3%95">逆波兰表达式（后缀表达式）求值与转换算法</a></li>
+</ul>
+</li>
+<li><a href="#%E8%AF%95%E6%8E%A2%E5%9B%9E%E6%BA%AF%E6%B3%95">试探回溯法</a></li>
+</ul>
+</li>
+<li><a href="#priority-queue">Priority queue</a>
+<ul>
+<li><a href="#%E4%BB%8B%E7%BB%8D-1">介绍</a></li>
+<li><a href="#operations">operations</a></li>
+<li><a href="#%E5%AE%9E%E7%8E%B0">实现</a>
+<ul>
+<li><a href="#complete-binary-heap-binary-heap">Complete Binary heap (Binary heap)</a>
+<ul>
+<li><a href="#%E5%BB%BA%E5%A0%86">建堆</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#heapsort">Heapsort</a></li>
+<li><a href="#%E5%BA%94%E7%94%A8">应用</a></li>
+</ul>
+</li>
+<li><a href="#%E6%95%A3%E5%88%97%E8%A1%A8">散列表</a>
+<ul>
+<li><a href="#%E6%95%A3%E5%88%97%E7%9A%84%E5%8E%9F%E7%90%86">散列的原理</a></li>
+<li><a href="#the-hash-process">The hash process</a></li>
+<li><a href="#%E7%9B%B8%E5%85%B3%E6%9C%AF%E8%AF%AD">相关术语</a></li>
+<li><a href="#%E6%95%A3%E5%88%97%E5%87%BD%E6%95%B0">散列函数</a></li>
+<li><a href="#%E5%86%B2%E7%AA%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95">冲突解决方法</a>
+<ul>
+<li><a href="#%E9%93%BE%E6%8E%A5%E6%B3%95">链接法</a></li>
+<li><a href="#%E5%BC%80%E6%94%BE%E5%AF%BB%E5%9D%80%E6%B3%95">开放寻址法</a></li>
+<li><a href="#%E5%86%8D%E6%95%A3%E5%88%97">再散列</a></li>
+</ul>
+</li>
+<li><a href="#%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90">性能分析</a>
+<ul>
+<li><a href="#%E5%B9%B3%E5%9D%87%E6%9F%A5%E6%89%BE%E9%95%BF%E5%BA%A6">平均查找长度</a></li>
+</ul>
+</li>
+<li><a href="#hash%E5%AE%9E%E4%BE%8B%E5%BA%94%E7%94%A8">hash实例应用</a></li>
+</ul>
+</li>
+<li><a href="#%E6%A0%91">树</a>
+<ul>
+<li><a href="#%E6%A0%91%E7%9A%84%E6%9C%AF%E8%AF%AD">树的术语</a></li>
+<li><a href="#%E6%A0%91%E7%9A%84%E6%80%A7%E8%B4%A8">树的性质</a></li>
+<li><a href="#%E6%A0%91%E7%9A%84%E8%A1%A8%E7%A4%BA">树的表示</a></li>
+<li><a href="#%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86">树的遍历</a>
+<ul>
+<li><a href="#%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86">深度优先遍历</a>
+<ul>
+<li><a href="#application">Application</a></li>
+</ul>
+</li>
+<li><a href="#%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86">广度优先遍历</a></li>
+</ul>
+</li>
+<li><a href="#%E4%BA%8C%E5%8F%89%E6%A0%91">二叉树</a>
+<ul>
+<li><a href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%A7%E8%B4%A8">二叉树的一些性质：</a></li>
+<li><a href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E8%A1%A8%E7%A4%BA">二叉树的表示</a></li>
+<li><a href="#%E9%81%8D%E5%8E%86%E4%BA%8C%E5%8F%89%E6%A0%91">遍历二叉树</a></li>
+<li><a href="#%E7%BA%BF%E7%B4%A2%E4%BA%8C%E5%8F%89%E6%A0%91">线索二叉树</a></li>
+<li><a href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%87%8D%E6%9E%84">二叉树的重构</a></li>
+</ul>
+</li>
+<li><a href="#%E6%A0%91%E5%92%8C%E6%A3%AE%E6%9E%97%E4%B8%8E%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2">树和森林与二叉树的相互转换</a></li>
+<li><a href="#%E6%A0%91%E7%9A%84%E7%AE%97%E6%B3%95%E5%AE%9E%E4%BE%8B">树的算法实例</a>
+<ul>
+<li><a href="#%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91%E5%8F%88%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91">二叉排序树（又称二叉搜索树）</a>
+<ul>
+<li><a href="#definition">Definition</a></li>
+<li><a href="#%E7%AE%97%E6%B3%95%E5%92%8C%E5%AE%9E%E7%8E%B0">算法和实现</a></li>
+</ul>
+</li>
+<li><a href="#%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91%E5%8C%85%E5%90%ABavl">平衡二叉树（包含AVL）</a></li>
+<li><a href="#%E5%93%88%E5%A4%AB%E6%9B%BChuffman%E6%A0%91%E5%92%8C%E5%93%88%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81">哈夫曼（Huffman）树和哈夫曼编码</a>
+<ul>
+<li><a href="#%E4%BB%8B%E7%BB%8D-2">介绍</a></li>
+<li><a href="#%E7%AE%97%E6%B3%95">算法</a></li>
+<li><a href="#%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91%E7%9A%84%E7%89%B9%E7%82%B9">哈夫曼树的特点</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E5%B9%B6%E6%9F%A5%E9%9B%86%E7%94%A8%E4%BA%8E%E4%B8%8D%E7%9B%B8%E4%BA%A4%E9%9B%86%E5%90%88%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84">并查集（用于不相交集合的数据结构）</a>
+<ul>
+<li><a href="#%E5%AE%9E%E7%8E%B0-1">实现</a>
+<ul>
+<li><a href="#%E4%B8%8D%E7%9B%B8%E4%BA%A4%E9%9B%86%E5%90%88%E7%9A%84%E9%93%BE%E8%A1%A8%E8%A1%A8%E7%A4%BA">不相交集合的链表表示</a></li>
+<li><a href="#%E4%B8%8D%E7%9B%B8%E4%BA%A4%E9%9B%86%E5%90%88%E6%A3%AE%E6%9E%97">不相交集合森林</a>
+<ul>
+<li><a href="#%E6%94%B9%E8%BF%9B%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4%E7%9A%84%E5%90%AF%E5%8F%91%E5%BC%8F%E7%AD%96%E7%95%A5">改进运行时间的启发式策略</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a href="#%E5%9B%BE">图</a>
 <ul>
-<li><a href="#%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95%E5%AE%9E%E4%BE%8B">图的算法实例</a></li>
+<li><a href="#%E5%9B%BE%E7%9A%84%E6%80%A7%E8%B4%A8">图的性质</a></li>
+<li><a href="#%E7%89%B9%E6%AE%8A%E5%9B%BE%E7%9A%84%E7%B1%BB%E5%9E%8B">特殊图的类型</a></li>
+<li><a href="#%E5%9B%BE%E7%9A%84%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84">图的存储结构</a></li>
+<li><a href="#%E5%9B%BE%E7%9A%84%E7%AE%97%E6%B3%95%E5%AE%9E%E4%BE%8B">图的算法实例</a>
+<ul>
+<li><a href="#%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2%E4%B8%8E%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2">图的遍历：深度优先搜索与广度优先搜索</a></li>
+<li><a href="#%E4%BC%98%E5%85%88%E7%BA%A7%E6%90%9C%E7%B4%A2">优先级搜索</a></li>
+<li><a href="#%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%94%AF%E6%92%91%E6%A0%91-mst">最小生成(支撑)树 (MST)</a>
+<ul>
+<li><a href="#prim">Prim</a></li>
+<li><a href="#kruskal">Kruskal</a></li>
+</ul>
+</li>
+<li><a href="#%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84-spt">最短路径 (SPT)</a>
+<ul>
+<li><a href="#dijkstral">Dijkstral</a></li>
+<li><a href="#floid-warshall">Floid-Warshall</a></li>
+</ul>
+</li>
+<li><a href="#%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8Ftopological-sortaov">拓扑排序（Topological Sort）(AOV)</a>
+<ul>
+<li><a href="#motivation">Motivation</a></li>
+<li><a href="#task">Task</a></li>
+<li><a href="#theorem">Theorem:</a></li>
+<li><a href="#lemmas">lemmas</a></li>
+<li><a href="#algorithm">Algorithm</a></li>
+<li><a href="#analysis">Analysis</a></li>
+</ul>
+</li>
+<li><a href="#%E5%85%B3%E9%94%AE%E8%B7%AF%E5%BE%84aoe">关键路径(AOE)</a>
+<ul>
+<li><a href="#%E7%9B%B8%E5%85%B3%E5%AE%9A%E4%B9%89">相关定义:</a></li>
+<li><a href="#%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B">算法流程:</a></li>
+<li><a href="#%E5%BA%94%E7%94%A8%E5%88%86%E6%9E%90">应用分析</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E5%BA%94%E7%94%A8%E5%AE%9E%E4%BE%8B">应用实例</a></li>
 </ul>
 </li>
 </ul>
@@ -929,77 +1088,867 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 <li><a href="#%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80">算法分析基础</a>
 <ul>
 <li><a href="#%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6">时间复杂度</a></li>
+<li><a href="#np%E5%AE%8C%E5%85%A8%E6%80%A7">NP完全性:</a>
+<ul>
+<li><a href="#%E5%88%A4%E5%AE%9A%E9%97%AE%E9%A2%98%E4%B8%8E%E4%BC%98%E5%8C%96%E9%97%AE%E9%A2%98">判定问题与优化问题</a></li>
+<li><a href="#%E5%BD%92%E7%BA%A6">归约</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#%E8%BF%AD%E4%BB%A3%E4%B8%8E%E9%80%92%E5%BD%92">迭代与递归</a>
 <ul>
-<li><a href="#%E5%87%8F%E8%80%8C%E6%B2%BB%E4%B9%8Bdecrease-and-conquer">减而治之（Decrease and conquer）</a></li>
-<li><a href="#%E5%88%86%E8%80%8C%E6%B2%BB%E4%B9%8Bdivide-and-conquer">分而治之（Divide and conquer）</a></li>
+<li><a href="#%E8%BF%AD%E4%BB%A3%E7%AE%97%E6%B3%95%E5%AE%9E%E4%BE%8B">迭代算法实例</a></li>
+<li><a href="#%E5%87%8F%E8%80%8C%E6%B2%BB%E4%B9%8Bdecrease-and-conquer">减而治之（Decrease and conquer）</a>
+<ul>
+<li><a href="#%E5%87%8F%E8%80%8C%E6%B2%BB%E4%B9%8B%E7%9A%84%E5%AE%9E%E4%BE%8B">减而治之的实例：</a></li>
+</ul>
+</li>
+<li><a href="#%E5%88%86%E8%80%8C%E6%B2%BB%E4%B9%8Bdivide-and-conquer">分而治之（Divide and conquer）</a>
+<ul>
+<li><a href="#%E5%88%86%E8%80%8C%E6%B2%BB%E4%B9%8B%E7%9A%84%E5%AE%9E%E4%BE%8B">分而治之的实例：</a></li>
+</ul>
+</li>
+<li><a href="#%E9%80%92%E5%BD%92%E6%B6%88%E9%99%A4%E5%B0%BE%E9%80%92%E5%BD%92">递归消除：尾递归</a></li>
 </ul>
 </li>
 <li><a href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92">动态规划</a></li>
 <li><a href="#%E8%B4%AA%E5%BF%83%E6%B3%95">贪心法</a></li>
 </ul>
 </li>
+<li><a href="#%E5%85%B6%E4%BB%96%E7%AE%97%E6%B3%95%E9%A2%86%E5%9F%9F">其他算法领域</a>
+<ul>
+<li><a href="#%E8%BF%91%E4%BC%BC%E7%AE%97%E6%B3%95">近似算法</a></li>
+<li><a href="#%E9%9A%8F%E6%9C%BA%E7%AE%97%E6%B3%95">随机算法</a></li>
+</ul>
+</li>
 <li><a href="#%E7%AE%97%E6%B3%95%E5%AE%9E%E6%88%98">算法实战</a>
 <ul>
 <li><a href="#%E6%8E%92%E5%BA%8F">排序</a></li>
-<li><a href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D">字符串匹配</a></li>
+<li><a href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8C%B9%E9%85%8D">字符串匹配</a>
+<ul>
+<li><a href="#%E6%9A%B4%E5%8A%9B%E5%8C%B9%E9%85%8D%E7%AE%97%E6%B3%95">暴力匹配算法</a></li>
+<li><a href="#kmp%E7%AE%97%E6%B3%95">KMP算法</a>
+<ul>
+<li><a href="#%E6%94%B9%E8%BF%9B%E6%80%9D%E8%B7%AF">改进思路</a></li>
+<li><a href="#%E5%AE%9E%E7%8E%B0-2">实现</a></li>
+<li><a href="#%E7%AE%97%E6%B3%95%E5%8E%9F%E7%90%86">算法原理</a></li>
 </ul>
 </li>
+<li><a href="#bm%E7%AE%97%E6%B3%95">BM算法</a></li>
+</ul>
+</li>
+<li><a href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E4%BE%8B%E5%AD%90">动态规划例子</a></li>
+</ul>
+</li>
+<li><a href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">参考资料</a></li>
 </ul>
 </li>
 </ul>
 <h2 id="数据结构">数据结构</h2>
+<h3 id="介绍">介绍</h3>
 <h3 id="数据结构基础">数据结构基础</h3>
-<h3 id="向量">向量</h3>
+<div align="center"> 
+  <img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/Abstract_data.png" width=70% height=70% /> 
+</div>
 <h3 id="线性表">线性表</h3>
-<h3 id="栈与队列">栈与队列</h3>
-<h3 id="哈希表">哈希表</h3>
-<h3 id="树">树</h3>
-<p>遍历二叉树</p>
-<h4 id="树的算法实例">树的算法实例</h4>
+<h4 id="向量">向量：</h4>
+<p>（线性表的顺序存储结构）</p>
+<h4 id="链表">链表：</h4>
+<h5 id="链式存储结构">链式存储结构：</h5>
 <ul>
-<li>
-<h5 id="二叉排序树又称二叉搜索树">二叉排序树（又称二叉搜索树）</h5>
-</li>
-<li>
-<h5 id="平衡二叉树包含avl">平衡二叉树（包含AVL）</h5>
-</li>
-<li>
-<h5 id="哈夫曼huffman树和哈夫曼编码">哈夫曼（Huffman）树和哈夫曼编码</h5>
-</li>
-<li>
-<h5 id="并查集">并查集</h5>
+<li>单链表</li>
+<li>循环链表</li>
+<li>双向链表</li>
+</ul>
+<h4 id="一些线性表的算法题">一些线性表的算法题</h4>
+<ul>
+<li>链表逆置</li>
+<li>倒数第k个节点</li>
+<li>循环移动R位</li>
+<li>两个等长有序列表的中位数</li>
+<li>单链表的公共后缀</li>
+<li>单链表保存绝对值不超过n的整数，删除绝对值相等的节点仅保留第一次出现的节点</li>
+<li>有序链表归并</li>
+</ul>
+<h3 id="栈与队列">栈与队列</h3>
+<h4 id="顺序栈">顺序栈</h4>
+<h4 id="链式栈">链式栈</h4>
+<h4 id="循环队列">循环队列</h4>
+<blockquote>
+<p>循环队列必须损失一个存储空间，用来区分队空和队满状态。一般定义队头指针指向队头元素的前一个位置，队尾指针指向队尾元素</p>
+<ul>
+<li>队空状态 : qu.rear==qu.front</li>
+<li>队满状态 : (qu.rear+1)%maxSize==qu.front</li>
+</ul>
+</blockquote>
+<h4 id="链队">链队</h4>
+<blockquote>
+<p>链队的特点就是理论上不存在队列满上溢的情况。队头指向链头，队尾指向链尾</p>
+<ul>
+<li>队空状态 :lqu-&gt;rear==NULL或者lqu-&gt;front==NULL</li>
+</ul>
+</blockquote>
+<h4 id="栈的应用">栈的应用</h4>
+  <img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/stack_application.png">
+  思考：栈结构适用于具有局部相关的数据
+<h5 id="逆序输出--进制转换">逆序输出 : 进制转换</h5>
+  <table>
+    <tr>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/conversion_1.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/conversion_2.png"></td>
+    </tr>
+  </table>  
+<h5 id="递归嵌套--函数调用括号匹配">递归嵌套 : 函数调用,括号匹配</h5>
+  <table>
+    <tr>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/parentheses_1.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/parentheses_2.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/parentheses_3.png"></td>
+    </tr>
+  </table>  
+<h5 id="栈混洗--等价于n对括号的匹配">栈混洗 : 等价于n对括号的匹配</h5>
+  <table>
+    <tr>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/permutation_1.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/permutation_2.png"></td>
+    </tr>
+    <tr>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/permutation_3.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/permutation_4.png"></td>
+    </tr>
+  </table>  
+<h5 id="延迟缓冲--中缀表达式求值">延迟缓冲 : 中缀表达式求值</h5>
+  <table>
+    <tr>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/infix_1.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/infix_2.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/infix_3.png"></td>
+    </tr>
+    <tr>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/infix_4.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/infix_5.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/infix_6.png"></td>
+    </tr>
+  </table>  
+<h5 id="逆波兰表达式后缀表达式求值与转换算法">逆波兰表达式（后缀表达式）求值与转换算法</h5>
+  <table>
+    <tr>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/rpn_1.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/rpn_2.png"></td>
+    </tr>
+    <tr>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/rpn_3.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/rpn_4.png"></td>
+    </tr>
+  </table>  
+<h4 id="试探回溯法">试探回溯法</h4>
+<h3 id="priority-queue">Priority queue</h3>
+<blockquote>
+<p>pop the object with the highest priority</p>
+</blockquote>
+<h4 id="介绍-1">介绍</h4>
+  <table>
+  <tr>
+  <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/PQ.png"></td>
+  <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/PQ_2.png"></td>
+  </tr></table>
+<h4 id="operations">operations</h4>
+<ul>
+<li>Top(或者称为getMax)</li>
+<li>Pop(或者称为delMax)</li>
+<li>Push(或者称为insert)</li>
+</ul>
+<h4 id="实现">实现</h4>
+<blockquote>
+<p>容易想到的可选数据结构有向量，列表，多个列表，或者基于BBST。但是向量和列表对于有些操作的时间复杂度为O(n)，而BBST的功能远远超出优先队列的要求，并不需要维护所有元素之间的全序关系。应该有结构更为简单，维护成本更低的方法，使得插入和删除的为O(logn)，getmax为O(1)。这就是完全二叉堆！！！</p>
+</blockquote>
+<h5 id="complete-binary-heap-binary-heap">Complete Binary heap (Binary heap)</h5>
+<blockquote>
+<p>这里用向量来存储完全二叉堆,会用到完全二叉树的性质来访问节点的父亲和孩子。 Implementation using arrays</p>
+</blockquote>
+<p>Operations</p>
+<ul>
+<li>Top		O(1)</li>
+<li>Push		O(ln(n))</li>
+<li>Pop		O(ln(n))</li>
+<li>Build		O(n)</li>
+</ul>
+  <table>
+    <tr>
+      <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/PQ_push_1.png"></td>
+      <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/PQ_push_2.png"></td>
+      <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/PQ_push_3.png"></td>
+    </tr>
+    <tr>
+      <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/PQ_pop_1.png"></td>
+      <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/PQ_pop_2.png"></td>
+      <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/PQ_pop_3.png"></td>
+    </tr>
+    </table>
+<h6 id="建堆">建堆</h6>
+<ul>
+<li>Approach 1 : Repeatedly perform push but Complexity : O(nln(n))</li>
+</ul>
+  <table>
+    <tr>
+      <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/PQ_Floyd_1.png"></td>
+      <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/PQ_Floyd_2.png"></td>
+    </tr>
+    </table>
+<h4 id="heapsort">Heapsort</h4>
+<ul>
+<li>Time: O(nln(n))</li>
+<li>Space: O(1)</li>
+</ul>
+  <table>
+    <tr>
+      <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/heapsort_1.png"></td>
+      <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/heapsort_2.png"></td>
+      <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/heapsort_3.png"></td>
+    </tr>
+    </table>
+<h4 id="应用">应用</h4>
+<ul>
+<li>试探回溯法 : n皇后问题与迷宫寻径问题</li>
+</ul>
+<h3 id="散列表">散列表</h3>
+<blockquote>
+<p>散列表是普通数组概念的推广，当关键字的全域比较小时，直接寻址是简单而有效的，通常用数组（或者称为直接寻址表）。但是当全域很大时，实际存储的关键字集合K相对于全域U可能很小，用数组就会造成大量的空间浪费，空间利用率低。</p>
+</blockquote>
+<p>这里先简单介绍直接寻址表和散列表:</p>
+<ul>
+<li>直接寻址表（数组）: 每个位置（其实就是rank）对应着一个关键字，里面的值指向对应关键字的元素</li>
+<li>散列表 : 关键字k的元素被存储在位置h(k)的槽（桶）中，里面的值指向对应关键字k的元素</li>
+</ul>
+<h4 id="散列的原理">散列的原理</h4>
+  <img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/hash.png">
+<h4 id="the-hash-process">The hash process</h4>
+  <img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/hash_process.png">
+<h4 id="相关术语">相关术语</h4>
+<ul>
+<li>装填因子:有两种不同的定义
+<ul>
+<li>算法导论定义:关键字个数/表长度，所以可以大于一</li>
+<li>清华大学数据结构严慧敏和邓俊晖的书中定义:表中填入的记录数/哈希表的长度，所以不能大于一</li>
+</ul>
 </li>
 </ul>
-<h3 id="堆与优先队列">堆与优先队列</h3>
-<h3 id="图">图</h3>
-<h4 id="图的算法实例">图的算法实例</h4>
+<h4 id="散列函数">散列函数</h4>
+<p>关于下面第四项均匀性，做出如下解释:<br>
+If two objects are randomly chosen, there should be only a one-in-M chance that they have the same value from 0 to M – 1
+(相当于任意随机选一个关键字，他等可能的落入对应的桶中，与确定性不同的是确定性是关键字已经给定)
+<img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/hash_function.png"></p>
+<h4 id="冲突解决方法">冲突解决方法</h4>
+<h5 id="链接法">链接法</h5>
+<h5 id="开放寻址法">开放寻址法</h5>
+<ul>
+<li>线性探测:容易产生二次聚集</li>
+<li>平方探测</li>
+<li>双向平方探测</li>
+<li>伪随机探测</li>
+</ul>
+<h5 id="再散列">再散列</h5>
+<h4 id="性能分析">性能分析</h4>
+<h5 id="平均查找长度">平均查找长度</h5>
+<p>查找成功时:</p>
+<p>查找不成功时</p>
+<h4 id="hash实例应用">hash实例应用</h4>
+<ul>
+<li>桶排序</li>
+</ul>
+<h3 id="树">树</h3>
+<h4 id="树的术语">树的术语</h4>
+<ul>
+<li>节点的深度 :从根到该节点路径上的路径长度</li>
+<li>节点的高度 :从该节点往下的最长路径的路径长度</li>
+<li>树的高度 : 等于根节点的高度</li>
+</ul>
+<p>空树的高度为-1，只有一个节点的树高度为0。</p>
+<h4 id="树的性质">树的性质</h4>
+<blockquote>
+<p>对于度为m的树，叶节点的个数为n0 = 1+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>m</mi></msubsup><mrow><mo stretchy="false">(</mo><mi>i</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo><mi>n</mi><mi>i</mi></mrow></mrow><annotation encoding="application/x-tex">\sum_{i=1}^m{(i-1)ni}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.104002em;vertical-align:-0.29971000000000003em;"></span><span class="mop"><span class="mop op-symbol small-op" style="position:relative;top:-0.0000050000000000050004em;">∑</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.804292em;"><span style="top:-2.40029em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.2029em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">m</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.29971000000000003em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mopen">(</span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord">1</span><span class="mclose">)</span><span class="mord mathdefault">n</span><span class="mord mathdefault">i</span></span></span></span></span></p>
+</blockquote>
+<h4 id="树的表示">树的表示</h4>
+<ul>
+<li>父节点表示 : 对孩子节点和兄弟节点的访问不方便，均要遍历整个树</li>
+<li>孩子节点表示 : 找父节点和兄弟节点很慢</li>
+<li>父节点+孩子节点表示 : 这里的孩子节点是第一个孩子节点的指针,当前节点的所有孩子节点连成一个链表。</li>
+<li>长子+兄弟表示 : 若在设parent的引用, 访问parent也仅需要O(1)时间</li>
+</ul>
+<h4 id="树的遍历">树的遍历</h4>
+<h5 id="深度优先遍历">深度优先遍历</h5>
+<p>A backtracking algorithm for stepping through a tree（回溯法）:</p>
+<ul>
+<li>At any node, proceed to the first child that has not yet been visited</li>
+<li>If we have visited all the children (of which a leaf node is a special case), backtrack to the parent and repeat this process</li>
+</ul>
+<p>Each node is visited multiple times in such a scheme（节点会被多次访问）</p>
+<ul>
+<li>First time: before any children</li>
+<li>Last time: after all children, before backtracking</li>
+</ul>
+<h6 id="application">Application</h6>
+<p>Displaying information about directory structures and the files contained within</p>
+<ul>
+<li>Printing a hierarchical structure</li>
+<li>Determining memory usage</li>
+</ul>
+<h5 id="广度优先遍历">广度优先遍历</h5>
+<p>The easiest implementation is to use a queue:</p>
+<ol>
+<li>Place the root node into a queue</li>
+<li>While the queue is not empty:
+<ul>
+<li>Pop the node at the front of the queue</li>
+<li>Push all of its children into the queue</li>
+</ul>
+</li>
+</ol>
+<h4 id="二叉树">二叉树</h4>
+<ul>
+<li>二叉树:节点度数不超过2的树,同一节点的孩子和子树，均以左右区分(隐含有序)</li>
+<li>满二叉树:所有分支节点都有左孩子和右孩子,并且叶子节点都集中在二叉树的最下面一层</li>
+<li>完全二叉树:各节点的编号与对应的深度为k的满二叉树相同</li>
+</ul>
+<h5 id="二叉树的一些性质">二叉树的一些性质：</h5>
+<blockquote>
+<p>设度数为0,1,2的节点各有n0,n1,n2个,则：</p>
+</blockquote>
+<ol>
+<li>节点数 : n = n0+n1+n2</li>
+<li>边数 : e = n-1 = n1+2*n2 (节点数减一 or 所有的出度数)</li>
+<li>叶节点数 : n0 = n2+1 (由上面2的等式后两项相等可以推出)</li>
+</ol>
+<blockquote>
+<p>高度(或者深度)为k的二叉树,则:</p>
+</blockquote>
+<ol>
+<li>整个树最多可能有的节点数 : 2^k - 1 （等比数列求和）</li>
+<li>二叉树的第i层最多可能的节点数 : 2^(i-1)</li>
+</ol>
+<blockquote>
+<p>有n个节点的完全二叉树,若i是某个节点a的编号(编号的范围为1~n)</p>
+</blockquote>
+<ol>
+<li>若i!=1,则a的双亲节点编号为 : ⌊i/2⌋</li>
+<li>若2i&lt;=n,a的左孩子编号为 : 2i</li>
+<li>若2i&gt;n : a无左孩子</li>
+<li>若2i+1&lt;=n,a的右孩子的编号为 : 2i+1</li>
+<li>若2i+1&gt;n : a无右孩子</li>
+<li>完全二叉树的高度为 : ⌊logn⌋+1 或者⌈log(n+1)⌉（底数为二）(有2^(h-1) &lt;= n &lt; 2^h推得)</li>
+</ol>
+<h5 id="二叉树的表示">二叉树的表示</h5>
+<ul>
+<li>顺序存储结构 : 用一维数组，最适合完全二叉树</li>
+<li>链式存储结构 : 每个节点包含一个数据域和指向两个孩子的指针域</li>
+</ul>
+<h5 id="遍历二叉树">遍历二叉树</h5>
+<ul>
+<li>先序遍历</li>
+<li>中序遍历</li>
+<li>后序遍历 : 表达式树</li>
+<li>层次遍历</li>
+</ul>
+<blockquote>
+<p>由先序或者后序任一种遍历加上中序遍历可以唯一确定一颗二叉树。同时，由中序遍历和层次遍历也能唯一确定一颗二叉树。原理为:</p>
+<ul>
+<li>先序（后序）遍历确定根</li>
+<li>中序遍历确定左右子树</li>
+</ul>
+</blockquote>
+<p>关于单独给出先序遍历的序列，可以确定的不同形态二叉树的个数为Catalan数。这个用分治法的思路很好证明（即用递推公式）。</p>
+<blockquote>
+<p>Catalan数：1/(n+1) * C(n, 2n)</p>
+</blockquote>
+<h5 id="线索二叉树">线索二叉树</h5>
+<ul>
+<li>前序线索化</li>
+<li>中序线索化</li>
+<li>后序线索化</li>
+</ul>
+<h5 id="二叉树的重构">二叉树的重构</h5>
+<h4 id="树和森林与二叉树的相互转换">树和森林与二叉树的相互转换</h4>
+<blockquote>
+<p>树在转化成二叉树时，非终端节点的孩子中的最右子节点的右指针为空，对应二叉树中根节点的右孩子指针也为空。也就有 所有空右指针个数=非终端节点数+1（根除了其最右孩子的右指针为空外，自己的也为空）；
+每一个非终端节点都对应了其相应二叉树中一个右指针为空的节点减一。</p>
+</blockquote>
+<ul>
+<li>树的先根遍历序列等于该树对应的二叉树的先序序列</li>
+<li>树的后根遍历序列等于该树对应的二叉树的中序序列</li>
+</ul>
+<h4 id="树的算法实例">树的算法实例</h4>
+<h5 id="二叉排序树又称二叉搜索树">二叉排序树（又称二叉搜索树）</h5>
+<h6 id="definition">Definition</h6>
+<p>In a binary search tree, we require that</p>
 <ul>
 <li>
+<p>all objects in the left sub-tree to be less than the object stored in the root node</p>
+</li>
+<li>
+<p>all objects in the right sub-tree to be greater than the object in the root object</p>
+</li>
+<li>
+<p>the two sub-trees are themselves binary search trees</p>
+<h6 id="算法和实现">算法和实现</h6>
+<ul>
+<li>查找: 减而治之,时间复杂度为O(h),h为BST高度</li>
+<li>插入:
+<ul>
+<li>If we find the object already in the tree, we will return
+<ul>
+<li>The object is already in the binary search tree (no duplicates)</li>
+</ul>
+</li>
+<li>Otherwise, we will arrive at an empty node</li>
+<li>The object will be inserted into that location</li>
+<li>The run time is O(h)</li>
+</ul>
+</li>
+<li>删除: 存在两种如下情况<table>
+<tr>
+<td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/BST_1.png"></td>
+<td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/BST_1_1.png"></td>
+</tr>
+  <tr>
+<td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/BST_2.png"></td>
+<td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/BST_2_2.png"></td>
+</tr></table>
+</li>
+</ul>
+<h5 id="平衡二叉树包含avl">平衡二叉树（包含AVL）</h5>
+<h6 id="介绍-2">介绍</h6>
+<p>A binary search tree is said to be AVL balanced if:</p>
+<ul>
+<li>The difference in the heights between the left and right sub-trees is at most 1, and</li>
+<li>Both sub-trees are themselves AVL trees</li>
+</ul>
+<h6 id="avl树节点个数的上下界">AVL树节点个数的上下界</h6>
+<ul>
+<li>upper bound :an AVL tree of height h is a perfect binary tree with 2^(h+1)–1 nodes</li>
+<li>lower bound :  <table>
+    <tr>
+  <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/AVL_height_1.png"></td>
+  <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/AVL_height_2.png"></td>
+  <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/AVL_height_3.png"></td>
+  </tr></table>
+</li>
+</ul>
+<h6 id="avl树的插入删除">AVL树的插入删除</h6>
+<p>等价BBST与旋转调整
+<table>
+<tr>
+<td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/BBST_1.png"></td>
+<td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/BBST_2.png"></td>
+<td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/BBST_3.png"></td>
+</tr></table></p>
+<blockquote>
+<p>对于失衡情况，从最深的那个失衡节点开始考虑推导最方便，下面的插入删除的失衡情况的复盘就是这么得来的</p>
+</blockquote>
+<ul>
+<li>插入:插入导致失衡,肯定是将节点插到最深的失衡节点的最长的分支上  <table>
+  <tr>
+  <td>zag和zig</td>
+  <td>zigzag和zagzig</td>
+  <td>实现</td>
+  </tr>
+    <tr>
+  <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/AVL_insert_1.png"></td>
+  <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/AVL_insert_2.png"></td>
+  <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/AVL_insert_3.png"></td>
+  </tr></table>
+</li>
+<li>删除:删除导致失衡,肯定是将失衡节点较短的左分支或者右分枝上的节点删除  <table>
+    <tr>
+  <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/AVL_remove_1.png"></td>
+  <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/AVL_remove_2.png"></td>
+  <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/AVL_remove_3.png"></td>
+  </tr></table>
+</li>
+<li>旋转:旋转操作的实现是3+4算法，旋转只是为了帮助理解  <table>
+  <tr>
+  <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/AVL_rotation_1.png"></td>
+  <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/AVL_rotation_2.png"></td>
+  <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/AVL_rotation_3.png"></td>
+  </tr></table>
+</li>
+</ul>
+<h5 id="哈夫曼huffman树和哈夫曼编码">哈夫曼（Huffman）树和哈夫曼编码</h5>
+<h6 id="介绍-3">介绍</h6>
+<blockquote>
+<p>哈夫曼树又叫做最优二叉树。他的特点是带权路径最短。</p>
+</blockquote>
+<h6 id="算法">算法</h6>
+<blockquote>
+<p>前缀码:任一字符的编码都不是另一字符编码串的前缀;前缀码与树的联系:根通往任一叶子节点的路径都不可能是通往其余叶子节点的子路径</p>
+</blockquote>
+<blockquote>
+<p>哈夫曼编码算法流程:</p>
+</blockquote>
+<ol>
+<li>Scan text to be compressed and count frequencies of all characters.</li>
+<li>Prioritize characters based on their frequencies in text.</li>
+<li>Build Huffman code tree based on prioritized list.</li>
+<li>Perform a traversal of tree to determine all code words.</li>
+<li>Encode the text using the Huffman codes.</li>
+</ol>
+<blockquote>
+<p>哈夫曼树的构造算法:</p>
+</blockquote>
+<p>While priority queue contains two or more nodes</p>
+<ol>
+<li>Create new node</li>
+<li>Dequeue node and make it left subtree</li>
+<li>Dequeue next node and make it right subtree</li>
+<li>Frequency of new node equals sum of frequency of left and right children</li>
+<li>Enqueue new node back into queue</li>
+</ol>
+<blockquote>
+<p>通过遍历哈夫曼树得到哈夫曼编码</p>
+</blockquote>
+<p>Perform a traversal of the tree to obtain new code words</p>
+<ol>
+<li>Going left is a 0</li>
+<li>Going right is a 1</li>
+<li>Code word is only completed when a leaf node is reached</li>
+</ol>
+<h6 id="哈夫曼树的特点">哈夫曼树的特点</h6>
+<ul>
+<li>权值越大的节点离根节点越近</li>
+<li>树中没有度为1的节点。这类树叫做正则（严格）二叉树</li>
+<li>树的带权路径长度最短</li>
+</ul>
+</li>
+</ul>
+<h3 id="并查集用于不相交集合的数据结构">并查集（用于不相交集合的数据结构）</h3>
+<h4 id="实现-1">实现</h4>
+<h5 id="不相交集合的链表表示">不相交集合的链表表示</h5>
+<h5 id="不相交集合森林">不相交集合森林</h5>
+<h6 id="改进运行时间的启发式策略">改进运行时间的启发式策略</h6>
+<ul>
+<li>
+<p>按秩合并 : 对于每个节点，维护一个秩，他表示该节点的高度的一个上界。在使用按秩合并策略的UNION操作中，我们可以让具有较小秩的根指向具有较大秩的根。<br>
+特点:</p>
+<ul>
+<li>point the root of the shorter tree to the root of the taller tree</li>
+<li>The height of the taller will increase if and only if the trees are equal in height</li>
+</ul>
+</li>
+<li>
+<p>路径压缩 : 在FIND-SET操作中，使查找路径中的每个节点指向根。由于rank表示的是高度的上界，则此操作不改变节点rank。
+<img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/path_compression.png">
+带路径压缩的按秩合并的分析:</p>
+</li>
+</ul>
+<h3 id="图">图</h3>
+<h4 id="图的性质">图的性质</h4>
+<ul>
+<li>支撑树(spanning tree)</li>
+<li>最小支撑树(MST)</li>
+</ul>
+<h4 id="特殊图的类型">特殊图的类型</h4>
+<ul>
+<li>有向无环图(DAG)</li>
+</ul>
+<h4 id="图的存储结构">图的存储结构</h4>
+<ul>
+<li>邻接矩阵 :
+<ul>
+<li>空间复杂度 O(n^2)空间,与边数无关，适合稠密图</li>
+</ul>
+</li>
+<li>邻接表</li>
+<li>十字链表 : 有向图</li>
+<li>邻接多重表 : 无向图</li>
+</ul>
+<h4 id="图的算法实例">图的算法实例</h4>
 <h5 id="图的遍历深度优先搜索与广度优先搜索">图的遍历：深度优先搜索与广度优先搜索</h5>
+<blockquote>
+<p>时间复杂度:<br>
+深搜与广搜的时间复杂度相同，只是访问顶点的顺序不同。而且图的遍历的过程实际上是对每个顶点查找其邻接顶点的过程。其时间复杂度与采用的存储结构有关。当用邻接矩阵时的时间复杂度为O(n^2)，用邻接表时为O(n+e)。</p>
+</blockquote>
+<blockquote>
+<p>DFS生成的生成树比BFS的高度相等或者更高。（可以想象BFS生成树为原图的一个子图，在其上面加边用DFS得到的生成树只可能更高）。</p>
+</blockquote>
+<p>边分类:</p>
+  <table>
+    <tr>
+  <td>BFS : 队列</td>
+  <td>DFS : 栈</td>
+  </tr>
+    <tr>
+  <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/bfs_edge.png"></td>
+  <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/dfs_edge.png"></td>
+  </tr></table>
+<h5 id="优先级搜索">优先级搜索</h5>
+  <table>
+      <tr>
+      <td>通用算法</td>
+      <td>统一框架</td>
+      <td>统一框架</td>
+    </tr>
+    <tr>
+      <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/pfs.png"></td>
+      <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/pfs_1.png"></td>
+      <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/pfs_2.png"></td>
+    </tr>
+  </table>
+<h5 id="最小生成支撑树-mst">最小生成(支撑)树 (MST)</h5>
+<blockquote>
+<p>属于贪心算法,MST是图的极小联通子图。</p>
+</blockquote>
+<h6 id="prim">Prim</h6>
+<blockquote>
+<p>prim 算法只与顶点数有关系与边数没有关系，适用于稠密图</p>
+</blockquote>
+<p>利用优先级排序的模版
+<table>
+<tr>
+<td>极短跨边</td>
+<td>极长环边</td>
+</tr>
+<tr>
+<td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/prim_1.png"></td>
+<td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/prim_2.png"></td>
+</tr>
+<tr>
+<td>算法</td>
+<td>实现</td>
+</tr>
+<tr>
+<td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/prim.png"></td>
+<td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/prim_3.png"></td>
+</tr></p>
+  </table>
+<h6 id="kruskal">Kruskal</h6>
+<blockquote>
+<p>主要由最短边的选取算法上，所以该复杂度复杂度与顶点数无关，由边数决定。适用于稀疏图</p>
+</blockquote>
+  <table>
+      <tr>
+      <td>策略</td>
+      <td>算法框架</td>
+    </tr>
+    <tr>
+      <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/kruskal_1.png"></td>
+      <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/kruskal_2.png"></td>
+    </tr>
+    <tr>
+      <td>正确性</td>
+      <td>复杂度</td>
+    </tr>
+    <tr>
+      <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/kruskal_3.png"></td>
+      <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/kruskal_4.png"></td>
+    </tr>
+  </table>
+<h5 id="最短路径-spt">最短路径 (SPT)</h5>
+<p>注意 MST!=SPT 两者的优化方向并不一样
+（形象的理解就是生成MST的过程是全面扩张，生成SPT的过程是以某个点为中心按路径长度发散）</p>
+<h6 id="dijkstral">Dijkstral</h6>
+<blockquote>
+<p>属于贪心算法
+按路径长度递增来产生一个点到其他所有点的最短路径。（从初始点按路径长度扩张）</p>
+</blockquote>
+<pre><code>核心: 
+  1. 被选中的节点全部是已经确认了到s的最短路径的（途径的节点全部在已被选中的节点集中）--这一点很重要
+  2. 选取新的节点时，被选的新节点不可能经过其他未被选节点到s的路径最短。（新节点到s的路径只经过被选中的节点）
+  3. 新的节点加入时，只影响其邻居节点到s的最短路径
+</code></pre>
+<p>应用条件：边不能有负数（由其贪心的本质决定，认为其他任何选择都会付出更大的代价）</p>
+  <table>
+    <tr>
+    <td>最短路径性质</td>
+    <td>SPT与MST的优化方向不一样</td>
+  </tr>
+  <tr>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/SPT_1.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/SPT_2.png"></td>
+  </tr>
+  <tr>
+    <td>算法</td>
+    <td>实现</td>
+  </tr>
+  <tr>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/Dijkstra.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/Dijkstra_implement.png"></td>
+  </tr>
+  </table>
+<h6 id="floid-warshall">Floid-Warshall</h6>
+<blockquote>
+<p>Floyd算法是一个经典的动态规划算法。</p>
+</blockquote>
+<p>应用条件：可以有负边但是不能有负权回路（如果有负权环，那么最短路将无意义，因为我们可以不断走负权环，这样最短路径值便成为了负无穷。）<br>
+参考链接：<a href="https://houbb.github.io/2020/01/23/data-struct-learn-03-graph-floyd">https://houbb.github.io/2020/01/23/data-struct-learn-03-graph-floyd</a></p>
+  <table>
+    <tr>
+    <td>最优解的结构特征</td>
+    <td>递归实现</td>
+  </tr>
+  <tr>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/floyd_1.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/floyd_2.png"></td>
+  </tr>
+  <tr>
+    <td>动态规划</td>
+    <td>实现</td>
+  </tr>
+  <tr>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/floyd_3.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/floyd_4.png"></td>
+  </tr>
+  </table>
+<blockquote>
+<p>所有点对之间的最短距离,应用:搜索图的中心点</p>
+</blockquote>
+<h5 id="拓扑排序topological-sortaov">拓扑排序（Topological Sort）(AOV)</h5>
+<blockquote>
+<p>有向无环图可以拓扑排序，其邻接矩阵没有明显特征，但是如为三角矩阵，则一定可以拓扑排序</p>
+</blockquote>
+<h6 id="motivation">Motivation</h6>
+<p>Dependency between tasks: one task is required to be done before the other task can be done
+Dependencies form a partial ordering</p>
+<ul>
+<li>A partial ordering on a finite number of objects can be represented as a directed acyclic graph (DAG)</li>
+</ul>
+<h6 id="task">Task</h6>
+<p>Given a set of tasks with dependencies, is there an order in which we can complete the tasks?</p>
+<h6 id="theorem">Theorem:</h6>
+<pre><code>A graph is a DAG if and only if it has a topological sorting
+Proof strategy:
+Such a statement is of the form a ↔ b and this is equivalent to:
+a → b and b → a
+</code></pre>
+<h6 id="lemmas">lemmas</h6>
+<p>First, we need a two lemmas:</p>
+<ul>
+<li>A DAG always has at least one vertex with in-degree zero
+<ul>
+<li>That is, it has at least one source</li>
+</ul>
 </li>
-<li>
-<h5 id="最小生成树">最小生成树</h5>
+<li>Any sub-graph of a DAG is a DAG</li>
+</ul>
+<h6 id="algorithm">Algorithm</h6>
+<p>Idea:</p>
+<ul>
+<li>Given a DAG V, iterate:
+<ul>
+<li>Find a vertex v in V with in-degree zero</li>
+<li>Let v be the next vertex in the topological sort</li>
+<li>Continue iterating with the vertex-induced sub-graph V \ {v}</li>
+</ul>
 </li>
-<li>
-<h5 id="最短路径">最短路径</h5>
+</ul>
+<p>implement:</p>
+<ul>
+<li>Use a queue (or other container) to temporarily store those vertices with in-degree zero</li>
+<li>Each time the in-degree of a vertex is decremented tozero, push it onto the queue</li>
+</ul>
+<h6 id="analysis">Analysis</h6>
+<p>Therefore, the run time of a topological sort is:∂</p>
+<ul>
+<li>Q(|V| + |E|)  if we use an adjacency list</li>
+<li>Q(|V|^2) if we use an adjacency matrix</li>
+</ul>
+<p>and the memory requirements is Q(|V|)</p>
+<h5 id="关键路径aoe">关键路径(AOE)</h5>
+<blockquote>
+<p>The critical time of each task is the earliest time that it could be completed after the start of execution <br>
+The critical path is the sequence of tasks determining the minimum time needed to complete the project: <br>
+If a task on the critical path is delayed, the entire project will be delayed</p>
+</blockquote>
+<h6 id="相关定义">相关定义:</h6>
+<p>（事件为顶点,活动为边）</p>
+<ul>
+<li>事件最早开始时间:</li>
+<li>事件最迟必须开始时间:</li>
+<li>活动最早开始时间:</li>
+<li>活动最迟必须开始时间:</li>
+<li>关键活动: 最早开始时间等于最迟必须开始时间的活动</li>
+</ul>
+<h6 id="算法流程">算法流程:</h6>
+<ol>
+<li>进行拓扑排序，求出每个事件的最早发生时间。(求max)</li>
+<li>令最后一个结束事件的最迟发生时间等于其最早开始时间，然后进行逆拓扑排序，计算每个事件的最迟必须开始时间.(求min)</li>
+<li>求出各活动的最早和最迟发生时间()
+<blockquote>
+<p>事件的最早开始时间 = 该事件发出的活动的最早开始时间 <br>
+事件的最迟发生时间-以它为结束点的活动的持续时间 = 该活动的最迟发生时间<br>
+若某条弧的最早和最迟发生时间相等,则这条弧为关键活动</p>
+</blockquote>
 </li>
-<li>
-<h5 id="关键路径">关键路径</h5>
-</li>
-<li>
-<h5 id="拓扑排序">拓扑排序</h5>
-</li>
+</ol>
+<h6 id="应用分析">应用分析</h6>
+<p>若某些活动不为关键路径共享，减少他并不能影响其他关键路径，总时间仍然不变。</p>
+<h4 id="应用实例">应用实例</h4>
+<ul>
+<li>检测回路：深度优先搜索，拓扑排序</li>
 </ul>
 <h2 id="算法基础">算法基础</h2>
 <h3 id="算法分析基础">算法分析基础</h3>
 <h4 id="时间复杂度">时间复杂度</h4>
+<blockquote>
+<p>复杂度类P即为所有可以由一个确定型图灵机在多项式表达的时间内解决的问题；类NP由所有可以在多项式时间内验证它的解是否正确的决定问题组成，或者等效的说，那些可以在非确定型图灵机上在多项式时间内找出解的问题的集合。很可能，计算理论最大的未解决问题就是关于这两类的关系的：P和NP相等?</p>
+</blockquote>
+<ul>
+<li>
+<h5 id="渐进分析">渐进分析</h5>
+<table>
+<tr>
+<td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/big_O.png"></td>
+<td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/symbols.png"></td>
+</tr></table>
+</li>
+<li>
+<h5 id="复杂度层次">复杂度层次</h5>
+<table><tr>
+<td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/growth_speed.png"></td>
+<td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/complexity.png"></td>
+</tr></table>
+</li>
+<li>
+<h5 id="复杂度分析的主要方法">复杂度分析的主要方法：</h5>
+<ol>
+<li><strong>迭代</strong>：级数求和</li>
+<li><strong>递归</strong>：递归跟踪 + 递推方程</li>
+<li>猜测 + 验证</li>
+</ol>
+</li>
+</ul>
+<h4 id="np完全性">NP完全性:</h4>
+<h5 id="判定问题与优化问题">判定问题与优化问题</h5>
+<h5 id="归约">归约</h5>
+<ul>
+<li>P 问题: 存在多项式算法的问题</li>
+<li>NP 问题</li>
+</ul>
 <h3 id="迭代与递归">迭代与递归</h3>
+<p>迭代算法一般较为常见，递归算法更为直观。因为递归算法需要大量空间资源，所以经常需要将其改写成迭代算法，这里为体现算法的思想，我主要考虑以递归为出发点的思想来理解算法。</p>
+<h4 id="迭代算法实例">迭代算法实例</h4>
+<ul>
+<li>数组求和</li>
+<li>数组最大值</li>
+</ul>
+<p>以下为递归算法的两种主要思想：</p>
 <h4 id="减而治之decrease-and-conquer">减而治之（Decrease and conquer）</h4>
+<div align="center"> 
+  <img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/Decrease_and_conquer.png" width=70% height=70% /> 
+</div>
+<h5 id="减而治之的实例">减而治之的实例：</h5>
+<ul>
+<li>数组求和：线性递归</li>
+<li>数组倒置</li>
+</ul>
 <h4 id="分而治之divide-and-conquer">分而治之（Divide and conquer）</h4>
-<h3 id="动态规划">动态规划</h3>
+<div align="center"> 
+  <img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/Divide_and_conquer.png" width=70% height=70% /> 
+</div>
+<h5 id="分而治之的实例">分而治之的实例：</h5>
+<ul>
+<li>数组求和：二分递归</li>
+<li>数组的最大值</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -1014,6 +1963,55 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 <td style="text-align:center">Max2</td>
 <td style="text-align:left">从数组区间A[lo,hi)中找出最大的两个整数A[x1]和A[x2]</td>
 </tr>
+</tbody>
+</table>
+<h4 id="递归消除尾递归">递归消除：尾递归</h4>
+<div align="center"> 
+  <img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/tail_recursive.png" width=70% height=70% /> 
+</div>
+<h3 id="动态规划">动态规划</h3>
+<blockquote>
+<p>朴素的递归算法(减而治之或分而治之)之所以效率低，是因为他们反复求解相同的子问题。</p>
+</blockquote>
+<p>动态规划的原理:</p>
+<ul>
+<li>
+<p>最优子结构性质 : 问题的最优解由相关子问题的最优解组合而成，而这些子问题可以独立求解。</p>
+<p>如何发觉最优子结构?这里给出一个通用模式:</p>
+<ol>
+<li>做出一个选择</li>
+<li>假定已经知道了这种选择(先不关心这种选择如何得到)</li>
+<li>考虑这种选择会产生哪些子问题, 以及如何最好刻画子问题空间</li>
+<li>证明构成原问题最优解的组成部分(即每个子问题)的解就是它本身的最优解(一般是反证法)</li>
+</ol>
+</li>
+<li>
+<p>重叠子问题 :</p>
+</li>
+<li>
+<p>重构最优解</p>
+</li>
+</ul>
+<p>动态规划有两种等价的实现方法:</p>
+<ul>
+<li>带备忘的自顶向下法(top-down with memoization)</li>
+<li>自底向上法(bottom-up method)</li>
+</ul>
+<p>为构建动态规划的解决方案,一些必要的过程:</p>
+<ul>
+<li>子问题图</li>
+<li>重构解</li>
+</ul>
+<p>例子:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">数据结构</th>
+<th style="text-align:center">问题名称</th>
+<th style="text-align:left">问题描述</th>
+</tr>
+</thead>
+<tbody>
 <tr>
 <td style="text-align:center">串</td>
 <td style="text-align:center">LCS</td>
@@ -1022,63 +2020,177 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 </tbody>
 </table>
 <h3 id="贪心法">贪心法</h3>
+<ul>
+<li>最小生成树</li>
+<li>单源最短路径的Dijkstra算法</li>
+<li>分数背包问题</li>
+</ul>
+<h2 id="其他算法领域">其他算法领域</h2>
+<h3 id="近似算法">近似算法</h3>
+<h3 id="随机算法">随机算法</h3>
+<blockquote>
+<p>如在快排中随机选取pivot</p>
+</blockquote>
+<ul>
+<li>蒙特卡洛方法</li>
+</ul>
 <h2 id="算法实战">算法实战</h2>
 <h3 id="排序">排序</h3>
+<blockquote>
+<p>有一个问题需要说明：关于用递归实现快排时，如果每次先处理较短的分区能不能降低递归次数和递归栈的深度。我对于这个问题的理解是，都不能，这和网上的很多理解以及严慧敏老师书中的理解不一样。因为当我们直接分析快排的递归树时，一个节点代表一次递归调用，树的高度代表递归栈的深度，不论怎么调用，其实深度和次数都是不变的。</p>
+</blockquote>
+<p>简介：</p>
 <table>
 <thead>
 <tr>
 <th style="text-align:center">算法名称</th>
-<th style="text-align:left">问题描述</th>
+<th style="text-align:left">类别</th>
 <th style="text-align:left">算法描述</th>
-<th style="text-align:left">时间复杂度</th>
+<th style="text-align:left">稳定性</th>
+<th style="text-align:left">就地</th>
+<th style="text-align:left">时间复杂度（最坏）</th>
+<th style="text-align:left">时间复杂度（最好）</th>
+<th style="text-align:left">时间复杂度（最好）</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:center">冒泡排序</td>
-<td style="text-align:left">n</td>
-<td style="text-align:left">n</td>
-<td style="text-align:left">n</td>
-</tr>
-<tr>
-<td style="text-align:center">插入排序</td>
-<td style="text-align:left">n</td>
-<td style="text-align:left">n</td>
-<td style="text-align:left">n</td>
-</tr>
-<tr>
-<td style="text-align:center">选择排序</td>
-<td style="text-align:left">n</td>
-<td style="text-align:left">n</td>
-<td style="text-align:left">n</td>
+<td style="text-align:left">交换排序</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">O(n^2)</td>
+<td style="text-align:left">O(n)</td>
+<td style="text-align:left"></td>
 </tr>
 <tr>
 <td style="text-align:center">快速排序</td>
-<td style="text-align:left">n</td>
-<td style="text-align:left">n</td>
-<td style="text-align:left">n</td>
+<td style="text-align:left">交换排序</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">否</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">O(n^2)</td>
+<td style="text-align:left">O(nlogn)</td>
+<td style="text-align:left">O(nlogn)</td>
+</tr>
+<tr>
+<td style="text-align:center">插入排序</td>
+<td style="text-align:left">插入排序</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">把序列看成 sorted[0,)+unsorted[r,n) 两部分,把l[r]插入到有序部分的合适位置</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">O(n^2)</td>
+<td style="text-align:left">O(n)</td>
+<td style="text-align:left">O(n^2)</td>
+</tr>
+<tr>
+<td style="text-align:center">一般选择排序</td>
+<td style="text-align:left">选择排序</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">从未排序的元素中挑选最大者,并使其就位</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">O(n^2)</td>
+<td style="text-align:left">O(n^2)</td>
+<td style="text-align:left">O(n^2)</td>
 </tr>
 <tr>
 <td style="text-align:center">堆排序</td>
-<td style="text-align:left">n</td>
-<td style="text-align:left">n</td>
-<td style="text-align:left">n</td>
+<td style="text-align:left">选择排序</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
 </tr>
 <tr>
-<td style="text-align:center">归并排序</td>
-<td style="text-align:left">n</td>
-<td style="text-align:left">n</td>
-<td style="text-align:left">n</td>
+<td style="text-align:center">二路归并排序</td>
+<td style="text-align:left">归并排序</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">否</td>
+<td style="text-align:left">O(nlogn)</td>
+<td style="text-align:left">O(nlogn)</td>
+<td style="text-align:left"></td>
 </tr>
 <tr>
 <td style="text-align:center">基数排序</td>
-<td style="text-align:left">n</td>
-<td style="text-align:left">n</td>
-<td style="text-align:left">n</td>
+<td style="text-align:left">基数排序</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
 </tr>
 </tbody>
 </table>
+<p>算法分析：</p>
+  <table>
+      <tr>
+      <td>算法描述</td>
+      <td>算法分析</td>
+    </tr>
+    <tr>
+      <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/bubblesort.png"></td>
+      <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/bubblesort_complexity.png"></td>
+    </tr>
+    <tr>
+      <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/quicksort.png"></td>
+      <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/quicksort_2.png"></td>
+    </tr>
+    <tr>
+      <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/insertionsort.png"></td>
+      <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/insertionsort_2.png"></td>
+    </tr>
+    <tr>
+      <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/selectionsort.png"></td>
+      <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/selectionsort_2.png"></td>
+    </tr>
+    <tr>
+      <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/mergesort.png"></td>
+      <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/mergesort_2.png"></td>
+    </tr>
+  </table>
 <h3 id="字符串匹配">字符串匹配</h3>
+<h4 id="暴力匹配算法">暴力匹配算法</h4>
+  <table>
+    <tr>
+  <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/string.png"></td>
+  <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/string_2.png"></td>
+  </tr></table>
+<h4 id="kmp算法">KMP算法</h4>
+<h5 id="改进思路">改进思路</h5>
+  <table>
+    <tr>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/KMP_1.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/KMP_2.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/KMP_3.png"></td>
+    </tr>
+  </table>
+<h5 id="实现-2">实现</h5>
+  <table>
+    <tr>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/KMP_implement_1.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/KMP_implement_2.png"></td>
+    </tr>
+  </table>
+<h5 id="算法原理">算法原理</h5>
+  <table>
+    <tr>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/KMP_next_1.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/KMP_next_2.png"></td>
+    </tr>
+    <tr>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/KMP_next_3.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/KMP_next_4.png"></td>
+    </tr>
+  </table>
+<h4 id="bm算法">BM算法</h4>
+<blockquote>
+<p>。。。。</p>
+</blockquote>
 <table>
 <thead>
 <tr>
@@ -1092,17 +2204,32 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 <tr>
 <td style="text-align:center">LCS</td>
 <td style="text-align:left">最长公共子序列</td>
-<td style="text-align:left">n</td>
-<td style="text-align:left">n</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
 </tr>
 <tr>
 <td style="text-align:center">KMP</td>
 <td style="text-align:left">字符串模式匹配</td>
-<td style="text-align:left">n</td>
-<td style="text-align:left">n</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
 </tr>
 </tbody>
 </table>
+<h3 id="动态规划例子">动态规划例子</h3>
+<ul>
+<li>钢条切割</li>
+<li>矩阵链乘法</li>
+<li>LCS</li>
+<li>0-1背包问题</li>
+</ul>
+<h2 id="参考资料">参考资料</h2>
+<blockquote>
+<p>这里包含了我整理时用到的所有课件。</p>
+</blockquote>
+<ul>
+<li><a href="http://howie.DiskStation.me:5000/sharing/lu8ER3hAg">清华大学邓俊晖老师的相关课件</a></li>
+<li><a href="http://howie.DiskStation.me:5000/sharing/cJGN2YGFH">上海科技大学的算法课课件</a></li>
+</ul>
 
     </body>
     </html>
