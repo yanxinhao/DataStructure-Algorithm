@@ -1,7 +1,7 @@
 /*
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-11-24 19:40:50
+ * @LastEditTime: 2020-11-24 21:04:40
  * @LastEditors: yanxinhao
  * @Description: 
  */
@@ -55,5 +55,10 @@ int main()
     cout << "5.parentheses ;";
     string expression = "(a+b)*c)+(d+5*e/2";
     cout << "the result of " << expression << " :" << paren(expression) << endl;
+
+    cout << "6.permute ;";
+    expression = "(a+b)*c";
+    cout << "the result of " << expression << " : ";
+    permute(expression, 0, expression.size());
     return 0;
 }
