@@ -1,8 +1,8 @@
 <!--
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-11-26 23:57:44
- * @LastEditors: yanxinhao
+ * @LastEditTime: 2020-12-02 18:51:08
+ * @LastEditors: Please set LastEditors
  * @Description: 
 -->
 # 数据结构与算法
@@ -109,6 +109,7 @@
       - [NP完全性:](#np完全性)
         - [判定问题与优化问题](#判定问题与优化问题)
         - [归约](#归约)
+        - [例子](#例子)
     - [迭代与递归](#迭代与递归)
       - [迭代算法实例](#迭代算法实例)
       - [尾递归](#尾递归)
@@ -352,6 +353,7 @@
 ### 树
 
 #### 树的术语
+> 不同的书可能定义不一样
   - 节点的深度 :从根到该节点路径上的路径长度
   - 节点的高度 :从该节点往下的最长路径的路径长度
   - 树的高度 : 等于根节点的高度
@@ -421,6 +423,7 @@ The easiest implementation is to use a queue:
 - 链式存储结构 : 每个节点包含一个数据域和指向两个孩子的指针域
 
 ##### 遍历二叉树
+> 站在图的角度去看待先序，中序，后序遍历二叉树时，其实都是基于深度优先遍历。区别在于对于根节点的访问时间于子树访问时间的相对关系。
   - 先序遍历
   - 中序遍历
   - 后序遍历 : 表达式树
@@ -819,11 +822,50 @@ If a task on the critical path is delayed, the entire project will be delayed
   3. 猜测 + 验证
 
 #### NP完全性:
-##### 判定问题与优化问题
-##### 归约
   - P 问题: 存在多项式算法的问题
-  - NP 问题
+  - NP 问题: 在多项式时间能验证的问题
 
+  <table>
+  <tr>
+    <td>  <img src="./imgs/NPC.png"></td>
+    <td><img src="./imgs/P_problem.png"></td>
+  </tr>
+  <tr>
+    <td><img src="./imgs/NP_problem.png"></td>
+    <td><img src="./imgs/NP_complete.png"></td>
+  </tr>
+  </table>
+
+##### 判定问题与优化问题
+  <table><tr>
+  <td><img src="./imgs/decision_problem.png"></td>
+  <td><img src="./imgs/decision_optimization.png"></td>
+  </tr></table>
+
+##### 归约
+  > 通过将问题P的求解归约为对问题Q的求解，就可以利用问题Q的易求解性来证明P的易求解性。一般，当P可以多项式时间归约到Q，说明Q问题比P问题更难。
+
+  <table><tr>
+  <td><img src="./imgs/reduction.png"></td>
+  <td><img src="./imgs/polynomial_reduction.png"></td>
+  </tr></table>
+
+  
+##### 例子
+NP-complete
+  - SAT问题:布尔表达式的可满足性
+  - 3-SAT问题:3-CNF(3合取范式)形式的布尔表达式的可满足性
+  - 最大团问题:团是图结构中最大的完全子图，最大团问题就是求一个图的最大团的顶点数
+  - 顶点覆盖问题
+  - 图着色问题:最少用多少种颜色对图进行着色
+  - bin packing
+  - CNF-satisfiability
+  - 哈密尔顿回路
+  - 旅行商问题
+
+NP-hard
+  - Arithmetic SAT
+   <img src="./imgs/NPC_problems.png">
 ### 迭代与递归
 迭代算法一般较为常见，递归算法更为直观。因为递归算法需要大量空间资源，所以经常需要将其改写成迭代算法，这里为体现算法的思想，我主要考虑以递归为出发点的思想来理解算法。
 
