@@ -1,7 +1,7 @@
 <!--
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-12-03 07:45:52
+ * @LastEditTime: 2020-12-03 07:55:20
  * @LastEditors: yanxinhao
  * @Description: 
 -->
@@ -183,7 +183,11 @@
 >- 队空状态 :lqu->rear==NULL或者lqu->front==NULL
 
 #### 栈的应用
-  <img src="./imgs/stack_application.png">
+
+<div align="center"> 
+  <img src="./imgs/stack_application.png" width=70% height=70% /> 
+</div>
+
   思考：栈结构适用于具有局部相关的数据
 
   ##### 逆序输出 : 进制转换
@@ -311,12 +315,16 @@
   - 直接寻址表（数组）: 每个位置（其实就是rank）对应着一个关键字，里面的值指向对应关键字的元素
   - 散列表 : 关键字k的元素被存储在位置h(k)的槽（桶）中，里面的值指向对应关键字k的元素
 
-  #### 散列的原理
-  <img src="./imgs/hash.png">
-  
+  #### 散列的原理  
+<div align="center"> 
+  <img src="./imgs/hash.png" width=70% height=70% /> 
+</div>
+
   #### The hash process
 
-  <img src="./imgs/hash_process.png">
+<div align="center"> 
+  <img src="./imgs/hash_process.png" width=70% height=70% /> 
+</div>
   
   #### 相关术语
   - 装填因子:有两种不同的定义
@@ -326,7 +334,11 @@
   关于下面第四项均匀性，做出如下解释:\
   If two objects are randomly chosen, there should be only a one-in-M chance that they have the same value from 0 to M – 1 
   (相当于任意随机选一个关键字，他等可能的落入对应的桶中，与确定性不同的是确定性是关键字已经给定)
-  <img src="./imgs/hash_function.png">
+
+<div align="center"> 
+  <img src="./imgs/hash_function.png" width=70% height=70% /> 
+</div>
+
 
   #### 冲突解决方法
   
@@ -576,7 +588,11 @@ In a binary search tree, we require that
     - The height of the taller will increase if and only if the trees are equal in height
 
   - 路径压缩 : 在FIND-SET操作中，使查找路径中的每个节点指向根。由于rank表示的是高度的上界，则此操作不改变节点rank。
-      <img src="./imgs/path_compression.png">
+  
+<div align="center"> 
+  <img src="./imgs/path_compression.png" width=70% height=70% /> 
+</div>
+
 带路径压缩的按秩合并的分析:
 ### 图
 #### 图的性质
@@ -853,7 +869,9 @@ If a task on the critical path is delayed, the entire project will be delayed
   
 ##### 例子
 NP-complete
-  <img src="./imgs/NPC_problems.png">
+<div align="center"> 
+  <img src="./imgs/NPC_problems.png" width=70% height=70% /> 
+</div>
 
   - SAT问题:布尔表达式的可满足性
   - 3-SAT问题:3-CNF(3合取范式)形式的布尔表达式的可满足性
