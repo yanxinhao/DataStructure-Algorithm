@@ -1,8 +1,8 @@
 <!--
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-12-02 18:51:08
- * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2020-12-03 07:44:15
+ * @LastEditors: yanxinhao
  * @Description: 
 -->
 # 数据结构与算法
@@ -866,6 +866,7 @@ NP-complete
 NP-hard
   - Arithmetic SAT
    <img src="./imgs/NPC_problems.png">
+   
 ### 迭代与递归
 迭代算法一般较为常见，递归算法更为直观。因为递归算法需要大量空间资源，所以经常需要将其改写成迭代算法，这里为体现算法的思想，我主要考虑以递归为出发点的思想来理解算法。
 
