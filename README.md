@@ -1,7 +1,7 @@
 <!--
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-12-03 07:44:15
+ * @LastEditTime: 2020-12-03 07:45:52
  * @LastEditors: yanxinhao
  * @Description: 
 -->
@@ -853,6 +853,8 @@ If a task on the critical path is delayed, the entire project will be delayed
   
 ##### 例子
 NP-complete
+  <img src="./imgs/NPC_problems.png">
+
   - SAT问题:布尔表达式的可满足性
   - 3-SAT问题:3-CNF(3合取范式)形式的布尔表达式的可满足性
   - 最大团问题:团是图结构中最大的完全子图，最大团问题就是求一个图的最大团的顶点数
@@ -865,7 +867,6 @@ NP-complete
 
 NP-hard
   - Arithmetic SAT
-   <img src="./imgs/NPC_problems.png">
    
 ### 迭代与递归
 迭代算法一般较为常见，递归算法更为直观。因为递归算法需要大量空间资源，所以经常需要将其改写成迭代算法，这里为体现算法的思想，我主要考虑以递归为出发点的思想来理解算法。
