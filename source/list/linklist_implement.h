@@ -1,7 +1,7 @@
 /*
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-12-03 23:58:51
+ * @LastEditTime: 2020-12-04 00:01:59
  * @LastEditors: yanxinhao
  * @Description: 单向链表
  */
@@ -30,13 +30,14 @@ linklist<T>::linklist(const T *array, int len)
 template <typename T>
 linklist<T>::~linklist()
 {
-    LNode<T> *p = _header;
+    LNode<T> *p = _header->next;
     while (p)
     {
         LNode<T> *t = p->next;
         delete p;
         p = t;
     }
+    _header->next = NULL;
 }
 
 // 遍历
