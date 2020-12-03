@@ -1,7 +1,7 @@
 /*
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-12-04 00:01:59
+ * @LastEditTime: 2020-12-04 00:03:41
  * @LastEditors: yanxinhao
  * @Description: 单向链表
  */
@@ -36,6 +36,7 @@ linklist<T>::~linklist()
         LNode<T> *t = p->next;
         delete p;
         p = t;
+        _size--;
     }
     _header->next = NULL;
 }
