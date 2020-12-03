@@ -1,7 +1,7 @@
 /*
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-11-19 23:51:33
+ * @LastEditTime: 2020-12-03 23:16:47
  * @LastEditors: yanxinhao
  * @Description: 
  */
@@ -17,6 +17,34 @@ enum SORTING
     MERGESORT
 };
 
+//单向链表
+template <typename T>
+class linklist
+{
+private:
+    int _size;
+    LNode<T> *_header;
+    void init()
+    {
+        _size = 0;
+        _header = new LNode<T>;
+    }
+    /* data */
+public:
+    linklist(/* args */);
+    linklist(const T *array, int len);
+    ~linklist();
+
+    int get_size() { return _size; }
+    void traverse(void (*visit)(T &)); // 遍历
+    void reverse();                    // 逆置
+    LNode<T> *_reverse(LNode<T> *p);   // 逆置
+    T ksearch_2009(int k);             //2009年真题，倒数第k个数
+    void circle_move_2010(int p);      //2010年42题，循环左移p位
+    void switch_2019();                //2019年真题
+};
+
+// 双向链表
 template <typename T>
 class list
 {
@@ -52,4 +80,5 @@ public:
     bool mergesort(Posi(T) & p, int n);
 };
 
+#include "list/linklist_implement.h"
 #include "list/list_implement.h"

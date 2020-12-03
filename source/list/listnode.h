@@ -1,7 +1,7 @@
 /*
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-11-19 22:01:51
+ * @LastEditTime: 2020-12-03 21:07:11
  * @LastEditors: yanxinhao
  * @Description: 
  */
@@ -9,6 +9,17 @@
 #include "list/list.h"
 #include <iostream>
 #define Posi(T) ListNode<T> *
+// 单向链表节点
+template <typename T>
+struct LNode
+{
+    T data;
+    LNode<T> *next;
+    LNode() { next = NULL; }
+    LNode(T e) : data(e), next(NULL){};
+};
+
+// 双向链表节点
 template <typename T>
 struct ListNode
 {
