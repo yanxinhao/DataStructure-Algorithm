@@ -1,0 +1,138 @@
+\hypertarget{graph_2input_8h}{}\doxysection{source/graph/input.h File Reference}
+\label{graph_2input_8h}\index{source/graph/input.h@{source/graph/input.h}}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+char \mbox{\hyperlink{graph_2input_8h_a926519921130a53024c9b67ec54ee825}{vtx\+\_\+bfs}} \mbox{[}9\mbox{]} = \char`\"{}abcdefgs\char`\"{}
+\item 
+int \mbox{\hyperlink{graph_2input_8h_a96d285d0173dbaa4194a5955700ecb5d}{edge\+\_\+bfs}} \mbox{[}22\mbox{]}\mbox{[}4\mbox{]}
+\item 
+char \mbox{\hyperlink{graph_2input_8h_a5bc94c939cc6cd1dae2057d7dc4149ab}{vtx\+\_\+dfs}} \mbox{[}11\mbox{]} = \char`\"{}abcdefghij\char`\"{}
+\item 
+int \mbox{\hyperlink{graph_2input_8h_a9ccdd18a58848d26d63cd68e1fde1bbe}{edge\+\_\+dfs}} \mbox{[}26\mbox{]}\mbox{[}4\mbox{]}
+\item 
+char \mbox{\hyperlink{graph_2input_8h_a9b9d0ce8c7f60689293601fdf4179bec}{vtx\+\_\+prim}} \mbox{[}9\mbox{]} = \{\char`\"{}A\+B\+C\+D\+E\+F\+GH\char`\"{}\}
+\item 
+int \mbox{\hyperlink{graph_2input_8h_a23618cf9ca6bf3b087194df666d2aefe}{edge\+\_\+prim}} \mbox{[}30\mbox{]}\mbox{[}4\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{graph_2input_8h_a96d285d0173dbaa4194a5955700ecb5d}\label{graph_2input_8h_a96d285d0173dbaa4194a5955700ecb5d}} 
+\index{input.h@{input.h}!edge\_bfs@{edge\_bfs}}
+\index{edge\_bfs@{edge\_bfs}!input.h@{input.h}}
+\doxysubsubsection{\texorpdfstring{edge\_bfs}{edge\_bfs}}
+{\footnotesize\ttfamily int edge\+\_\+bfs\mbox{[}22\mbox{]}\mbox{[}4\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    \{0, 0, 0, 7\},}
+\DoxyCodeLine{    \{0, 0, 7, 0\},}
+\DoxyCodeLine{    \{0, 0, 0, 4\},}
+\DoxyCodeLine{    \{0, 0, 4, 0\},}
+\DoxyCodeLine{    \{0, 0, 0, 2\},}
+\DoxyCodeLine{    \{0, 0, 2, 0\},}
+\DoxyCodeLine{    \{0, 0, 7, 3\},}
+\DoxyCodeLine{    \{0, 0, 3, 7\},}
+\DoxyCodeLine{    \{0, 0, 7, 2\},}
+\DoxyCodeLine{    \{0, 0, 2, 7\},}
+\DoxyCodeLine{    \{0, 0, 1, 2\},}
+\DoxyCodeLine{    \{0, 0, 2, 1\},}
+\DoxyCodeLine{    \{0, 0, 1, 3\},}
+\DoxyCodeLine{    \{0, 0, 3, 1\},}
+\DoxyCodeLine{    \{0, 0, 1, 6\},}
+\DoxyCodeLine{    \{0, 0, 6, 1\},}
+\DoxyCodeLine{    \{0, 0, 6, 4\},}
+\DoxyCodeLine{    \{0, 0, 4, 6\},}
+\DoxyCodeLine{    \{0, 0, 6, 5\},}
+\DoxyCodeLine{    \{0, 0, 5, 6\},}
+\DoxyCodeLine{    \{0, 0, 4, 5\},}
+\DoxyCodeLine{    \{0, 0, 5, 4\}\}}
+
+\end{DoxyCode}
+
+
+Definition at line 9 of file input.\+h.
+
+\mbox{\Hypertarget{graph_2input_8h_a9ccdd18a58848d26d63cd68e1fde1bbe}\label{graph_2input_8h_a9ccdd18a58848d26d63cd68e1fde1bbe}} 
+\index{input.h@{input.h}!edge\_dfs@{edge\_dfs}}
+\index{edge\_dfs@{edge\_dfs}!input.h@{input.h}}
+\doxysubsubsection{\texorpdfstring{edge\_dfs}{edge\_dfs}}
+{\footnotesize\ttfamily int edge\+\_\+dfs\mbox{[}26\mbox{]}\mbox{[}4\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{    \{0, 0, 0, 1\},}
+\DoxyCodeLine{    \{0, 0, 0, 4\},}
+\DoxyCodeLine{    \{0, 0, 0, 3\},}
+\DoxyCodeLine{    \{0, 0, 1, 4\},}
+\DoxyCodeLine{    \{0, 0, 1, 2\},}
+\DoxyCodeLine{    \{0, 0, 2, 5\},}
+\DoxyCodeLine{    \{0, 0, 5, 7\},}
+\DoxyCodeLine{    \{0, 0, 5, 6\},}
+\DoxyCodeLine{    \{0, 0, 7, 6\},}
+\DoxyCodeLine{    \{0, 0, 6, 9\},}
+\DoxyCodeLine{    \{0, 0, 6, 8\},}
+\DoxyCodeLine{    \{0, 0, 6, 3\},}
+\DoxyCodeLine{    \{0, 0, 8, 3\},}
+\DoxyCodeLine{    \{0, 0, 1, 0\},}
+\DoxyCodeLine{    \{0, 0, 4, 0\},}
+\DoxyCodeLine{    \{0, 0, 3, 0\},}
+\DoxyCodeLine{    \{0, 0, 4, 1\},}
+\DoxyCodeLine{    \{0, 0, 2, 1\},}
+\DoxyCodeLine{    \{0, 0, 5, 2\},}
+\DoxyCodeLine{    \{0, 0, 7, 5\},}
+\DoxyCodeLine{    \{0, 0, 6, 5\},}
+\DoxyCodeLine{    \{0, 0, 6, 7\},}
+\DoxyCodeLine{    \{0, 0, 9, 6\},}
+\DoxyCodeLine{    \{0, 0, 8, 6\},}
+\DoxyCodeLine{    \{0, 0, 3, 6\},}
+\DoxyCodeLine{    \{0, 0, 3, 8\}\}}
+
+\end{DoxyCode}
+
+
+Definition at line 34 of file input.\+h.
+
+\mbox{\Hypertarget{graph_2input_8h_a23618cf9ca6bf3b087194df666d2aefe}\label{graph_2input_8h_a23618cf9ca6bf3b087194df666d2aefe}} 
+\index{input.h@{input.h}!edge\_prim@{edge\_prim}}
+\index{edge\_prim@{edge\_prim}!input.h@{input.h}}
+\doxysubsubsection{\texorpdfstring{edge\_prim}{edge\_prim}}
+{\footnotesize\ttfamily int edge\+\_\+prim\mbox{[}30\mbox{]}\mbox{[}4\mbox{]}}
+
+
+
+Definition at line 63 of file input.\+h.
+
+\mbox{\Hypertarget{graph_2input_8h_a926519921130a53024c9b67ec54ee825}\label{graph_2input_8h_a926519921130a53024c9b67ec54ee825}} 
+\index{input.h@{input.h}!vtx\_bfs@{vtx\_bfs}}
+\index{vtx\_bfs@{vtx\_bfs}!input.h@{input.h}}
+\doxysubsubsection{\texorpdfstring{vtx\_bfs}{vtx\_bfs}}
+{\footnotesize\ttfamily char vtx\+\_\+bfs\mbox{[}9\mbox{]} = \char`\"{}abcdefgs\char`\"{}}
+
+
+
+Definition at line 8 of file input.\+h.
+
+\mbox{\Hypertarget{graph_2input_8h_a5bc94c939cc6cd1dae2057d7dc4149ab}\label{graph_2input_8h_a5bc94c939cc6cd1dae2057d7dc4149ab}} 
+\index{input.h@{input.h}!vtx\_dfs@{vtx\_dfs}}
+\index{vtx\_dfs@{vtx\_dfs}!input.h@{input.h}}
+\doxysubsubsection{\texorpdfstring{vtx\_dfs}{vtx\_dfs}}
+{\footnotesize\ttfamily char vtx\+\_\+dfs\mbox{[}11\mbox{]} = \char`\"{}abcdefghij\char`\"{}}
+
+
+
+Definition at line 33 of file input.\+h.
+
+\mbox{\Hypertarget{graph_2input_8h_a9b9d0ce8c7f60689293601fdf4179bec}\label{graph_2input_8h_a9b9d0ce8c7f60689293601fdf4179bec}} 
+\index{input.h@{input.h}!vtx\_prim@{vtx\_prim}}
+\index{vtx\_prim@{vtx\_prim}!input.h@{input.h}}
+\doxysubsubsection{\texorpdfstring{vtx\_prim}{vtx\_prim}}
+{\footnotesize\ttfamily char vtx\+\_\+prim\mbox{[}9\mbox{]} = \{\char`\"{}A\+B\+C\+D\+E\+F\+GH\char`\"{}\}}
+
+
+
+Definition at line 62 of file input.\+h.
+

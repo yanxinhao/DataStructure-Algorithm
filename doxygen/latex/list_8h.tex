@@ -1,0 +1,69 @@
+\hypertarget{list_8h}{}\doxysection{source/list/list.h File Reference}
+\label{list_8h}\index{source/list/list.h@{source/list/list.h}}
+{\ttfamily \#include \char`\"{}list/listnode.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include \char`\"{}list/linklist\+\_\+implement.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}list/list\+\_\+implement.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classlinklist}{linklist$<$ T $>$}}
+\item 
+class \mbox{\hyperlink{classlist}{list$<$ T $>$}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{list_8h_aec7972df29a7559f48560eaf1ab93a51}{S\+O\+R\+T\+I\+NG}} \{ \newline
+\mbox{\hyperlink{list_8h_aec7972df29a7559f48560eaf1ab93a51a0b3446a982f9899c5d4877014468af0f}{S\+E\+L\+E\+C\+T\+I\+O\+N\+S\+O\+RT}}, 
+\mbox{\hyperlink{list_8h_aec7972df29a7559f48560eaf1ab93a51ab5adc2dce154557777602534b1a840f0}{I\+N\+S\+E\+R\+T\+I\+O\+N\+S\+O\+RT}}, 
+\mbox{\hyperlink{list_8h_aec7972df29a7559f48560eaf1ab93a51a7bedf2be5660d11260f26621377a42aa}{M\+E\+R\+G\+E\+S\+O\+RT}}, 
+\mbox{\hyperlink{vector_8h_aec7972df29a7559f48560eaf1ab93a51af57256e307cd9b4531902743c8f60bf5}{B\+U\+B\+B\+L\+E\+S\+O\+RT}}, 
+\newline
+\mbox{\hyperlink{vector_8h_aec7972df29a7559f48560eaf1ab93a51a7bedf2be5660d11260f26621377a42aa}{M\+E\+R\+G\+E\+S\+O\+RT}}
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{list_8h_aec7972df29a7559f48560eaf1ab93a51}\label{list_8h_aec7972df29a7559f48560eaf1ab93a51}} 
+\index{list.h@{list.h}!SORTING@{SORTING}}
+\index{SORTING@{SORTING}!list.h@{list.h}}
+\doxysubsubsection{\texorpdfstring{SORTING}{SORTING}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{list_8h_aec7972df29a7559f48560eaf1ab93a51}{S\+O\+R\+T\+I\+NG}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SELECTIONSORT@{SELECTIONSORT}!list.h@{list.h}}\index{list.h@{list.h}!SELECTIONSORT@{SELECTIONSORT}}}\mbox{\Hypertarget{list_8h_aec7972df29a7559f48560eaf1ab93a51a0b3446a982f9899c5d4877014468af0f}\label{list_8h_aec7972df29a7559f48560eaf1ab93a51a0b3446a982f9899c5d4877014468af0f}} 
+S\+E\+L\+E\+C\+T\+I\+O\+N\+S\+O\+RT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{INSERTIONSORT@{INSERTIONSORT}!list.h@{list.h}}\index{list.h@{list.h}!INSERTIONSORT@{INSERTIONSORT}}}\mbox{\Hypertarget{list_8h_aec7972df29a7559f48560eaf1ab93a51ab5adc2dce154557777602534b1a840f0}\label{list_8h_aec7972df29a7559f48560eaf1ab93a51ab5adc2dce154557777602534b1a840f0}} 
+I\+N\+S\+E\+R\+T\+I\+O\+N\+S\+O\+RT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MERGESORT@{MERGESORT}!list.h@{list.h}}\index{list.h@{list.h}!MERGESORT@{MERGESORT}}}\mbox{\Hypertarget{list_8h_aec7972df29a7559f48560eaf1ab93a51a7bedf2be5660d11260f26621377a42aa}\label{list_8h_aec7972df29a7559f48560eaf1ab93a51a7bedf2be5660d11260f26621377a42aa}} 
+M\+E\+R\+G\+E\+S\+O\+RT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BUBBLESORT@{BUBBLESORT}!list.h@{list.h}}\index{list.h@{list.h}!BUBBLESORT@{BUBBLESORT}}}\mbox{\Hypertarget{list_8h_aec7972df29a7559f48560eaf1ab93a51af57256e307cd9b4531902743c8f60bf5}\label{list_8h_aec7972df29a7559f48560eaf1ab93a51af57256e307cd9b4531902743c8f60bf5}} 
+B\+U\+B\+B\+L\+E\+S\+O\+RT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MERGESORT@{MERGESORT}!list.h@{list.h}}\index{list.h@{list.h}!MERGESORT@{MERGESORT}}}\mbox{\Hypertarget{list_8h_aec7972df29a7559f48560eaf1ab93a51a7bedf2be5660d11260f26621377a42aa}\label{list_8h_aec7972df29a7559f48560eaf1ab93a51a7bedf2be5660d11260f26621377a42aa}} 
+M\+E\+R\+G\+E\+S\+O\+RT&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 13 of file list.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{14 \{}
+\DoxyCodeLine{15     \mbox{\hyperlink{list_8h_aec7972df29a7559f48560eaf1ab93a51a0b3446a982f9899c5d4877014468af0f}{SELECTIONSORT}},}
+\DoxyCodeLine{16     \mbox{\hyperlink{list_8h_aec7972df29a7559f48560eaf1ab93a51ab5adc2dce154557777602534b1a840f0}{INSERTIONSORT}},}
+\DoxyCodeLine{17     \mbox{\hyperlink{list_8h_aec7972df29a7559f48560eaf1ab93a51a7bedf2be5660d11260f26621377a42aa}{MERGESORT}}}
+\DoxyCodeLine{18 \};}
+
+\end{DoxyCode}

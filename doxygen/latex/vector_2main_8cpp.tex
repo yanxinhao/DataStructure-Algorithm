@@ -1,0 +1,127 @@
+\hypertarget{vector_2main_8cpp}{}\doxysection{source/vector/main.cpp File Reference}
+\label{vector_2main_8cpp}\index{source/vector/main.cpp@{source/vector/main.cpp}}
+{\ttfamily \#include \char`\"{}vector/input.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}vector/vector.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{vector_2main_8cpp_afb991771a466986b7b994e7108cfe26d}{visit}} (T \&elem)
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{vector_2main_8cpp_ada97f5fe48b373a1e90d07e31d13536e}{change}} (T \&elem)
+\item 
+int \mbox{\hyperlink{vector_2main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{vector_2main_8cpp_ada97f5fe48b373a1e90d07e31d13536e}\label{vector_2main_8cpp_ada97f5fe48b373a1e90d07e31d13536e}} 
+\index{main.cpp@{main.cpp}!change@{change}}
+\index{change@{change}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{change()}{change()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void change (\begin{DoxyParamCaption}\item[{T \&}]{elem }\end{DoxyParamCaption})}
+
+
+
+Definition at line 19 of file main.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{20 \{}
+\DoxyCodeLine{21     elem = 0;}
+\DoxyCodeLine{22 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{vector_2main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{vector_2main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 23 of file main.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{24 \{}
+\DoxyCodeLine{25     \textcolor{keyword}{const} \textcolor{keywordtype}{int} len = 30;}
+\DoxyCodeLine{26     \textcolor{keywordtype}{int} A[len] = \{0\};}
+\DoxyCodeLine{27     \mbox{\hyperlink{list_2input_8h_a6ce8f13d36e40425fd6fddcfd8180475}{get\_input}}(A, len);}
+\DoxyCodeLine{28     \mbox{\hyperlink{class_vector}{Vector<int>}} v(A, 0, len);}
+\DoxyCodeLine{29     \mbox{\hyperlink{class_vector}{Vector<int *>}} test(1, 0, NULL);}
+\DoxyCodeLine{30     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < 10; i++)}
+\DoxyCodeLine{31     \{}
+\DoxyCodeLine{32         test.insert(NULL);}
+\DoxyCodeLine{33         test.traverse(\mbox{\hyperlink{graph_2main_8cpp_a437c8204130a062166dda6baa40bb1b2}{visit}});}
+\DoxyCodeLine{34     \}}
+\DoxyCodeLine{35     \textcolor{comment}{// test.insert(1);}}
+\DoxyCodeLine{36     \textcolor{comment}{// 1.遍历}}
+\DoxyCodeLine{37     cout << \textcolor{stringliteral}{"{}1.遍历 traverse(visit): "{}};}
+\DoxyCodeLine{38     v.traverse(\mbox{\hyperlink{graph_2main_8cpp_a437c8204130a062166dda6baa40bb1b2}{visit}});}
+\DoxyCodeLine{39     \textcolor{comment}{// 2.插入insert(5,100000);}}
+\DoxyCodeLine{40     cout << \textcolor{stringliteral}{"{}2.插入 insert(5,75): "{}};}
+\DoxyCodeLine{41     v.insert(5, 75);}
+\DoxyCodeLine{42     v.traverse(\mbox{\hyperlink{graph_2main_8cpp_a437c8204130a062166dda6baa40bb1b2}{visit}});}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44     \textcolor{comment}{// 3.删除}}
+\DoxyCodeLine{45     cout << \textcolor{stringliteral}{"{}3.删除 remove(0,5) : "{}};}
+\DoxyCodeLine{46     v.remove(0, 5);}
+\DoxyCodeLine{47     v.traverse(\mbox{\hyperlink{graph_2main_8cpp_a437c8204130a062166dda6baa40bb1b2}{visit}});}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49     \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/若为无序向量-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{50     \textcolor{comment}{// 4.查找}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52     \textcolor{comment}{// 5.唯一化}}
+\DoxyCodeLine{53     \textcolor{comment}{// cout<<"{}5.去重 deduplicate : "{};}}
+\DoxyCodeLine{54     \textcolor{comment}{// v.deduplicate();}}
+\DoxyCodeLine{55     \textcolor{comment}{// v.traverse(visit);}}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57     \textcolor{comment}{// cout<<"{}5.无序向量唯一化 deduplicate\_2 : "{};}}
+\DoxyCodeLine{58     \textcolor{comment}{// v.deduplicate();}}
+\DoxyCodeLine{59     \textcolor{comment}{// v.traverse(visit);}}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     \textcolor{comment}{// -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/若为有序向量-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63     \textcolor{comment}{// 6.逆序数}}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65     \textcolor{comment}{// 7.有序向量排序}}
+\DoxyCodeLine{66     \textcolor{comment}{// cout<<"{}7.排序 bubblesort : "{};}}
+\DoxyCodeLine{67     \textcolor{comment}{// v.sort(0,v.size());}}
+\DoxyCodeLine{68     \textcolor{comment}{// v.traverse(visit);}}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70     cout << \textcolor{stringliteral}{"{}7.排序 mergesort : "{}};}
+\DoxyCodeLine{71     v.sort(0, v.size(), \mbox{\hyperlink{list_8h_aec7972df29a7559f48560eaf1ab93a51a7bedf2be5660d11260f26621377a42aa}{MERGESORT}});}
+\DoxyCodeLine{72     v.traverse(\mbox{\hyperlink{graph_2main_8cpp_a437c8204130a062166dda6baa40bb1b2}{visit}});}
+\DoxyCodeLine{73     \textcolor{comment}{// 8.有序向量唯一化}}
+\DoxyCodeLine{74     cout << \textcolor{stringliteral}{"{}8.有序向量唯一化 uniquify : "{}};}
+\DoxyCodeLine{75     v.uniquify();}
+\DoxyCodeLine{76     v.traverse(\mbox{\hyperlink{graph_2main_8cpp_a437c8204130a062166dda6baa40bb1b2}{visit}});}
+\DoxyCodeLine{77     \textcolor{comment}{// 9.有序向量二分查找}}
+\DoxyCodeLine{78     cout << \textcolor{stringliteral}{"{}9.有序向量二分查找 binsearch : "{}};}
+\DoxyCodeLine{79     \mbox{\hyperlink{vector_8h_a0bdd5d1b30da058db8c759759e037ddb}{Rank}} r = v.search(33, 0, v.size());}
+\DoxyCodeLine{80     v.traverse(\mbox{\hyperlink{graph_2main_8cpp_a437c8204130a062166dda6baa40bb1b2}{visit}});}
+\DoxyCodeLine{81     cout << \textcolor{stringliteral}{"{}the index of 75 : "{}} << r << endl;}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{84 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{vector_2main_8cpp_afb991771a466986b7b994e7108cfe26d}\label{vector_2main_8cpp_afb991771a466986b7b994e7108cfe26d}} 
+\index{main.cpp@{main.cpp}!visit@{visit}}
+\index{visit@{visit}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{visit()}{visit()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void visit (\begin{DoxyParamCaption}\item[{T \&}]{elem }\end{DoxyParamCaption})}
+
+
+
+Definition at line 13 of file main.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{14 \{}
+\DoxyCodeLine{15     cout << elem << \textcolor{stringliteral}{"{} "{}};}
+\DoxyCodeLine{16 \}}
+
+\end{DoxyCode}

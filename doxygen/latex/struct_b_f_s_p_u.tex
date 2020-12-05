@@ -1,0 +1,52 @@
+\hypertarget{struct_b_f_s_p_u}{}\doxysection{B\+F\+S\+PU$<$ Tv, Te $>$ Struct Template Reference}
+\label{struct_b_f_s_p_u}\index{BFSPU$<$ Tv, Te $>$@{BFSPU$<$ Tv, Te $>$}}
+
+
+{\ttfamily \#include $<$graph\+\_\+implement.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual void \mbox{\hyperlink{struct_b_f_s_p_u_aa07aada1ec44b4d46341482ae21bac1f}{operator()}} (\mbox{\hyperlink{class_graph}{Graph}}$<$ Tv, Te $>$ $\ast$g, int s, int w)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Tv, typename Te$>$\newline
+struct B\+F\+S\+P\+U$<$ Tv, Te $>$}
+
+
+
+Definition at line 142 of file graph\+\_\+implement.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_b_f_s_p_u_aa07aada1ec44b4d46341482ae21bac1f}\label{struct_b_f_s_p_u_aa07aada1ec44b4d46341482ae21bac1f}} 
+\index{BFSPU$<$ Tv, Te $>$@{BFSPU$<$ Tv, Te $>$}!operator()@{operator()}}
+\index{operator()@{operator()}!BFSPU$<$ Tv, Te $>$@{BFSPU$<$ Tv, Te $>$}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily template$<$typename Tv , typename Te $>$ \\
+virtual void \mbox{\hyperlink{struct_b_f_s_p_u}{B\+F\+S\+PU}}$<$ Tv, Te $>$\+::operator() (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ Tv, Te $>$ $\ast$}]{g,  }\item[{int}]{s,  }\item[{int}]{w }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Definition at line 144 of file graph\+\_\+implement.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{145     \{}
+\DoxyCodeLine{146         \textcolor{keywordflow}{if} (g-\/>\mbox{\hyperlink{class_graph_a60de494ab6bd264259c462a07c3e005d}{status}}(w) == \mbox{\hyperlink{graph_8h_ae19015908bf119969f470737f4066b6ba89e0d84af1976ae132f06bb1d0c8312e}{UNDISCOVERED}})}
+\DoxyCodeLine{147             \textcolor{keywordflow}{if} (g-\/>\mbox{\hyperlink{class_graph_ae5ac3191e4c51bfde0c74d76d09c6f9d}{priority}}(w) > g-\/>\mbox{\hyperlink{class_graph_ae5ac3191e4c51bfde0c74d76d09c6f9d}{priority}}(s) + 1)}
+\DoxyCodeLine{148             \{}
+\DoxyCodeLine{149                 g-\/>\mbox{\hyperlink{class_graph_ae5ac3191e4c51bfde0c74d76d09c6f9d}{priority}}(w) = g-\/>\mbox{\hyperlink{class_graph_ae5ac3191e4c51bfde0c74d76d09c6f9d}{priority}}(s) + 1;}
+\DoxyCodeLine{150                 g-\/>\mbox{\hyperlink{class_graph_a11f130a57e50b2776c508a08cedab433}{parent}}(w) = s;}
+\DoxyCodeLine{151             \}}
+\DoxyCodeLine{152     \}}
+
+\end{DoxyCode}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+source/graph/\mbox{\hyperlink{graph__implement_8h}{graph\+\_\+implement.\+h}}\end{DoxyCompactItemize}

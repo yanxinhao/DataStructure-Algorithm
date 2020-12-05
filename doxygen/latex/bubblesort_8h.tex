@@ -1,0 +1,59 @@
+\hypertarget{bubblesort_8h}{}\doxysection{source/sorting/bubblesort.h File Reference}
+\label{bubblesort_8h}\index{source/sorting/bubblesort.h@{source/sorting/bubblesort.h}}
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{bubblesort_8h_a3ca5ecd34b04d6a243c054ac3a57f68d}{swap}}(a,  b)~\{ int t = a; a = b; b = t; \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{bubblesort_8h_a0dde0dfd6826d480b963536a56a690e1}{bubblesort}} (int A\mbox{[}$\,$\mbox{]}, int n)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{bubblesort_8h_a3ca5ecd34b04d6a243c054ac3a57f68d}\label{bubblesort_8h_a3ca5ecd34b04d6a243c054ac3a57f68d}} 
+\index{bubblesort.h@{bubblesort.h}!swap@{swap}}
+\index{swap@{swap}!bubblesort.h@{bubblesort.h}}
+\doxysubsubsection{\texorpdfstring{swap}{swap}}
+{\footnotesize\ttfamily \#define swap(\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{b }\end{DoxyParamCaption})~\{ int t = a; a = b; b = t; \}}
+
+
+
+Definition at line 10 of file bubblesort.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{bubblesort_8h_a0dde0dfd6826d480b963536a56a690e1}\label{bubblesort_8h_a0dde0dfd6826d480b963536a56a690e1}} 
+\index{bubblesort.h@{bubblesort.h}!bubblesort@{bubblesort}}
+\index{bubblesort@{bubblesort}!bubblesort.h@{bubblesort.h}}
+\doxysubsubsection{\texorpdfstring{bubblesort()}{bubblesort()}}
+{\footnotesize\ttfamily bool bubblesort (\begin{DoxyParamCaption}\item[{int}]{A\mbox{[}$\,$\mbox{]},  }\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+Definition at line 11 of file bubblesort.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{11                               \{}
+\DoxyCodeLine{12     \textcolor{keywordtype}{bool} sorted;}
+\DoxyCodeLine{13     \textcolor{keywordflow}{for} (sorted=\textcolor{keyword}{false}; sorted=!sorted; n-\/-\/)}
+\DoxyCodeLine{14     \{}
+\DoxyCodeLine{15         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < n-\/1; i++)}
+\DoxyCodeLine{16         \{}
+\DoxyCodeLine{17             \textcolor{keywordflow}{if} (A[i]>A[i+1])}
+\DoxyCodeLine{18             \{}
+\DoxyCodeLine{19                 \mbox{\hyperlink{bubblesort_8h_a3ca5ecd34b04d6a243c054ac3a57f68d}{swap}}(A[i],A[i+1]);}
+\DoxyCodeLine{20                 sorted=\textcolor{keyword}{false};}
+\DoxyCodeLine{21             \}}
+\DoxyCodeLine{22             }
+\DoxyCodeLine{23         \}}
+\DoxyCodeLine{24     \}}
+\DoxyCodeLine{25     \textcolor{keywordflow}{return} sorted;}
+\DoxyCodeLine{26 \}}
+
+\end{DoxyCode}

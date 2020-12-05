@@ -1,0 +1,160 @@
+\hypertarget{structsolution}{}\doxysection{solution Struct Reference}
+\label{structsolution}\index{solution@{solution}}
+
+
+{\ttfamily \#include $<$cut\+\_\+rod.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structsolution_ac4df06e3b0f8b6ce993ecf4ed7b0e0e9}{solution}} (int opt, int $\ast$s, int n)
+\item 
+\mbox{\hyperlink{structsolution_a41de347148d59c9642377df9c4d9e0a2}{solution}} (int $\ast$$\ast$p, int n, int l)
+\item 
+\mbox{\hyperlink{structsolution_a271aec520d4dbcc92b96d473efeadf1d}{solution}} (const \mbox{\hyperlink{structsolution}{solution}} \&s)
+\item 
+\mbox{\hyperlink{structsolution_a336b8407b3f1717700a86dd2c9f4a782}{$\sim$solution}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{structsolution_ac1cbd0211e705e5846f368251136e5f2}{optimum}}
+\item 
+int $\ast$ \mbox{\hyperlink{structsolution_ab8e1c9f18e32a1b7c6ff5bc9bb3340b6}{sol}}
+\item 
+int \mbox{\hyperlink{structsolution_a5788f5467af564ec1394e33b17c8dd5e}{len}}
+\item 
+int $\ast$$\ast$ \mbox{\hyperlink{structsolution_ad53db1f89214a29a9a62dc3708e79f86}{sol}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 22 of file cut\+\_\+rod.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{structsolution_ac4df06e3b0f8b6ce993ecf4ed7b0e0e9}\label{structsolution_ac4df06e3b0f8b6ce993ecf4ed7b0e0e9}} 
+\index{solution@{solution}!solution@{solution}}
+\index{solution@{solution}!solution@{solution}}
+\doxysubsubsection{\texorpdfstring{solution()}{solution()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily solution\+::solution (\begin{DoxyParamCaption}\item[{int}]{opt,  }\item[{int $\ast$}]{s,  }\item[{int}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 27 of file cut\+\_\+rod.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{27 : \mbox{\hyperlink{structsolution_ac1cbd0211e705e5846f368251136e5f2}{optimum}}(opt), \mbox{\hyperlink{structsolution_ab8e1c9f18e32a1b7c6ff5bc9bb3340b6}{sol}}(s), \mbox{\hyperlink{structsolution_a5788f5467af564ec1394e33b17c8dd5e}{len}}(n) \{ ; \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{structsolution_a41de347148d59c9642377df9c4d9e0a2}\label{structsolution_a41de347148d59c9642377df9c4d9e0a2}} 
+\index{solution@{solution}!solution@{solution}}
+\index{solution@{solution}!solution@{solution}}
+\doxysubsubsection{\texorpdfstring{solution()}{solution()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily solution\+::solution (\begin{DoxyParamCaption}\item[{int $\ast$$\ast$}]{p,  }\item[{int}]{n,  }\item[{int}]{l }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 22 of file mtx\+\_\+chain\+\_\+multi.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{22 : \mbox{\hyperlink{structsolution_ab8e1c9f18e32a1b7c6ff5bc9bb3340b6}{sol}}(p), \mbox{\hyperlink{structsolution_ac1cbd0211e705e5846f368251136e5f2}{optimum}}(n), \mbox{\hyperlink{structsolution_a5788f5467af564ec1394e33b17c8dd5e}{len}}(l) \{ ; \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{structsolution_a271aec520d4dbcc92b96d473efeadf1d}\label{structsolution_a271aec520d4dbcc92b96d473efeadf1d}} 
+\index{solution@{solution}!solution@{solution}}
+\index{solution@{solution}!solution@{solution}}
+\doxysubsubsection{\texorpdfstring{solution()}{solution()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily solution\+::solution (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structsolution}{solution}} \&}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 23 of file mtx\+\_\+chain\+\_\+multi.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{24     \{}
+\DoxyCodeLine{25         \mbox{\hyperlink{structsolution_ac1cbd0211e705e5846f368251136e5f2}{optimum}} = s.\mbox{\hyperlink{structsolution_ac1cbd0211e705e5846f368251136e5f2}{optimum}};}
+\DoxyCodeLine{26         \mbox{\hyperlink{structsolution_a5788f5467af564ec1394e33b17c8dd5e}{len}} = s.\mbox{\hyperlink{structsolution_a5788f5467af564ec1394e33b17c8dd5e}{len}};}
+\DoxyCodeLine{27         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < s.\mbox{\hyperlink{structsolution_a5788f5467af564ec1394e33b17c8dd5e}{len}} + 1; i++)}
+\DoxyCodeLine{28         \{}
+\DoxyCodeLine{29             \mbox{\hyperlink{structsolution_ab8e1c9f18e32a1b7c6ff5bc9bb3340b6}{sol}}[i] = \textcolor{keyword}{new} \textcolor{keywordtype}{int}[s.\mbox{\hyperlink{structsolution_a5788f5467af564ec1394e33b17c8dd5e}{len}} + 1];}
+\DoxyCodeLine{30             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < s.\mbox{\hyperlink{structsolution_a5788f5467af564ec1394e33b17c8dd5e}{len}} + 1; j++)}
+\DoxyCodeLine{31                 \mbox{\hyperlink{structsolution_ab8e1c9f18e32a1b7c6ff5bc9bb3340b6}{sol}}[i][j] = s.\mbox{\hyperlink{structsolution_ab8e1c9f18e32a1b7c6ff5bc9bb3340b6}{sol}}[i][j];}
+\DoxyCodeLine{32         \}}
+\DoxyCodeLine{33     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{structsolution_a336b8407b3f1717700a86dd2c9f4a782}\label{structsolution_a336b8407b3f1717700a86dd2c9f4a782}} 
+\index{solution@{solution}!````~solution@{$\sim$solution}}
+\index{````~solution@{$\sim$solution}!solution@{solution}}
+\doxysubsubsection{\texorpdfstring{$\sim$solution()}{~solution()}}
+{\footnotesize\ttfamily solution\+::$\sim$solution (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 34 of file mtx\+\_\+chain\+\_\+multi.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{35     \{}
+\DoxyCodeLine{36         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{structsolution_a5788f5467af564ec1394e33b17c8dd5e}{len}}; i++)}
+\DoxyCodeLine{37             \textcolor{keyword}{delete}[] \mbox{\hyperlink{structsolution_ab8e1c9f18e32a1b7c6ff5bc9bb3340b6}{sol}}[i];}
+\DoxyCodeLine{38         \textcolor{keyword}{delete}[] \mbox{\hyperlink{structsolution_ab8e1c9f18e32a1b7c6ff5bc9bb3340b6}{sol}};}
+\DoxyCodeLine{39     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structsolution_a5788f5467af564ec1394e33b17c8dd5e}\label{structsolution_a5788f5467af564ec1394e33b17c8dd5e}} 
+\index{solution@{solution}!len@{len}}
+\index{len@{len}!solution@{solution}}
+\doxysubsubsection{\texorpdfstring{len}{len}}
+{\footnotesize\ttfamily int solution\+::len}
+
+
+
+Definition at line 26 of file cut\+\_\+rod.\+h.
+
+\mbox{\Hypertarget{structsolution_ac1cbd0211e705e5846f368251136e5f2}\label{structsolution_ac1cbd0211e705e5846f368251136e5f2}} 
+\index{solution@{solution}!optimum@{optimum}}
+\index{optimum@{optimum}!solution@{solution}}
+\doxysubsubsection{\texorpdfstring{optimum}{optimum}}
+{\footnotesize\ttfamily int solution\+::optimum}
+
+
+
+Definition at line 24 of file cut\+\_\+rod.\+h.
+
+\mbox{\Hypertarget{structsolution_ab8e1c9f18e32a1b7c6ff5bc9bb3340b6}\label{structsolution_ab8e1c9f18e32a1b7c6ff5bc9bb3340b6}} 
+\index{solution@{solution}!sol@{sol}}
+\index{sol@{sol}!solution@{solution}}
+\doxysubsubsection{\texorpdfstring{sol}{sol}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily int$\ast$ solution\+::sol}
+
+
+
+Definition at line 25 of file cut\+\_\+rod.\+h.
+
+\mbox{\Hypertarget{structsolution_ad53db1f89214a29a9a62dc3708e79f86}\label{structsolution_ad53db1f89214a29a9a62dc3708e79f86}} 
+\index{solution@{solution}!sol@{sol}}
+\index{sol@{sol}!solution@{solution}}
+\doxysubsubsection{\texorpdfstring{sol}{sol}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily int$\ast$$\ast$ solution\+::sol}
+
+
+
+Definition at line 19 of file mtx\+\_\+chain\+\_\+multi.\+h.
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+source/dynamic\+\_\+programming/cut\+\_\+rod/\mbox{\hyperlink{cut__rod_8h}{cut\+\_\+rod.\+h}}\item 
+source/dynamic\+\_\+programming/matrix\+\_\+chain\+\_\+multiplication/\mbox{\hyperlink{mtx__chain__multi_8h}{mtx\+\_\+chain\+\_\+multi.\+h}}\end{DoxyCompactItemize}

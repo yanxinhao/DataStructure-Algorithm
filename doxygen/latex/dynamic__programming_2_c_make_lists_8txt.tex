@@ -1,0 +1,44 @@
+\hypertarget{dynamic__programming_2_c_make_lists_8txt}{}\doxysection{source/dynamic\+\_\+programming/\+C\+Make\+Lists.txt File Reference}
+\label{dynamic__programming_2_c_make_lists_8txt}\index{source/dynamic\_programming/CMakeLists.txt@{source/dynamic\_programming/CMakeLists.txt}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{dynamic__programming_2_c_make_lists_8txt_a0db6a7551ccc12de87b79b8292b5d004}{include\+\_\+directories}} (\$\{C\+M\+A\+K\+E\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+D\+IR\}) message(\char`\"{}include path\char`\"{} \$
+\item 
+\mbox{\hyperlink{dynamic__programming_2_c_make_lists_8txt_aaf4063d59a397b6db72e61cdbc27f87b}{aux\+\_\+source\+\_\+directory}} (\$\{C\+M\+A\+K\+E\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+D\+IR\}/\mbox{\hyperlink{cut__rod_8h_a721a60057d6cecb6367f2ad2f6054c5a}{cut\+\_\+rod}} C\+U\+T\+\_\+\+R\+O\+D\+\_\+\+P\+A\+TH) add\+\_\+executable(\mbox{\hyperlink{cut__rod_8h_a721a60057d6cecb6367f2ad2f6054c5a}{cut\+\_\+rod}} \$
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{dynamic__programming_2_c_make_lists_8txt_aaf4063d59a397b6db72e61cdbc27f87b}\label{dynamic__programming_2_c_make_lists_8txt_aaf4063d59a397b6db72e61cdbc27f87b}} 
+\index{CMakeLists.txt@{CMakeLists.txt}!aux\_source\_directory@{aux\_source\_directory}}
+\index{aux\_source\_directory@{aux\_source\_directory}!CMakeLists.txt@{CMakeLists.txt}}
+\doxysubsubsection{\texorpdfstring{aux\_source\_directory()}{aux\_source\_directory()}}
+{\footnotesize\ttfamily aux\+\_\+source\+\_\+directory (\begin{DoxyParamCaption}\item[{}]{\$\{\+C\+M\+A\+K\+E\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+D\+I\+R\}/cut\+\_\+rod }\end{DoxyParamCaption})}
+
+
+
+Definition at line 4 of file C\+Make\+Lists.\+txt.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{4                       \{CMAKE\_CURRENT\_SOURCE\_DIR\}/\mbox{\hyperlink{cut__rod_8cpp_a721a60057d6cecb6367f2ad2f6054c5a}{cut\_rod}} CUT\_ROD\_PATH)}
+\DoxyCodeLine{5 add\_executable(\mbox{\hyperlink{cut__rod_8cpp_a721a60057d6cecb6367f2ad2f6054c5a}{cut\_rod}}  \$\{CUT\_ROD\_PATH\})}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{dynamic__programming_2_c_make_lists_8txt_a0db6a7551ccc12de87b79b8292b5d004}\label{dynamic__programming_2_c_make_lists_8txt_a0db6a7551ccc12de87b79b8292b5d004}} 
+\index{CMakeLists.txt@{CMakeLists.txt}!include\_directories@{include\_directories}}
+\index{include\_directories@{include\_directories}!CMakeLists.txt@{CMakeLists.txt}}
+\doxysubsubsection{\texorpdfstring{include\_directories()}{include\_directories()}}
+{\footnotesize\ttfamily include\+\_\+directories (\begin{DoxyParamCaption}\item[{}]{\$\{\+C\+M\+A\+K\+E\+\_\+\+C\+U\+R\+R\+E\+N\+T\+\_\+\+S\+O\+U\+R\+C\+E\+\_\+\+D\+I\+R\} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1 of file C\+Make\+Lists.\+txt.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1                      \{CMAKE\_CURRENT\_SOURCE\_DIR\})}
+\DoxyCodeLine{2 message(\textcolor{stringliteral}{"{}include path"{}} \$\{CMAKE\_CURRENT\_SOURCE\_DIR\})}
+
+\end{DoxyCode}

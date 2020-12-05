@@ -1,0 +1,206 @@
+\hypertarget{cut__rod_8cpp}{}\doxysection{source/dynamic\+\_\+programming/cut\+\_\+rod/cut\+\_\+rod.cpp File Reference}
+\label{cut__rod_8cpp}\index{source/dynamic\_programming/cut\_rod/cut\_rod.cpp@{source/dynamic\_programming/cut\_rod/cut\_rod.cpp}}
+{\ttfamily \#include \char`\"{}cut\+\_\+rod/cut\+\_\+rod.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{cut__rod_8cpp_a721a60057d6cecb6367f2ad2f6054c5a}{cut\+\_\+rod}} (const int $\ast$p, const int \&list\+\_\+len, const int \&n)
+\item 
+int \mbox{\hyperlink{cut__rod_8cpp_a1e6dc5e5701cef4f31842efe986d6ffb}{memoization\+\_\+cut\+\_\+rod}} (const int $\ast$p, const int \&list\+\_\+len, const int \&n)
+\item 
+int \mbox{\hyperlink{cut__rod_8cpp_af9a70c6d6f3193b367ba80566fdcf488}{memoization\+\_\+cut\+\_\+rod\+\_\+aux}} (const int $\ast$p, const int \&list\+\_\+len, int $\ast$r, const int \&n)
+\item 
+int \mbox{\hyperlink{cut__rod_8cpp_a401544716b81abf1673ac1eb3ee1fa7a}{bottom\+\_\+up\+\_\+cut\+\_\+rod}} (const int $\ast$p, const int \&list\+\_\+len, const int \&n)
+\item 
+\mbox{\hyperlink{structsolution}{solution}} \mbox{\hyperlink{cut__rod_8cpp_a5cab79dba5bf2f4043a3a85e090fba19}{bottom\+\_\+up\+\_\+cut\+\_\+rod\+\_\+solution}} (const int $\ast$p, const int \&list\+\_\+len, const int \&n)
+\item 
+void \mbox{\hyperlink{cut__rod_8cpp_a200b98ce3e13f644b9364bba059583d7}{print\+\_\+cut\+\_\+rod\+\_\+solution}} (const \mbox{\hyperlink{structsolution}{solution}} \&sol)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{cut__rod_8cpp_a401544716b81abf1673ac1eb3ee1fa7a}\label{cut__rod_8cpp_a401544716b81abf1673ac1eb3ee1fa7a}} 
+\index{cut\_rod.cpp@{cut\_rod.cpp}!bottom\_up\_cut\_rod@{bottom\_up\_cut\_rod}}
+\index{bottom\_up\_cut\_rod@{bottom\_up\_cut\_rod}!cut\_rod.cpp@{cut\_rod.cpp}}
+\doxysubsubsection{\texorpdfstring{bottom\_up\_cut\_rod()}{bottom\_up\_cut\_rod()}}
+{\footnotesize\ttfamily int bottom\+\_\+up\+\_\+cut\+\_\+rod (\begin{DoxyParamCaption}\item[{const int $\ast$}]{p,  }\item[{const int \&}]{list\+\_\+len,  }\item[{const int \&}]{n }\end{DoxyParamCaption})}
+
+
+
+Definition at line 57 of file cut\+\_\+rod.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{58 \{}
+\DoxyCodeLine{59     \textcolor{comment}{// 初始化备忘录}}
+\DoxyCodeLine{60     \textcolor{keywordtype}{int} *r = \textcolor{keyword}{new} \textcolor{keywordtype}{int}[n + 1]\{0\};}
+\DoxyCodeLine{61     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 1; i <= n; i++)}
+\DoxyCodeLine{62     \{}
+\DoxyCodeLine{63         r[i] = INT\_MIN;}
+\DoxyCodeLine{64     \}}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66     \textcolor{comment}{// 一步步将问题规模慢慢增大,并记录已经完成的问题到备忘录中}}
+\DoxyCodeLine{67     \textcolor{keywordtype}{int} q;}
+\DoxyCodeLine{68     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 1; i <= n; i++)}
+\DoxyCodeLine{69     \{}
+\DoxyCodeLine{70         q = INT\_MIN;}
+\DoxyCodeLine{71         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 1; j <= min(i, list\_len); j++)}
+\DoxyCodeLine{72         \{}
+\DoxyCodeLine{73             q = max(q, p[j -\/ 1] + r[i -\/ j]);}
+\DoxyCodeLine{74         \}}
+\DoxyCodeLine{75         r[i] = q;}
+\DoxyCodeLine{76     \}}
+\DoxyCodeLine{77     \textcolor{keywordtype}{int} result = r[n];}
+\DoxyCodeLine{78     \textcolor{keyword}{delete}[] r;}
+\DoxyCodeLine{79     \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{80 \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{cut__rod_8cpp_a5cab79dba5bf2f4043a3a85e090fba19}\label{cut__rod_8cpp_a5cab79dba5bf2f4043a3a85e090fba19}} 
+\index{cut\_rod.cpp@{cut\_rod.cpp}!bottom\_up\_cut\_rod\_solution@{bottom\_up\_cut\_rod\_solution}}
+\index{bottom\_up\_cut\_rod\_solution@{bottom\_up\_cut\_rod\_solution}!cut\_rod.cpp@{cut\_rod.cpp}}
+\doxysubsubsection{\texorpdfstring{bottom\_up\_cut\_rod\_solution()}{bottom\_up\_cut\_rod\_solution()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsolution}{solution}} bottom\+\_\+up\+\_\+cut\+\_\+rod\+\_\+solution (\begin{DoxyParamCaption}\item[{const int $\ast$}]{p,  }\item[{const int \&}]{list\+\_\+len,  }\item[{const int \&}]{n }\end{DoxyParamCaption})}
+
+
+
+Definition at line 83 of file cut\+\_\+rod.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{84 \{}
+\DoxyCodeLine{85     \textcolor{comment}{// 初始化备忘录}}
+\DoxyCodeLine{86     \textcolor{keywordtype}{int} *r = \textcolor{keyword}{new} \textcolor{keywordtype}{int}[n + 1]\{0\};}
+\DoxyCodeLine{87     \textcolor{keywordtype}{int} *s = \textcolor{keyword}{new} \textcolor{keywordtype}{int}[n + 1]\{0\};}
+\DoxyCodeLine{88     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 1; i <= n; i++)}
+\DoxyCodeLine{89     \{}
+\DoxyCodeLine{90         r[i] = INT\_MIN;}
+\DoxyCodeLine{91         s[i] = INT\_MIN;}
+\DoxyCodeLine{92     \}}
+\DoxyCodeLine{93 }
+\DoxyCodeLine{94     \textcolor{comment}{// 一步步将问题规模慢慢增大,并记录已经完成的问题到备忘录中}}
+\DoxyCodeLine{95     \textcolor{keywordtype}{int} q;}
+\DoxyCodeLine{96     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 1; i <= n; i++)}
+\DoxyCodeLine{97     \{}
+\DoxyCodeLine{98         q = INT\_MIN;}
+\DoxyCodeLine{99         \textcolor{keywordtype}{int} j;}
+\DoxyCodeLine{100         \textcolor{keywordflow}{for} (j = 1; j <= min(i, list\_len); j++)}
+\DoxyCodeLine{101         \{}
+\DoxyCodeLine{102             \textcolor{keywordflow}{if} (q < p[j -\/ 1] + r[i -\/ j])}
+\DoxyCodeLine{103             \{}
+\DoxyCodeLine{104                 q = p[j -\/ 1] + r[i -\/ j];}
+\DoxyCodeLine{105                 s[i] = j;}
+\DoxyCodeLine{106             \}}
+\DoxyCodeLine{107         \}}
+\DoxyCodeLine{108         r[i] = q;}
+\DoxyCodeLine{109     \}}
+\DoxyCodeLine{110     \textcolor{keywordtype}{int} result = r[n];}
+\DoxyCodeLine{111     \textcolor{keyword}{delete}[] r;}
+\DoxyCodeLine{112     \mbox{\hyperlink{structsolution}{solution}} sol(result, s, n);}
+\DoxyCodeLine{113     \textcolor{keywordflow}{return} sol;}
+\DoxyCodeLine{114 \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{cut__rod_8cpp_a721a60057d6cecb6367f2ad2f6054c5a}\label{cut__rod_8cpp_a721a60057d6cecb6367f2ad2f6054c5a}} 
+\index{cut\_rod.cpp@{cut\_rod.cpp}!cut\_rod@{cut\_rod}}
+\index{cut\_rod@{cut\_rod}!cut\_rod.cpp@{cut\_rod.cpp}}
+\doxysubsubsection{\texorpdfstring{cut\_rod()}{cut\_rod()}}
+{\footnotesize\ttfamily int cut\+\_\+rod (\begin{DoxyParamCaption}\item[{const int $\ast$}]{p,  }\item[{const int \&}]{list\+\_\+len,  }\item[{const int \&}]{n }\end{DoxyParamCaption})}
+
+
+
+Definition at line 11 of file cut\+\_\+rod.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{12 \{}
+\DoxyCodeLine{13     \textcolor{keywordflow}{if} (n == 0)}
+\DoxyCodeLine{14         \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{15     \textcolor{keywordtype}{int} q = INT\_MIN;}
+\DoxyCodeLine{16     \textcolor{comment}{// 问题规模降低时的最大收益}}
+\DoxyCodeLine{17     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 1; i <= min(list\_len, n); i++)}
+\DoxyCodeLine{18     \{}
+\DoxyCodeLine{19         \textcolor{keywordflow}{if} (q < p[i -\/ 1] + \mbox{\hyperlink{cut__rod_8cpp_a721a60057d6cecb6367f2ad2f6054c5a}{cut\_rod}}(p, list\_len, n -\/ i))}
+\DoxyCodeLine{20             q = p[i -\/ 1] + \mbox{\hyperlink{cut__rod_8cpp_a721a60057d6cecb6367f2ad2f6054c5a}{cut\_rod}}(p, list\_len, n -\/ i);}
+\DoxyCodeLine{21     \}}
+\DoxyCodeLine{22     \textcolor{keywordflow}{return} q;}
+\DoxyCodeLine{23 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{cut__rod_8cpp_a1e6dc5e5701cef4f31842efe986d6ffb}\label{cut__rod_8cpp_a1e6dc5e5701cef4f31842efe986d6ffb}} 
+\index{cut\_rod.cpp@{cut\_rod.cpp}!memoization\_cut\_rod@{memoization\_cut\_rod}}
+\index{memoization\_cut\_rod@{memoization\_cut\_rod}!cut\_rod.cpp@{cut\_rod.cpp}}
+\doxysubsubsection{\texorpdfstring{memoization\_cut\_rod()}{memoization\_cut\_rod()}}
+{\footnotesize\ttfamily int memoization\+\_\+cut\+\_\+rod (\begin{DoxyParamCaption}\item[{const int $\ast$}]{p,  }\item[{const int \&}]{list\+\_\+len,  }\item[{const int \&}]{n }\end{DoxyParamCaption})}
+
+
+
+Definition at line 27 of file cut\+\_\+rod.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{28 \{}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30     \textcolor{comment}{// 建立备忘录并初始化}}
+\DoxyCodeLine{31     \textcolor{comment}{// r[0]=0,其他地方都为INT\_MIN}}
+\DoxyCodeLine{32     \textcolor{keywordtype}{int} *r = \textcolor{keyword}{new} \textcolor{keywordtype}{int}[n + 1]\{0\};}
+\DoxyCodeLine{33     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 1; i <= n; i++)}
+\DoxyCodeLine{34     \{}
+\DoxyCodeLine{35         r[i] = INT\_MIN;}
+\DoxyCodeLine{36     \}}
+\DoxyCodeLine{37     \textcolor{keywordtype}{int} result = \mbox{\hyperlink{cut__rod_8cpp_af9a70c6d6f3193b367ba80566fdcf488}{memoization\_cut\_rod\_aux}}(p, list\_len, r, n);}
+\DoxyCodeLine{38     \textcolor{keyword}{delete}[] r;}
+\DoxyCodeLine{39     \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{40 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{cut__rod_8cpp_af9a70c6d6f3193b367ba80566fdcf488}\label{cut__rod_8cpp_af9a70c6d6f3193b367ba80566fdcf488}} 
+\index{cut\_rod.cpp@{cut\_rod.cpp}!memoization\_cut\_rod\_aux@{memoization\_cut\_rod\_aux}}
+\index{memoization\_cut\_rod\_aux@{memoization\_cut\_rod\_aux}!cut\_rod.cpp@{cut\_rod.cpp}}
+\doxysubsubsection{\texorpdfstring{memoization\_cut\_rod\_aux()}{memoization\_cut\_rod\_aux()}}
+{\footnotesize\ttfamily int memoization\+\_\+cut\+\_\+rod\+\_\+aux (\begin{DoxyParamCaption}\item[{const int $\ast$}]{p,  }\item[{const int \&}]{list\+\_\+len,  }\item[{int $\ast$}]{r,  }\item[{const int \&}]{n }\end{DoxyParamCaption})}
+
+
+
+Definition at line 42 of file cut\+\_\+rod.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{43 \{}
+\DoxyCodeLine{44     \textcolor{comment}{// 首先查询备忘录,若存在则代表是相同的子问题，直接返回}}
+\DoxyCodeLine{45     \textcolor{comment}{// 注意这里递归问题的最小问题n=0也在备忘录中（直接查询既可，无需单独对最小问题进行处理）}}
+\DoxyCodeLine{46     \textcolor{keywordflow}{if} (r[n] >= 0)}
+\DoxyCodeLine{47         \textcolor{keywordflow}{return} r[n];}
+\DoxyCodeLine{48     \textcolor{keywordtype}{int} q;}
+\DoxyCodeLine{49     q = INT\_MIN;}
+\DoxyCodeLine{50     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 1; i <= min(list\_len, n); i++)}
+\DoxyCodeLine{51         q = max(q, p[i -\/ 1] + \mbox{\hyperlink{cut__rod_8cpp_af9a70c6d6f3193b367ba80566fdcf488}{memoization\_cut\_rod\_aux}}(p, list\_len, r, n -\/ i));}
+\DoxyCodeLine{52     r[n] = q;}
+\DoxyCodeLine{53     \textcolor{keywordflow}{return} q;}
+\DoxyCodeLine{54 \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{cut__rod_8cpp_a200b98ce3e13f644b9364bba059583d7}\label{cut__rod_8cpp_a200b98ce3e13f644b9364bba059583d7}} 
+\index{cut\_rod.cpp@{cut\_rod.cpp}!print\_cut\_rod\_solution@{print\_cut\_rod\_solution}}
+\index{print\_cut\_rod\_solution@{print\_cut\_rod\_solution}!cut\_rod.cpp@{cut\_rod.cpp}}
+\doxysubsubsection{\texorpdfstring{print\_cut\_rod\_solution()}{print\_cut\_rod\_solution()}}
+{\footnotesize\ttfamily void print\+\_\+cut\+\_\+rod\+\_\+solution (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structsolution}{solution}} \&}]{sol }\end{DoxyParamCaption})}
+
+
+
+Definition at line 117 of file cut\+\_\+rod.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{118 \{}
+\DoxyCodeLine{119     \textcolor{keywordtype}{int} *s = sol.\mbox{\hyperlink{structsolution_ab8e1c9f18e32a1b7c6ff5bc9bb3340b6}{sol}};}
+\DoxyCodeLine{120     \textcolor{keywordtype}{int} len = sol.\mbox{\hyperlink{structsolution_a5788f5467af564ec1394e33b17c8dd5e}{len}};}
+\DoxyCodeLine{121     \textcolor{keywordflow}{while} (s[len])}
+\DoxyCodeLine{122     \{}
+\DoxyCodeLine{123         cout << s[len] << \textcolor{stringliteral}{"{} "{}};}
+\DoxyCodeLine{124         len -\/= s[len];}
+\DoxyCodeLine{125     \}}
+\DoxyCodeLine{126     cout << endl;}
+\DoxyCodeLine{127 \}}
+
+\end{DoxyCode}

@@ -1,0 +1,43 @@
+\hypertarget{bintree__implement_8h}{}\doxysection{source/tree/bintree\+\_\+implement.h File Reference}
+\label{bintree__implement_8h}\index{source/tree/bintree\_implement.h@{source/tree/bintree\_implement.h}}
+{\ttfamily \#include \char`\"{}tree/bintree.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\\mbox{\hyperlink{bintree__implement_8h_a6c431d52e7488921e4973ced65a14fe9}{Bin\+Node\+Posi}} (T) \mbox{\hyperlink{class_bin_tree}{Bin\+Tree}}$<$ T $>$
+\begin{DoxyCompactList}\small\item\em 插入节点作为当前节点的左孩子 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{bintree__implement_8h_a6c431d52e7488921e4973ced65a14fe9}\label{bintree__implement_8h_a6c431d52e7488921e4973ced65a14fe9}} 
+\index{bintree\_implement.h@{bintree\_implement.h}!BinNodePosi@{BinNodePosi}}
+\index{BinNodePosi@{BinNodePosi}!bintree\_implement.h@{bintree\_implement.h}}
+\doxysubsubsection{\texorpdfstring{BinNodePosi()}{BinNodePosi()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+Bin\+Node\+Posi (\begin{DoxyParamCaption}\item[{T}]{ }\end{DoxyParamCaption})}
+
+
+
+插入节点作为当前节点的左孩子 
+
+插入节点作为当前节点的右孩子
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 68 of file bintree\+\_\+implement.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{69 \{}
+\DoxyCodeLine{70     \_size++;}
+\DoxyCodeLine{71     x-\/>insertAsRc(e);}
+\DoxyCodeLine{72     updateHeightAbove(x);}
+\DoxyCodeLine{73     \textcolor{keywordflow}{return} x-\/>rchild;}
+\DoxyCodeLine{74 \}}
+
+\end{DoxyCode}

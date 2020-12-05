@@ -1,0 +1,46 @@
+\hypertarget{dynamic__programming_2matrix__chain__multiplication_2main_8cpp}{}\doxysection{source/dynamic\+\_\+programming/matrix\+\_\+chain\+\_\+multiplication/main.cpp File Reference}
+\label{dynamic__programming_2matrix__chain__multiplication_2main_8cpp}\index{source/dynamic\_programming/matrix\_chain\_multiplication/main.cpp@{source/dynamic\_programming/matrix\_chain\_multiplication/main.cpp}}
+{\ttfamily \#include \char`\"{}matrix\+\_\+chain\+\_\+multiplication/mtx\+\_\+chain\+\_\+multi.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{dynamic__programming_2matrix__chain__multiplication_2main_8cpp_abf9e6b7e6f15df4b525a2e7705ba3089}{main}} (int argc, char const $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{dynamic__programming_2matrix__chain__multiplication_2main_8cpp_abf9e6b7e6f15df4b525a2e7705ba3089}\label{dynamic__programming_2matrix__chain__multiplication_2main_8cpp_abf9e6b7e6f15df4b525a2e7705ba3089}} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char const $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 9 of file main.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{11     \textcolor{comment}{// 输入的矩阵序列}}
+\DoxyCodeLine{12     \textcolor{keyword}{const} \textcolor{keywordtype}{int} n = 6;                            \textcolor{comment}{//矩阵个数}}
+\DoxyCodeLine{13     \textcolor{keywordtype}{int} p[n + 1] = \{30, 35, 15, 5, 10, 20, 25\}; \textcolor{comment}{//每个矩阵的规模为(i,i+1)}}
+\DoxyCodeLine{14     cout << \textcolor{stringliteral}{"{}分而治之 : "{}}}
+\DoxyCodeLine{15          << \textcolor{stringliteral}{"{} the minimum multiplication time is "{}} << \mbox{\hyperlink{mtx__chain__multi_8cpp_a0150bd975ec407bf881af44b13a31889}{matrix\_multi\_order}}(p, n) << endl;}
+\DoxyCodeLine{16     \textcolor{comment}{//}}
+\DoxyCodeLine{17     \mbox{\hyperlink{structsolution}{solution}} result = \mbox{\hyperlink{mtx__chain__multi_8cpp_aa0df3447839083215a52470a775abb68}{bottom\_up\_mtx\_multi\_order}}(p, n);}
+\DoxyCodeLine{18     cout << \textcolor{stringliteral}{"{}自底向上 : "{}}}
+\DoxyCodeLine{19          << \textcolor{stringliteral}{"{} the minimum multiplication time is "{}} << result.\mbox{\hyperlink{structsolution_ac1cbd0211e705e5846f368251136e5f2}{optimum}} << endl;}
+\DoxyCodeLine{20     \mbox{\hyperlink{mtx__chain__multi_8cpp_a66e2ec7231322c00e10e342a3910f47f}{print\_solution}}(result.\mbox{\hyperlink{structsolution_ab8e1c9f18e32a1b7c6ff5bc9bb3340b6}{sol}}, 1, n);}
+\DoxyCodeLine{21     cout << endl;}
+\DoxyCodeLine{22 }
+\DoxyCodeLine{23     \mbox{\hyperlink{structsolution}{solution}} slt = \mbox{\hyperlink{mtx__chain__multi_8cpp_a09bd7b0c6b55ae53b4321e2580d00138}{memoization\_mtx\_multi\_order}}(p, n);}
+\DoxyCodeLine{24     cout << \textcolor{stringliteral}{"{}带备忘的自顶向下 : "{}}}
+\DoxyCodeLine{25          << \textcolor{stringliteral}{"{} the minimum multiplication time is "{}} << slt.\mbox{\hyperlink{structsolution_ac1cbd0211e705e5846f368251136e5f2}{optimum}} << endl;}
+\DoxyCodeLine{26     \mbox{\hyperlink{mtx__chain__multi_8cpp_a66e2ec7231322c00e10e342a3910f47f}{print\_solution}}(slt.\mbox{\hyperlink{structsolution_ab8e1c9f18e32a1b7c6ff5bc9bb3340b6}{sol}}, 1, n);}
+\DoxyCodeLine{27     cout << endl;}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{30 \}}
+
+\end{DoxyCode}

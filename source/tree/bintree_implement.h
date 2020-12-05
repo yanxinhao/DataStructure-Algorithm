@@ -1,11 +1,12 @@
 /*
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-11-30 16:20:03
+ * @LastEditTime: 2020-12-05 11:30:29
  * @LastEditors: yanxinhao
  * @Description: 
  */
 #pragma once
+#include "stack/sqstack.h"
 #include "tree/bintree.h"
 
 template <typename T>
@@ -42,10 +43,26 @@ template <typename T>
 void BinTree<T>::createbintree(BinNodePosi(T) subtree, const T *A, int i, int n)
 {
 }
-
+/**
+ * @brief Destroy the Bin Tree< T>:: Bin Tree object 以先序序列删除所有树节点
+ * 
+ * @tparam T 
+ */
 template <typename T>
 BinTree<T>::~BinTree()
 {
+    sqstack<BinNodePosi(T)> s;
+    s.push(_root);
+    // 以先序序列删除所有树节点
+    while (!s.empty())
+    {
+        Node<T> *p = s.pop();
+        if (p->rchild)
+            s.push(p->rchild);
+        if (p->lchild)
+            s.push(p->lchild);
+        delete p;
+    }
 }
 
 template <typename T>

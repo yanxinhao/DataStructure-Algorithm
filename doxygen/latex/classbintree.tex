@@ -1,0 +1,249 @@
+\hypertarget{classbintree}{}\doxysection{bintree$<$ T $>$ Class Template Reference}
+\label{classbintree}\index{bintree$<$ T $>$@{bintree$<$ T $>$}}
+
+
+只有双亲节点指针的一般二叉树  
+
+
+
+
+{\ttfamily \#include $<$bintree.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classbintree_a9fed4a26a9c177dfa14a9cb573b43dca}{bintree}} ()
+\item 
+\mbox{\hyperlink{classbintree_ae71c64c0dc482dd131f2892b3d4cf02f}{bintree}} (int len, const T $\ast$p\+\_\+order, const T $\ast$in\+\_\+order)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classbintree_a9fed4a26a9c177dfa14a9cb573b43dca}{bintree$<$\+T$>$\+::bintree}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classbintree_a3297b03f7568a9b3e47db8f840a9514d}{restore}} (int len, const T $\ast$p\+\_\+order, const T $\ast$in\+\_\+order)
+\begin{DoxyCompactList}\small\item\em 递归函数，利用先序和中序序列建立二叉树 \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classbintree_a7f32fcbdc9aed453025a13cbe93e3b89}{$\sim$bintree}} ()
+\item 
+void \mbox{\hyperlink{classbintree_a29b36fe06173dd86151697341946b0b7}{traverse}} (void($\ast$\mbox{\hyperlink{vector_2main_8cpp_afb991771a466986b7b994e7108cfe26d}{visit}})(T \&))
+\item 
+void \mbox{\hyperlink{classbintree_a481553eb057edff2fde819454f03166b}{preorder}} (void($\ast$\mbox{\hyperlink{vector_2main_8cpp_afb991771a466986b7b994e7108cfe26d}{visit}})(T \&))
+\item 
+void \mbox{\hyperlink{classbintree_a3339945eb012b7650270d6e355cb0344}{inorder}} (void($\ast$\mbox{\hyperlink{vector_2main_8cpp_afb991771a466986b7b994e7108cfe26d}{visit}})(T \&))
+\item 
+void \mbox{\hyperlink{classbintree_a546ac4540238d171e6fed6c7aa21aa35}{postorder}} (void($\ast$\mbox{\hyperlink{vector_2main_8cpp_afb991771a466986b7b994e7108cfe26d}{visit}})(T \&))
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_node}{Node}}$<$ T $>$ $\ast$ \mbox{\hyperlink{classbintree_a7afff896c6171c122d673b5e8e01040a}{\+\_\+root}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class bintree$<$ T $>$}
+
+只有双亲节点指针的一般二叉树 
+
+Definition at line 18 of file bintree.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classbintree_a9fed4a26a9c177dfa14a9cb573b43dca}\label{classbintree_a9fed4a26a9c177dfa14a9cb573b43dca}} 
+\index{bintree$<$ T $>$@{bintree$<$ T $>$}!bintree@{bintree}}
+\index{bintree@{bintree}!bintree$<$ T $>$@{bintree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{bintree()}{bintree()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classbintree}{bintree}}$<$ T $>$\+::\mbox{\hyperlink{classbintree}{bintree}}}
+
+
+
+Definition at line 17 of file standard\+\_\+bintree\+\_\+implement.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{18 \{}
+\DoxyCodeLine{19 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classbintree_ae71c64c0dc482dd131f2892b3d4cf02f}\label{classbintree_ae71c64c0dc482dd131f2892b3d4cf02f}} 
+\index{bintree$<$ T $>$@{bintree$<$ T $>$}!bintree@{bintree}}
+\index{bintree@{bintree}!bintree$<$ T $>$@{bintree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{bintree()}{bintree()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classbintree}{bintree}}$<$ T $>$\+::\mbox{\hyperlink{classbintree}{bintree}} (\begin{DoxyParamCaption}\item[{int}]{len,  }\item[{const T $\ast$}]{p\+\_\+order,  }\item[{const T $\ast$}]{in\+\_\+order }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classbintree_a9fed4a26a9c177dfa14a9cb573b43dca}{bintree$<$\+T$>$\+::bintree}} object. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em len} & 树的节点个数 \\
+\hline
+{\em p\+\_\+order} & 前序遍历序列 \\
+\hline
+{\em in\+\_\+order} & 中序遍历序列 \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 30 of file standard\+\_\+bintree\+\_\+implement.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{30                                                                \{}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classbintree_a7f32fcbdc9aed453025a13cbe93e3b89}\label{classbintree_a7f32fcbdc9aed453025a13cbe93e3b89}} 
+\index{bintree$<$ T $>$@{bintree$<$ T $>$}!````~bintree@{$\sim$bintree}}
+\index{````~bintree@{$\sim$bintree}!bintree$<$ T $>$@{bintree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$bintree()}{~bintree()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classbintree}{bintree}}$<$ T $>$\+::$\sim$\mbox{\hyperlink{classbintree}{bintree}}}
+
+
+
+Definition at line 35 of file standard\+\_\+bintree\+\_\+implement.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{36 \{}
+\DoxyCodeLine{37 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classbintree_a3339945eb012b7650270d6e355cb0344}\label{classbintree_a3339945eb012b7650270d6e355cb0344}} 
+\index{bintree$<$ T $>$@{bintree$<$ T $>$}!inorder@{inorder}}
+\index{inorder@{inorder}!bintree$<$ T $>$@{bintree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{inorder()}{inorder()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classbintree}{bintree}}$<$ T $>$\+::inorder (\begin{DoxyParamCaption}\item[{void($\ast$)(T \&)}]{visit }\end{DoxyParamCaption})}
+
+
+
+Definition at line 62 of file standard\+\_\+bintree\+\_\+implement.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{62                                           \{}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64 \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classbintree_a546ac4540238d171e6fed6c7aa21aa35}\label{classbintree_a546ac4540238d171e6fed6c7aa21aa35}} 
+\index{bintree$<$ T $>$@{bintree$<$ T $>$}!postorder@{postorder}}
+\index{postorder@{postorder}!bintree$<$ T $>$@{bintree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{postorder()}{postorder()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classbintree}{bintree}}$<$ T $>$\+::postorder (\begin{DoxyParamCaption}\item[{void($\ast$)(T \&)}]{visit }\end{DoxyParamCaption})}
+
+
+
+Definition at line 67 of file standard\+\_\+bintree\+\_\+implement.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{67                                             \{}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classbintree_a481553eb057edff2fde819454f03166b}\label{classbintree_a481553eb057edff2fde819454f03166b}} 
+\index{bintree$<$ T $>$@{bintree$<$ T $>$}!preorder@{preorder}}
+\index{preorder@{preorder}!bintree$<$ T $>$@{bintree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{preorder()}{preorder()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classbintree}{bintree}}$<$ T $>$\+::preorder (\begin{DoxyParamCaption}\item[{void($\ast$)(T \&)}]{visit }\end{DoxyParamCaption})}
+
+
+
+Definition at line 58 of file standard\+\_\+bintree\+\_\+implement.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{58                                            \{}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classbintree_a3297b03f7568a9b3e47db8f840a9514d}\label{classbintree_a3297b03f7568a9b3e47db8f840a9514d}} 
+\index{bintree$<$ T $>$@{bintree$<$ T $>$}!restore@{restore}}
+\index{restore@{restore}!bintree$<$ T $>$@{bintree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{restore()}{restore()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classbintree}{bintree}}$<$ T $>$\+::restore (\begin{DoxyParamCaption}\item[{int}]{len,  }\item[{const T $\ast$}]{p\+\_\+order,  }\item[{const T $\ast$}]{in\+\_\+order }\end{DoxyParamCaption})}
+
+
+
+递归函数，利用先序和中序序列建立二叉树 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em len} & 树的节点个数 \\
+\hline
+{\em p\+\_\+order} & 前序遍历序列 \\
+\hline
+{\em in\+\_\+order} & 中序遍历序列 \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 48 of file standard\+\_\+bintree\+\_\+implement.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{48                                                                     \{}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classbintree_a29b36fe06173dd86151697341946b0b7}\label{classbintree_a29b36fe06173dd86151697341946b0b7}} 
+\index{bintree$<$ T $>$@{bintree$<$ T $>$}!traverse@{traverse}}
+\index{traverse@{traverse}!bintree$<$ T $>$@{bintree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{traverse()}{traverse()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classbintree}{bintree}}$<$ T $>$\+::traverse (\begin{DoxyParamCaption}\item[{void($\ast$)(T \&)}]{visit }\end{DoxyParamCaption})}
+
+
+
+Definition at line 54 of file standard\+\_\+bintree\+\_\+implement.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{54                                            \{}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 \};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classbintree_a7afff896c6171c122d673b5e8e01040a}\label{classbintree_a7afff896c6171c122d673b5e8e01040a}} 
+\index{bintree$<$ T $>$@{bintree$<$ T $>$}!\_root@{\_root}}
+\index{\_root@{\_root}!bintree$<$ T $>$@{bintree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{\_root}{\_root}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{struct_node}{Node}}$<$T$>$$\ast$ \mbox{\hyperlink{classbintree}{bintree}}$<$ T $>$\+::\+\_\+root\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 21 of file bintree.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+source/tree/\mbox{\hyperlink{bintree_8h}{bintree.\+h}}\item 
+source/tree/\mbox{\hyperlink{standard__bintree__implement_8h}{standard\+\_\+bintree\+\_\+implement.\+h}}\end{DoxyCompactItemize}

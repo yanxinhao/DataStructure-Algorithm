@@ -1,0 +1,474 @@
+\hypertarget{classlist}{}\doxysection{list$<$ T $>$ Class Template Reference}
+\label{classlist}\index{list$<$ T $>$@{list$<$ T $>$}}
+
+
+{\ttfamily \#include $<$list.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classlist_afe3efe55d3ee5dd698349834f7eac26b}{list}} ()
+\item 
+\mbox{\hyperlink{classlist_a9abf7121d4cb634d8b0e8fe47345ed32}{list}} (const T $\ast$array, int len)
+\item 
+\mbox{\hyperlink{classlist_adf352cf28624c0811f4f9b160062a88c}{$\sim$list}} ()
+\item 
+int \mbox{\hyperlink{classlist_a1d2ff2c48483b39e25bb680dae4070a8}{size}} ()
+\item 
+\mbox{\hyperlink{classlist_a162eead56a880fe93c98f2253a8bc695}{Posi}} (T) first()
+\item 
+\mbox{\hyperlink{classlist_a1905dd88467355884b9bb674dfef79ce}{Posi}} (T) insertB(Posi(T) p
+\item 
+T \mbox{\hyperlink{classlist_a5f9171ca40627555651bf4fe669f0e6a}{remove}} (\mbox{\hyperlink{classlist_a764d704624121a77f50aa5ff47e00119}{Posi}}(T) p)
+\item 
+void \mbox{\hyperlink{classlist_acbbc521fd076a6af7be596e5a9d895d1}{traverse}} (void($\ast$\mbox{\hyperlink{vector_2main_8cpp_afb991771a466986b7b994e7108cfe26d}{visit}})(T \&))
+\item 
+\mbox{\hyperlink{classlist_a8a0d96d2429b3123e4492bee7a1f3037}{Posi}} (T) divide\+\_\+reverse(Posi(T) start)
+\item 
+void \mbox{\hyperlink{classlist_a676f28528dea1df100910363d903ad90}{reverse}} ()
+\item 
+bool \mbox{\hyperlink{classlist_a13be489701ec2afba3bc1139acc89321}{sort}} (\mbox{\hyperlink{list_8h_aec7972df29a7559f48560eaf1ab93a51}{S\+O\+R\+T\+I\+NG}} kind=\mbox{\hyperlink{list_8h_aec7972df29a7559f48560eaf1ab93a51a0b3446a982f9899c5d4877014468af0f}{S\+E\+L\+E\+C\+T\+I\+O\+N\+S\+O\+RT}})
+\item 
+bool \mbox{\hyperlink{classlist_a9cf585cbfeea986aa62907eb947780d0}{selectionsort}} (\mbox{\hyperlink{classlist_a764d704624121a77f50aa5ff47e00119}{Posi}}(T) p, int \mbox{\hyperlink{classlist_a455a46357388ca2fe1d706abc08a8e17}{n}})
+\item 
+bool \mbox{\hyperlink{classlist_a6b161f1ef7d891b6e65262d587591094}{insertionsort}} (\mbox{\hyperlink{classlist_a764d704624121a77f50aa5ff47e00119}{Posi}}(T) p, int \mbox{\hyperlink{classlist_a455a46357388ca2fe1d706abc08a8e17}{n}})
+\item 
+\mbox{\hyperlink{classlist_a424ab7a6b19574ee8eb56c16b3e53bb5}{Posi}} (T) merge(Posi(T) L
+\item 
+int \mbox{\hyperlink{classlist_aa03d0db2f65eddd7a817a6d84115229c}{Posi}} (T) R
+\item 
+bool \mbox{\hyperlink{classlist_a4ff241b3ab6db20868c9939751de0cbd}{mergesort}} (\mbox{\hyperlink{classlist_a764d704624121a77f50aa5ff47e00119}{Posi}}(T) \&p, int \mbox{\hyperlink{classlist_a455a46357388ca2fe1d706abc08a8e17}{n}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const T \& \mbox{\hyperlink{classlist_a007cd5ccb21a4ce3a0b22306cb766861}{e}}
+\item 
+int \mbox{\hyperlink{classlist_a6d40117a3c89e7ceec392730575c09c7}{m}}
+\item 
+int int \mbox{\hyperlink{classlist_a455a46357388ca2fe1d706abc08a8e17}{n}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classlist_a5ed592ce1c967fe197dfae90e3fde493}{init}} ()
+\item 
+\mbox{\hyperlink{classlist_a764d704624121a77f50aa5ff47e00119}{Posi}} (T) header
+\item 
+\mbox{\hyperlink{classlist_a38a5b11696513808020ab7f3f883ab10}{Posi}} (T) trailer
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classlist_a56236d162821538bc641bb5225c4afc3}{\+\_\+size}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class list$<$ T $>$}
+
+
+
+Definition at line 49 of file list.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classlist_afe3efe55d3ee5dd698349834f7eac26b}\label{classlist_afe3efe55d3ee5dd698349834f7eac26b}} 
+\index{list$<$ T $>$@{list$<$ T $>$}!list@{list}}
+\index{list@{list}!list$<$ T $>$@{list$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{list()}{list()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classlist}{list}}$<$ T $>$\+::\mbox{\hyperlink{classlist}{list}}}
+
+
+
+Definition at line 24 of file list\+\_\+implement.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{25 \{}
+\DoxyCodeLine{26     \mbox{\hyperlink{classlist_a5ed592ce1c967fe197dfae90e3fde493}{init}}();}
+\DoxyCodeLine{27 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classlist_a9abf7121d4cb634d8b0e8fe47345ed32}\label{classlist_a9abf7121d4cb634d8b0e8fe47345ed32}} 
+\index{list$<$ T $>$@{list$<$ T $>$}!list@{list}}
+\index{list@{list}!list$<$ T $>$@{list$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{list()}{list()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classlist}{list}}$<$ T $>$\+::\mbox{\hyperlink{classlist}{list}} (\begin{DoxyParamCaption}\item[{const T $\ast$}]{array,  }\item[{int}]{len }\end{DoxyParamCaption})}
+
+
+
+Definition at line 30 of file list\+\_\+implement.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{31 \{}
+\DoxyCodeLine{32     \mbox{\hyperlink{classlist_a5ed592ce1c967fe197dfae90e3fde493}{init}}();}
+\DoxyCodeLine{33     \mbox{\hyperlink{classlist_a764d704624121a77f50aa5ff47e00119}{Posi}}(T) p = header;}
+\DoxyCodeLine{34     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < len; i++)}
+\DoxyCodeLine{35     \{}
+\DoxyCodeLine{36         p-\/>insertAsSucc(array[i]);}
+\DoxyCodeLine{37         p = p-\/>succ;}
+\DoxyCodeLine{38         \mbox{\hyperlink{classlist_a56236d162821538bc641bb5225c4afc3}{\_size}}++;}
+\DoxyCodeLine{39     \}}
+\DoxyCodeLine{40 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classlist_adf352cf28624c0811f4f9b160062a88c}\label{classlist_adf352cf28624c0811f4f9b160062a88c}} 
+\index{list$<$ T $>$@{list$<$ T $>$}!````~list@{$\sim$list}}
+\index{````~list@{$\sim$list}!list$<$ T $>$@{list$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$list()}{~list()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classlist}{list}}$<$ T $>$\+::$\sim$\mbox{\hyperlink{classlist}{list}}}
+
+
+
+Definition at line 43 of file list\+\_\+implement.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{44 \{}
+\DoxyCodeLine{45     \mbox{\hyperlink{classlist_a764d704624121a77f50aa5ff47e00119}{Posi}}(T) p = trailer-\/>pred;}
+\DoxyCodeLine{46     \textcolor{keywordflow}{while} ((p = p-\/>pred) != header)}
+\DoxyCodeLine{47     \{}
+\DoxyCodeLine{48         \textcolor{keyword}{delete} p;}
+\DoxyCodeLine{49         \mbox{\hyperlink{classlist_a56236d162821538bc641bb5225c4afc3}{\_size}}-\/-\/;}
+\DoxyCodeLine{50     \}}
+\DoxyCodeLine{51 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classlist_a5ed592ce1c967fe197dfae90e3fde493}\label{classlist_a5ed592ce1c967fe197dfae90e3fde493}} 
+\index{list$<$ T $>$@{list$<$ T $>$}!init@{init}}
+\index{init@{init}!list$<$ T $>$@{list$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classlist}{list}}$<$ T $>$\+::init\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 12 of file list\+\_\+implement.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{13 \{}
+\DoxyCodeLine{14     header = \textcolor{keyword}{new} \mbox{\hyperlink{struct_list_node}{ListNode<T>}};}
+\DoxyCodeLine{15     trailer = \textcolor{keyword}{new} \mbox{\hyperlink{struct_list_node}{ListNode<T>}};}
+\DoxyCodeLine{16     header-\/>succ = trailer;}
+\DoxyCodeLine{17     header-\/>pred = NULL;}
+\DoxyCodeLine{18     trailer-\/>pred = header;}
+\DoxyCodeLine{19     trailer-\/>succ = NULL;}
+\DoxyCodeLine{20     \mbox{\hyperlink{classlist_a56236d162821538bc641bb5225c4afc3}{\_size}} = 0;}
+\DoxyCodeLine{21 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classlist_a6b161f1ef7d891b6e65262d587591094}\label{classlist_a6b161f1ef7d891b6e65262d587591094}} 
+\index{list$<$ T $>$@{list$<$ T $>$}!insertionsort@{insertionsort}}
+\index{insertionsort@{insertionsort}!list$<$ T $>$@{list$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{insertionsort()}{insertionsort()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \mbox{\hyperlink{classlist}{list}}$<$ T $>$\+::insertionsort (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classlist_a764d704624121a77f50aa5ff47e00119}{Posi}}(T)}]{p,  }\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+Definition at line 151 of file list\+\_\+implement.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{152 \{}
+\DoxyCodeLine{153     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{154 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classlist_a4ff241b3ab6db20868c9939751de0cbd}\label{classlist_a4ff241b3ab6db20868c9939751de0cbd}} 
+\index{list$<$ T $>$@{list$<$ T $>$}!mergesort@{mergesort}}
+\index{mergesort@{mergesort}!list$<$ T $>$@{list$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{mergesort()}{mergesort()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \mbox{\hyperlink{classlist}{list}}$<$ T $>$\+::mergesort (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classlist_a764d704624121a77f50aa5ff47e00119}{Posi}}(T) \&}]{p,  }\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+Definition at line 181 of file list\+\_\+implement.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{182 \{}
+\DoxyCodeLine{183     \textcolor{keywordflow}{if} (\mbox{\hyperlink{classlist_a455a46357388ca2fe1d706abc08a8e17}{n}} < 2)}
+\DoxyCodeLine{184         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{185     \mbox{\hyperlink{classlist_a764d704624121a77f50aa5ff47e00119}{Posi}}(T) p\_mid = p;}
+\DoxyCodeLine{186     \textcolor{keywordtype}{int} mid = \mbox{\hyperlink{classlist_a455a46357388ca2fe1d706abc08a8e17}{n}} / 2;}
+\DoxyCodeLine{187     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < mid; i++)}
+\DoxyCodeLine{188         p\_mid = p\_mid-\/>succ;}
+\DoxyCodeLine{189     \mbox{\hyperlink{classlist_a4ff241b3ab6db20868c9939751de0cbd}{mergesort}}(p, mid); \textcolor{comment}{//左半部分不包含mid节点，但是其长度为mid}}
+\DoxyCodeLine{190     \mbox{\hyperlink{classlist_a4ff241b3ab6db20868c9939751de0cbd}{mergesort}}(p\_mid, \mbox{\hyperlink{classlist_a455a46357388ca2fe1d706abc08a8e17}{n}} -\/ mid);}
+\DoxyCodeLine{191     p = merge(p, mid, p\_mid, \mbox{\hyperlink{classlist_a455a46357388ca2fe1d706abc08a8e17}{n}} -\/ mid);}
+\DoxyCodeLine{192     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{193 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classlist_a8a0d96d2429b3123e4492bee7a1f3037}\label{classlist_a8a0d96d2429b3123e4492bee7a1f3037}} 
+\index{list$<$ T $>$@{list$<$ T $>$}!Posi@{Posi}}
+\index{Posi@{Posi}!list$<$ T $>$@{list$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Posi()}{Posi()}\hspace{0.1cm}{\footnotesize\ttfamily [1/7]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classlist}{list}}$<$ T $>$\+::Posi (\begin{DoxyParamCaption}\item[{T}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classlist_a162eead56a880fe93c98f2253a8bc695}\label{classlist_a162eead56a880fe93c98f2253a8bc695}} 
+\index{list$<$ T $>$@{list$<$ T $>$}!Posi@{Posi}}
+\index{Posi@{Posi}!list$<$ T $>$@{list$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Posi()}{Posi()}\hspace{0.1cm}{\footnotesize\ttfamily [2/7]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classlist}{list}}$<$ T $>$\+::Posi (\begin{DoxyParamCaption}\item[{T}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 62 of file list.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{62 \{ \textcolor{keywordflow}{return} header-\/>succ; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classlist_a764d704624121a77f50aa5ff47e00119}\label{classlist_a764d704624121a77f50aa5ff47e00119}} 
+\index{list$<$ T $>$@{list$<$ T $>$}!Posi@{Posi}}
+\index{Posi@{Posi}!list$<$ T $>$@{list$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Posi()}{Posi()}\hspace{0.1cm}{\footnotesize\ttfamily [3/7]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classlist}{list}}$<$ T $>$\+::Posi (\begin{DoxyParamCaption}\item[{T}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classlist_a1905dd88467355884b9bb674dfef79ce}\label{classlist_a1905dd88467355884b9bb674dfef79ce}} 
+\index{list$<$ T $>$@{list$<$ T $>$}!Posi@{Posi}}
+\index{Posi@{Posi}!list$<$ T $>$@{list$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Posi()}{Posi()}\hspace{0.1cm}{\footnotesize\ttfamily [4/7]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classlist}{list}}$<$ T $>$\+::Posi (\begin{DoxyParamCaption}\item[{T}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classlist_a424ab7a6b19574ee8eb56c16b3e53bb5}\label{classlist_a424ab7a6b19574ee8eb56c16b3e53bb5}} 
+\index{list$<$ T $>$@{list$<$ T $>$}!Posi@{Posi}}
+\index{Posi@{Posi}!list$<$ T $>$@{list$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Posi()}{Posi()}\hspace{0.1cm}{\footnotesize\ttfamily [5/7]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classlist}{list}}$<$ T $>$\+::Posi (\begin{DoxyParamCaption}\item[{T}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classlist_aa03d0db2f65eddd7a817a6d84115229c}\label{classlist_aa03d0db2f65eddd7a817a6d84115229c}} 
+\index{list$<$ T $>$@{list$<$ T $>$}!Posi@{Posi}}
+\index{Posi@{Posi}!list$<$ T $>$@{list$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Posi()}{Posi()}\hspace{0.1cm}{\footnotesize\ttfamily [6/7]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+int \mbox{\hyperlink{classlist}{list}}$<$ T $>$\+::Posi (\begin{DoxyParamCaption}\item[{T}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classlist_a38a5b11696513808020ab7f3f883ab10}\label{classlist_a38a5b11696513808020ab7f3f883ab10}} 
+\index{list$<$ T $>$@{list$<$ T $>$}!Posi@{Posi}}
+\index{Posi@{Posi}!list$<$ T $>$@{list$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Posi()}{Posi()}\hspace{0.1cm}{\footnotesize\ttfamily [7/7]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classlist}{list}}$<$ T $>$\+::Posi (\begin{DoxyParamCaption}\item[{T}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+\mbox{\Hypertarget{classlist_a5f9171ca40627555651bf4fe669f0e6a}\label{classlist_a5f9171ca40627555651bf4fe669f0e6a}} 
+\index{list$<$ T $>$@{list$<$ T $>$}!remove@{remove}}
+\index{remove@{remove}!list$<$ T $>$@{list$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{remove()}{remove()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T \mbox{\hyperlink{classlist}{list}}$<$ T $>$\+::remove (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classlist_a764d704624121a77f50aa5ff47e00119}{Posi}}(T)}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 61 of file list\+\_\+implement.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{62 \{}
+\DoxyCodeLine{63     p-\/>pred-\/>succ = p-\/>succ;}
+\DoxyCodeLine{64     p-\/>succ-\/>pred = p-\/>pred;}
+\DoxyCodeLine{65     T temp = p-\/>data;}
+\DoxyCodeLine{66     \textcolor{keyword}{delete} p;}
+\DoxyCodeLine{67     \mbox{\hyperlink{classlist_a56236d162821538bc641bb5225c4afc3}{\_size}}-\/-\/;}
+\DoxyCodeLine{68     \textcolor{keywordflow}{return} temp;}
+\DoxyCodeLine{69 \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classlist_a676f28528dea1df100910363d903ad90}\label{classlist_a676f28528dea1df100910363d903ad90}} 
+\index{list$<$ T $>$@{list$<$ T $>$}!reverse@{reverse}}
+\index{reverse@{reverse}!list$<$ T $>$@{list$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{reverse()}{reverse()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classlist}{list}}$<$ T $>$\+::reverse}
+
+
+
+Definition at line 100 of file list\+\_\+implement.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{101 \{}
+\DoxyCodeLine{102     \mbox{\hyperlink{classlist_a764d704624121a77f50aa5ff47e00119}{Posi}}(T) p = header;}
+\DoxyCodeLine{103     \textcolor{keywordflow}{while} (p)}
+\DoxyCodeLine{104     \{}
+\DoxyCodeLine{105         \mbox{\hyperlink{classlist_a764d704624121a77f50aa5ff47e00119}{Posi}}(T) temp = p-\/>succ;}
+\DoxyCodeLine{106         p-\/>succ = p-\/>pred;}
+\DoxyCodeLine{107         p-\/>pred = temp;}
+\DoxyCodeLine{108         p = temp;}
+\DoxyCodeLine{109     \}}
+\DoxyCodeLine{110     \mbox{\hyperlink{classlist_a764d704624121a77f50aa5ff47e00119}{Posi}}(T) t = header;}
+\DoxyCodeLine{111     header = trailer;}
+\DoxyCodeLine{112     trailer = t;}
+\DoxyCodeLine{113 \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classlist_a9cf585cbfeea986aa62907eb947780d0}\label{classlist_a9cf585cbfeea986aa62907eb947780d0}} 
+\index{list$<$ T $>$@{list$<$ T $>$}!selectionsort@{selectionsort}}
+\index{selectionsort@{selectionsort}!list$<$ T $>$@{list$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{selectionsort()}{selectionsort()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \mbox{\hyperlink{classlist}{list}}$<$ T $>$\+::selectionsort (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classlist_a764d704624121a77f50aa5ff47e00119}{Posi}}(T)}]{p,  }\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+Definition at line 145 of file list\+\_\+implement.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{146 \{}
+\DoxyCodeLine{147     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{148 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classlist_a1d2ff2c48483b39e25bb680dae4070a8}\label{classlist_a1d2ff2c48483b39e25bb680dae4070a8}} 
+\index{list$<$ T $>$@{list$<$ T $>$}!size@{size}}
+\index{size@{size}!list$<$ T $>$@{list$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+int \mbox{\hyperlink{classlist}{list}}$<$ T $>$\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 61 of file list.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{61 \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{classlist_a56236d162821538bc641bb5225c4afc3}{\_size}}; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classlist_a13be489701ec2afba3bc1139acc89321}\label{classlist_a13be489701ec2afba3bc1139acc89321}} 
+\index{list$<$ T $>$@{list$<$ T $>$}!sort@{sort}}
+\index{sort@{sort}!list$<$ T $>$@{list$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{sort()}{sort()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \mbox{\hyperlink{classlist}{list}}$<$ T $>$\+::sort (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{list_8h_aec7972df29a7559f48560eaf1ab93a51}{S\+O\+R\+T\+I\+NG}}}]{kind = {\ttfamily \mbox{\hyperlink{list_8h_aec7972df29a7559f48560eaf1ab93a51a0b3446a982f9899c5d4877014468af0f}{S\+E\+L\+E\+C\+T\+I\+O\+N\+S\+O\+RT}}} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 117 of file list\+\_\+implement.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{118 \{}
+\DoxyCodeLine{119     \mbox{\hyperlink{classlist_a764d704624121a77f50aa5ff47e00119}{Posi}}(T) p = first();}
+\DoxyCodeLine{120     \textcolor{keywordtype}{bool} sorted = \textcolor{keyword}{false};}
+\DoxyCodeLine{121     \textcolor{keywordflow}{switch} (kind)}
+\DoxyCodeLine{122     \{}
+\DoxyCodeLine{123     \textcolor{keywordflow}{case} \mbox{\hyperlink{list_8h_aec7972df29a7559f48560eaf1ab93a51a0b3446a982f9899c5d4877014468af0f}{SELECTIONSORT}}:}
+\DoxyCodeLine{124     \{}
+\DoxyCodeLine{125         sorted = \mbox{\hyperlink{classlist_a9cf585cbfeea986aa62907eb947780d0}{selectionsort}}(p, \mbox{\hyperlink{classlist_a1d2ff2c48483b39e25bb680dae4070a8}{size}}());}
+\DoxyCodeLine{126         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{127     \}}
+\DoxyCodeLine{128     \textcolor{keywordflow}{case} \mbox{\hyperlink{list_8h_aec7972df29a7559f48560eaf1ab93a51ab5adc2dce154557777602534b1a840f0}{INSERTIONSORT}}:}
+\DoxyCodeLine{129     \{}
+\DoxyCodeLine{130         sorted = \mbox{\hyperlink{classlist_a6b161f1ef7d891b6e65262d587591094}{insertionsort}}(p, \mbox{\hyperlink{classlist_a1d2ff2c48483b39e25bb680dae4070a8}{size}}());}
+\DoxyCodeLine{131         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{132     \}}
+\DoxyCodeLine{133     \textcolor{keywordflow}{case} \mbox{\hyperlink{list_8h_aec7972df29a7559f48560eaf1ab93a51a7bedf2be5660d11260f26621377a42aa}{MERGESORT}}:}
+\DoxyCodeLine{134     \{}
+\DoxyCodeLine{135         sorted = \mbox{\hyperlink{classlist_a4ff241b3ab6db20868c9939751de0cbd}{mergesort}}(p, \mbox{\hyperlink{classlist_a1d2ff2c48483b39e25bb680dae4070a8}{size}}());}
+\DoxyCodeLine{136         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{137     \}}
+\DoxyCodeLine{138     \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{139         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{140     \}}
+\DoxyCodeLine{141     \textcolor{keywordflow}{return} sorted;}
+\DoxyCodeLine{142 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classlist_acbbc521fd076a6af7be596e5a9d895d1}\label{classlist_acbbc521fd076a6af7be596e5a9d895d1}} 
+\index{list$<$ T $>$@{list$<$ T $>$}!traverse@{traverse}}
+\index{traverse@{traverse}!list$<$ T $>$@{list$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{traverse()}{traverse()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classlist}{list}}$<$ T $>$\+::traverse (\begin{DoxyParamCaption}\item[{void($\ast$)(T \&)}]{visit }\end{DoxyParamCaption})}
+
+
+
+Definition at line 72 of file list\+\_\+implement.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{73 \{}
+\DoxyCodeLine{74     \mbox{\hyperlink{classlist_a764d704624121a77f50aa5ff47e00119}{Posi}}(T) p = header;}
+\DoxyCodeLine{75     \textcolor{keywordflow}{while} ((p = p-\/>succ) != trailer)}
+\DoxyCodeLine{76     \{}
+\DoxyCodeLine{77         \mbox{\hyperlink{graph_2main_8cpp_a437c8204130a062166dda6baa40bb1b2}{visit}}(p-\/>data);}
+\DoxyCodeLine{78     \}}
+\DoxyCodeLine{79     cout << endl;}
+\DoxyCodeLine{80 \};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classlist_a56236d162821538bc641bb5225c4afc3}\label{classlist_a56236d162821538bc641bb5225c4afc3}} 
+\index{list$<$ T $>$@{list$<$ T $>$}!\_size@{\_size}}
+\index{\_size@{\_size}!list$<$ T $>$@{list$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{\_size}{\_size}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+int \mbox{\hyperlink{classlist}{list}}$<$ T $>$\+::\+\_\+size\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 52 of file list.\+h.
+
+\mbox{\Hypertarget{classlist_a007cd5ccb21a4ce3a0b22306cb766861}\label{classlist_a007cd5ccb21a4ce3a0b22306cb766861}} 
+\index{list$<$ T $>$@{list$<$ T $>$}!e@{e}}
+\index{e@{e}!list$<$ T $>$@{list$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{e}{e}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+const T\& \mbox{\hyperlink{classlist}{list}}$<$ T $>$\+::e}
+
+
+
+Definition at line 63 of file list.\+h.
+
+\mbox{\Hypertarget{classlist_a6d40117a3c89e7ceec392730575c09c7}\label{classlist_a6d40117a3c89e7ceec392730575c09c7}} 
+\index{list$<$ T $>$@{list$<$ T $>$}!m@{m}}
+\index{m@{m}!list$<$ T $>$@{list$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{m}{m}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+int \mbox{\hyperlink{classlist}{list}}$<$ T $>$\+::m}
+
+
+
+Definition at line 79 of file list.\+h.
+
+\mbox{\Hypertarget{classlist_a455a46357388ca2fe1d706abc08a8e17}\label{classlist_a455a46357388ca2fe1d706abc08a8e17}} 
+\index{list$<$ T $>$@{list$<$ T $>$}!n@{n}}
+\index{n@{n}!list$<$ T $>$@{list$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{n}{n}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+int int \mbox{\hyperlink{classlist}{list}}$<$ T $>$\+::n}
+
+
+
+Definition at line 79 of file list.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+source/list/\mbox{\hyperlink{list_8h}{list.\+h}}\item 
+source/list/\mbox{\hyperlink{list__implement_8h}{list\+\_\+implement.\+h}}\end{DoxyCompactItemize}

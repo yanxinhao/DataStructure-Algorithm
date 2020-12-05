@@ -1,0 +1,231 @@
+\hypertarget{mtx__chain__multi_8h}{}\doxysection{source/dynamic\+\_\+programming/matrix\+\_\+chain\+\_\+multiplication/mtx\+\_\+chain\+\_\+multi.h File Reference}
+\label{mtx__chain__multi_8h}\index{source/dynamic\_programming/matrix\_chain\_multiplication/mtx\_chain\_multi.h@{source/dynamic\_programming/matrix\_chain\_multiplication/mtx\_chain\_multi.h}}
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structsolution}{solution}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{mtx__chain__multi_8h_a0150bd975ec407bf881af44b13a31889}{matrix\+\_\+multi\+\_\+order}} (const int $\ast$p, const int \&n)
+\item 
+int \mbox{\hyperlink{mtx__chain__multi_8h_ace31ad7eac7bb6b2d03853ad10470216}{divide\+\_\+and\+\_\+conquer}} (const int $\ast$p, const int \&i, const int \&j)
+\item 
+\mbox{\hyperlink{structsolution}{solution}} \mbox{\hyperlink{mtx__chain__multi_8h_a09bd7b0c6b55ae53b4321e2580d00138}{memoization\+\_\+mtx\+\_\+multi\+\_\+order}} (const int $\ast$p, const int \&n)
+\item 
+int \mbox{\hyperlink{mtx__chain__multi_8h_afd9e44d334746a3df927f5e8bccbe72e}{memoization\+\_\+mtx\+\_\+multi\+\_\+order\+\_\+aux}} (const int $\ast$p, const int \&i, const int \&j, int $\ast$$\ast$m, int $\ast$$\ast$s)
+\item 
+\mbox{\hyperlink{structsolution}{solution}} \mbox{\hyperlink{mtx__chain__multi_8h_aa0df3447839083215a52470a775abb68}{bottom\+\_\+up\+\_\+mtx\+\_\+multi\+\_\+order}} (const int $\ast$p, const int \&n)
+\item 
+void \mbox{\hyperlink{mtx__chain__multi_8h_a66e2ec7231322c00e10e342a3910f47f}{print\+\_\+solution}} (int $\ast$$\ast$sol, const int \&i, const int \&j)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{mtx__chain__multi_8h_aa0df3447839083215a52470a775abb68}\label{mtx__chain__multi_8h_aa0df3447839083215a52470a775abb68}} 
+\index{mtx\_chain\_multi.h@{mtx\_chain\_multi.h}!bottom\_up\_mtx\_multi\_order@{bottom\_up\_mtx\_multi\_order}}
+\index{bottom\_up\_mtx\_multi\_order@{bottom\_up\_mtx\_multi\_order}!mtx\_chain\_multi.h@{mtx\_chain\_multi.h}}
+\doxysubsubsection{\texorpdfstring{bottom\_up\_mtx\_multi\_order()}{bottom\_up\_mtx\_multi\_order()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsolution}{solution}} bottom\+\_\+up\+\_\+mtx\+\_\+multi\+\_\+order (\begin{DoxyParamCaption}\item[{const int $\ast$}]{p,  }\item[{const int \&}]{n }\end{DoxyParamCaption})}
+
+
+
+Definition at line 73 of file mtx\+\_\+chain\+\_\+multi.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{74 \{}
+\DoxyCodeLine{75     \textcolor{comment}{// 新建一个子问题集m[i,j]}}
+\DoxyCodeLine{76     \textcolor{keywordtype}{int} **m = \textcolor{keyword}{new} \textcolor{keywordtype}{int} *[n + 1]; \textcolor{comment}{//m[i][j]为乘法次数}}
+\DoxyCodeLine{77     \textcolor{keywordtype}{int} **s = \textcolor{keyword}{new} \textcolor{keywordtype}{int} *[n + 1]; \textcolor{comment}{//s[i][j]为中间分割的位置k}}
+\DoxyCodeLine{78     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < n + 1; i++)}
+\DoxyCodeLine{79     \{}
+\DoxyCodeLine{80         m[i] = \textcolor{keyword}{new} \textcolor{keywordtype}{int}[n + 1];}
+\DoxyCodeLine{81         s[i] = \textcolor{keyword}{new} \textcolor{keywordtype}{int}[n + 1];}
+\DoxyCodeLine{82         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < n + 1; j++)}
+\DoxyCodeLine{83         \{}
+\DoxyCodeLine{84             m[i][j] = INT\_MAX;}
+\DoxyCodeLine{85             s[i][j] = -\/1;}
+\DoxyCodeLine{86         \}}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88         m[i][i] = 0;}
+\DoxyCodeLine{89     \}}
+\DoxyCodeLine{90 \textcolor{preprocessor}{\#if 1}}
+\DoxyCodeLine{91     \textcolor{comment}{// 分析对子问题的依赖关系得,应该以长度递增的顺序求解子问题}}
+\DoxyCodeLine{92     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} len = 2; len <= n; len++)}
+\DoxyCodeLine{93     \{}
+\DoxyCodeLine{94         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 1; i <= n + 1 -\/ len; i++)}
+\DoxyCodeLine{95         \{}
+\DoxyCodeLine{96             \textcolor{keywordtype}{int} j = i + len -\/ 1;}
+\DoxyCodeLine{97             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} k = i; k < j; k++)}
+\DoxyCodeLine{98             \{}
+\DoxyCodeLine{99                 \textcolor{keywordflow}{if} (m[i][j] > m[i][k] + m[k + 1][j] + p[i -\/ 1] * p[k] * p[j])}
+\DoxyCodeLine{100                 \{}
+\DoxyCodeLine{101                     m[i][j] = m[i][k] + m[k + 1][j] + p[i -\/ 1] * p[k] * p[j];}
+\DoxyCodeLine{102                     s[i][j] = k;}
+\DoxyCodeLine{103                 \}}
+\DoxyCodeLine{104             \}}
+\DoxyCodeLine{105         \}}
+\DoxyCodeLine{106     \}}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{109     \textcolor{comment}{// 这种想当然的遍历策略是错误的，有些问题的子问题都还没有被解决(没有弄清楚当前问题到底依赖哪些子问题)}}
+\DoxyCodeLine{110     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 1; i <= n; i++)}
+\DoxyCodeLine{111     \{}
+\DoxyCodeLine{112         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = i; j <= n; j++)}
+\DoxyCodeLine{113         \{}
+\DoxyCodeLine{114             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} k = i; k < j; k++)}
+\DoxyCodeLine{115             \{}
+\DoxyCodeLine{116                 m[i][j] = min(m[i][j], m[i][k] + m[k + 1][j] + p[i -\/ 1] * p[k] * p[j]);}
+\DoxyCodeLine{117             \}}
+\DoxyCodeLine{118         \}}
+\DoxyCodeLine{119     \}}
+\DoxyCodeLine{120 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{121     \textcolor{comment}{// 保存结果,并析构动态内存}}
+\DoxyCodeLine{122     \textcolor{keywordtype}{int} result = m[1][n];}
+\DoxyCodeLine{123     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < n; i++)}
+\DoxyCodeLine{124         \textcolor{keyword}{delete}[] m[i];}
+\DoxyCodeLine{125     \textcolor{keyword}{delete}[] m;}
+\DoxyCodeLine{126     \mbox{\hyperlink{structsolution}{solution}} sol(s, result, n);}
+\DoxyCodeLine{127     \textcolor{keywordflow}{return} sol;}
+\DoxyCodeLine{128 \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{mtx__chain__multi_8h_ace31ad7eac7bb6b2d03853ad10470216}\label{mtx__chain__multi_8h_ace31ad7eac7bb6b2d03853ad10470216}} 
+\index{mtx\_chain\_multi.h@{mtx\_chain\_multi.h}!divide\_and\_conquer@{divide\_and\_conquer}}
+\index{divide\_and\_conquer@{divide\_and\_conquer}!mtx\_chain\_multi.h@{mtx\_chain\_multi.h}}
+\doxysubsubsection{\texorpdfstring{divide\_and\_conquer()}{divide\_and\_conquer()}}
+{\footnotesize\ttfamily int divide\+\_\+and\+\_\+conquer (\begin{DoxyParamCaption}\item[{const int $\ast$}]{p,  }\item[{const int \&}]{i,  }\item[{const int \&}]{j }\end{DoxyParamCaption})}
+
+
+
+Definition at line 15 of file mtx\+\_\+chain\+\_\+multi.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{16 \{}
+\DoxyCodeLine{17     \textcolor{keywordflow}{if} (i == j)}
+\DoxyCodeLine{18         \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{19     \textcolor{keywordtype}{int} num = INT\_MAX;}
+\DoxyCodeLine{20     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} k = i; k < j; k++)}
+\DoxyCodeLine{21     \{}
+\DoxyCodeLine{22         num = min(num, \mbox{\hyperlink{mtx__chain__multi_8cpp_ace31ad7eac7bb6b2d03853ad10470216}{divide\_and\_conquer}}(p, i, k) + \mbox{\hyperlink{mtx__chain__multi_8cpp_ace31ad7eac7bb6b2d03853ad10470216}{divide\_and\_conquer}}(p, k + 1, j) + p[i -\/ 1] * p[k] * p[j]);}
+\DoxyCodeLine{23     \}}
+\DoxyCodeLine{24     \textcolor{keywordflow}{return} num;}
+\DoxyCodeLine{25 \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{mtx__chain__multi_8h_a0150bd975ec407bf881af44b13a31889}\label{mtx__chain__multi_8h_a0150bd975ec407bf881af44b13a31889}} 
+\index{mtx\_chain\_multi.h@{mtx\_chain\_multi.h}!matrix\_multi\_order@{matrix\_multi\_order}}
+\index{matrix\_multi\_order@{matrix\_multi\_order}!mtx\_chain\_multi.h@{mtx\_chain\_multi.h}}
+\doxysubsubsection{\texorpdfstring{matrix\_multi\_order()}{matrix\_multi\_order()}}
+{\footnotesize\ttfamily int matrix\+\_\+multi\+\_\+order (\begin{DoxyParamCaption}\item[{const int $\ast$}]{p,  }\item[{const int \&}]{n }\end{DoxyParamCaption})}
+
+
+
+Definition at line 10 of file mtx\+\_\+chain\+\_\+multi.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{11 \{}
+\DoxyCodeLine{12     \textcolor{keywordflow}{return} \mbox{\hyperlink{mtx__chain__multi_8cpp_ace31ad7eac7bb6b2d03853ad10470216}{divide\_and\_conquer}}(p, 1, n);}
+\DoxyCodeLine{13 \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{mtx__chain__multi_8h_a09bd7b0c6b55ae53b4321e2580d00138}\label{mtx__chain__multi_8h_a09bd7b0c6b55ae53b4321e2580d00138}} 
+\index{mtx\_chain\_multi.h@{mtx\_chain\_multi.h}!memoization\_mtx\_multi\_order@{memoization\_mtx\_multi\_order}}
+\index{memoization\_mtx\_multi\_order@{memoization\_mtx\_multi\_order}!mtx\_chain\_multi.h@{mtx\_chain\_multi.h}}
+\doxysubsubsection{\texorpdfstring{memoization\_mtx\_multi\_order()}{memoization\_mtx\_multi\_order()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structsolution}{solution}} memoization\+\_\+mtx\+\_\+multi\+\_\+order (\begin{DoxyParamCaption}\item[{const int $\ast$}]{p,  }\item[{const int \&}]{n }\end{DoxyParamCaption})}
+
+
+
+Definition at line 29 of file mtx\+\_\+chain\+\_\+multi.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{30 \{}
+\DoxyCodeLine{31     \textcolor{comment}{// 新建一个子问题集m[i,j]}}
+\DoxyCodeLine{32     \textcolor{keywordtype}{int} **m = \textcolor{keyword}{new} \textcolor{keywordtype}{int} *[n + 1]; \textcolor{comment}{//m[i][j]为乘法次数}}
+\DoxyCodeLine{33     \textcolor{keywordtype}{int} **s = \textcolor{keyword}{new} \textcolor{keywordtype}{int} *[n + 1]; \textcolor{comment}{//s[i][j]为中间分割的位置k}}
+\DoxyCodeLine{34     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < n + 1; i++)}
+\DoxyCodeLine{35     \{}
+\DoxyCodeLine{36         m[i] = \textcolor{keyword}{new} \textcolor{keywordtype}{int}[n + 1];}
+\DoxyCodeLine{37         s[i] = \textcolor{keyword}{new} \textcolor{keywordtype}{int}[n + 1];}
+\DoxyCodeLine{38         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < n + 1; j++)}
+\DoxyCodeLine{39         \{}
+\DoxyCodeLine{40             m[i][j] = INT\_MAX;}
+\DoxyCodeLine{41             s[i][j] = -\/1;}
+\DoxyCodeLine{42         \}}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44         m[i][i] = 0;}
+\DoxyCodeLine{45     \}}
+\DoxyCodeLine{46     \textcolor{keywordtype}{int} optimum = \mbox{\hyperlink{mtx__chain__multi_8cpp_afd9e44d334746a3df927f5e8bccbe72e}{memoization\_mtx\_multi\_order\_aux}}(p, 1, n, m, s);}
+\DoxyCodeLine{47     \mbox{\hyperlink{structsolution}{solution}} result(s, optimum, n);}
+\DoxyCodeLine{48     \textcolor{comment}{// 析构}}
+\DoxyCodeLine{49     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < n; i++)}
+\DoxyCodeLine{50         \textcolor{keyword}{delete}[] m[i];}
+\DoxyCodeLine{51     \textcolor{keyword}{delete}[] m;}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53     \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{54 \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{mtx__chain__multi_8h_afd9e44d334746a3df927f5e8bccbe72e}\label{mtx__chain__multi_8h_afd9e44d334746a3df927f5e8bccbe72e}} 
+\index{mtx\_chain\_multi.h@{mtx\_chain\_multi.h}!memoization\_mtx\_multi\_order\_aux@{memoization\_mtx\_multi\_order\_aux}}
+\index{memoization\_mtx\_multi\_order\_aux@{memoization\_mtx\_multi\_order\_aux}!mtx\_chain\_multi.h@{mtx\_chain\_multi.h}}
+\doxysubsubsection{\texorpdfstring{memoization\_mtx\_multi\_order\_aux()}{memoization\_mtx\_multi\_order\_aux()}}
+{\footnotesize\ttfamily int memoization\+\_\+mtx\+\_\+multi\+\_\+order\+\_\+aux (\begin{DoxyParamCaption}\item[{const int $\ast$}]{p,  }\item[{const int \&}]{i,  }\item[{const int \&}]{j,  }\item[{int $\ast$$\ast$}]{m,  }\item[{int $\ast$$\ast$}]{s }\end{DoxyParamCaption})}
+
+
+
+Definition at line 55 of file mtx\+\_\+chain\+\_\+multi.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{56 \{}
+\DoxyCodeLine{57     \textcolor{keywordflow}{if} (i == j)}
+\DoxyCodeLine{58         \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{59     \textcolor{keywordflow}{if} (m[i][j] != INT\_MAX)}
+\DoxyCodeLine{60         \textcolor{keywordflow}{return} m[i][j];}
+\DoxyCodeLine{61     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} k = i; k < j; k++)}
+\DoxyCodeLine{62     \{}
+\DoxyCodeLine{63         \textcolor{keywordtype}{int} num = \mbox{\hyperlink{mtx__chain__multi_8cpp_afd9e44d334746a3df927f5e8bccbe72e}{memoization\_mtx\_multi\_order\_aux}}(p, i, k, m, s) + \mbox{\hyperlink{mtx__chain__multi_8cpp_afd9e44d334746a3df927f5e8bccbe72e}{memoization\_mtx\_multi\_order\_aux}}(p, k + 1, j, m, s) + p[i -\/ 1] * p[k] * p[j];}
+\DoxyCodeLine{64         \textcolor{keywordflow}{if} (m[i][j] > (num))}
+\DoxyCodeLine{65         \{}
+\DoxyCodeLine{66             m[i][j] = num;}
+\DoxyCodeLine{67             s[i][j] = k;}
+\DoxyCodeLine{68         \}}
+\DoxyCodeLine{69     \}}
+\DoxyCodeLine{70     \textcolor{keywordflow}{return} m[i][j];}
+\DoxyCodeLine{71 \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{mtx__chain__multi_8h_a66e2ec7231322c00e10e342a3910f47f}\label{mtx__chain__multi_8h_a66e2ec7231322c00e10e342a3910f47f}} 
+\index{mtx\_chain\_multi.h@{mtx\_chain\_multi.h}!print\_solution@{print\_solution}}
+\index{print\_solution@{print\_solution}!mtx\_chain\_multi.h@{mtx\_chain\_multi.h}}
+\doxysubsubsection{\texorpdfstring{print\_solution()}{print\_solution()}}
+{\footnotesize\ttfamily void print\+\_\+solution (\begin{DoxyParamCaption}\item[{int $\ast$$\ast$}]{sol,  }\item[{const int \&}]{i,  }\item[{const int \&}]{j }\end{DoxyParamCaption})}
+
+
+
+Definition at line 130 of file mtx\+\_\+chain\+\_\+multi.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{131 \{}
+\DoxyCodeLine{132     \textcolor{keywordflow}{if} (i == j)}
+\DoxyCodeLine{133     \{}
+\DoxyCodeLine{134         cout << \textcolor{stringliteral}{"{}A"{}} << i;}
+\DoxyCodeLine{135         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{136     \}}
+\DoxyCodeLine{137     \textcolor{keywordtype}{int} k = sol[i][j];}
+\DoxyCodeLine{138     cout << \textcolor{stringliteral}{"{}("{}};}
+\DoxyCodeLine{139     \mbox{\hyperlink{mtx__chain__multi_8cpp_a66e2ec7231322c00e10e342a3910f47f}{print\_solution}}(sol, i, k);}
+\DoxyCodeLine{140     \mbox{\hyperlink{mtx__chain__multi_8cpp_a66e2ec7231322c00e10e342a3910f47f}{print\_solution}}(sol, k + 1, j);}
+\DoxyCodeLine{141     cout << \textcolor{stringliteral}{"{})"{}};}
+\DoxyCodeLine{142 \}}
+
+\end{DoxyCode}

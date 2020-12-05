@@ -1,0 +1,44 @@
+\hypertarget{parentheses_8cpp}{}\doxysection{source/stack/parentheses.cpp File Reference}
+\label{parentheses_8cpp}\index{source/stack/parentheses.cpp@{source/stack/parentheses.cpp}}
+{\ttfamily \#include \char`\"{}stack/sqstack.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}stack/stack\+\_\+algorithms.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{parentheses_8cpp_af705fad3bf4f154111d732a58828d098}{paren}} (string expr)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{parentheses_8cpp_af705fad3bf4f154111d732a58828d098}\label{parentheses_8cpp_af705fad3bf4f154111d732a58828d098}} 
+\index{parentheses.cpp@{parentheses.cpp}!paren@{paren}}
+\index{paren@{paren}!parentheses.cpp@{parentheses.cpp}}
+\doxysubsubsection{\texorpdfstring{paren()}{paren()}}
+{\footnotesize\ttfamily bool paren (\begin{DoxyParamCaption}\item[{string}]{expr }\end{DoxyParamCaption})}
+
+
+
+Definition at line 10 of file parentheses.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{11 \{}
+\DoxyCodeLine{12     \mbox{\hyperlink{classsqstack}{sqstack<char>}} s;}
+\DoxyCodeLine{13     string::iterator iter = expr.begin();}
+\DoxyCodeLine{14     \textcolor{keywordflow}{while} (iter != expr.end())}
+\DoxyCodeLine{15     \{}
+\DoxyCodeLine{16         \textcolor{keywordflow}{if} (*iter == \textcolor{charliteral}{'('})}
+\DoxyCodeLine{17             s.\mbox{\hyperlink{classsqstack_a0c2c0c806da873f1c531ad75da3f2f4c}{push}}(*iter);}
+\DoxyCodeLine{18         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (*iter == \textcolor{charliteral}{')'})}
+\DoxyCodeLine{19         \{}
+\DoxyCodeLine{20             \textcolor{keywordflow}{if} (!s.\mbox{\hyperlink{class_vector_abc020404c26eb6bf465cda91ad543c17}{empty}}())}
+\DoxyCodeLine{21                 s.\mbox{\hyperlink{classsqstack_a6a4b7b4647f42986367ea606751ed7f9}{pop}}();}
+\DoxyCodeLine{22             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{23                 \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{24         \}}
+\DoxyCodeLine{25         iter++;}
+\DoxyCodeLine{26     \}}
+\DoxyCodeLine{27     \textcolor{keywordflow}{return} \textcolor{keyword}{true} ? s.\mbox{\hyperlink{class_vector_abc020404c26eb6bf465cda91ad543c17}{empty}}() : \textcolor{keyword}{false};}
+\DoxyCodeLine{28 \}}
+
+\end{DoxyCode}

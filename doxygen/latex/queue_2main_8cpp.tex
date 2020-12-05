@@ -1,0 +1,62 @@
+\hypertarget{queue_2main_8cpp}{}\doxysection{source/queue/main.cpp File Reference}
+\label{queue_2main_8cpp}\index{source/queue/main.cpp@{source/queue/main.cpp}}
+{\ttfamily \#include \char`\"{}queue/input.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}queue/queue.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{queue_2main_8cpp_afb991771a466986b7b994e7108cfe26d}{visit}} (T \&elem)
+\item 
+int \mbox{\hyperlink{queue_2main_8cpp_abf9e6b7e6f15df4b525a2e7705ba3089}{main}} (int argc, char const $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{queue_2main_8cpp_abf9e6b7e6f15df4b525a2e7705ba3089}\label{queue_2main_8cpp_abf9e6b7e6f15df4b525a2e7705ba3089}} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char const $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 16 of file main.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{17 \{}
+\DoxyCodeLine{18     \textcolor{keyword}{const} \textcolor{keywordtype}{int} len = 30;}
+\DoxyCodeLine{19     \textcolor{keywordtype}{int} A[len] = \{0\};}
+\DoxyCodeLine{20     \mbox{\hyperlink{class_queue}{Queue<int>}} q;}
+\DoxyCodeLine{21     \mbox{\hyperlink{list_2input_8h_a6ce8f13d36e40425fd6fddcfd8180475}{get\_input}}(A, len);}
+\DoxyCodeLine{22     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < len; i++)}
+\DoxyCodeLine{23     \{}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25         q.\mbox{\hyperlink{class_queue_a67996216dfa9222be237181edef86202}{enqueue}}(A[i]);}
+\DoxyCodeLine{26     \}}
+\DoxyCodeLine{27     q.\mbox{\hyperlink{class_vector_a0f4f079414fc7a2edba9b544d3f18031}{traverse}}(\mbox{\hyperlink{graph_2main_8cpp_a437c8204130a062166dda6baa40bb1b2}{visit}});}
+\DoxyCodeLine{28     q.\mbox{\hyperlink{class_queue_a036f122e9bf968c80ccd73b9d38017c0}{dequeue}}();}
+\DoxyCodeLine{29     q.\mbox{\hyperlink{class_vector_a0f4f079414fc7a2edba9b544d3f18031}{traverse}}(\mbox{\hyperlink{graph_2main_8cpp_a437c8204130a062166dda6baa40bb1b2}{visit}});}
+\DoxyCodeLine{30     cout << \textcolor{stringliteral}{"{}队头 : "{}} << q.\mbox{\hyperlink{class_queue_a8b5b32ea305ed921bd06ab62bd53bc1b}{front}}() << endl;}
+\DoxyCodeLine{31     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{32 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{queue_2main_8cpp_afb991771a466986b7b994e7108cfe26d}\label{queue_2main_8cpp_afb991771a466986b7b994e7108cfe26d}} 
+\index{main.cpp@{main.cpp}!visit@{visit}}
+\index{visit@{visit}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{visit()}{visit()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void visit (\begin{DoxyParamCaption}\item[{T \&}]{elem }\end{DoxyParamCaption})}
+
+
+
+Definition at line 11 of file main.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{12 \{}
+\DoxyCodeLine{13     cout << elem << \textcolor{stringliteral}{"{} "{}};}
+\DoxyCodeLine{14 \}}
+
+\end{DoxyCode}

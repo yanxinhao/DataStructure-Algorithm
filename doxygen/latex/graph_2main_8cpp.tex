@@ -1,0 +1,127 @@
+\hypertarget{graph_2main_8cpp}{}\doxysection{source/graph/main.cpp File Reference}
+\label{graph_2main_8cpp}\index{source/graph/main.cpp@{source/graph/main.cpp}}
+{\ttfamily \#include \char`\"{}graph/graph.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}graph/input.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Te $>$ }\\void \mbox{\hyperlink{graph_2main_8cpp_a437c8204130a062166dda6baa40bb1b2}{visit}} (Te \&elem)
+\item 
+{\footnotesize template$<$typename Tv $>$ }\\void \mbox{\hyperlink{graph_2main_8cpp_a2c014c87c76f8ce4d3c78804c370e864}{visit\+\_\+vertex}} (Tv \&data)
+\item 
+int \mbox{\hyperlink{graph_2main_8cpp_abf9e6b7e6f15df4b525a2e7705ba3089}{main}} (int argc, char const $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{graph_2main_8cpp_abf9e6b7e6f15df4b525a2e7705ba3089}\label{graph_2main_8cpp_abf9e6b7e6f15df4b525a2e7705ba3089}} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char const $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 22 of file main.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{23 \{}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \mbox{\hyperlink{class_graph_matrix}{GraphMatrix<char, int>}} g\_bfs(8, \mbox{\hyperlink{graph_2input_8h_a926519921130a53024c9b67ec54ee825}{vtx\_bfs}}, 22, \mbox{\hyperlink{graph_2input_8h_a96d285d0173dbaa4194a5955700ecb5d}{edge\_bfs}});}
+\DoxyCodeLine{26     \mbox{\hyperlink{class_graph_matrix}{GraphMatrix<char, int>}} g\_dfs(10, \mbox{\hyperlink{graph_2input_8h_a5bc94c939cc6cd1dae2057d7dc4149ab}{vtx\_dfs}}, 26, \mbox{\hyperlink{graph_2input_8h_a9ccdd18a58848d26d63cd68e1fde1bbe}{edge\_dfs}});}
+\DoxyCodeLine{27     \mbox{\hyperlink{class_graph_matrix}{GraphMatrix<char, int>}} g\_prim(8, \mbox{\hyperlink{graph_2input_8h_a9b9d0ce8c7f60689293601fdf4179bec}{vtx\_prim}}, 30, \mbox{\hyperlink{graph_2input_8h_a23618cf9ca6bf3b087194df666d2aefe}{edge\_prim}});}
+\DoxyCodeLine{28     \textcolor{comment}{// 1.建图,打印邻接矩阵}}
+\DoxyCodeLine{29     cout << \textcolor{stringliteral}{"{}1.建图,打印邻接矩阵 :"{}} << endl;}
+\DoxyCodeLine{30     cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
+\DoxyCodeLine{31     g\_bfs.traverse(\mbox{\hyperlink{graph_2main_8cpp_a437c8204130a062166dda6baa40bb1b2}{visit}});}
+\DoxyCodeLine{32     cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
+\DoxyCodeLine{33     g\_dfs.traverse(\mbox{\hyperlink{graph_2main_8cpp_a437c8204130a062166dda6baa40bb1b2}{visit}});}
+\DoxyCodeLine{34     \textcolor{comment}{// 2.测试寻找邻居}}
+\DoxyCodeLine{35     cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
+\DoxyCodeLine{36     cout << \textcolor{stringliteral}{"{}2.寻找邻居 firstNbr(9) firstNbr(0) :"{}};}
+\DoxyCodeLine{37     cout << g\_bfs.firstNbr(9) << \textcolor{stringliteral}{"{} "{}} << g\_bfs.firstNbr(0) << endl;}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     \textcolor{comment}{// 3.遍历}}
+\DoxyCodeLine{40     cout << \textcolor{stringliteral}{"{}3.遍历 : "{}} << endl;}
+\DoxyCodeLine{41     \textcolor{comment}{// 深度优先}}
+\DoxyCodeLine{42     cout << \textcolor{stringliteral}{"{}DFS : "{}};}
+\DoxyCodeLine{43     g\_dfs.dfs(0, \mbox{\hyperlink{graph_2main_8cpp_a2c014c87c76f8ce4d3c78804c370e864}{visit\_vertex}});}
+\DoxyCodeLine{44     cout << endl;}
+\DoxyCodeLine{45     cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
+\DoxyCodeLine{46     g\_dfs.traversetree(\mbox{\hyperlink{graph_2main_8cpp_a437c8204130a062166dda6baa40bb1b2}{visit}});}
+\DoxyCodeLine{47     cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49     cout << \textcolor{stringliteral}{"{}DFSPU : "{}};}
+\DoxyCodeLine{50     g\_dfs.pfs(0, \mbox{\hyperlink{struct_d_f_s_p_u}{DFSPU<char, int>}}());}
+\DoxyCodeLine{51     cout << endl;}
+\DoxyCodeLine{52     cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
+\DoxyCodeLine{53     g\_dfs.traversetree(\mbox{\hyperlink{graph_2main_8cpp_a437c8204130a062166dda6baa40bb1b2}{visit}});}
+\DoxyCodeLine{54     cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
+\DoxyCodeLine{55     cout << endl;}
+\DoxyCodeLine{56     \textcolor{comment}{// 广度优先}}
+\DoxyCodeLine{57     cout << \textcolor{stringliteral}{"{}BFS : "{}};}
+\DoxyCodeLine{58     g\_bfs.bfs(0, \mbox{\hyperlink{graph_2main_8cpp_a2c014c87c76f8ce4d3c78804c370e864}{visit\_vertex}});}
+\DoxyCodeLine{59     cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
+\DoxyCodeLine{60     g\_bfs.traversetree(\mbox{\hyperlink{graph_2main_8cpp_a437c8204130a062166dda6baa40bb1b2}{visit}});}
+\DoxyCodeLine{61     cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63     cout << \textcolor{stringliteral}{"{}BFSPU : "{}};}
+\DoxyCodeLine{64     g\_bfs.pfs(0, \mbox{\hyperlink{struct_b_f_s_p_u}{BFSPU<char, int>}}());}
+\DoxyCodeLine{65     cout << endl;}
+\DoxyCodeLine{66     cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
+\DoxyCodeLine{67     g\_bfs.traversetree(\mbox{\hyperlink{graph_2main_8cpp_a437c8204130a062166dda6baa40bb1b2}{visit}});}
+\DoxyCodeLine{68     cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
+\DoxyCodeLine{69     \textcolor{comment}{// 优先级搜索}}
+\DoxyCodeLine{70     cout << \textcolor{stringliteral}{"{}4.优先级搜索 : "{}} << endl;}
+\DoxyCodeLine{71     g\_prim.pfs(0, \mbox{\hyperlink{struct_prim_p_u}{PrimPU<char, int>}}());}
+\DoxyCodeLine{72     cout << \textcolor{stringliteral}{"{}Prim :"{}} << endl;}
+\DoxyCodeLine{73     cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
+\DoxyCodeLine{74     g\_prim.traversetree(\mbox{\hyperlink{graph_2main_8cpp_a437c8204130a062166dda6baa40bb1b2}{visit}});}
+\DoxyCodeLine{75     cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{77     g\_prim.pfs(0, \mbox{\hyperlink{struct_dijkstra_p_u}{DijkstraPU<char, int>}}());}
+\DoxyCodeLine{78     cout << \textcolor{stringliteral}{"{}Dijkstra :"{}} << endl;}
+\DoxyCodeLine{79     cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
+\DoxyCodeLine{80     g\_prim.traversetree(\mbox{\hyperlink{graph_2main_8cpp_a437c8204130a062166dda6baa40bb1b2}{visit}});}
+\DoxyCodeLine{81     cout << \textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}} << endl;}
+\DoxyCodeLine{82     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{83 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{graph_2main_8cpp_a437c8204130a062166dda6baa40bb1b2}\label{graph_2main_8cpp_a437c8204130a062166dda6baa40bb1b2}} 
+\index{main.cpp@{main.cpp}!visit@{visit}}
+\index{visit@{visit}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{visit()}{visit()}}
+{\footnotesize\ttfamily template$<$typename Te $>$ \\
+void visit (\begin{DoxyParamCaption}\item[{Te \&}]{elem }\end{DoxyParamCaption})}
+
+
+
+Definition at line 11 of file main.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{12 \{}
+\DoxyCodeLine{13     cout << elem << \textcolor{stringliteral}{"{}|"{}};}
+\DoxyCodeLine{14 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{graph_2main_8cpp_a2c014c87c76f8ce4d3c78804c370e864}\label{graph_2main_8cpp_a2c014c87c76f8ce4d3c78804c370e864}} 
+\index{main.cpp@{main.cpp}!visit\_vertex@{visit\_vertex}}
+\index{visit\_vertex@{visit\_vertex}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{visit\_vertex()}{visit\_vertex()}}
+{\footnotesize\ttfamily template$<$typename Tv $>$ \\
+void visit\+\_\+vertex (\begin{DoxyParamCaption}\item[{Tv \&}]{data }\end{DoxyParamCaption})}
+
+
+
+Definition at line 17 of file main.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{18 \{}
+\DoxyCodeLine{19     cout << data << \textcolor{stringliteral}{"{} "{}};}
+\DoxyCodeLine{20 \}}
+
+\end{DoxyCode}

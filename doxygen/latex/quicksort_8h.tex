@@ -1,0 +1,69 @@
+\hypertarget{quicksort_8h}{}\doxysection{source/sorting/quicksort.h File Reference}
+\label{quicksort_8h}\index{source/sorting/quicksort.h@{source/sorting/quicksort.h}}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\int \mbox{\hyperlink{quicksort_8h_a0e5ce06588152e87f2528d8be28bf976}{partion}} (T $\ast$arr, int lo, int hi)
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{quicksort_8h_a4b11c7a56bf72480017c0c0b58ac60ea}{quicksort}} (T $\ast$arr, int lo, int hi)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{quicksort_8h_a0e5ce06588152e87f2528d8be28bf976}\label{quicksort_8h_a0e5ce06588152e87f2528d8be28bf976}} 
+\index{quicksort.h@{quicksort.h}!partion@{partion}}
+\index{partion@{partion}!quicksort.h@{quicksort.h}}
+\doxysubsubsection{\texorpdfstring{partion()}{partion()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+int partion (\begin{DoxyParamCaption}\item[{T $\ast$}]{arr,  }\item[{int}]{lo,  }\item[{int}]{hi }\end{DoxyParamCaption})}
+
+
+
+Definition at line 11 of file quicksort.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{12 \{}
+\DoxyCodeLine{13     T pivot = arr[lo];}
+\DoxyCodeLine{14     \textcolor{keywordflow}{while} (lo < hi)}
+\DoxyCodeLine{15     \{}
+\DoxyCodeLine{16         \textcolor{comment}{// 从hi位置开始比较,hi位置值大于等于pivot时将hi归入R}}
+\DoxyCodeLine{17         \textcolor{keywordflow}{while} ((lo < hi) \&\& (pivot <= arr[hi]))}
+\DoxyCodeLine{18             hi-\/-\/;}
+\DoxyCodeLine{19         arr[lo] = arr[hi]; \textcolor{comment}{//此时空闲位置转到hi位置}}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21         \textcolor{comment}{// lo位置的值比pivot小时,将lo归入L部分}}
+\DoxyCodeLine{22         \textcolor{keywordflow}{while} ((lo < hi) \&\& (arr[lo] <= pivot))}
+\DoxyCodeLine{23             lo++;}
+\DoxyCodeLine{24         arr[hi] = arr[lo]; \textcolor{comment}{//此时空闲位置转到hi位置\}}}
+\DoxyCodeLine{25     \}}
+\DoxyCodeLine{26     \textcolor{comment}{// assert lo==hi}}
+\DoxyCodeLine{27     arr[lo] = pivot;}
+\DoxyCodeLine{28     \textcolor{keywordflow}{return} lo;}
+\DoxyCodeLine{29 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{quicksort_8h_a4b11c7a56bf72480017c0c0b58ac60ea}\label{quicksort_8h_a4b11c7a56bf72480017c0c0b58ac60ea}} 
+\index{quicksort.h@{quicksort.h}!quicksort@{quicksort}}
+\index{quicksort@{quicksort}!quicksort.h@{quicksort.h}}
+\doxysubsubsection{\texorpdfstring{quicksort()}{quicksort()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void quicksort (\begin{DoxyParamCaption}\item[{T $\ast$}]{arr,  }\item[{int}]{lo,  }\item[{int}]{hi }\end{DoxyParamCaption})}
+
+
+
+Definition at line 32 of file quicksort.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{33 \{}
+\DoxyCodeLine{34     \textcolor{comment}{// 设置递归基,要特别注意最小的问题的条件不是想当然的 hi-\/lo == 1.因为可能会出现hi==lo的情况}}
+\DoxyCodeLine{35     \textcolor{comment}{// if (hi -\/ lo == 1 || hi -\/ lo == 0)}}
+\DoxyCodeLine{36     \textcolor{keywordflow}{if} (hi -\/ lo < 2)}
+\DoxyCodeLine{37         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{38     \textcolor{keywordtype}{int} posi\_pivot = \mbox{\hyperlink{quicksort_8h_a0e5ce06588152e87f2528d8be28bf976}{partion}}(arr, lo, hi -\/ 1);}
+\DoxyCodeLine{39     \mbox{\hyperlink{quicksort_8h_a4b11c7a56bf72480017c0c0b58ac60ea}{quicksort}}(arr, lo, posi\_pivot);}
+\DoxyCodeLine{40     \mbox{\hyperlink{quicksort_8h_a4b11c7a56bf72480017c0c0b58ac60ea}{quicksort}}(arr, posi\_pivot + 1, hi);}
+\DoxyCodeLine{41 \}}
+
+\end{DoxyCode}

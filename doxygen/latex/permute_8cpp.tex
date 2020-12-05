@@ -1,0 +1,45 @@
+\hypertarget{permute_8cpp}{}\doxysection{source/stack/permute.cpp File Reference}
+\label{permute_8cpp}\index{source/stack/permute.cpp@{source/stack/permute.cpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{permute_8cpp_a3b5fdddcd5a231583c93f629355a95df}{permute}} (string data, int i, int n)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{permute_8cpp_a3b5fdddcd5a231583c93f629355a95df}\label{permute_8cpp_a3b5fdddcd5a231583c93f629355a95df}} 
+\index{permute.cpp@{permute.cpp}!permute@{permute}}
+\index{permute@{permute}!permute.cpp@{permute.cpp}}
+\doxysubsubsection{\texorpdfstring{permute()}{permute()}}
+{\footnotesize\ttfamily void permute (\begin{DoxyParamCaption}\item[{string}]{data,  }\item[{int}]{i,  }\item[{int}]{n }\end{DoxyParamCaption})}
+
+
+
+Definition at line 11 of file permute.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{12 \{}
+\DoxyCodeLine{13     \textcolor{keywordflow}{if} (i == n -\/ 1) \textcolor{comment}{//递归基，输出一个排列}}
+\DoxyCodeLine{14     \{}
+\DoxyCodeLine{15         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j <= n; j++)}
+\DoxyCodeLine{16         \{}
+\DoxyCodeLine{17             cout << data[j];}
+\DoxyCodeLine{18         \}}
+\DoxyCodeLine{19         cout << endl;}
+\DoxyCodeLine{20     \}}
+\DoxyCodeLine{21     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{22     \{}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = i; j < n; j++)}
+\DoxyCodeLine{25         \{}
+\DoxyCodeLine{26             \mbox{\hyperlink{bubblesort_8h_a3ca5ecd34b04d6a243c054ac3a57f68d}{swap}}(data[i], data[j]); \textcolor{comment}{//将被选中的元素放在i个位置}}
+\DoxyCodeLine{27             \mbox{\hyperlink{permute_8cpp_a3b5fdddcd5a231583c93f629355a95df}{permute}}(data, i + 1, n);}
+\DoxyCodeLine{28             \mbox{\hyperlink{bubblesort_8h_a3ca5ecd34b04d6a243c054ac3a57f68d}{swap}}(data[j], data[i]); \textcolor{comment}{//换回来恢复后进入下一次迭代选取另一个元素放在i位置}}
+\DoxyCodeLine{29         \}}
+\DoxyCodeLine{30     \}}
+\DoxyCodeLine{31 \}}
+
+\end{DoxyCode}

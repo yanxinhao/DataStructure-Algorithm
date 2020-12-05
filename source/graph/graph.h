@@ -1,7 +1,7 @@
 /*
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-10-20 00:48:18
+ * @LastEditTime: 2020-12-04 15:39:27
  * @LastEditors: yanxinhao
  * @Description: 
  */
@@ -25,6 +25,12 @@ typedef enum
 #define EdgePosi(Te) Edge<Te> *
 #define VertexPosi(Tv) Vertex<Tv> *
 
+/**
+ * @brief 图的基类，声明一些基本操作，具体的图实现有邻接矩阵或者邻接表
+ * 
+ * @tparam Tv 
+ * @tparam Te 
+ */
 template <typename Tv, typename Te>
 class Graph
 {
