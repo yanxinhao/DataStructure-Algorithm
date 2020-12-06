@@ -73,11 +73,15 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="bintree_8h_source.html">tree/bintree.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="tree_2input_8h_source.html">tree/input.h</a>&quot;</code><br />
 </div>
 <p><a href="tree_2main_8cpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:afb991771a466986b7b994e7108cfe26d"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:afb991771a466986b7b994e7108cfe26d"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="tree_2main_8cpp.html#afb991771a466986b7b994e7108cfe26d">visit</a> (T &amp;elem)</td></tr>
+<tr class="separator:afb991771a466986b7b994e7108cfe26d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf9e6b7e6f15df4b525a2e7705ba3089"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tree_2main_8cpp.html#abf9e6b7e6f15df4b525a2e7705ba3089">main</a> (int argc, char const *argv[])</td></tr>
 <tr class="separator:abf9e6b7e6f15df4b525a2e7705ba3089"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -108,19 +112,73 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="tree_2main_8cpp_source.html#l00010">10</a> of file <a class="el" href="tree_2main_8cpp_source.html">main.cpp</a>.</p>
-<div class="fragment"><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="comment">/* code */</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="comment">// 利用先序和中序序列建立二叉树</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot;先序和中序序列分别为: &quot;</span>;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}</div>
+<p class="definition">Definition at line <a class="el" href="tree_2main_8cpp_source.html#l00018">18</a> of file <a class="el" href="tree_2main_8cpp_source.html">main.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="comment">/* code */</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="comment">// 利用先序和中序序列建立二叉树</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot;先序和中序序列分别为: &quot;</span> &lt;&lt; <a class="code" href="tree_2input_8h.html#a930974dd390042780483aab9e4b6512b">p_order</a> &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; <a class="code" href="tree_2input_8h.html#a7afa4a4f46cc124d95d4ef434d14806d">in_order</a> &lt;&lt; endl;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="comment">// 建树</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot;1.利用先序和中序建立二叉树 :&quot;</span>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="classbintree.html">bintree&lt;char&gt;</a> tree(8, <a class="code" href="tree_2input_8h.html#a930974dd390042780483aab9e4b6512b">p_order</a>, <a class="code" href="tree_2input_8h.html#a7afa4a4f46cc124d95d4ef434d14806d">in_order</a>);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot;先序: &quot;</span>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    tree.traverse(<a class="code" href="graph_2main_8cpp.html#a437c8204130a062166dda6baa40bb1b2">visit</a>, <a class="code" href="bintree_8h.html#aea0f18ce373c37736fbf5fd9879eb6ccacd9d91cf59c093fdfa2b1736a26125ce">PREORDER</a>);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot; 中序: &quot;</span>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    tree.traverse(<a class="code" href="graph_2main_8cpp.html#a437c8204130a062166dda6baa40bb1b2">visit</a>, <a class="code" href="bintree_8h.html#aea0f18ce373c37736fbf5fd9879eb6cca541a7d029edbe0dc4855fa23ba23162b">INORDER</a>);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot; 后序: &quot;</span>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    tree.traverse(<a class="code" href="graph_2main_8cpp.html#a437c8204130a062166dda6baa40bb1b2">visit</a>, <a class="code" href="bintree_8h.html#aea0f18ce373c37736fbf5fd9879eb6cca9ab94412bf77ddc567d8cb5cd2996d44">POSTORDER</a>);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    cout &lt;&lt; endl;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="comment">// 遍历</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot;2.遍历二叉树 : &quot;</span>;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot;先序非递归: &quot;</span>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    tree.traverse(<a class="code" href="graph_2main_8cpp.html#a437c8204130a062166dda6baa40bb1b2">visit</a>, <a class="code" href="bintree_8h.html#aea0f18ce373c37736fbf5fd9879eb6ccac2b593b1f3d8e963bbc8d96b6069631b">PREORDERNOCURSION</a>);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot; 中序非递归: &quot;</span>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    tree.traverse(<a class="code" href="graph_2main_8cpp.html#a437c8204130a062166dda6baa40bb1b2">visit</a>, <a class="code" href="bintree_8h.html#aea0f18ce373c37736fbf5fd9879eb6cca7b6002fd0c95aa4143dfd23904845f5b">INORDERNOCURSION</a>);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    cout &lt;&lt; <span class="stringliteral">&quot; 后序非递归: &quot;</span>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    tree.traverse(<a class="code" href="graph_2main_8cpp.html#a437c8204130a062166dda6baa40bb1b2">visit</a>, <a class="code" href="bintree_8h.html#aea0f18ce373c37736fbf5fd9879eb6cca5e624c95c774fa82210c0af0be7903cd">POSTORDERNOCURSION</a>);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    cout &lt;&lt; endl;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="afb991771a466986b7b994e7108cfe26d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb991771a466986b7b994e7108cfe26d">&#9670;&nbsp;</a></span>visit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void visit </td>
+          <td>(</td>
+          <td class="paramtype">T &amp;&#160;</td>
+          <td class="paramname"><em>elem</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="tree_2main_8cpp_source.html#l00013">13</a> of file <a class="el" href="tree_2main_8cpp_source.html">main.cpp</a>.</p>
+<div class="fragment"><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    cout &lt;&lt; elem &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->
+<div class="ttc" id="aclassbintree_html"><div class="ttname"><a href="classbintree.html">bintree</a></div><div class="ttdoc">只有双亲节点指针的一般二叉树</div><div class="ttdef"><b>Definition:</b> <a href="bintree_8h_source.html#l00027">bintree.h:28</a></div></div>
+<div class="ttc" id="abintree_8h_html_aea0f18ce373c37736fbf5fd9879eb6cca541a7d029edbe0dc4855fa23ba23162b"><div class="ttname"><a href="bintree_8h.html#aea0f18ce373c37736fbf5fd9879eb6cca541a7d029edbe0dc4855fa23ba23162b">INORDER</a></div><div class="ttdeci">@ INORDER</div><div class="ttdef"><b>Definition:</b> <a href="bintree_8h_source.html#l00016">bintree.h:16</a></div></div>
+<div class="ttc" id="abintree_8h_html_aea0f18ce373c37736fbf5fd9879eb6cca5e624c95c774fa82210c0af0be7903cd"><div class="ttname"><a href="bintree_8h.html#aea0f18ce373c37736fbf5fd9879eb6cca5e624c95c774fa82210c0af0be7903cd">POSTORDERNOCURSION</a></div><div class="ttdeci">@ POSTORDERNOCURSION</div><div class="ttdef"><b>Definition:</b> <a href="bintree_8h_source.html#l00021">bintree.h:20</a></div></div>
+<div class="ttc" id="abintree_8h_html_aea0f18ce373c37736fbf5fd9879eb6cca7b6002fd0c95aa4143dfd23904845f5b"><div class="ttname"><a href="bintree_8h.html#aea0f18ce373c37736fbf5fd9879eb6cca7b6002fd0c95aa4143dfd23904845f5b">INORDERNOCURSION</a></div><div class="ttdeci">@ INORDERNOCURSION</div><div class="ttdef"><b>Definition:</b> <a href="bintree_8h_source.html#l00019">bintree.h:19</a></div></div>
+<div class="ttc" id="atree_2input_8h_html_a7afa4a4f46cc124d95d4ef434d14806d"><div class="ttname"><a href="tree_2input_8h.html#a7afa4a4f46cc124d95d4ef434d14806d">in_order</a></div><div class="ttdeci">char * in_order</div><div class="ttdef"><b>Definition:</b> <a href="tree_2input_8h_source.html#l00020">input.h:20</a></div></div>
+<div class="ttc" id="abintree_8h_html_aea0f18ce373c37736fbf5fd9879eb6ccac2b593b1f3d8e963bbc8d96b6069631b"><div class="ttname"><a href="bintree_8h.html#aea0f18ce373c37736fbf5fd9879eb6ccac2b593b1f3d8e963bbc8d96b6069631b">PREORDERNOCURSION</a></div><div class="ttdeci">@ PREORDERNOCURSION</div><div class="ttdef"><b>Definition:</b> <a href="bintree_8h_source.html#l00018">bintree.h:18</a></div></div>
+<div class="ttc" id="abintree_8h_html_aea0f18ce373c37736fbf5fd9879eb6ccacd9d91cf59c093fdfa2b1736a26125ce"><div class="ttname"><a href="bintree_8h.html#aea0f18ce373c37736fbf5fd9879eb6ccacd9d91cf59c093fdfa2b1736a26125ce">PREORDER</a></div><div class="ttdeci">@ PREORDER</div><div class="ttdef"><b>Definition:</b> <a href="bintree_8h_source.html#l00015">bintree.h:15</a></div></div>
+<div class="ttc" id="agraph_2main_8cpp_html_a437c8204130a062166dda6baa40bb1b2"><div class="ttname"><a href="graph_2main_8cpp.html#a437c8204130a062166dda6baa40bb1b2">visit</a></div><div class="ttdeci">void visit(Te &amp;elem)</div><div class="ttdef"><b>Definition:</b> <a href="graph_2main_8cpp_source.html#l00011">main.cpp:11</a></div></div>
+<div class="ttc" id="abintree_8h_html_aea0f18ce373c37736fbf5fd9879eb6cca9ab94412bf77ddc567d8cb5cd2996d44"><div class="ttname"><a href="bintree_8h.html#aea0f18ce373c37736fbf5fd9879eb6cca9ab94412bf77ddc567d8cb5cd2996d44">POSTORDER</a></div><div class="ttdeci">@ POSTORDER</div><div class="ttdef"><b>Definition:</b> <a href="bintree_8h_source.html#l00017">bintree.h:17</a></div></div>
+<div class="ttc" id="atree_2input_8h_html_a930974dd390042780483aab9e4b6512b"><div class="ttname"><a href="tree_2input_8h.html#a930974dd390042780483aab9e4b6512b">p_order</a></div><div class="ttdeci">char * p_order</div><div class="ttdef"><b>Definition:</b> <a href="tree_2input_8h_source.html#l00019">input.h:19</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="http://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.8.20

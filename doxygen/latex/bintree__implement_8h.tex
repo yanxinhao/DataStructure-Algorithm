@@ -1,5 +1,6 @@
 \hypertarget{bintree__implement_8h}{}\doxysection{source/tree/bintree\+\_\+implement.h File Reference}
 \label{bintree__implement_8h}\index{source/tree/bintree\_implement.h@{source/tree/bintree\_implement.h}}
+{\ttfamily \#include \char`\"{}stack/sqstack.\+h\char`\"{}}\newline
 {\ttfamily \#include \char`\"{}tree/bintree.\+h\char`\"{}}\newline
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
@@ -29,15 +30,15 @@ Bin\+Node\+Posi (\begin{DoxyParamCaption}\item[{T}]{ }\end{DoxyParamCaption})}
 \end{DoxyTemplParams}
 
 
-Definition at line 68 of file bintree\+\_\+implement.\+h.
+Definition at line 85 of file bintree\+\_\+implement.\+h.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{69 \{}
-\DoxyCodeLine{70     \_size++;}
-\DoxyCodeLine{71     x-\/>insertAsRc(e);}
-\DoxyCodeLine{72     updateHeightAbove(x);}
-\DoxyCodeLine{73     \textcolor{keywordflow}{return} x-\/>rchild;}
-\DoxyCodeLine{74 \}}
+\DoxyCodeLine{86 \{}
+\DoxyCodeLine{87     \_size++;}
+\DoxyCodeLine{88     x-\/>insertAsRc(e);}
+\DoxyCodeLine{89     updateHeightAbove(x);}
+\DoxyCodeLine{90     \textcolor{keywordflow}{return} x-\/>rchild;}
+\DoxyCodeLine{91 \}}
 
 \end{DoxyCode}

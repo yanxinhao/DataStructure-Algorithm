@@ -1,10 +1,11 @@
 /*
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-10-15 23:25:25
+ * @LastEditTime: 2020-12-06 18:55:58
  * @LastEditors: yanxinhao
  * @Description: 
  */
+#pragma once
 #include "vector/vector.h"
 #include <iostream>
 using namespace std;
@@ -129,6 +130,12 @@ T Vector<T>::remove(Rank r)
 
 template <typename T>
 T &Vector<T>::operator[](Rank r)
+{
+    return _elem[r];
+};
+
+template <typename T>
+const T &Vector<T>::operator[](Rank r) const
 {
     return _elem[r];
 };

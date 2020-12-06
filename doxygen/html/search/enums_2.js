@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['vstatus_417',['VStatus',['../graph_8h.html#ae19015908bf119969f470737f4066b6b',1,'graph.h']]]
+  ['traversetype_431',['TRAVERSETYPE',['../bintree_8h.html#aea0f18ce373c37736fbf5fd9879eb6cc',1,'bintree.h']]]
 ];

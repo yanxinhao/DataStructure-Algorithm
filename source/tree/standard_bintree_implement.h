@@ -1,7 +1,7 @@
 /*
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-12-05 13:54:36
+ * @LastEditTime: 2020-12-05 14:02:22
  * @LastEditors: yanxinhao
  * @Description: 
  */
@@ -18,7 +18,6 @@ template <typename T>
 bintree<T>::bintree(/* args */)
 {
 }
-
 /**
  * @brief Construct a new bintree<T>::bintree object
  * 

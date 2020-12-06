@@ -174,9 +174,9 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sqstack_8h_source.html#l00035">35</a> of file <a class="el" href="sqstack_8h_source.html">sqstack.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}</div>
+<p class="definition">Definition at line <a class="el" href="sqstack_8h_source.html#l00040">40</a> of file <a class="el" href="sqstack_8h_source.html">sqstack.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -214,11 +214,10 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sqstack_8h_source.html#l00040">40</a> of file <a class="el" href="sqstack_8h_source.html">sqstack.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                                             :<a class="code" href="class_vector.html">Vector&lt;T&gt;</a>(A,lo,hi)</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;};</div>
+<p class="definition">Definition at line <a class="el" href="sqstack_8h_source.html#l00045">45</a> of file <a class="el" href="sqstack_8h_source.html">sqstack.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                                                : <a class="code" href="class_vector.html">Vector&lt;T&gt;</a>(A, lo, hi){</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                                                    };</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -236,9 +235,9 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sqstack_8h_source.html#l00046">46</a> of file <a class="el" href="sqstack_8h_source.html">sqstack.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;{</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}</div>
+<p class="definition">Definition at line <a class="el" href="sqstack_8h_source.html#l00050">50</a> of file <a class="el" href="sqstack_8h_source.html">sqstack.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -268,8 +267,8 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sqstack_8h_source.html#l00021">21</a> of file <a class="el" href="sqstack_8h_source.html">sqstack.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{<span class="keywordflow">return</span> this-&gt;<a class="code" href="class_vector.html#a530be4a7f003d040fd3789384e699767">remove</a>(this-&gt;<a class="code" href="class_vector.html#abdc62e1405d81afcb9c47abcf7317c4a">size</a>()-1);};</div>
+<p class="definition">Definition at line <a class="el" href="sqstack_8h_source.html#l00025">25</a> of file <a class="el" href="sqstack_8h_source.html">sqstack.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{ <span class="keywordflow">return</span> this-&gt;<a class="code" href="class_vector.html#a530be4a7f003d040fd3789384e699767">remove</a>(this-&gt;<a class="code" href="class_vector.html#abdc62e1405d81afcb9c47abcf7317c4a">size</a>() - 1); };</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -300,7 +299,10 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="sqstack_8h_source.html#l00020">20</a> of file <a class="el" href="sqstack_8h_source.html">sqstack.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{this-&gt;<a class="code" href="class_vector.html#ad5e9b53b80ae52f57595fe5fa42e1df2">insert</a>(this-&gt;<a class="code" href="class_vector.html#abdc62e1405d81afcb9c47abcf7317c4a">size</a>(),e);<span class="keywordflow">return</span> 1;};</div>
+<div class="fragment"><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    {</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        this-&gt;<a class="code" href="class_vector.html#ad5e9b53b80ae52f57595fe5fa42e1df2">insert</a>(this-&gt;<a class="code" href="class_vector.html#abdc62e1405d81afcb9c47abcf7317c4a">size</a>(), e);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordflow">return</span> 1;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    };</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -329,16 +331,17 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sqstack_8h_source.html#l00022">22</a> of file <a class="el" href="sqstack_8h_source.html">sqstack.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;           {</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordflow">if</span> (!this-&gt;<a class="code" href="class_vector.html#abc020404c26eb6bf465cda91ad543c17">empty</a>())</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            <span class="keywordflow">return</span> (*<span class="keyword">this</span>)[this-&gt;<a class="code" href="class_vector.html#abdc62e1405d81afcb9c47abcf7317c4a">size</a>()-1];</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordflow">else</span>{</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            T data;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            cerr&lt;&lt;<span class="stringliteral">&quot;stack is empty&quot;</span>&lt;&lt;endl;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            <span class="keywordflow">return</span> data;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        }</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    }</div>
+<p class="definition">Definition at line <a class="el" href="sqstack_8h_source.html#l00026">26</a> of file <a class="el" href="sqstack_8h_source.html">sqstack.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    {</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keywordflow">if</span> (!this-&gt;<a class="code" href="class_vector.html#abc020404c26eb6bf465cda91ad543c17">empty</a>())</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            <span class="keywordflow">return</span> (*<span class="keyword">this</span>)[this-&gt;<a class="code" href="class_vector.html#abdc62e1405d81afcb9c47abcf7317c4a">size</a>() - 1];</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            T data;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            cerr &lt;&lt; <span class="stringliteral">&quot;stack is empty&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            <span class="keywordflow">return</span> data;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        }</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    }</div>
 </div><!-- fragment -->
 </div>
 </div>

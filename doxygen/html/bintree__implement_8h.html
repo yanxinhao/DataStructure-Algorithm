@@ -72,7 +72,8 @@ $(function() {
 <div class="title">bintree_implement.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="bintree_8h_source.html">tree/bintree.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="sqstack_8h_source.html">stack/sqstack.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="bintree_8h_source.html">tree/bintree.h</a>&quot;</code><br />
 </div>
 <p><a href="bintree__implement_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -111,13 +112,13 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="bintree__implement_8h_source.html#l00068">68</a> of file <a class="el" href="bintree__implement_8h_source.html">bintree_implement.h</a>.</p>
-<div class="fragment"><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;{</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    _size++;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    x-&gt;insertAsRc(e);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    updateHeightAbove(x);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordflow">return</span> x-&gt;rchild;</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;}</div>
+<p class="definition">Definition at line <a class="el" href="bintree__implement_8h_source.html#l00085">85</a> of file <a class="el" href="bintree__implement_8h_source.html">bintree_implement.h</a>.</p>
+<div class="fragment"><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;{</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    _size++;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    x-&gt;insertAsRc(e);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    updateHeightAbove(x);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordflow">return</span> x-&gt;rchild;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>

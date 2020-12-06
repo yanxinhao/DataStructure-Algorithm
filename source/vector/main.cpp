@@ -1,7 +1,7 @@
 /*
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-10-15 20:23:13
+ * @LastEditTime: 2020-12-06 17:52:55
  * @LastEditors: yanxinhao
  * @Description: 
  */
@@ -26,6 +26,7 @@ int main()
     int A[len] = {0};
     get_input(A, len);
     Vector<int> v(A, 0, len);
+    cout << v;
     Vector<int *> test(1, 0, NULL);
     for (int i = 0; i < 10; i++)
     {

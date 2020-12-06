@@ -14,19 +14,25 @@
 \item 
 \mbox{\hyperlink{classbintree_a9fed4a26a9c177dfa14a9cb573b43dca}{bintree}} ()
 \item 
-\mbox{\hyperlink{classbintree_ae71c64c0dc482dd131f2892b3d4cf02f}{bintree}} (int len, const T $\ast$p\+\_\+order, const T $\ast$in\+\_\+order)
+\mbox{\hyperlink{classbintree_ae71c64c0dc482dd131f2892b3d4cf02f}{bintree}} (int len, const T $\ast$\mbox{\hyperlink{tree_2input_8h_a930974dd390042780483aab9e4b6512b}{p\+\_\+order}}, const T $\ast$\mbox{\hyperlink{tree_2input_8h_a7afa4a4f46cc124d95d4ef434d14806d}{in\+\_\+order}})
 \begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classbintree_a9fed4a26a9c177dfa14a9cb573b43dca}{bintree$<$\+T$>$\+::bintree}} object. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classbintree_a3297b03f7568a9b3e47db8f840a9514d}{restore}} (int len, const T $\ast$p\+\_\+order, const T $\ast$in\+\_\+order)
+\mbox{\hyperlink{struct_node}{Node}}$<$ T $>$ $\ast$ \mbox{\hyperlink{classbintree_a2c152e81498c7b068ea60bf74f38b4a5}{restore}} (int len, const T $\ast$\mbox{\hyperlink{tree_2input_8h_a930974dd390042780483aab9e4b6512b}{p\+\_\+order}}, const T $\ast$\mbox{\hyperlink{tree_2input_8h_a7afa4a4f46cc124d95d4ef434d14806d}{in\+\_\+order}})
 \begin{DoxyCompactList}\small\item\em 递归函数，利用先序和中序序列建立二叉树 \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classbintree_a7f32fcbdc9aed453025a13cbe93e3b89}{$\sim$bintree}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classbintree_a9fed4a26a9c177dfa14a9cb573b43dca}{bintree$<$\+T$>$\+::bintree}} object 以先序序列删除所有树节点 \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classbintree_aa1f485e7caf5446ad6081c5df78bb3e1}{traverse}} (void($\ast$\mbox{\hyperlink{vector_2main_8cpp_afb991771a466986b7b994e7108cfe26d}{visit}})(T \&), \mbox{\hyperlink{bintree_8h_aea0f18ce373c37736fbf5fd9879eb6cc}{T\+R\+A\+V\+E\+R\+S\+E\+T\+Y\+PE}} type)
 \item 
-void \mbox{\hyperlink{classbintree_a29b36fe06173dd86151697341946b0b7}{traverse}} (void($\ast$\mbox{\hyperlink{vector_2main_8cpp_afb991771a466986b7b994e7108cfe26d}{visit}})(T \&))
+void \mbox{\hyperlink{classbintree_a4bc45469ce6201edd99bfbf6caeefb6a}{preorder}} (\mbox{\hyperlink{struct_node}{Node}}$<$ T $>$ $\ast$p, void($\ast$\mbox{\hyperlink{vector_2main_8cpp_afb991771a466986b7b994e7108cfe26d}{visit}})(T \&))
 \item 
-void \mbox{\hyperlink{classbintree_a481553eb057edff2fde819454f03166b}{preorder}} (void($\ast$\mbox{\hyperlink{vector_2main_8cpp_afb991771a466986b7b994e7108cfe26d}{visit}})(T \&))
+void \mbox{\hyperlink{classbintree_aca740ecc4617229b148431b8c568bc6f}{inorder}} (\mbox{\hyperlink{struct_node}{Node}}$<$ T $>$ $\ast$p, void($\ast$\mbox{\hyperlink{vector_2main_8cpp_afb991771a466986b7b994e7108cfe26d}{visit}})(T \&))
 \item 
-void \mbox{\hyperlink{classbintree_a3339945eb012b7650270d6e355cb0344}{inorder}} (void($\ast$\mbox{\hyperlink{vector_2main_8cpp_afb991771a466986b7b994e7108cfe26d}{visit}})(T \&))
+void \mbox{\hyperlink{classbintree_ac329c68c8d720d7c1df594cfb5eff27e}{postorder}} (\mbox{\hyperlink{struct_node}{Node}}$<$ T $>$ $\ast$p, void($\ast$\mbox{\hyperlink{vector_2main_8cpp_afb991771a466986b7b994e7108cfe26d}{visit}})(T \&))
 \item 
-void \mbox{\hyperlink{classbintree_a546ac4540238d171e6fed6c7aa21aa35}{postorder}} (void($\ast$\mbox{\hyperlink{vector_2main_8cpp_afb991771a466986b7b994e7108cfe26d}{visit}})(T \&))
+void \mbox{\hyperlink{classbintree_aa8c81dca0fd8f676348d4c5bb316a6dc}{preorder\+\_\+nocursion}} (\mbox{\hyperlink{struct_node}{Node}}$<$ T $>$ $\ast$p, void($\ast$\mbox{\hyperlink{vector_2main_8cpp_afb991771a466986b7b994e7108cfe26d}{visit}})(T \&))
+\item 
+void \mbox{\hyperlink{classbintree_a901e5eb871c8fbc7a90d46b91a1a3029}{inorder\+\_\+nocursion}} (\mbox{\hyperlink{struct_node}{Node}}$<$ T $>$ $\ast$p, void($\ast$\mbox{\hyperlink{vector_2main_8cpp_afb991771a466986b7b994e7108cfe26d}{visit}})(T \&))
+\item 
+void \mbox{\hyperlink{classbintree_a6b6f5362dde5521212fc0756de83cb83}{postorder\+\_\+nocursion}} (\mbox{\hyperlink{struct_node}{Node}}$<$ T $>$ $\ast$p, void($\ast$\mbox{\hyperlink{vector_2main_8cpp_afb991771a466986b7b994e7108cfe26d}{visit}})(T \&))
 \end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
@@ -41,7 +47,7 @@ class bintree$<$ T $>$}
 
 只有双亲节点指针的一般二叉树 
 
-Definition at line 18 of file bintree.\+h.
+Definition at line 27 of file bintree.\+h.
 
 
 
@@ -55,12 +61,12 @@ Definition at line 18 of file bintree.\+h.
 
 
 
-Definition at line 17 of file standard\+\_\+bintree\+\_\+implement.\+h.
+Definition at line 18 of file standard\+\_\+bintree\+\_\+implement.\+h.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{18 \{}
-\DoxyCodeLine{19 \}}
+\DoxyCodeLine{19 \{}
+\DoxyCodeLine{20 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classbintree_ae71c64c0dc482dd131f2892b3d4cf02f}\label{classbintree_ae71c64c0dc482dd131f2892b3d4cf02f}} 
@@ -94,9 +100,9 @@ Definition at line 30 of file standard\+\_\+bintree\+\_\+implement.\+h.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{30                                                                \{}
-\DoxyCodeLine{31 }
-\DoxyCodeLine{32 \};}
+\DoxyCodeLine{31 \{}
+\DoxyCodeLine{32     \mbox{\hyperlink{classbintree_a7afff896c6171c122d673b5e8e01040a}{\_root}} = \mbox{\hyperlink{classbintree_a2c152e81498c7b068ea60bf74f38b4a5}{restore}}(len, \mbox{\hyperlink{tree_2input_8h_a930974dd390042780483aab9e4b6512b}{p\_order}}, \mbox{\hyperlink{tree_2input_8h_a7afa4a4f46cc124d95d4ef434d14806d}{in\_order}});}
+\DoxyCodeLine{33 \};}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{classbintree_a7f32fcbdc9aed453025a13cbe93e3b89}\label{classbintree_a7f32fcbdc9aed453025a13cbe93e3b89}} 
@@ -108,77 +114,191 @@ Definition at line 30 of file standard\+\_\+bintree\+\_\+implement.\+h.
 
 
 
-Definition at line 35 of file standard\+\_\+bintree\+\_\+implement.\+h.
+Destroy the \mbox{\hyperlink{classbintree_a9fed4a26a9c177dfa14a9cb573b43dca}{bintree$<$\+T$>$\+::bintree}} object 以先序序列删除所有树节点 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+
+Definition at line 41 of file standard\+\_\+bintree\+\_\+implement.\+h.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{36 \{}
-\DoxyCodeLine{37 \}}
+\DoxyCodeLine{42 \{}
+\DoxyCodeLine{43     \mbox{\hyperlink{classsqstack}{sqstack<Node<T>}} *> s;}
+\DoxyCodeLine{44     s.\mbox{\hyperlink{classsqstack_a0c2c0c806da873f1c531ad75da3f2f4c}{push}}(\mbox{\hyperlink{classbintree_a7afff896c6171c122d673b5e8e01040a}{\_root}});}
+\DoxyCodeLine{45     \textcolor{comment}{// 以先序序列删除所有树节点}}
+\DoxyCodeLine{46     \textcolor{keywordflow}{while} (!s.\mbox{\hyperlink{class_vector_abc020404c26eb6bf465cda91ad543c17}{empty}}())}
+\DoxyCodeLine{47     \{}
+\DoxyCodeLine{48         \mbox{\hyperlink{struct_node}{Node<T>}} *p = s.\mbox{\hyperlink{classsqstack_a6a4b7b4647f42986367ea606751ed7f9}{pop}}();}
+\DoxyCodeLine{49         \textcolor{keywordflow}{if} (p-\/>\mbox{\hyperlink{struct_node_af37902777d9bc71bed5763d3b5e63a3e}{rchild}})}
+\DoxyCodeLine{50             s.\mbox{\hyperlink{classsqstack_a0c2c0c806da873f1c531ad75da3f2f4c}{push}}(p-\/>\mbox{\hyperlink{struct_node_af37902777d9bc71bed5763d3b5e63a3e}{rchild}});}
+\DoxyCodeLine{51         \textcolor{keywordflow}{if} (p-\/>\mbox{\hyperlink{struct_node_a8ec3a11bdef2b3f43d3185578ad5ec6c}{lchild}})}
+\DoxyCodeLine{52             s.\mbox{\hyperlink{classsqstack_a0c2c0c806da873f1c531ad75da3f2f4c}{push}}(p-\/>\mbox{\hyperlink{struct_node_a8ec3a11bdef2b3f43d3185578ad5ec6c}{lchild}});}
+\DoxyCodeLine{53         \textcolor{keyword}{delete} p;}
+\DoxyCodeLine{54     \}}
+\DoxyCodeLine{55 \}}
 
 \end{DoxyCode}
 
 
 \doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{classbintree_a3339945eb012b7650270d6e355cb0344}\label{classbintree_a3339945eb012b7650270d6e355cb0344}} 
+\mbox{\Hypertarget{classbintree_aca740ecc4617229b148431b8c568bc6f}\label{classbintree_aca740ecc4617229b148431b8c568bc6f}} 
 \index{bintree$<$ T $>$@{bintree$<$ T $>$}!inorder@{inorder}}
 \index{inorder@{inorder}!bintree$<$ T $>$@{bintree$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{inorder()}{inorder()}}
 {\footnotesize\ttfamily template$<$typename T $>$ \\
-void \mbox{\hyperlink{classbintree}{bintree}}$<$ T $>$\+::inorder (\begin{DoxyParamCaption}\item[{void($\ast$)(T \&)}]{visit }\end{DoxyParamCaption})}
+void \mbox{\hyperlink{classbintree}{bintree}}$<$ T $>$\+::inorder (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_node}{Node}}$<$ T $>$ $\ast$}]{p,  }\item[{void($\ast$)(T \&)}]{visit }\end{DoxyParamCaption})}
 
 
 
-Definition at line 62 of file standard\+\_\+bintree\+\_\+implement.\+h.
+Definition at line 138 of file standard\+\_\+bintree\+\_\+implement.\+h.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{62                                           \{}
-\DoxyCodeLine{63 }
-\DoxyCodeLine{64 \};}
+\DoxyCodeLine{139 \{}
+\DoxyCodeLine{140     \textcolor{keywordflow}{if} (p)}
+\DoxyCodeLine{141     \{}
+\DoxyCodeLine{142         \mbox{\hyperlink{classbintree_aca740ecc4617229b148431b8c568bc6f}{inorder}}(p-\/>\mbox{\hyperlink{struct_node_a8ec3a11bdef2b3f43d3185578ad5ec6c}{lchild}}, \mbox{\hyperlink{graph_2main_8cpp_a437c8204130a062166dda6baa40bb1b2}{visit}});}
+\DoxyCodeLine{143         \mbox{\hyperlink{graph_2main_8cpp_a437c8204130a062166dda6baa40bb1b2}{visit}}(p-\/>\mbox{\hyperlink{struct_node_ac450c71a8677a38d306361f9ced518d3}{data}});}
+\DoxyCodeLine{144         \mbox{\hyperlink{classbintree_aca740ecc4617229b148431b8c568bc6f}{inorder}}(p-\/>\mbox{\hyperlink{struct_node_af37902777d9bc71bed5763d3b5e63a3e}{rchild}}, \mbox{\hyperlink{graph_2main_8cpp_a437c8204130a062166dda6baa40bb1b2}{visit}});}
+\DoxyCodeLine{145     \}}
+\DoxyCodeLine{146 \};}
 
 \end{DoxyCode}
-\mbox{\Hypertarget{classbintree_a546ac4540238d171e6fed6c7aa21aa35}\label{classbintree_a546ac4540238d171e6fed6c7aa21aa35}} 
+\mbox{\Hypertarget{classbintree_a901e5eb871c8fbc7a90d46b91a1a3029}\label{classbintree_a901e5eb871c8fbc7a90d46b91a1a3029}} 
+\index{bintree$<$ T $>$@{bintree$<$ T $>$}!inorder\_nocursion@{inorder\_nocursion}}
+\index{inorder\_nocursion@{inorder\_nocursion}!bintree$<$ T $>$@{bintree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{inorder\_nocursion()}{inorder\_nocursion()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classbintree}{bintree}}$<$ T $>$\+::inorder\+\_\+nocursion (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_node}{Node}}$<$ T $>$ $\ast$}]{p,  }\item[{void($\ast$)(T \&)}]{visit }\end{DoxyParamCaption})}
+
+
+
+Definition at line 176 of file standard\+\_\+bintree\+\_\+implement.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{177 \{}
+\DoxyCodeLine{178 }
+\DoxyCodeLine{179     \mbox{\hyperlink{classsqstack}{sqstack<Node<T>}} *> s;}
+\DoxyCodeLine{180     \mbox{\hyperlink{struct_node}{Node<T>}} *ptr = p; \textcolor{comment}{//ptr指针表示当前进度}}
+\DoxyCodeLine{181     \textcolor{keywordflow}{while} (!s.\mbox{\hyperlink{class_vector_abc020404c26eb6bf465cda91ad543c17}{empty}}() || ptr)}
+\DoxyCodeLine{182     \{}
+\DoxyCodeLine{183         \textcolor{comment}{// 对于每个顶点,以他为根访问的第一个节点必定是其最左叶子结点}}
+\DoxyCodeLine{184         \textcolor{keywordflow}{while} (ptr)}
+\DoxyCodeLine{185         \{}
+\DoxyCodeLine{186             s.\mbox{\hyperlink{classsqstack_a0c2c0c806da873f1c531ad75da3f2f4c}{push}}(ptr);}
+\DoxyCodeLine{187             ptr = ptr-\/>\mbox{\hyperlink{struct_node_a8ec3a11bdef2b3f43d3185578ad5ec6c}{lchild}};}
+\DoxyCodeLine{188         \}}
+\DoxyCodeLine{189         ptr = s.\mbox{\hyperlink{classsqstack_a6a4b7b4647f42986367ea606751ed7f9}{pop}}(); \textcolor{comment}{//将ptr指向当前访问节点}}
+\DoxyCodeLine{190         \mbox{\hyperlink{graph_2main_8cpp_a437c8204130a062166dda6baa40bb1b2}{visit}}(ptr-\/>\mbox{\hyperlink{struct_node_ac450c71a8677a38d306361f9ced518d3}{data}});}
+\DoxyCodeLine{191         ptr = ptr-\/>\mbox{\hyperlink{struct_node_af37902777d9bc71bed5763d3b5e63a3e}{rchild}}; \textcolor{comment}{//将ptr指向被访问节点的右孩子}}
+\DoxyCodeLine{192     \}}
+\DoxyCodeLine{193 \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classbintree_ac329c68c8d720d7c1df594cfb5eff27e}\label{classbintree_ac329c68c8d720d7c1df594cfb5eff27e}} 
 \index{bintree$<$ T $>$@{bintree$<$ T $>$}!postorder@{postorder}}
 \index{postorder@{postorder}!bintree$<$ T $>$@{bintree$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{postorder()}{postorder()}}
 {\footnotesize\ttfamily template$<$typename T $>$ \\
-void \mbox{\hyperlink{classbintree}{bintree}}$<$ T $>$\+::postorder (\begin{DoxyParamCaption}\item[{void($\ast$)(T \&)}]{visit }\end{DoxyParamCaption})}
+void \mbox{\hyperlink{classbintree}{bintree}}$<$ T $>$\+::postorder (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_node}{Node}}$<$ T $>$ $\ast$}]{p,  }\item[{void($\ast$)(T \&)}]{visit }\end{DoxyParamCaption})}
 
 
 
-Definition at line 67 of file standard\+\_\+bintree\+\_\+implement.\+h.
+Definition at line 149 of file standard\+\_\+bintree\+\_\+implement.\+h.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{67                                             \{}
-\DoxyCodeLine{68 }
-\DoxyCodeLine{69 \}}
+\DoxyCodeLine{150 \{}
+\DoxyCodeLine{151     \textcolor{keywordflow}{if} (p)}
+\DoxyCodeLine{152     \{}
+\DoxyCodeLine{153         \mbox{\hyperlink{classbintree_ac329c68c8d720d7c1df594cfb5eff27e}{postorder}}(p-\/>\mbox{\hyperlink{struct_node_a8ec3a11bdef2b3f43d3185578ad5ec6c}{lchild}}, \mbox{\hyperlink{graph_2main_8cpp_a437c8204130a062166dda6baa40bb1b2}{visit}});}
+\DoxyCodeLine{154         \mbox{\hyperlink{classbintree_ac329c68c8d720d7c1df594cfb5eff27e}{postorder}}(p-\/>\mbox{\hyperlink{struct_node_af37902777d9bc71bed5763d3b5e63a3e}{rchild}}, \mbox{\hyperlink{graph_2main_8cpp_a437c8204130a062166dda6baa40bb1b2}{visit}});}
+\DoxyCodeLine{155         \mbox{\hyperlink{graph_2main_8cpp_a437c8204130a062166dda6baa40bb1b2}{visit}}(p-\/>\mbox{\hyperlink{struct_node_ac450c71a8677a38d306361f9ced518d3}{data}});}
+\DoxyCodeLine{156     \}}
+\DoxyCodeLine{157 \};}
 
 \end{DoxyCode}
-\mbox{\Hypertarget{classbintree_a481553eb057edff2fde819454f03166b}\label{classbintree_a481553eb057edff2fde819454f03166b}} 
+\mbox{\Hypertarget{classbintree_a6b6f5362dde5521212fc0756de83cb83}\label{classbintree_a6b6f5362dde5521212fc0756de83cb83}} 
+\index{bintree$<$ T $>$@{bintree$<$ T $>$}!postorder\_nocursion@{postorder\_nocursion}}
+\index{postorder\_nocursion@{postorder\_nocursion}!bintree$<$ T $>$@{bintree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{postorder\_nocursion()}{postorder\_nocursion()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classbintree}{bintree}}$<$ T $>$\+::postorder\+\_\+nocursion (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_node}{Node}}$<$ T $>$ $\ast$}]{p,  }\item[{void($\ast$)(T \&)}]{visit }\end{DoxyParamCaption})}
+
+
+
+Definition at line 196 of file standard\+\_\+bintree\+\_\+implement.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{196                                                                   \{}
+\DoxyCodeLine{197 }
+\DoxyCodeLine{198 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classbintree_a4bc45469ce6201edd99bfbf6caeefb6a}\label{classbintree_a4bc45469ce6201edd99bfbf6caeefb6a}} 
 \index{bintree$<$ T $>$@{bintree$<$ T $>$}!preorder@{preorder}}
 \index{preorder@{preorder}!bintree$<$ T $>$@{bintree$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{preorder()}{preorder()}}
 {\footnotesize\ttfamily template$<$typename T $>$ \\
-void \mbox{\hyperlink{classbintree}{bintree}}$<$ T $>$\+::preorder (\begin{DoxyParamCaption}\item[{void($\ast$)(T \&)}]{visit }\end{DoxyParamCaption})}
+void \mbox{\hyperlink{classbintree}{bintree}}$<$ T $>$\+::preorder (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_node}{Node}}$<$ T $>$ $\ast$}]{p,  }\item[{void($\ast$)(T \&)}]{visit }\end{DoxyParamCaption})}
 
 
 
-Definition at line 58 of file standard\+\_\+bintree\+\_\+implement.\+h.
+Definition at line 127 of file standard\+\_\+bintree\+\_\+implement.\+h.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{58                                            \{}
-\DoxyCodeLine{59 }
-\DoxyCodeLine{60 \};}
+\DoxyCodeLine{128 \{}
+\DoxyCodeLine{129     \textcolor{keywordflow}{if} (p)}
+\DoxyCodeLine{130     \{}
+\DoxyCodeLine{131         \mbox{\hyperlink{graph_2main_8cpp_a437c8204130a062166dda6baa40bb1b2}{visit}}(p-\/>\mbox{\hyperlink{struct_node_ac450c71a8677a38d306361f9ced518d3}{data}});}
+\DoxyCodeLine{132         \mbox{\hyperlink{classbintree_a4bc45469ce6201edd99bfbf6caeefb6a}{preorder}}(p-\/>\mbox{\hyperlink{struct_node_a8ec3a11bdef2b3f43d3185578ad5ec6c}{lchild}}, \mbox{\hyperlink{graph_2main_8cpp_a437c8204130a062166dda6baa40bb1b2}{visit}});}
+\DoxyCodeLine{133         \mbox{\hyperlink{classbintree_a4bc45469ce6201edd99bfbf6caeefb6a}{preorder}}(p-\/>\mbox{\hyperlink{struct_node_af37902777d9bc71bed5763d3b5e63a3e}{rchild}}, \mbox{\hyperlink{graph_2main_8cpp_a437c8204130a062166dda6baa40bb1b2}{visit}});}
+\DoxyCodeLine{134     \}}
+\DoxyCodeLine{135 \};}
 
 \end{DoxyCode}
-\mbox{\Hypertarget{classbintree_a3297b03f7568a9b3e47db8f840a9514d}\label{classbintree_a3297b03f7568a9b3e47db8f840a9514d}} 
+\mbox{\Hypertarget{classbintree_aa8c81dca0fd8f676348d4c5bb316a6dc}\label{classbintree_aa8c81dca0fd8f676348d4c5bb316a6dc}} 
+\index{bintree$<$ T $>$@{bintree$<$ T $>$}!preorder\_nocursion@{preorder\_nocursion}}
+\index{preorder\_nocursion@{preorder\_nocursion}!bintree$<$ T $>$@{bintree$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{preorder\_nocursion()}{preorder\_nocursion()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classbintree}{bintree}}$<$ T $>$\+::preorder\+\_\+nocursion (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_node}{Node}}$<$ T $>$ $\ast$}]{p,  }\item[{void($\ast$)(T \&)}]{visit }\end{DoxyParamCaption})}
+
+
+
+Definition at line 160 of file standard\+\_\+bintree\+\_\+implement.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{161 \{}
+\DoxyCodeLine{162     \mbox{\hyperlink{classsqstack}{sqstack<Node<T>}} *> s;}
+\DoxyCodeLine{163     s.\mbox{\hyperlink{classsqstack_a0c2c0c806da873f1c531ad75da3f2f4c}{push}}(\mbox{\hyperlink{classbintree_a7afff896c6171c122d673b5e8e01040a}{\_root}});}
+\DoxyCodeLine{164     \textcolor{keywordflow}{while} (!s.\mbox{\hyperlink{class_vector_abc020404c26eb6bf465cda91ad543c17}{empty}}())}
+\DoxyCodeLine{165     \{}
+\DoxyCodeLine{166         \mbox{\hyperlink{struct_node}{Node<T>}} *p = s.\mbox{\hyperlink{classsqstack_a6a4b7b4647f42986367ea606751ed7f9}{pop}}();}
+\DoxyCodeLine{167         \textcolor{keywordflow}{if} (p-\/>\mbox{\hyperlink{struct_node_af37902777d9bc71bed5763d3b5e63a3e}{rchild}})}
+\DoxyCodeLine{168             s.\mbox{\hyperlink{classsqstack_a0c2c0c806da873f1c531ad75da3f2f4c}{push}}(p-\/>\mbox{\hyperlink{struct_node_af37902777d9bc71bed5763d3b5e63a3e}{rchild}});}
+\DoxyCodeLine{169         \textcolor{keywordflow}{if} (p-\/>\mbox{\hyperlink{struct_node_a8ec3a11bdef2b3f43d3185578ad5ec6c}{lchild}})}
+\DoxyCodeLine{170             s.\mbox{\hyperlink{classsqstack_a0c2c0c806da873f1c531ad75da3f2f4c}{push}}(p-\/>\mbox{\hyperlink{struct_node_a8ec3a11bdef2b3f43d3185578ad5ec6c}{lchild}});}
+\DoxyCodeLine{171         \mbox{\hyperlink{graph_2main_8cpp_a437c8204130a062166dda6baa40bb1b2}{visit}}(p-\/>\mbox{\hyperlink{struct_node_ac450c71a8677a38d306361f9ced518d3}{data}});}
+\DoxyCodeLine{172     \}}
+\DoxyCodeLine{173 \};}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classbintree_a2c152e81498c7b068ea60bf74f38b4a5}\label{classbintree_a2c152e81498c7b068ea60bf74f38b4a5}} 
 \index{bintree$<$ T $>$@{bintree$<$ T $>$}!restore@{restore}}
 \index{restore@{restore}!bintree$<$ T $>$@{bintree$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{restore()}{restore()}}
 {\footnotesize\ttfamily template$<$typename T $>$ \\
-void \mbox{\hyperlink{classbintree}{bintree}}$<$ T $>$\+::restore (\begin{DoxyParamCaption}\item[{int}]{len,  }\item[{const T $\ast$}]{p\+\_\+order,  }\item[{const T $\ast$}]{in\+\_\+order }\end{DoxyParamCaption})}
+\mbox{\hyperlink{struct_node}{Node}}$<$ T $>$ $\ast$ \mbox{\hyperlink{classbintree}{bintree}}$<$ T $>$\+::restore (\begin{DoxyParamCaption}\item[{int}]{len,  }\item[{const T $\ast$}]{p\+\_\+order,  }\item[{const T $\ast$}]{in\+\_\+order }\end{DoxyParamCaption})}
 
 
 
@@ -200,31 +320,79 @@ void \mbox{\hyperlink{classbintree}{bintree}}$<$ T $>$\+::restore (\begin{DoxyPa
 \end{DoxyParams}
 
 
-Definition at line 48 of file standard\+\_\+bintree\+\_\+implement.\+h.
+Definition at line 66 of file standard\+\_\+bintree\+\_\+implement.\+h.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{48                                                                     \{}
-\DoxyCodeLine{49 }
-\DoxyCodeLine{50 \};}
+\DoxyCodeLine{67 \{}
+\DoxyCodeLine{68     \textcolor{keywordflow}{if} (len == 0)}
+\DoxyCodeLine{69         \textcolor{keywordflow}{return} NULL;}
+\DoxyCodeLine{70     \mbox{\hyperlink{struct_node}{Node<T>}} *root = \textcolor{keyword}{new} \mbox{\hyperlink{struct_node}{Node<T>}}(\mbox{\hyperlink{tree_2input_8h_a930974dd390042780483aab9e4b6512b}{p\_order}}[0]);}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72     \textcolor{comment}{// 在中序序列中查找根节点，根节点左右两边分别为左右子树的中序序列}}
+\DoxyCodeLine{73     \textcolor{keywordtype}{int} idx;}
+\DoxyCodeLine{74     \textcolor{keywordflow}{for} (idx = 0; idx < len; idx++)}
+\DoxyCodeLine{75     \{}
+\DoxyCodeLine{76         \textcolor{keywordflow}{if} (\mbox{\hyperlink{tree_2input_8h_a7afa4a4f46cc124d95d4ef434d14806d}{in\_order}}[idx] == root-\/>\mbox{\hyperlink{struct_node_ac450c71a8677a38d306361f9ced518d3}{data}})}
+\DoxyCodeLine{77             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{78     \}}
+\DoxyCodeLine{79     \textcolor{comment}{// 递归填写左右子树根指针}}
+\DoxyCodeLine{80     root-\/>\mbox{\hyperlink{struct_node_a8ec3a11bdef2b3f43d3185578ad5ec6c}{lchild}} = \mbox{\hyperlink{classbintree_a2c152e81498c7b068ea60bf74f38b4a5}{restore}}(idx, \mbox{\hyperlink{tree_2input_8h_a930974dd390042780483aab9e4b6512b}{p\_order}} + 1, \mbox{\hyperlink{tree_2input_8h_a7afa4a4f46cc124d95d4ef434d14806d}{in\_order}});}
+\DoxyCodeLine{81     root-\/>\mbox{\hyperlink{struct_node_af37902777d9bc71bed5763d3b5e63a3e}{rchild}} = \mbox{\hyperlink{classbintree_a2c152e81498c7b068ea60bf74f38b4a5}{restore}}(len -\/ idx -\/ 1, \mbox{\hyperlink{tree_2input_8h_a930974dd390042780483aab9e4b6512b}{p\_order}} + 1 + idx, \mbox{\hyperlink{tree_2input_8h_a7afa4a4f46cc124d95d4ef434d14806d}{in\_order}} + idx + 1);}
+\DoxyCodeLine{82     \textcolor{keywordflow}{return} root;}
+\DoxyCodeLine{83 \};}
 
 \end{DoxyCode}
-\mbox{\Hypertarget{classbintree_a29b36fe06173dd86151697341946b0b7}\label{classbintree_a29b36fe06173dd86151697341946b0b7}} 
+\mbox{\Hypertarget{classbintree_aa1f485e7caf5446ad6081c5df78bb3e1}\label{classbintree_aa1f485e7caf5446ad6081c5df78bb3e1}} 
 \index{bintree$<$ T $>$@{bintree$<$ T $>$}!traverse@{traverse}}
 \index{traverse@{traverse}!bintree$<$ T $>$@{bintree$<$ T $>$}}
 \doxysubsubsection{\texorpdfstring{traverse()}{traverse()}}
 {\footnotesize\ttfamily template$<$typename T $>$ \\
-void \mbox{\hyperlink{classbintree}{bintree}}$<$ T $>$\+::traverse (\begin{DoxyParamCaption}\item[{void($\ast$)(T \&)}]{visit }\end{DoxyParamCaption})}
+void \mbox{\hyperlink{classbintree}{bintree}}$<$ T $>$\+::traverse (\begin{DoxyParamCaption}\item[{void($\ast$)(T \&)}]{visit,  }\item[{\mbox{\hyperlink{bintree_8h_aea0f18ce373c37736fbf5fd9879eb6cc}{T\+R\+A\+V\+E\+R\+S\+E\+T\+Y\+PE}}}]{type }\end{DoxyParamCaption})}
 
 
 
-Definition at line 54 of file standard\+\_\+bintree\+\_\+implement.\+h.
+Definition at line 87 of file standard\+\_\+bintree\+\_\+implement.\+h.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{54                                            \{}
-\DoxyCodeLine{55 }
-\DoxyCodeLine{56 \};}
+\DoxyCodeLine{88 \{}
+\DoxyCodeLine{89     \textcolor{keywordflow}{switch} (type)}
+\DoxyCodeLine{90     \{}
+\DoxyCodeLine{91     \textcolor{keywordflow}{case} \mbox{\hyperlink{bintree_8h_aea0f18ce373c37736fbf5fd9879eb6ccacd9d91cf59c093fdfa2b1736a26125ce}{PREORDER}}:}
+\DoxyCodeLine{92     \{}
+\DoxyCodeLine{93         \mbox{\hyperlink{classbintree_a4bc45469ce6201edd99bfbf6caeefb6a}{preorder}}(\mbox{\hyperlink{classbintree_a7afff896c6171c122d673b5e8e01040a}{\_root}}, \mbox{\hyperlink{graph_2main_8cpp_a437c8204130a062166dda6baa40bb1b2}{visit}});}
+\DoxyCodeLine{94         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{95     \}}
+\DoxyCodeLine{96     \textcolor{keywordflow}{case} \mbox{\hyperlink{bintree_8h_aea0f18ce373c37736fbf5fd9879eb6cca541a7d029edbe0dc4855fa23ba23162b}{INORDER}}:}
+\DoxyCodeLine{97     \{}
+\DoxyCodeLine{98         \mbox{\hyperlink{classbintree_aca740ecc4617229b148431b8c568bc6f}{inorder}}(\mbox{\hyperlink{classbintree_a7afff896c6171c122d673b5e8e01040a}{\_root}}, \mbox{\hyperlink{graph_2main_8cpp_a437c8204130a062166dda6baa40bb1b2}{visit}});}
+\DoxyCodeLine{99         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{100     \}}
+\DoxyCodeLine{101     \textcolor{keywordflow}{case} \mbox{\hyperlink{bintree_8h_aea0f18ce373c37736fbf5fd9879eb6cca9ab94412bf77ddc567d8cb5cd2996d44}{POSTORDER}}:}
+\DoxyCodeLine{102     \{}
+\DoxyCodeLine{103         \mbox{\hyperlink{classbintree_ac329c68c8d720d7c1df594cfb5eff27e}{postorder}}(\mbox{\hyperlink{classbintree_a7afff896c6171c122d673b5e8e01040a}{\_root}}, \mbox{\hyperlink{graph_2main_8cpp_a437c8204130a062166dda6baa40bb1b2}{visit}});}
+\DoxyCodeLine{104         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{105     \}}
+\DoxyCodeLine{106     \textcolor{keywordflow}{case} \mbox{\hyperlink{bintree_8h_aea0f18ce373c37736fbf5fd9879eb6ccac2b593b1f3d8e963bbc8d96b6069631b}{PREORDERNOCURSION}}:}
+\DoxyCodeLine{107     \{}
+\DoxyCodeLine{108         \mbox{\hyperlink{classbintree_aa8c81dca0fd8f676348d4c5bb316a6dc}{preorder\_nocursion}}(\mbox{\hyperlink{classbintree_a7afff896c6171c122d673b5e8e01040a}{\_root}}, \mbox{\hyperlink{graph_2main_8cpp_a437c8204130a062166dda6baa40bb1b2}{visit}});}
+\DoxyCodeLine{109         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{110     \}}
+\DoxyCodeLine{111     \textcolor{keywordflow}{case} \mbox{\hyperlink{bintree_8h_aea0f18ce373c37736fbf5fd9879eb6cca7b6002fd0c95aa4143dfd23904845f5b}{INORDERNOCURSION}}:}
+\DoxyCodeLine{112     \{}
+\DoxyCodeLine{113         \mbox{\hyperlink{classbintree_a901e5eb871c8fbc7a90d46b91a1a3029}{inorder\_nocursion}}(\mbox{\hyperlink{classbintree_a7afff896c6171c122d673b5e8e01040a}{\_root}}, \mbox{\hyperlink{graph_2main_8cpp_a437c8204130a062166dda6baa40bb1b2}{visit}});}
+\DoxyCodeLine{114         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{115     \}}
+\DoxyCodeLine{116     \textcolor{keywordflow}{case} \mbox{\hyperlink{bintree_8h_aea0f18ce373c37736fbf5fd9879eb6cca5e624c95c774fa82210c0af0be7903cd}{POSTORDERNOCURSION}}:}
+\DoxyCodeLine{117     \{}
+\DoxyCodeLine{118         \mbox{\hyperlink{classbintree_a6b6f5362dde5521212fc0756de83cb83}{postorder\_nocursion}}(\mbox{\hyperlink{classbintree_a7afff896c6171c122d673b5e8e01040a}{\_root}}, \mbox{\hyperlink{graph_2main_8cpp_a437c8204130a062166dda6baa40bb1b2}{visit}});}
+\DoxyCodeLine{119         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{120     \}}
+\DoxyCodeLine{121     \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{122         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{123     \}}
+\DoxyCodeLine{124 \};}
 
 \end{DoxyCode}
 
@@ -239,7 +407,7 @@ Definition at line 54 of file standard\+\_\+bintree\+\_\+implement.\+h.
 
 
 
-Definition at line 21 of file bintree.\+h.
+Definition at line 30 of file bintree.\+h.
 
 
 

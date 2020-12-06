@@ -1,8 +1,8 @@
 /*
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-12-03 19:03:04
- * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2020-12-06 18:08:31
+ * @LastEditors: yanxinhao
  * @Description: 
  */
 #pragma once
@@ -26,6 +26,16 @@ enum SEARCHING
 template <typename T>
 class Vector
 {
+    // 带模版的友元函数要将定义也写在类里面，不然会报错找不到
+    friend std::ostream &operator<<(std::ostream &out, Vector<T> const &V)
+    {
+        for (int i = 0; i < V.size(); i++)
+        {
+            out << " " << V[i];
+        }
+        return out;
+    };
+
 private:
     Rank _size;
     int _capacity;
@@ -52,6 +62,7 @@ public:
     void traverse(void (*visit)(T &)) const;
     Rank size() const { return _size; }
     T &operator[](Rank r);
+    const T &operator[](Rank r) const;
     Vector<T> &operator=(Vector<T> const &);
     // 无序向量
     Rank find(const T &e, Rank lo, Rank hi);

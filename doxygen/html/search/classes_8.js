@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['solution_220',['solution',['../structsolution.html',1,'']]],
-  ['sqstack_221',['sqstack',['../classsqstack.html',1,'']]]
+  ['solution_229',['solution',['../structsolution.html',1,'']]],
+  ['sqstack_230',['sqstack',['../classsqstack.html',1,'']]]
 ];
