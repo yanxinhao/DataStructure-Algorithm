@@ -1,7 +1,7 @@
 /*
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-12-06 18:08:31
+ * @LastEditTime: 2020-12-08 21:26:27
  * @LastEditors: yanxinhao
  * @Description: 
  */
@@ -39,9 +39,11 @@ class Vector
 private:
     Rank _size;
     int _capacity;
-    T *_elem;
     void copyfrom(T const *A, Rank lo, Rank hi);
     void expand();
+
+protected:
+    T *_elem;
 
 public:
     // Vector() : _capacity(DEFAULT_CAPACITY), _size(0){};

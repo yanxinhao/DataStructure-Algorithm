@@ -24,4 +24,7 @@ add_executable(graph  ${GRAPH_PATH})
 aux_source_directory(${CMAKE_CURRENT_SOURCE_DIR}/binheap BINHEAP_PATH)
 add_executable(binheap  ${BINHEAP_PATH})
 
+aux_source_directory(${CMAKE_CURRENT_SOURCE_DIR}/string STRING_PATH)
+add_executable(string  ${STRING_PATH})
+
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/dynamic_programming)

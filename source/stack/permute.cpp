@@ -1,14 +1,21 @@
 /*
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-11-24 21:03:38
+ * @LastEditTime: 2020-12-08 20:34:04
  * @LastEditors: yanxinhao
  * @Description: 
  */
 
 #include <iostream>
 using namespace std;
-void permute(string data, int i, int n) //n-i个元素的全排列
+/**
+ * @brief n-i个元素的全排列
+ * 
+ * @param data 
+ * @param i 
+ * @param n 
+ */
+void permute(string data, int i, int n)
 {
     if (i == n - 1) //递归基，输出一个排列
     {
