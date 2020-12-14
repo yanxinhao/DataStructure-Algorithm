@@ -1,7 +1,7 @@
 <!--
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-12-08 20:29:59
+ * @LastEditTime: 2020-12-14 09:26:25
  * @LastEditors: yanxinhao
  * @Description: 
 -->
@@ -620,12 +620,14 @@ In a binary search tree, we require that
   边分类:
   <table>
     <tr>
+  <td>括号引理</td>
   <td>BFS : 队列</td>
   <td>DFS : 栈</td>
   </tr>
     <tr>
   <td><img src="./imgs/bfs_edge.png"></td>
   <td><img src="./imgs/dfs_edge.png"></td>
+  <td><img src="./imgs/parenthesis_lemma.png"></td>
   </tr></table>
   
  #####   优先级搜索 
