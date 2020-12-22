@@ -1,7 +1,7 @@
 <!--
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-12-14 09:28:45
+ * @LastEditTime: 2020-12-23 00:00:52
  * @LastEditors: yanxinhao
  * @Description: 
 -->
@@ -77,7 +77,9 @@
       - [实现](#实现-1)
         - [不相交集合的链表表示](#不相交集合的链表表示)
         - [不相交集合森林](#不相交集合森林)
-          - [改进运行时间的启发式策略](#改进运行时间的启发式策略)
+        - [改进运行时间的启发式策略](#改进运行时间的启发式策略)
+          - [按秩合并(在UNION操作中) :](#按秩合并在union操作中-)
+          - [路径压缩(在FIND操作中)](#路径压缩在find操作中)
     - [图](#图)
       - [图的性质](#图的性质)
       - [特殊图的类型](#特殊图的类型)
@@ -119,6 +121,11 @@
         - [分而治之的实例：](#分而治之的实例)
       - [递归消除：尾递归](#递归消除尾递归)
     - [动态规划](#动态规划)
+      - [动态规划算法设计步骤](#动态规划算法设计步骤)
+      - [动态规划的原理:](#动态规划的原理)
+      - [动态规划有两种等价的实现方法:](#动态规划有两种等价的实现方法)
+        - [带备忘的自顶向下法(top-down with memoization)](#带备忘的自顶向下法top-down-with-memoization)
+        - [自底向上法(bottom-up method)](#自底向上法bottom-up-method)
     - [贪心法](#贪心法)
   - [其他算法领域](#其他算法领域)
     - [近似算法](#近似算法)
@@ -131,6 +138,7 @@
         - [改进思路](#改进思路)
         - [实现](#实现-2)
         - [算法原理](#算法原理)
+        - [nextval=对next的优化](#nextval对next的优化)
       - [BM算法](#bm算法)
     - [动态规划例子](#动态规划例子)
   - [参考资料](#参考资料)
@@ -576,22 +584,52 @@ In a binary search tree, we require that
   - 树的带权路径长度最短
 
 ### 并查集（用于不相交集合的数据结构）
+There are two operations we would like to perform on disjoint sets:
+- Determine if two elements are in the same disjoint set, and
+- Take the union of two disjoint sets creating a single set
 
 #### 实现
+find( int i )
+  - Find the root element of the tree that contains i
+
+set_union( int i, int j )
+  - Find the root elements of i and j
+  - Update the parent of one root element to be the other root element
+
 ##### 不相交集合的链表表示
+...
 ##### 不相交集合森林
+...
+##### 改进运行时间的启发式策略
+> Problem : The height of the tree may grow very large
 
-###### 改进运行时间的启发式策略
-  - 按秩合并 : 对于每个节点，维护一个秩，他表示该节点的高度的一个上界。在使用按秩合并策略的UNION操作中，我们可以让具有较小秩的根指向具有较大秩的根。\
-    特点:
-    - point the root of the shorter tree to the root of the taller tree
-    - The height of the taller will increase if and only if the trees are equal in height
+###### 按秩合并(在UNION操作中) : 
+> - The worst case: tree of height h must result from taking union of two worst case trees of height h-1
+> - In the best case, all elements point to the same entry with a resulting height of O(1)
 
-  - 路径压缩 : 在FIND-SET操作中，使查找路径中的每个节点指向根。由于rank表示的是高度的上界，则此操作不改变节点rank。
+对于每个节点，维护一个秩，他表示该节点的高度的一个上界。在使用按秩合并策略的UNION操作中，我们可以让具有较小秩的根指向具有较大秩的根。\
+To optimize both find and set_union, we must minimize the height of the tree
+  - point the root of the shorter tree to the root of the taller tree
+  - The height of the taller will increase if and only if the trees are equal in height
   
-<div align="center"> 
-  <img src="./imgs/path_compression.png" width=70% height=70% /> 
-</div>
+<table>
+  <tr>
+    <td><img src="./imgs/union_by_rank_best.png" /> </td>
+    <td><img src="./imgs/union_by_rank_worse.png"  /> </td>
+  </tr>
+</table>
+
+###### 路径压缩(在FIND操作中) 
+ 在FIND操作中，使查找路径中的每个节点指向根。由于rank表示的是高度的上界，则此操作不改变节点rank。
+<table>
+  <tr>
+    <td><img src="./imgs/path_compression.png" /> </td>
+    <td><img src="./imgs/path_compression_2.png"  /> </td>
+  </tr>
+</table>
+Note that everything along the path got pointed to c.
+
+Note also that this is definitely not a binary tree!
 
 带路径压缩的按秩合并的分析:
 ### 图
@@ -928,9 +966,18 @@ NP-hard
 </div>
 
 ### 动态规划
-> 朴素的递归算法(减而治之或分而治之)之所以效率低，是因为他们反复求解相同的子问题。
+> 朴素的递归算法(减而治之或分而治之)之所以效率低，是因为他们反复求解相同的子问题。 \
+> 适合用动态规划求解的最优化问题应该具有两个要素:
+> - 最优子结构
+> - 重叠子问题
 
-动态规划的原理:
+#### 动态规划算法设计步骤
+1. 刻画一个最优解的结构特征。
+2. 递归定义最优解的值
+3. 计算最优解的值，通常采用自底向上的方法
+4. 利用计算出的信息构造一个最优解（可选，若有必要则可能需要在第三步的过程中维护一些相关信息用于构造最优解）
+
+#### 动态规划的原理:
 - 最优子结构性质 : 问题的最优解由相关子问题的最优解组合而成，而这些子问题可以独立求解。
   
   如何发觉最优子结构?这里给出一个通用模式:
@@ -938,17 +985,20 @@ NP-hard
   2. 假定已经知道了这种选择(先不关心这种选择如何得到)
   3. 考虑这种选择会产生哪些子问题, 以及如何最好刻画子问题空间
   4. 证明构成原问题最优解的组成部分(即每个子问题)的解就是它本身的最优解(一般是反证法)
-
+   
+  `证明最优解的方法:剪切-粘贴法，假设子问题的解不是其最优解，就可以从原问题中剪切掉这些非最优解，将最优解粘贴进去，从而得到原问题更优的解，这与最初的解是原问题最优解的假设前提矛盾`
 - 重叠子问题 : 
-- 重构最优解
 
-动态规划有两种等价的实现方法:
-- 带备忘的自顶向下法(top-down with memoization)
-- 自底向上法(bottom-up method)
+- 重构最优解\
+ 例如钢条切割问题中，我们用一个数组保留每个规模的问题的最优解对应的第一段钢条的切割长度。（重构时只需输出当前第一段切割长度后，下一个就是对应子问题的第一段切割长度，直到最后为0）
 
-为构建动态规划的解决方案,一些必要的过程:
-- 子问题图
-- 重构解
+#### 动态规划有两种等价的实现方法:
+  ##### 带备忘的自顶向下法(top-down with memoization)
+    仍然按照自然的递归形式编写过程，但是过程会保存每个未被记录过的子问题的解
+    
+  ##### 自底向上法(bottom-up method)
+    将子问题按照规模从小到大排序，进行求解。
+
   
 例子:
 
@@ -1056,6 +1106,18 @@ NP-hard
     <td><img src="./imgs/KMP_next_4.png"></td>
     </tr>
   </table>
+
+##### nextval=对next的优化
+> 在kmp算法中注意区分next数组和nextval函数,nextval是对next数组的改进
+
+字符串”BBC ABCDAB ABCDABCDABDE” \
+观察第5位”A”,当它不匹配时，按照next行回溯到标号1也为字母A，这时再匹配A是徒劳的，因为已知A不匹配，所以就继续退回到标号1字母A的next(1)=0。为了直接点进行优化，就有了nextval行: \
+  只看前面有重复字母的几位就可以。
+  - j=5，P(5)=A，next(5)=1，P(1)=A=P(5)，所以nextval(5)=next(1)=0;
+  - j=6，P(6)=B，next(6)=2，P(2)=B=P(6)，所以nextval(6)=next(2)=1;
+  - j=7，P(7)=D，next(7)=3，P(3)=C!=P(7)，所以nextval(7)=next(7)=3;
+
+
 
 #### BM算法
 > 。。。。

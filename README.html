@@ -897,7 +897,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
         <!--
  * @Author: yanxinhao
  * @Email: 1914607611xh@i.shu.edu.cn
- * @LastEditTime: 2020-11-22 14:59:14
+ * @LastEditTime: 2020-12-14 09:28:45
  * @LastEditors: yanxinhao
  * @Description: 
 -->
@@ -1092,6 +1092,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 <ul>
 <li><a href="#%E5%88%A4%E5%AE%9A%E9%97%AE%E9%A2%98%E4%B8%8E%E4%BC%98%E5%8C%96%E9%97%AE%E9%A2%98">判定问题与优化问题</a></li>
 <li><a href="#%E5%BD%92%E7%BA%A6">归约</a></li>
+<li><a href="#%E4%BE%8B%E5%AD%90">例子</a></li>
 </ul>
 </li>
 </ul>
@@ -1099,6 +1100,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 <li><a href="#%E8%BF%AD%E4%BB%A3%E4%B8%8E%E9%80%92%E5%BD%92">迭代与递归</a>
 <ul>
 <li><a href="#%E8%BF%AD%E4%BB%A3%E7%AE%97%E6%B3%95%E5%AE%9E%E4%BE%8B">迭代算法实例</a></li>
+<li><a href="#%E5%B0%BE%E9%80%92%E5%BD%92">尾递归</a></li>
 <li><a href="#%E5%87%8F%E8%80%8C%E6%B2%BB%E4%B9%8Bdecrease-and-conquer">减而治之（Decrease and conquer）</a>
 <ul>
 <li><a href="#%E5%87%8F%E8%80%8C%E6%B2%BB%E4%B9%8B%E7%9A%84%E5%AE%9E%E4%BE%8B">减而治之的实例：</a></li>
@@ -1149,7 +1151,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 <h3 id="介绍">介绍</h3>
 <h3 id="数据结构基础">数据结构基础</h3>
 <div align="center"> 
-  <img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/Abstract_data.png" width=70% height=70% /> 
+  <img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/Abstract_data.png" width=70% height=70% /> 
 </div>
 <h3 id="线性表">线性表</h3>
 <h4 id="向量">向量：</h4>
@@ -1170,76 +1172,85 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 <li>单链表的公共后缀</li>
 <li>单链表保存绝对值不超过n的整数，删除绝对值相等的节点仅保留第一次出现的节点</li>
 <li>有序链表归并</li>
+<li>两个有序表求并集，交集，差集</li>
+<li>最快时间复杂度合并两个循环链表，已知长度m，n</li>
+<li></li>
 </ul>
 <h3 id="栈与队列">栈与队列</h3>
 <h4 id="顺序栈">顺序栈</h4>
+<ul>
+<li>栈空状态 : st.top== -1</li>
+<li>栈满状态 : st.top== maxSize-1</li>
+</ul>
 <h4 id="链式栈">链式栈</h4>
 <h4 id="循环队列">循环队列</h4>
 <blockquote>
 <p>循环队列必须损失一个存储空间，用来区分队空和队满状态。一般定义队头指针指向队头元素的前一个位置，队尾指针指向队尾元素</p>
+</blockquote>
 <ul>
 <li>队空状态 : qu.rear==qu.front</li>
 <li>队满状态 : (qu.rear+1)%maxSize==qu.front</li>
 </ul>
-</blockquote>
 <h4 id="链队">链队</h4>
 <blockquote>
 <p>链队的特点就是理论上不存在队列满上溢的情况。队头指向链头，队尾指向链尾</p>
+</blockquote>
 <ul>
 <li>队空状态 :lqu-&gt;rear==NULL或者lqu-&gt;front==NULL</li>
 </ul>
-</blockquote>
 <h4 id="栈的应用">栈的应用</h4>
-  <img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/stack_application.png">
-  思考：栈结构适用于具有局部相关的数据
+<div align="center"> 
+  <img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/stack_application.png" width=70% height=70% /> 
+</div>
+<p>思考：栈结构适用于具有局部相关的数据</p>
 <h5 id="逆序输出--进制转换">逆序输出 : 进制转换</h5>
   <table>
     <tr>
-    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/conversion_1.png"></td>
-    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/conversion_2.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/conversion_1.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/conversion_2.png"></td>
     </tr>
   </table>  
 <h5 id="递归嵌套--函数调用括号匹配">递归嵌套 : 函数调用,括号匹配</h5>
   <table>
     <tr>
-    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/parentheses_1.png"></td>
-    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/parentheses_2.png"></td>
-    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/parentheses_3.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/parentheses_1.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/parentheses_2.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/parentheses_3.png"></td>
     </tr>
   </table>  
 <h5 id="栈混洗--等价于n对括号的匹配">栈混洗 : 等价于n对括号的匹配</h5>
   <table>
     <tr>
-    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/permutation_1.png"></td>
-    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/permutation_2.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/permutation_1.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/permutation_2.png"></td>
     </tr>
     <tr>
-    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/permutation_3.png"></td>
-    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/permutation_4.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/permutation_3.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/permutation_4.png"></td>
     </tr>
   </table>  
 <h5 id="延迟缓冲--中缀表达式求值">延迟缓冲 : 中缀表达式求值</h5>
   <table>
     <tr>
-    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/infix_1.png"></td>
-    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/infix_2.png"></td>
-    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/infix_3.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/infix_1.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/infix_2.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/infix_3.png"></td>
     </tr>
     <tr>
-    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/infix_4.png"></td>
-    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/infix_5.png"></td>
-    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/infix_6.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/infix_4.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/infix_5.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/infix_6.png"></td>
     </tr>
   </table>  
 <h5 id="逆波兰表达式后缀表达式求值与转换算法">逆波兰表达式（后缀表达式）求值与转换算法</h5>
   <table>
     <tr>
-    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/rpn_1.png"></td>
-    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/rpn_2.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/rpn_1.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/rpn_2.png"></td>
     </tr>
     <tr>
-    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/rpn_3.png"></td>
-    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/rpn_4.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/rpn_3.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/rpn_4.png"></td>
     </tr>
   </table>  
 <h4 id="试探回溯法">试探回溯法</h4>
@@ -1250,8 +1261,8 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 <h4 id="介绍-1">介绍</h4>
   <table>
   <tr>
-  <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/PQ.png"></td>
-  <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/PQ_2.png"></td>
+  <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/PQ.png"></td>
+  <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/PQ_2.png"></td>
   </tr></table>
 <h4 id="operations">operations</h4>
 <ul>
@@ -1276,14 +1287,14 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 </ul>
   <table>
     <tr>
-      <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/PQ_push_1.png"></td>
-      <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/PQ_push_2.png"></td>
-      <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/PQ_push_3.png"></td>
+      <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/PQ_push_1.png"></td>
+      <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/PQ_push_2.png"></td>
+      <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/PQ_push_3.png"></td>
     </tr>
     <tr>
-      <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/PQ_pop_1.png"></td>
-      <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/PQ_pop_2.png"></td>
-      <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/PQ_pop_3.png"></td>
+      <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/PQ_pop_1.png"></td>
+      <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/PQ_pop_2.png"></td>
+      <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/PQ_pop_3.png"></td>
     </tr>
     </table>
 <h6 id="建堆">建堆</h6>
@@ -1292,8 +1303,8 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 </ul>
   <table>
     <tr>
-      <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/PQ_Floyd_1.png"></td>
-      <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/PQ_Floyd_2.png"></td>
+      <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/PQ_Floyd_1.png"></td>
+      <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/PQ_Floyd_2.png"></td>
     </tr>
     </table>
 <h4 id="heapsort">Heapsort</h4>
@@ -1303,9 +1314,9 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 </ul>
   <table>
     <tr>
-      <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/heapsort_1.png"></td>
-      <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/heapsort_2.png"></td>
-      <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/heapsort_3.png"></td>
+      <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/heapsort_1.png"></td>
+      <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/heapsort_2.png"></td>
+      <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/heapsort_3.png"></td>
     </tr>
     </table>
 <h4 id="应用">应用</h4>
@@ -1322,9 +1333,13 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 <li>散列表 : 关键字k的元素被存储在位置h(k)的槽（桶）中，里面的值指向对应关键字k的元素</li>
 </ul>
 <h4 id="散列的原理">散列的原理</h4>
-  <img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/hash.png">
+<div align="center"> 
+  <img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/hash.png" width=70% height=70% /> 
+</div>
 <h4 id="the-hash-process">The hash process</h4>
-  <img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/hash_process.png">
+<div align="center"> 
+  <img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/hash_process.png" width=70% height=70% /> 
+</div>
 <h4 id="相关术语">相关术语</h4>
 <ul>
 <li>装填因子:有两种不同的定义
@@ -1337,13 +1352,19 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
 <h4 id="散列函数">散列函数</h4>
 <p>关于下面第四项均匀性，做出如下解释:<br>
 If two objects are randomly chosen, there should be only a one-in-M chance that they have the same value from 0 to M – 1
-(相当于任意随机选一个关键字，他等可能的落入对应的桶中，与确定性不同的是确定性是关键字已经给定)
-<img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/hash_function.png"></p>
+(相当于任意随机选一个关键字，他等可能的落入对应的桶中，与确定性不同的是确定性是关键字已经给定)</p>
+<div align="center"> 
+  <img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/hash_function.png" width=70% height=70% /> 
+</div>
 <h4 id="冲突解决方法">冲突解决方法</h4>
 <h5 id="链接法">链接法</h5>
 <h5 id="开放寻址法">开放寻址法</h5>
 <ul>
-<li>线性探测:容易产生二次聚集</li>
+<li>线性探测:容易产生二次聚集
+<blockquote>
+<p>堆积现象</p>
+</blockquote>
+</li>
 <li>平方探测</li>
 <li>双向平方探测</li>
 <li>伪随机探测</li>
@@ -1359,6 +1380,9 @@ If two objects are randomly chosen, there should be only a one-in-M chance that 
 </ul>
 <h3 id="树">树</h3>
 <h4 id="树的术语">树的术语</h4>
+<blockquote>
+<p>不同的书可能定义不一样</p>
+</blockquote>
 <ul>
 <li>节点的深度 :从根到该节点路径上的路径长度</li>
 <li>节点的高度 :从该节点往下的最长路径的路径长度</li>
@@ -1444,6 +1468,9 @@ If two objects are randomly chosen, there should be only a one-in-M chance that 
 <li>链式存储结构 : 每个节点包含一个数据域和指向两个孩子的指针域</li>
 </ul>
 <h5 id="遍历二叉树">遍历二叉树</h5>
+<blockquote>
+<p>站在图的角度去看待先序，中序，后序遍历二叉树时，其实都是基于深度优先遍历。区别在于对于根节点的访问时间于子树访问时间的相对关系。</p>
+</blockquote>
 <ul>
 <li>先序遍历</li>
 <li>中序遍历</li>
@@ -1507,12 +1534,12 @@ If two objects are randomly chosen, there should be only a one-in-M chance that 
 </li>
 <li>删除: 存在两种如下情况<table>
 <tr>
-<td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/BST_1.png"></td>
-<td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/BST_1_1.png"></td>
+<td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/BST_1.png"></td>
+<td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/BST_1_1.png"></td>
 </tr>
   <tr>
-<td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/BST_2.png"></td>
-<td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/BST_2_2.png"></td>
+<td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/BST_2.png"></td>
+<td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/BST_2_2.png"></td>
 </tr></table>
 </li>
 </ul>
@@ -1528,9 +1555,9 @@ If two objects are randomly chosen, there should be only a one-in-M chance that 
 <li>upper bound :an AVL tree of height h is a perfect binary tree with 2^(h+1)–1 nodes</li>
 <li>lower bound :  <table>
     <tr>
-  <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/AVL_height_1.png"></td>
-  <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/AVL_height_2.png"></td>
-  <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/AVL_height_3.png"></td>
+  <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/AVL_height_1.png"></td>
+  <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/AVL_height_2.png"></td>
+  <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/AVL_height_3.png"></td>
   </tr></table>
 </li>
 </ul>
@@ -1538,9 +1565,9 @@ If two objects are randomly chosen, there should be only a one-in-M chance that 
 <p>等价BBST与旋转调整
 <table>
 <tr>
-<td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/BBST_1.png"></td>
-<td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/BBST_2.png"></td>
-<td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/BBST_3.png"></td>
+<td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/BBST_1.png"></td>
+<td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/BBST_2.png"></td>
+<td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/BBST_3.png"></td>
 </tr></table></p>
 <blockquote>
 <p>对于失衡情况，从最深的那个失衡节点开始考虑推导最方便，下面的插入删除的失衡情况的复盘就是这么得来的</p>
@@ -1553,23 +1580,23 @@ If two objects are randomly chosen, there should be only a one-in-M chance that 
   <td>实现</td>
   </tr>
     <tr>
-  <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/AVL_insert_1.png"></td>
-  <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/AVL_insert_2.png"></td>
-  <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/AVL_insert_3.png"></td>
+  <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/AVL_insert_1.png"></td>
+  <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/AVL_insert_2.png"></td>
+  <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/AVL_insert_3.png"></td>
   </tr></table>
 </li>
 <li>删除:删除导致失衡,肯定是将失衡节点较短的左分支或者右分枝上的节点删除  <table>
     <tr>
-  <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/AVL_remove_1.png"></td>
-  <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/AVL_remove_2.png"></td>
-  <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/AVL_remove_3.png"></td>
+  <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/AVL_remove_1.png"></td>
+  <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/AVL_remove_2.png"></td>
+  <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/AVL_remove_3.png"></td>
   </tr></table>
 </li>
 <li>旋转:旋转操作的实现是3+4算法，旋转只是为了帮助理解  <table>
   <tr>
-  <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/AVL_rotation_1.png"></td>
-  <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/AVL_rotation_2.png"></td>
-  <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/AVL_rotation_3.png"></td>
+  <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/AVL_rotation_1.png"></td>
+  <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/AVL_rotation_2.png"></td>
+  <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/AVL_rotation_3.png"></td>
   </tr></table>
 </li>
 </ul>
@@ -1578,6 +1605,9 @@ If two objects are randomly chosen, there should be only a one-in-M chance that 
 <blockquote>
 <p>哈夫曼树又叫做最优二叉树。他的特点是带权路径最短。</p>
 </blockquote>
+<ul>
+<li>带权路径长度: 该节点到根之间的路径长度*节点权值</li>
+</ul>
 <h6 id="算法">算法</h6>
 <blockquote>
 <p>前缀码:任一字符的编码都不是另一字符编码串的前缀;前缀码与树的联系:根通往任一叶子节点的路径都不可能是通往其余叶子节点的子路径</p>
@@ -1635,11 +1665,13 @@ If two objects are randomly chosen, there should be only a one-in-M chance that 
 </ul>
 </li>
 <li>
-<p>路径压缩 : 在FIND-SET操作中，使查找路径中的每个节点指向根。由于rank表示的是高度的上界，则此操作不改变节点rank。
-<img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/path_compression.png">
-带路径压缩的按秩合并的分析:</p>
+<p>路径压缩 : 在FIND-SET操作中，使查找路径中的每个节点指向根。由于rank表示的是高度的上界，则此操作不改变节点rank。</p>
 </li>
 </ul>
+<div align="center"> 
+  <img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/path_compression.png" width=70% height=70% /> 
+</div>
+<p>带路径压缩的按秩合并的分析:</p>
 <h3 id="图">图</h3>
 <h4 id="图的性质">图的性质</h4>
 <ul>
@@ -1673,12 +1705,14 @@ If two objects are randomly chosen, there should be only a one-in-M chance that 
 <p>边分类:</p>
   <table>
     <tr>
+  <td>括号引理</td>
   <td>BFS : 队列</td>
   <td>DFS : 栈</td>
   </tr>
     <tr>
-  <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/bfs_edge.png"></td>
-  <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/dfs_edge.png"></td>
+  <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/parenthesis_lemma.png"></td>
+  <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/bfs_edge.png"></td>
+  <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/dfs_edge.png"></td>
   </tr></table>
 <h5 id="优先级搜索">优先级搜索</h5>
   <table>
@@ -1688,9 +1722,9 @@ If two objects are randomly chosen, there should be only a one-in-M chance that 
       <td>统一框架</td>
     </tr>
     <tr>
-      <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/pfs.png"></td>
-      <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/pfs_1.png"></td>
-      <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/pfs_2.png"></td>
+      <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/pfs.png"></td>
+      <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/pfs_1.png"></td>
+      <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/pfs_2.png"></td>
     </tr>
   </table>
 <h5 id="最小生成支撑树-mst">最小生成(支撑)树 (MST)</h5>
@@ -1708,16 +1742,16 @@ If two objects are randomly chosen, there should be only a one-in-M chance that 
 <td>极长环边</td>
 </tr>
 <tr>
-<td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/prim_1.png"></td>
-<td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/prim_2.png"></td>
+<td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/prim_1.png"></td>
+<td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/prim_2.png"></td>
 </tr>
 <tr>
 <td>算法</td>
 <td>实现</td>
 </tr>
 <tr>
-<td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/prim.png"></td>
-<td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/prim_3.png"></td>
+<td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/prim.png"></td>
+<td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/prim_3.png"></td>
 </tr></p>
   </table>
 <h6 id="kruskal">Kruskal</h6>
@@ -1730,16 +1764,16 @@ If two objects are randomly chosen, there should be only a one-in-M chance that 
       <td>算法框架</td>
     </tr>
     <tr>
-      <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/kruskal_1.png"></td>
-      <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/kruskal_2.png"></td>
+      <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/kruskal_1.png"></td>
+      <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/kruskal_2.png"></td>
     </tr>
     <tr>
       <td>正确性</td>
       <td>复杂度</td>
     </tr>
     <tr>
-      <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/kruskal_3.png"></td>
-      <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/kruskal_4.png"></td>
+      <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/kruskal_3.png"></td>
+      <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/kruskal_4.png"></td>
     </tr>
   </table>
 <h5 id="最短路径-spt">最短路径 (SPT)</h5>
@@ -1762,16 +1796,16 @@ If two objects are randomly chosen, there should be only a one-in-M chance that 
     <td>SPT与MST的优化方向不一样</td>
   </tr>
   <tr>
-    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/SPT_1.png"></td>
-    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/SPT_2.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/SPT_1.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/SPT_2.png"></td>
   </tr>
   <tr>
     <td>算法</td>
     <td>实现</td>
   </tr>
   <tr>
-    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/Dijkstra.png"></td>
-    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/Dijkstra_implement.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/Dijkstra.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/Dijkstra_implement.png"></td>
   </tr>
   </table>
 <h6 id="floid-warshall">Floid-Warshall</h6>
@@ -1786,16 +1820,16 @@ If two objects are randomly chosen, there should be only a one-in-M chance that 
     <td>递归实现</td>
   </tr>
   <tr>
-    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/floyd_1.png"></td>
-    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/floyd_2.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/floyd_1.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/floyd_2.png"></td>
   </tr>
   <tr>
     <td>动态规划</td>
     <td>实现</td>
   </tr>
   <tr>
-    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/floyd_3.png"></td>
-    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/floyd_4.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/floyd_3.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/floyd_4.png"></td>
   </tr>
   </table>
 <blockquote>
@@ -1884,6 +1918,7 @@ If a task on the critical path is delayed, the entire project will be delayed</p
 <h4 id="应用实例">应用实例</h4>
 <ul>
 <li>检测回路：深度优先搜索，拓扑排序</li>
+<li>关节点：利用DFS</li>
 </ul>
 <h2 id="算法基础">算法基础</h2>
 <h3 id="算法分析基础">算法分析基础</h3>
@@ -1896,15 +1931,15 @@ If a task on the critical path is delayed, the entire project will be delayed</p
 <h5 id="渐进分析">渐进分析</h5>
 <table>
 <tr>
-<td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/big_O.png"></td>
-<td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/symbols.png"></td>
+<td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/big_O.png"></td>
+<td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/symbols.png"></td>
 </tr></table>
 </li>
 <li>
 <h5 id="复杂度层次">复杂度层次</h5>
 <table><tr>
-<td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/growth_speed.png"></td>
-<td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/complexity.png"></td>
+<td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/growth_speed.png"></td>
+<td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/complexity.png"></td>
 </tr></table>
 </li>
 <li>
@@ -1917,11 +1952,52 @@ If a task on the critical path is delayed, the entire project will be delayed</p
 </li>
 </ul>
 <h4 id="np完全性">NP完全性:</h4>
-<h5 id="判定问题与优化问题">判定问题与优化问题</h5>
-<h5 id="归约">归约</h5>
 <ul>
 <li>P 问题: 存在多项式算法的问题</li>
-<li>NP 问题</li>
+<li>NP 问题: 在多项式时间能验证的问题</li>
+</ul>
+  <table>
+  <tr>
+    <td>  <img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/NPC.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/P_problem.png"></td>
+  </tr>
+  <tr>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/NP_problem.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/NP_complete.png"></td>
+  </tr>
+  </table>
+<h5 id="判定问题与优化问题">判定问题与优化问题</h5>
+  <table><tr>
+  <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/decision_problem.png"></td>
+  <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/decision_optimization.png"></td>
+  </tr></table>
+<h5 id="归约">归约</h5>
+<blockquote>
+<p>通过将问题P的求解归约为对问题Q的求解，就可以利用问题Q的易求解性来证明P的易求解性。一般，当P可以多项式时间归约到Q，说明Q问题比P问题更难。</p>
+</blockquote>
+  <table><tr>
+  <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/reduction.png"></td>
+  <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/polynomial_reduction.png"></td>
+  </tr></table>
+<h5 id="例子">例子</h5>
+<p>NP-complete</p>
+<div align="center"> 
+  <img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/NPC_problems.png" width=70% height=70% /> 
+</div>
+<ul>
+<li>SAT问题:布尔表达式的可满足性</li>
+<li>3-SAT问题:3-CNF(3合取范式)形式的布尔表达式的可满足性</li>
+<li>最大团问题:团是图结构中最大的完全子图，最大团问题就是求一个图的最大团的顶点数</li>
+<li>顶点覆盖问题</li>
+<li>图着色问题:最少用多少种颜色对图进行着色</li>
+<li>bin packing</li>
+<li>CNF-satisfiability</li>
+<li>哈密尔顿回路</li>
+<li>旅行商问题</li>
+</ul>
+<p>NP-hard</p>
+<ul>
+<li>Arithmetic SAT</li>
 </ul>
 <h3 id="迭代与递归">迭代与递归</h3>
 <p>迭代算法一般较为常见，递归算法更为直观。因为递归算法需要大量空间资源，所以经常需要将其改写成迭代算法，这里为体现算法的思想，我主要考虑以递归为出发点的思想来理解算法。</p>
@@ -1930,10 +2006,14 @@ If a task on the critical path is delayed, the entire project will be delayed</p
 <li>数组求和</li>
 <li>数组最大值</li>
 </ul>
+<h4 id="尾递归">尾递归</h4>
+<blockquote>
+<p>当递归调用是整个函数体中最后执行的语句且它的返回值不属于表达式的一部分时，这个递归调用就是尾递归。尾递归函数的特点是在回归过程中不用做任何操作，这个重要特性很重要，因为大多数现代的编译器会利用这种特点自动生成优化的代码。当编译器检测到一个函数调用是尾递归的时候，它就覆盖当前的活动记录而不是在栈中去创建一个新的。编译器可以做到这点，因为递归调用是当前活跃期内最后一条待执行的语句。于是当这个调用返回时栈帧中并没有其他事情可做，因此也就没有保存栈帧的必要了。通过覆盖当前的栈帧而不是在其之上重新添加一个，这样所使用的栈空间就大大缩减了，这使得实际的运行效率会变得更高。因此，只要有可能我们就需要将递归函数写成尾递归的形式。</p>
+</blockquote>
 <p>以下为递归算法的两种主要思想：</p>
 <h4 id="减而治之decrease-and-conquer">减而治之（Decrease and conquer）</h4>
 <div align="center"> 
-  <img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/Decrease_and_conquer.png" width=70% height=70% /> 
+  <img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/Decrease_and_conquer.png" width=70% height=70% /> 
 </div>
 <h5 id="减而治之的实例">减而治之的实例：</h5>
 <ul>
@@ -1942,7 +2022,7 @@ If a task on the critical path is delayed, the entire project will be delayed</p
 </ul>
 <h4 id="分而治之divide-and-conquer">分而治之（Divide and conquer）</h4>
 <div align="center"> 
-  <img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/Divide_and_conquer.png" width=70% height=70% /> 
+  <img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/Divide_and_conquer.png" width=70% height=70% /> 
 </div>
 <h5 id="分而治之的实例">分而治之的实例：</h5>
 <ul>
@@ -1967,7 +2047,7 @@ If a task on the critical path is delayed, the entire project will be delayed</p
 </table>
 <h4 id="递归消除尾递归">递归消除：尾递归</h4>
 <div align="center"> 
-  <img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/tail_recursive.png" width=70% height=70% /> 
+  <img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/tail_recursive.png" width=70% height=70% /> 
 </div>
 <h3 id="动态规划">动态规划</h3>
 <blockquote>
@@ -2047,49 +2127,69 @@ If a task on the critical path is delayed, the entire project will be delayed</p
 <th style="text-align:left">类别</th>
 <th style="text-align:left">算法描述</th>
 <th style="text-align:left">稳定性</th>
-<th style="text-align:left">就地</th>
+<th style="text-align:left">空间复杂度</th>
 <th style="text-align:left">时间复杂度（最坏）</th>
 <th style="text-align:left">时间复杂度（最好）</th>
-<th style="text-align:left">时间复杂度（最好）</th>
+<th style="text-align:left">时间复杂度（平均）</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:center">冒泡排序</td>
 <td style="text-align:left">交换排序</td>
-<td style="text-align:left"></td>
+<td style="text-align:left">从前向后比较相邻的两个元素,逆序就交换，每次都能让一个最大(或者最小)的元素就位</td>
 <td style="text-align:left">是</td>
-<td style="text-align:left">是</td>
+<td style="text-align:left">O(1)</td>
 <td style="text-align:left">O(n^2)</td>
 <td style="text-align:left">O(n)</td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:center">快速排序</td>
-<td style="text-align:left">交换排序</td>
-<td style="text-align:left"></td>
-<td style="text-align:left">否</td>
-<td style="text-align:left">是</td>
 <td style="text-align:left">O(n^2)</td>
-<td style="text-align:left">O(nlogn)</td>
-<td style="text-align:left">O(nlogn)</td>
 </tr>
 <tr>
 <td style="text-align:center">插入排序</td>
 <td style="text-align:left">插入排序</td>
-<td style="text-align:left"></td>
 <td style="text-align:left">把序列看成 sorted[0,)+unsorted[r,n) 两部分,把l[r]插入到有序部分的合适位置</td>
 <td style="text-align:left">是</td>
+<td style="text-align:left">O(1)</td>
 <td style="text-align:left">O(n^2)</td>
 <td style="text-align:left">O(n)</td>
+<td style="text-align:left">O(n^2)或者O(n+I)其中I为逆序对数 (详见清华大学PPT)</td>
+</tr>
+<tr>
+<td style="text-align:center">二路归并排序</td>
+<td style="text-align:left">归并排序</td>
+<td style="text-align:left">利用分而治之的思想,将整个序列平均分为前后两个序列排序的子问题，递归merge</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">O(n)</td>
+<td style="text-align:left">O(nlogn)</td>
+<td style="text-align:left">O(nlogn)</td>
+<td style="text-align:left">O(nlogn)</td>
+</tr>
+<tr>
+<td style="text-align:center">基数排序</td>
+<td style="text-align:left">基数排序</td>
+<td style="text-align:left">根据关键字位数设计d个桶，根据高位优先或者低位优先将每项分配到对应的桶，然后再收集，经过d次分配收集之后就有序了</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">O(rd) rd为关键字一位的取值范围</td>
+<td style="text-align:left">O(d*(rd+n)) n为关键字个数</td>
+<td style="text-align:left">O(d*(rd+n))</td>
+<td style="text-align:left">O(d*(rd+n))</td>
+</tr>
+<tr>
+<td style="text-align:center">快速排序</td>
+<td style="text-align:left">交换排序</td>
+<td style="text-align:left">每次选择一个元素作为pivot，经过一次迭代将其归位。把序列分成前后两个序列，采用分而治之的思想继续递归既可</td>
+<td style="text-align:left">否</td>
+<td style="text-align:left">迭代版本为O(1) 递归版本为O(logn)</td>
 <td style="text-align:left">O(n^2)</td>
+<td style="text-align:left">O(nlogn)</td>
+<td style="text-align:left">O(nlogn)</td>
 </tr>
 <tr>
 <td style="text-align:center">一般选择排序</td>
 <td style="text-align:left">选择排序</td>
-<td style="text-align:left"></td>
 <td style="text-align:left">从未排序的元素中挑选最大者,并使其就位</td>
-<td style="text-align:left"></td>
+<td style="text-align:left">否</td>
+<td style="text-align:left">O(1)</td>
 <td style="text-align:left">O(n^2)</td>
 <td style="text-align:left">O(n^2)</td>
 <td style="text-align:left">O(n^2)</td>
@@ -2097,32 +2197,22 @@ If a task on the critical path is delayed, the entire project will be delayed</p
 <tr>
 <td style="text-align:center">堆排序</td>
 <td style="text-align:left">选择排序</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-</tr>
-<tr>
-<td style="text-align:center">二路归并排序</td>
-<td style="text-align:left">归并排序</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
+<td style="text-align:left">利用完全二叉堆的性质排序</td>
 <td style="text-align:left">否</td>
+<td style="text-align:left">O(1)</td>
 <td style="text-align:left">O(nlogn)</td>
 <td style="text-align:left">O(nlogn)</td>
-<td style="text-align:left"></td>
+<td style="text-align:left">O(nlogn)</td>
 </tr>
 <tr>
-<td style="text-align:center">基数排序</td>
-<td style="text-align:left">基数排序</td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
-<td style="text-align:left"></td>
+<td style="text-align:center">希尔排序</td>
+<td style="text-align:left">插入排序</td>
+<td style="text-align:left">缩小增量排序</td>
+<td style="text-align:left">否</td>
+<td style="text-align:left">O(1)</td>
+<td style="text-align:left">O(n^1.3)</td>
+<td style="text-align:left">O(n^1.3)</td>
+<td style="text-align:left">O(n^1.3)</td>
 </tr>
 </tbody>
 </table>
@@ -2133,58 +2223,58 @@ If a task on the critical path is delayed, the entire project will be delayed</p
       <td>算法分析</td>
     </tr>
     <tr>
-      <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/bubblesort.png"></td>
-      <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/bubblesort_complexity.png"></td>
+      <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/bubblesort.png"></td>
+      <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/bubblesort_complexity.png"></td>
     </tr>
     <tr>
-      <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/quicksort.png"></td>
-      <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/quicksort_2.png"></td>
+      <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/quicksort.png"></td>
+      <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/quicksort_2.png"></td>
     </tr>
     <tr>
-      <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/insertionsort.png"></td>
-      <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/insertionsort_2.png"></td>
+      <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/insertionsort.png"></td>
+      <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/insertionsort_2.png"></td>
     </tr>
     <tr>
-      <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/selectionsort.png"></td>
-      <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/selectionsort_2.png"></td>
+      <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/selectionsort.png"></td>
+      <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/selectionsort_2.png"></td>
     </tr>
     <tr>
-      <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/mergesort.png"></td>
-      <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/mergesort_2.png"></td>
+      <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/mergesort.png"></td>
+      <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/mergesort_2.png"></td>
     </tr>
   </table>
 <h3 id="字符串匹配">字符串匹配</h3>
 <h4 id="暴力匹配算法">暴力匹配算法</h4>
   <table>
     <tr>
-  <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/string.png"></td>
-  <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/string_2.png"></td>
+  <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/string.png"></td>
+  <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/string_2.png"></td>
   </tr></table>
 <h4 id="kmp算法">KMP算法</h4>
 <h5 id="改进思路">改进思路</h5>
   <table>
     <tr>
-    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/KMP_1.png"></td>
-    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/KMP_2.png"></td>
-    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/KMP_3.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/KMP_1.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/KMP_2.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/KMP_3.png"></td>
     </tr>
   </table>
 <h5 id="实现-2">实现</h5>
   <table>
     <tr>
-    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/KMP_implement_1.png"></td>
-    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/KMP_implement_2.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/KMP_implement_1.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/KMP_implement_2.png"></td>
     </tr>
   </table>
 <h5 id="算法原理">算法原理</h5>
   <table>
     <tr>
-    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/KMP_next_1.png"></td>
-    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/KMP_next_2.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/KMP_next_1.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/KMP_next_2.png"></td>
     </tr>
     <tr>
-    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/KMP_next_3.png"></td>
-    <td><img src="file:////Users/yanxinhao/SynologyDrive/考研/专业课/数据结构/清华/教程文档/DSA/imgs/KMP_next_4.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/KMP_next_3.png"></td>
+    <td><img src="file:////Users/yanxinhao/SynologyDrive/DSA/imgs/KMP_next_4.png"></td>
     </tr>
   </table>
 <h4 id="bm算法">BM算法</h4>
@@ -2230,6 +2320,10 @@ If a task on the critical path is delayed, the entire project will be delayed</p
 <li><a href="http://howie.DiskStation.me:5000/sharing/lu8ER3hAg">清华大学邓俊晖老师的相关课件</a></li>
 <li><a href="http://howie.DiskStation.me:5000/sharing/cJGN2YGFH">上海科技大学的算法课课件</a></li>
 </ul>
+<blockquote>
+<p>这是我写的代码部分生成的doxygen文档介绍
+<a href="http://howie.diskstation.me:8000/">http://howie.diskstation.me:8000/</a></p>
+</blockquote>
 
     </body>
     </html>
